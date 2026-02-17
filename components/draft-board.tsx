@@ -9,7 +9,7 @@ import { Search, ArrowUpDown } from "lucide-react"
 
 interface DraftBoardProps {
   players: Player[]
-  draftedPlayerIds: Set<number>
+  draftedPlayerIds: Set<string>
   onDraft: (player: Player) => void
   disabled: boolean
 }
@@ -36,8 +36,7 @@ export function DraftBoard({ players, draftedPlayerIds, onDraft, disabled }: Dra
       .filter((p) => {
         const matchesSearch =
           search === "" ||
-          p.name.toLowerCase().includes(search.toLowerCase()) ||
-          p.team.toLowerCase().includes(search.toLowerCase())
+          p.name.toLowerCase().includes(search.toLowerCase())
         const matchesPos = posFilter === "ALL" || p.position === posFilter
         return matchesSearch && matchesPos
       })
@@ -51,7 +50,7 @@ export function DraftBoard({ players, draftedPlayerIds, onDraft, disabled }: Dra
       })
   }, [players, search, posFilter, sortBy])
 
-  const availableCount = players.filter((p) => !draftedPlayerIds.has(p.id)).length
+  const availableCount = players.filter((p) => !draftedPlayerIds.has(`${p.era}-${p.id}`)).length
 
   return (
     <div className="flex flex-col gap-4">
@@ -121,9 +120,9 @@ export function DraftBoard({ players, draftedPlayerIds, onDraft, disabled }: Dra
       <div className="flex max-h-[520px] flex-col gap-1.5 overflow-y-auto pr-1 scrollbar-thin">
         {filtered.map((player) => (
           <PlayerCard
-            key={player.id}
+            key={`${player.era}-${player.id}`}
             player={player}
-            isDrafted={draftedPlayerIds.has(player.id)}
+            isDrafted={draftedPlayerIds.has(`${player.era}-${player.id}`)}
             onDraft={onDraft}
             disabled={disabled}
           />

@@ -24,7 +24,7 @@ export function useDraft() {
   const [currentTeamIndex, setCurrentTeamIndex] = useState(0)
   const [teamNames, setTeamNames] = useState<[string, string]>(["Team 1", "Team 2"])
   const [teamRosters, setTeamRosters] = useState<[(Player | null)[], (Player | null)[]]>([[], []])
-  const [draftedPlayerIds, setDraftedPlayerIds] = useState<Set<number>>(new Set())
+  const [draftedPlayerIds, setDraftedPlayerIds] = useState<Set<string>>(new Set())
   const [draftHistory, setDraftHistory] = useState<DraftPick[]>([])
   const [timeRemaining, setTimeRemaining] = useState(TIMER_DURATION)
   const [players, setPlayers] = useState<Player[]>([])
@@ -72,7 +72,8 @@ export function useDraft() {
 
   const draftPlayer = useCallback(
     (player: Player) => {
-      if (status !== "drafting" || draftedPlayerIds.has(player.id) || isComplete) return
+      const playerKey = `${player.era}-${player.id}`
+      if (status !== "drafting" || draftedPlayerIds.has(playerKey) || isComplete) return
 
       const pick: DraftPick = {
         round: currentRound,
@@ -88,7 +89,7 @@ export function useDraft() {
         updated[currentTeamIndex] = [...updated[currentTeamIndex], player]
         return updated
       })
-      setDraftedPlayerIds((prev) => new Set([...prev, player.id]))
+      setDraftedPlayerIds((prev) => new Set([...prev, playerKey]))
 
       const nextPick = currentPick + 1
       if (nextPick > totalPicks) {

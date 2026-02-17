@@ -6,7 +6,6 @@ export interface Player {
   id: number
   name: string
   position: Position
-  team: string
   ppg: number
   rpg: number
   apg: number

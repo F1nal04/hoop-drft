@@ -55,7 +55,7 @@ export function DraftCompleteScreen({
             <div className="flex flex-col gap-1.5">
               {teamRosters[teamIdx].map((player, i) => (
                 <div
-                  key={player?.id || `empty-${i}`}
+                  key={player ? `${player.era}-${player.id}` : `empty-${i}`}
                   className={cn(
                     "flex items-center gap-2.5 rounded-md px-3 py-2",
                     player
