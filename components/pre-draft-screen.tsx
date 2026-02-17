@@ -1,19 +1,28 @@
-"use client"
+"use client";
 
-import React from "react"
+import React from "react";
 
-import { useState } from "react"
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
-import type { PlayerSet } from "@/lib/types"
-import { cn } from "@/lib/utils"
-import { Trophy, Clock, Users, History } from "lucide-react"
+import { useState } from "react";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import type { PlayerSet } from "@/lib/types";
+import { cn } from "@/lib/utils";
+import { Trophy, Clock, Users, History } from "lucide-react";
 
 interface PreDraftScreenProps {
-  onStart: (name1: string, name2: string, playerSet: PlayerSet) => Promise<void>
+  onStart: (
+    name1: string,
+    name2: string,
+    playerSet: PlayerSet,
+  ) => Promise<void>;
 }
 
-const PLAYER_SET_OPTIONS: { value: PlayerSet; label: string; description: string; icon: React.ReactNode }[] = [
+const PLAYER_SET_OPTIONS: {
+  value: PlayerSet;
+  label: string;
+  description: string;
+  icon: React.ReactNode;
+}[] = [
   {
     value: "current",
     label: "Current Stars",
@@ -29,27 +38,27 @@ const PLAYER_SET_OPTIONS: { value: PlayerSet; label: string; description: string
   {
     value: "all",
     label: "Current + Legends",
-    description: "80 players across all eras",
+    description: "250 players across all eras",
     icon: <Trophy className="h-5 w-5" />,
   },
-]
+];
 
 export function PreDraftScreen({ onStart }: PreDraftScreenProps) {
-  const [name1, setName1] = useState("")
-  const [name2, setName2] = useState("")
-  const [playerSet, setPlayerSet] = useState<PlayerSet>("current")
-  const [isLoading, setIsLoading] = useState(false)
+  const [name1, setName1] = useState("");
+  const [name2, setName2] = useState("");
+  const [playerSet, setPlayerSet] = useState<PlayerSet>("current");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleStart = async () => {
-    setIsLoading(true)
+    setIsLoading(true);
     try {
-      await onStart(name1, name2, playerSet)
+      await onStart(name1, name2, playerSet);
     } catch (error) {
-      console.error("Failed to start draft:", error)
+      console.error("Failed to start draft:", error);
     } finally {
-      setIsLoading(false)
+      setIsLoading(false);
     }
-  }
+  };
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center gap-10 px-4">
@@ -61,8 +70,8 @@ export function PreDraftScreen({ onStart }: PreDraftScreenProps) {
           NBA Fantasy Draft
         </h1>
         <p className="max-w-md text-base leading-relaxed text-muted-foreground">
-          Head-to-head snake draft. 10 rounds, 2 minutes per pick. Choose your player
-          pool, name your squads, and get on the clock.
+          Head-to-head snake draft. 10 rounds, 2 minutes per pick. Choose your
+          player pool, name your squads, and get on the clock.
         </p>
       </div>
 
@@ -107,7 +116,10 @@ export function PreDraftScreen({ onStart }: PreDraftScreenProps) {
         {/* Team names */}
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div className="flex flex-col gap-2">
-            <label className="text-xs font-bold uppercase tracking-widest text-team-1" htmlFor="team1">
+            <label
+              className="text-xs font-bold uppercase tracking-widest text-team-1"
+              htmlFor="team1"
+            >
               Team 1
             </label>
             <Input
@@ -119,7 +131,10 @@ export function PreDraftScreen({ onStart }: PreDraftScreenProps) {
             />
           </div>
           <div className="flex flex-col gap-2">
-            <label className="text-xs font-bold uppercase tracking-widest text-team-2" htmlFor="team2">
+            <label
+              className="text-xs font-bold uppercase tracking-widest text-team-2"
+              htmlFor="team2"
+            >
               Team 2
             </label>
             <Input
@@ -155,5 +170,5 @@ export function PreDraftScreen({ onStart }: PreDraftScreenProps) {
         </Button>
       </div>
     </div>
-  )
+  );
 }
