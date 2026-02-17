@@ -5,7 +5,7 @@ import type { Position, Player } from "@/lib/players"
 import { PlayerCard } from "@/components/player-card"
 import { Input } from "@/components/ui/input"
 import { cn } from "@/lib/utils"
-import { Search } from "lucide-react"
+import { Search, ArrowUpDown } from "lucide-react"
 
 interface DraftBoardProps {
   players: Player[]
@@ -16,9 +16,20 @@ interface DraftBoardProps {
 
 const POSITIONS: (Position | "ALL")[] = ["ALL", "PG", "SG", "SF", "PF", "C"]
 
+type SortOption = "rank" | "ppg" | "rpg" | "apg" | "bpg"
+
+const SORT_OPTIONS: { value: SortOption; label: string }[] = [
+  { value: "rank", label: "Rank" },
+  { value: "ppg", label: "PPG" },
+  { value: "rpg", label: "RPG" },
+  { value: "apg", label: "APG" },
+  { value: "bpg", label: "BPG" },
+]
+
 export function DraftBoard({ players, draftedPlayerIds, onDraft, disabled }: DraftBoardProps) {
   const [search, setSearch] = useState("")
   const [posFilter, setPosFilter] = useState<Position | "ALL">("ALL")
+  const [sortBy, setSortBy] = useState<SortOption>("rank")
 
   const filtered = useMemo(() => {
     return players
@@ -30,8 +41,15 @@ export function DraftBoard({ players, draftedPlayerIds, onDraft, disabled }: Dra
         const matchesPos = posFilter === "ALL" || p.position === posFilter
         return matchesSearch && matchesPos
       })
-      .sort((a, b) => a.rank - b.rank)
-  }, [players, search, posFilter])
+      .sort((a, b) => {
+        // For rank, sort ascending (lower is better)
+        if (sortBy === "rank") {
+          return a.rank - b.rank
+        }
+        // For stats, sort descending (higher is better)
+        return b[sortBy] - a[sortBy]
+      })
+  }, [players, search, posFilter, sortBy])
 
   const availableCount = players.filter((p) => !draftedPlayerIds.has(p.id)).length
 
@@ -56,22 +74,48 @@ export function DraftBoard({ players, draftedPlayerIds, onDraft, disabled }: Dra
         />
       </div>
 
-      <div className="flex flex-wrap gap-1.5">
-        {POSITIONS.map((pos) => (
-          <button
-            key={pos}
-            type="button"
-            onClick={() => setPosFilter(pos)}
-            className={cn(
-              "rounded-md px-3 py-1.5 text-xs font-bold uppercase tracking-wider transition-all",
-              posFilter === pos
-                ? "bg-primary text-primary-foreground"
-                : "bg-secondary text-muted-foreground hover:bg-secondary/80 hover:text-foreground",
-            )}
-          >
-            {pos}
-          </button>
-        ))}
+      <div className="flex items-center gap-2 overflow-x-auto">
+        <div className="flex shrink-0 gap-1">
+          {POSITIONS.map((pos) => (
+            <button
+              key={pos}
+              type="button"
+              onClick={() => setPosFilter(pos)}
+              className={cn(
+                "rounded-md px-2.5 py-1.5 text-xs font-bold uppercase tracking-wider transition-all",
+                posFilter === pos
+                  ? "bg-primary text-primary-foreground"
+                  : "bg-secondary text-muted-foreground hover:bg-secondary/80 hover:text-foreground",
+              )}
+            >
+              {pos}
+            </button>
+          ))}
+        </div>
+
+        <div className="h-6 w-px shrink-0 bg-border" />
+
+        <div className="flex shrink-0 items-center gap-1.5">
+          <ArrowUpDown className="h-3.5 w-3.5 text-muted-foreground" />
+          <span className="text-xs font-medium text-muted-foreground">Sort:</span>
+          <div className="flex gap-1">
+            {SORT_OPTIONS.map((option) => (
+              <button
+                key={option.value}
+                type="button"
+                onClick={() => setSortBy(option.value)}
+                className={cn(
+                  "rounded-md px-2.5 py-1 text-xs font-bold uppercase tracking-wider transition-all",
+                  sortBy === option.value
+                    ? "bg-accent text-accent-foreground"
+                    : "bg-secondary/50 text-muted-foreground hover:bg-secondary hover:text-foreground",
+                )}
+              >
+                {option.label}
+              </button>
+            ))}
+          </div>
+        </div>
       </div>
 
       <div className="flex max-h-[520px] flex-col gap-1.5 overflow-y-auto pr-1 scrollbar-thin">

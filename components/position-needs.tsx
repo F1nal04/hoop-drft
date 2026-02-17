@@ -30,14 +30,14 @@ export function PositionNeeds({ roster, teamIndex }: PositionNeedsProps) {
   return (
     <div
       className={cn(
-        "rounded-lg border px-3 py-2.5",
+        "rounded-lg border px-3 py-2",
         teamIndex === 0 ? "border-team-1/30 bg-team-1/5" : "border-team-2/30 bg-team-2/5",
       )}
     >
-      <div className="mb-2 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
+      <div className="mb-1.5 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
         Position Needs
       </div>
-      <div className="flex flex-wrap gap-1.5">
+      <div className="flex flex-wrap gap-1">
         {POSITIONS.map((pos) => {
           const current = positionCounts[pos]
           const statusColor = getStatusColor(current, TARGET_PER_POSITION)
@@ -46,12 +46,12 @@ export function PositionNeeds({ roster, teamIndex }: PositionNeedsProps) {
             <div
               key={pos}
               className={cn(
-                "flex items-center gap-1.5 rounded-md px-2 py-1",
+                "flex items-center gap-1 rounded-md px-1.5 py-0.5",
                 POSITION_COLORS[pos],
               )}
             >
               <span className="text-[10px] font-bold uppercase tracking-wider">{pos}</span>
-              <span className={cn("text-xs font-bold", statusColor)}>
+              <span className={cn("text-[11px] font-bold", statusColor)}>
                 {current}/{TARGET_PER_POSITION}
               </span>
             </div>
