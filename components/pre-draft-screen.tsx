@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils"
 import { Trophy, Clock, Users, History } from "lucide-react"
 
 interface PreDraftScreenProps {
-  onStart: (name1: string, name2: string, playerSet: PlayerSet) => void
+  onStart: (name1: string, name2: string, playerSet: PlayerSet) => Promise<void>
 }
 
 const PLAYER_SET_OPTIONS: { value: PlayerSet; label: string; description: string; icon: React.ReactNode }[] = [
@@ -38,6 +38,18 @@ export function PreDraftScreen({ onStart }: PreDraftScreenProps) {
   const [name1, setName1] = useState("")
   const [name2, setName2] = useState("")
   const [playerSet, setPlayerSet] = useState<PlayerSet>("current")
+  const [isLoading, setIsLoading] = useState(false)
+
+  const handleStart = async () => {
+    setIsLoading(true)
+    try {
+      await onStart(name1, name2, playerSet)
+    } catch (error) {
+      console.error("Failed to start draft:", error)
+    } finally {
+      setIsLoading(false)
+    }
+  }
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center gap-10 px-4">
@@ -135,10 +147,11 @@ export function PreDraftScreen({ onStart }: PreDraftScreenProps) {
 
         <Button
           size="lg"
-          onClick={() => onStart(name1, name2, playerSet)}
+          onClick={handleStart}
+          disabled={isLoading}
           className="w-full bg-primary font-display text-lg font-bold uppercase tracking-wider text-primary-foreground hover:bg-primary/90"
         >
-          Start Draft
+          {isLoading ? "Loading Players..." : "Start Draft"}
         </Button>
       </div>
     </div>

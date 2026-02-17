@@ -54,9 +54,10 @@ export function useDraft() {
   const isComplete = currentPick > totalPicks
 
   const startDraft = useCallback(
-    (name1: string, name2: string, playerSet: PlayerSet) => {
+    async (name1: string, name2: string, playerSet: PlayerSet) => {
       setTeamNames([name1 || "Team 1", name2 || "Team 2"])
-      setPlayers(getPlayerSet(playerSet))
+      const playerData = await getPlayerSet(playerSet)
+      setPlayers(playerData)
       setStatus("drafting")
       setCurrentPick(1)
       setCurrentRound(1)

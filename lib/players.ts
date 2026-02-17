@@ -101,15 +101,26 @@ export const HISTORICAL_PLAYERS: Player[] = [
   { id: 138, name: "Dennis Rodman", position: "PF", team: "CHI", ppg: 7.3, rpg: 13.1, apg: 1.8, bpg: 0.6, rank: 80, era: "historical" },
 ]
 
-export function getPlayerSet(set: PlayerSet): Player[] {
-  switch (set) {
-    case "current":
-      return CURRENT_PLAYERS
-    case "historical":
-      return HISTORICAL_PLAYERS
-    case "all":
-      // Merge and sort by unified rank (1-80)
-      return [...CURRENT_PLAYERS, ...HISTORICAL_PLAYERS].sort((a, b) => a.rank - b.rank)
+export async function getPlayerSet(set: PlayerSet): Promise<Player[]> {
+  try {
+    const response = await fetch(`/api/players?set=${set}`, {
+      cache: "no-store",
+    })
+    if (!response.ok) {
+      throw new Error("Failed to fetch players")
+    }
+    return await response.json()
+  } catch (error) {
+    console.error("Error fetching players:", error)
+    // Fallback to hardcoded data if API fails
+    switch (set) {
+      case "current":
+        return CURRENT_PLAYERS
+      case "historical":
+        return HISTORICAL_PLAYERS
+      case "all":
+        return [...CURRENT_PLAYERS, ...HISTORICAL_PLAYERS].sort((a, b) => a.rank - b.rank)
+    }
   }
 }
 
