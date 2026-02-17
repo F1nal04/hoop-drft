@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server"
 import { prisma } from "@/lib/prisma"
-import type { Player, PlayerSet } from "@/lib/players"
+import type { Player, PlayerSet } from "@/lib/types"
 
 export async function GET(request: Request) {
   try {

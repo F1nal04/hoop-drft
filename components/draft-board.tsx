@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useMemo } from "react"
-import type { Position, Player } from "@/lib/players"
+import type { Position, Player } from "@/lib/types"
 import { PlayerCard } from "@/components/player-card"
 import { Input } from "@/components/ui/input"
 import { cn } from "@/lib/utils"

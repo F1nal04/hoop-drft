@@ -83,7 +83,7 @@ bun run dev
 ├── hooks/
 │   └── use-draft.ts         # Draft state management
 ├── lib/
-│   ├── players.ts           # Player types and data fetching
+│   ├── types.ts             # Player types and utility functions
 │   └── prisma.ts            # Prisma client instance
 └── prisma/
     ├── schema.prisma        # Database schema

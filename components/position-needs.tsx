@@ -1,8 +1,8 @@
 "use client"
 
 import { cn } from "@/lib/utils"
-import type { Player, Position } from "@/lib/players"
-import { POSITION_COLORS } from "@/lib/players"
+import type { Player, Position } from "@/lib/types"
+import { POSITION_COLORS } from "@/lib/types"
 
 interface PositionNeedsProps {
   roster: (Player | null)[]

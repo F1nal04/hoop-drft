@@ -1,8 +1,8 @@
 "use client"
 
 import { useState, useCallback, useRef, useEffect } from "react"
-import type { Player, PlayerSet } from "@/lib/players"
-import { getPlayerSet } from "@/lib/players"
+import type { Player, PlayerSet } from "@/lib/types"
+import { getPlayerSet } from "@/lib/types"
 
 export type DraftStatus = "pre-draft" | "drafting" | "completed"
 

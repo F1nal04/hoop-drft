@@ -1,7 +1,7 @@
 "use client"
 
-import type { Player } from "@/lib/players"
-import { POSITION_COLORS } from "@/lib/players"
+import type { Player } from "@/lib/types"
+import { POSITION_COLORS } from "@/lib/types"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { Trophy, RotateCcw, XCircle } from "lucide-react"

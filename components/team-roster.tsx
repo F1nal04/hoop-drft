@@ -1,8 +1,8 @@
 "use client"
 
 import { cn } from "@/lib/utils"
-import type { Player } from "@/lib/players"
-import { POSITION_COLORS } from "@/lib/players"
+import type { Player } from "@/lib/types"
+import { POSITION_COLORS } from "@/lib/types"
 import { Users, XCircle } from "lucide-react"
 import { PositionNeeds } from "@/components/position-needs"
 

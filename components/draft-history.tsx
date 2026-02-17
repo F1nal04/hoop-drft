@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils"
 import type { DraftPick } from "@/hooks/use-draft"
-import { POSITION_COLORS } from "@/lib/players"
+import { POSITION_COLORS } from "@/lib/types"
 import { XCircle } from "lucide-react"
 
 interface DraftHistoryProps {

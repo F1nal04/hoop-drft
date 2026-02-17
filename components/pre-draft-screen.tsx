@@ -5,7 +5,7 @@ import React from "react"
 import { useState } from "react"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
-import type { PlayerSet } from "@/lib/players"
+import type { PlayerSet } from "@/lib/types"
 import { cn } from "@/lib/utils"
 import { Trophy, Clock, Users, History } from "lucide-react"
 
