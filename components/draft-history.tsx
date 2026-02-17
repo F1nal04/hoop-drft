@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils"
 import type { DraftPick } from "@/hooks/use-draft"
 import { POSITION_COLORS } from "@/lib/players"
+import { XCircle } from "lucide-react"
 
 interface DraftHistoryProps {
   history: DraftPick[]
@@ -23,21 +24,34 @@ export function DraftHistory({ history, teamNames }: DraftHistoryProps) {
             key={pick.overallPick}
             className={cn(
               "flex items-center gap-2 rounded-md px-3 py-1.5 text-xs",
-              pick.teamIndex === 0 ? "bg-team-1/10" : "bg-team-2/10",
+              pick.player
+                ? pick.teamIndex === 0
+                  ? "bg-team-1/10"
+                  : "bg-team-2/10"
+                : "border-2 border-dashed border-destructive/40 bg-destructive/5",
             )}
           >
             <span className="font-bold text-muted-foreground">
               #{pick.overallPick}
             </span>
-            <span
-              className={cn(
-                "rounded px-1 py-0.5 text-[10px] font-bold uppercase",
-                POSITION_COLORS[pick.player.position],
-              )}
-            >
-              {pick.player.position}
-            </span>
-            <span className="font-medium text-foreground">{pick.player.name}</span>
+            {pick.player ? (
+              <>
+                <span
+                  className={cn(
+                    "rounded px-1 py-0.5 text-[10px] font-bold uppercase",
+                    POSITION_COLORS[pick.player.position],
+                  )}
+                >
+                  {pick.player.position}
+                </span>
+                <span className="font-medium text-foreground">{pick.player.name}</span>
+              </>
+            ) : (
+              <>
+                <XCircle className="h-3.5 w-3.5 text-destructive" />
+                <span className="font-medium text-destructive">Missed pick</span>
+              </>
+            )}
             <span className="ml-auto font-medium text-muted-foreground">
               {teamNames[pick.teamIndex]}
             </span>

@@ -11,7 +11,7 @@ export interface DraftPick {
   pick: number
   overallPick: number
   teamIndex: number
-  player: Player
+  player: Player | null
 }
 
 const TIMER_DURATION = 120
@@ -23,7 +23,7 @@ export function useDraft() {
   const [currentRound, setCurrentRound] = useState(1)
   const [currentTeamIndex, setCurrentTeamIndex] = useState(0)
   const [teamNames, setTeamNames] = useState<[string, string]>(["Team 1", "Team 2"])
-  const [teamRosters, setTeamRosters] = useState<[Player[], Player[]]>([[], []])
+  const [teamRosters, setTeamRosters] = useState<[(Player | null)[], (Player | null)[]]>([[], []])
   const [draftedPlayerIds, setDraftedPlayerIds] = useState<Set<number>>(new Set())
   const [draftHistory, setDraftHistory] = useState<DraftPick[]>([])
   const [timeRemaining, setTimeRemaining] = useState(TIMER_DURATION)
@@ -83,7 +83,7 @@ export function useDraft() {
 
       setDraftHistory((prev) => [...prev, pick])
       setTeamRosters((prev) => {
-        const updated: [Player[], Player[]] = [[...prev[0]], [...prev[1]]]
+        const updated: [(Player | null)[], (Player | null)[]] = [[...prev[0]], [...prev[1]]]
         updated[currentTeamIndex] = [...updated[currentTeamIndex], player]
         return updated
       })
@@ -122,6 +122,22 @@ export function useDraft() {
 
   useEffect(() => {
     if (timeRemaining === 0 && status === "drafting" && !isComplete) {
+      // Add empty pick when timer expires
+      const emptyPick: DraftPick = {
+        round: currentRound,
+        pick: currentTeamIndex + 1,
+        overallPick: currentPick,
+        teamIndex: currentTeamIndex,
+        player: null,
+      }
+
+      setDraftHistory((prev) => [...prev, emptyPick])
+      setTeamRosters((prev) => {
+        const updated: [(Player | null)[], (Player | null)[]] = [[...prev[0]], [...prev[1]]]
+        updated[currentTeamIndex] = [...updated[currentTeamIndex], null]
+        return updated
+      })
+
       const nextPick = currentPick + 1
       if (nextPick > totalPicks) {
         setCurrentPick(nextPick)

@@ -4,12 +4,12 @@ import type { Player } from "@/lib/players"
 import { POSITION_COLORS } from "@/lib/players"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
-import { Trophy, RotateCcw } from "lucide-react"
+import { Trophy, RotateCcw, XCircle } from "lucide-react"
 import { PositionNeeds } from "@/components/position-needs"
 
 interface DraftCompleteScreenProps {
   teamNames: [string, string]
-  teamRosters: [Player[], Player[]]
+  teamRosters: [(Player | null)[], (Player | null)[]]
   onReset: () => void
 }
 
@@ -55,28 +55,40 @@ export function DraftCompleteScreen({
             <div className="flex flex-col gap-1.5">
               {teamRosters[teamIdx].map((player, i) => (
                 <div
-                  key={player.id}
-                  className="flex items-center gap-2.5 rounded-md bg-secondary/50 px-3 py-2"
+                  key={player?.id || `empty-${i}`}
+                  className={cn(
+                    "flex items-center gap-2.5 rounded-md px-3 py-2",
+                    player
+                      ? "bg-secondary/50"
+                      : "border-2 border-dashed border-destructive/40 bg-destructive/5",
+                  )}
                 >
                   <span className="w-5 text-xs font-bold text-muted-foreground">
                     {i + 1}.
                   </span>
-                  <div className="flex flex-1 items-center gap-2">
-                    <span
-                      className={cn(
-                        "inline-flex shrink-0 items-center rounded px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider",
-                        POSITION_COLORS[player.position],
-                      )}
-                    >
-                      {player.position}
-                    </span>
-                    <span className="truncate text-sm font-medium text-foreground">
-                      {player.name}
-                    </span>
-                    <span className="ml-auto text-[10px] text-muted-foreground">
-                      {player.ppg} PPG · {player.rpg} RPG · {player.apg} APG · {player.bpg} BPG
-                    </span>
-                  </div>
+                  {player ? (
+                    <div className="flex flex-1 items-center gap-2">
+                      <span
+                        className={cn(
+                          "inline-flex shrink-0 items-center rounded px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider",
+                          POSITION_COLORS[player.position],
+                        )}
+                      >
+                        {player.position}
+                      </span>
+                      <span className="truncate text-sm font-medium text-foreground">
+                        {player.name}
+                      </span>
+                      <span className="ml-auto text-[10px] text-muted-foreground">
+                        {player.ppg} PPG · {player.rpg} RPG · {player.apg} APG · {player.bpg} BPG
+                      </span>
+                    </div>
+                  ) : (
+                    <div className="flex items-center gap-2">
+                      <XCircle className="h-4 w-4 text-destructive" />
+                      <span className="text-sm font-medium text-destructive">Missed pick</span>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>

@@ -3,12 +3,12 @@
 import { cn } from "@/lib/utils"
 import type { Player } from "@/lib/players"
 import { POSITION_COLORS } from "@/lib/players"
-import { Users } from "lucide-react"
+import { Users, XCircle } from "lucide-react"
 import { PositionNeeds } from "@/components/position-needs"
 
 interface TeamRosterProps {
   teamName: string
-  roster: Player[]
+  roster: (Player | null)[]
   teamIndex: number
   isActive: boolean
   totalRounds: number
@@ -82,23 +82,37 @@ export function TeamRoster({
         ) : (
           roster.map((player, index) => (
             <div
-              key={player.id}
-              className="flex items-center gap-2.5 rounded-md bg-secondary/50 px-3 py-2"
+              key={player?.id || `empty-${index}`}
+              className={cn(
+                "flex items-center gap-2.5 rounded-md px-3 py-2",
+                player
+                  ? "bg-secondary/50"
+                  : "border-2 border-dashed border-destructive/40 bg-destructive/5",
+              )}
             >
               <span className="text-xs font-bold text-muted-foreground">
                 {index + 1}.
               </span>
-              <span
-                className={cn(
-                  "inline-flex shrink-0 items-center rounded px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider",
-                  POSITION_COLORS[player.position],
-                )}
-              >
-                {player.position}
-              </span>
-              <span className="truncate text-sm font-medium text-foreground">
-                {player.name}
-              </span>
+              {player ? (
+                <>
+                  <span
+                    className={cn(
+                      "inline-flex shrink-0 items-center rounded px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider",
+                      POSITION_COLORS[player.position],
+                    )}
+                  >
+                    {player.position}
+                  </span>
+                  <span className="truncate text-sm font-medium text-foreground">
+                    {player.name}
+                  </span>
+                </>
+              ) : (
+                <>
+                  <XCircle className="h-4 w-4 text-destructive" />
+                  <span className="text-sm font-medium text-destructive">Missed pick</span>
+                </>
+              )}
             </div>
           ))
         )}

@@ -5,7 +5,7 @@ import type { Player, Position } from "@/lib/players"
 import { POSITION_COLORS } from "@/lib/players"
 
 interface PositionNeedsProps {
-  roster: Player[]
+  roster: (Player | null)[]
   teamIndex: number
 }
 
@@ -14,11 +14,11 @@ const TARGET_PER_POSITION = 2
 
 export function PositionNeeds({ roster, teamIndex }: PositionNeedsProps) {
   const positionCounts: Record<Position, number> = {
-    PG: roster.filter((p) => p.position === "PG").length,
-    SG: roster.filter((p) => p.position === "SG").length,
-    SF: roster.filter((p) => p.position === "SF").length,
-    PF: roster.filter((p) => p.position === "PF").length,
-    C: roster.filter((p) => p.position === "C").length,
+    PG: roster.filter((p) => p && p.position === "PG").length,
+    SG: roster.filter((p) => p && p.position === "SG").length,
+    SF: roster.filter((p) => p && p.position === "SF").length,
+    PF: roster.filter((p) => p && p.position === "PF").length,
+    C: roster.filter((p) => p && p.position === "C").length,
   }
 
   const getStatusColor = (current: number, target: number) => {
