@@ -41,15 +41,12 @@ export function PlayerCard({ player, isDrafted, onDraft, disabled }: PlayerCardP
       <div className="flex min-w-0 flex-1 flex-col gap-0.5">
         <span className="truncate text-sm font-semibold text-foreground">
           {player.name}
-        </span>
-        <span className="text-xs text-muted-foreground">
-          {player.team} &middot; {player.ppg} PPG
           {player.era === "historical" && (
-            <span className="ml-1 text-accent"> &middot; Legend</span>
+            <span className="ml-1.5 text-[10px] font-bold uppercase tracking-wider text-accent">Legend</span>
           )}
         </span>
         <span className="text-[10px] text-muted-foreground">
-          {player.rpg} RPG &middot; {player.apg} APG &middot; {player.bpg} BPG
+          {player.ppg} PPG &middot; {player.rpg} RPG &middot; {player.apg} APG &middot; {player.bpg} BPG
         </span>
       </div>
       {isDrafted ? (
