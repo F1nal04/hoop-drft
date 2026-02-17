@@ -140,7 +140,7 @@ export default function Page() {
           {/* On the clock banner */}
           <div
             className={cn(
-              "flex flex-col items-center gap-4 rounded-xl border p-6 sm:flex-row sm:gap-6",
+              "flex flex-col items-center gap-3 rounded-xl border px-4 py-3 sm:flex-row sm:gap-4",
               draft.currentTeamIndex === 0
                 ? "border-team-1/40 bg-team-1/5"
                 : "border-team-2/40 bg-team-2/5",
@@ -150,19 +150,19 @@ export default function Page() {
               timeRemaining={draft.timeRemaining}
               timerDuration={draft.timerDuration}
             />
-            <div className="flex flex-1 flex-col items-center gap-1 sm:items-start">
-              <span className="text-xs font-bold uppercase tracking-widest text-muted-foreground">
+            <div className="flex flex-1 flex-col items-center gap-0.5 sm:items-start">
+              <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
                 On the Clock
               </span>
               <h2
                 className={cn(
-                  "font-display text-2xl font-bold uppercase tracking-tight sm:text-3xl",
+                  "font-display text-xl font-bold uppercase tracking-tight sm:text-2xl",
                   draft.currentTeamIndex === 0 ? "text-team-1" : "text-team-2",
                 )}
               >
                 {draft.teamNames[draft.currentTeamIndex]}
               </h2>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-xs text-muted-foreground">
                 Round {draft.currentRound}, Pick {draft.currentTeamIndex + 1} &middot;
                 Select a player from the board below
               </p>

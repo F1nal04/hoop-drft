@@ -16,9 +16,9 @@ export function DraftTimer({ timeRemaining, timerDuration }: DraftTimerProps) {
   const isDanger = timeRemaining <= 10
 
   return (
-    <div className="flex flex-col items-center gap-3">
+    <div className="flex shrink-0 flex-col items-center gap-1.5">
       <div className="relative flex items-center justify-center">
-        <svg className="h-32 w-32 -rotate-90" viewBox="0 0 120 120">
+        <svg className="h-24 w-24 -rotate-90" viewBox="0 0 120 120">
           <circle
             cx="60"
             cy="60"
@@ -49,7 +49,7 @@ export function DraftTimer({ timeRemaining, timerDuration }: DraftTimerProps) {
         <div className="absolute flex flex-col items-center">
           <Clock
             className={cn(
-              "mb-1 h-4 w-4",
+              "mb-0.5 h-3.5 w-3.5",
               isDanger
                 ? "text-[hsl(var(--timer-danger))]"
                 : isWarning
@@ -59,7 +59,7 @@ export function DraftTimer({ timeRemaining, timerDuration }: DraftTimerProps) {
           />
           <span
             className={cn(
-              "font-display text-3xl font-bold tabular-nums tracking-tight",
+              "font-display text-2xl font-bold tabular-nums tracking-tight",
               isDanger
                 ? "text-[hsl(var(--timer-danger))] animate-pulse"
                 : isWarning
@@ -71,7 +71,7 @@ export function DraftTimer({ timeRemaining, timerDuration }: DraftTimerProps) {
           </span>
         </div>
       </div>
-      <span className="text-xs font-medium uppercase tracking-widest text-muted-foreground">
+      <span className="text-[10px] font-medium uppercase tracking-widest text-muted-foreground">
         Time Remaining
       </span>
     </div>
