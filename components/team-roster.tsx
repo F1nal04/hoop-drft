@@ -88,24 +88,17 @@ export function TeamRoster({
               <span className="text-xs font-bold text-muted-foreground">
                 {index + 1}.
               </span>
-              <div className="flex flex-1 flex-col gap-0.5">
-                <div className="flex items-center gap-2">
-                  <span
-                    className={cn(
-                      "inline-flex shrink-0 items-center rounded px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider",
-                      POSITION_COLORS[player.position],
-                    )}
-                  >
-                    {player.position}
-                  </span>
-                  <span className="truncate text-sm font-medium text-foreground">
-                    {player.name}
-                  </span>
-                </div>
-                <div className="text-[10px] text-muted-foreground">
-                  {player.ppg} PPG · {player.rpg} RPG · {player.apg} APG · {player.bpg} BPG
-                </div>
-              </div>
+              <span
+                className={cn(
+                  "inline-flex shrink-0 items-center rounded px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider",
+                  POSITION_COLORS[player.position],
+                )}
+              >
+                {player.position}
+              </span>
+              <span className="truncate text-sm font-medium text-foreground">
+                {player.name}
+              </span>
             </div>
           ))
         )}
