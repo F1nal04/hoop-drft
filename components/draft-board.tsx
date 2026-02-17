@@ -16,9 +16,10 @@ interface DraftBoardProps {
 
 const POSITIONS: (Position | "ALL")[] = ["ALL", "PG", "SG", "SF", "PF", "C"]
 
-type SortOption = "ppg" | "rpg" | "apg" | "bpg"
+type SortOption = "rank" | "ppg" | "rpg" | "apg" | "bpg"
 
 const SORT_OPTIONS: { value: SortOption; label: string }[] = [
+  { value: "rank", label: "Rank" },
   { value: "ppg", label: "PPG" },
   { value: "rpg", label: "RPG" },
   { value: "apg", label: "APG" },
@@ -28,7 +29,7 @@ const SORT_OPTIONS: { value: SortOption; label: string }[] = [
 export function DraftBoard({ players, draftedPlayerIds, onDraft, disabled }: DraftBoardProps) {
   const [search, setSearch] = useState("")
   const [posFilter, setPosFilter] = useState<Position | "ALL">("ALL")
-  const [sortBy, setSortBy] = useState<SortOption>("ppg")
+  const [sortBy, setSortBy] = useState<SortOption>("rank")
 
   const filtered = useMemo(() => {
     return players
@@ -41,7 +42,11 @@ export function DraftBoard({ players, draftedPlayerIds, onDraft, disabled }: Dra
         return matchesSearch && matchesPos
       })
       .sort((a, b) => {
-        // For all stats, sort descending (higher is better)
+        // For rank, sort ascending (lower is better)
+        if (sortBy === "rank") {
+          return a.rank - b.rank
+        }
+        // For stats, sort descending (higher is better)
         return b[sortBy] - a[sortBy]
       })
   }, [players, search, posFilter, sortBy])
