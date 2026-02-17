@@ -61,7 +61,8 @@ export function useDraft() {
       setStatus("drafting")
       setCurrentPick(1)
       setCurrentRound(1)
-      setCurrentTeamIndex(0)
+      const randomFirstPicker = Math.floor(Math.random() * 2) as 0 | 1
+      setCurrentTeamIndex(randomFirstPicker)
       setTeamRosters([[], []])
       setDraftedPlayerIds(new Set())
       setDraftHistory([])
@@ -100,7 +101,7 @@ export function useDraft() {
       }
 
       const nextTeamIndex = currentTeamIndex === 0 ? 1 : 0
-      const nextRound = nextTeamIndex === 0 ? currentRound + 1 : currentRound
+      const nextRound = Math.ceil(nextPick / 2)
 
       setCurrentPick(nextPick)
       setCurrentTeamIndex(nextTeamIndex)
@@ -149,7 +150,7 @@ export function useDraft() {
       }
 
       const nextTeamIndex = currentTeamIndex === 0 ? 1 : 0
-      const nextRound = nextTeamIndex === 0 ? currentRound + 1 : currentRound
+      const nextRound = Math.ceil(nextPick / 2)
 
       setCurrentPick(nextPick)
       setCurrentTeamIndex(nextTeamIndex)
