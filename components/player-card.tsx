@@ -27,9 +27,6 @@ export function PlayerCard({ player, isDrafted, onDraft, disabled }: PlayerCardP
             : "cursor-pointer hover:border-primary/50 hover:bg-secondary/80 active:scale-[0.98]",
       )}
     >
-      <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-secondary text-xs font-bold text-muted-foreground">
-        {player.rank}
-      </span>
       <span
         className={cn(
           "inline-flex shrink-0 items-center rounded px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider",
