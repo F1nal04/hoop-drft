@@ -67,7 +67,7 @@ export function PreDraftScreen({ onStart }: PreDraftScreenProps) {
           <Trophy className="h-8 w-8 text-primary-foreground" />
         </div>
         <h1 className="font-display text-5xl font-bold uppercase tracking-tight text-foreground md:text-6xl">
-          NBA Fantasy Draft
+          HoopDrft
         </h1>
         <p className="max-w-md text-base leading-relaxed text-muted-foreground">
           Head-to-head snake draft. 10 rounds, 2 minutes per pick. Choose your

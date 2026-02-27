@@ -8,8 +8,8 @@ const _inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 const _oswald = Oswald({ subsets: ['latin'], variable: '--font-oswald' })
 
 export const metadata: Metadata = {
-  title: 'Fantasy Draft',
-  description: 'Head-to-head fantasy draft - pick your squad in 2 minutes per pick',
+  title: 'HoopDrft',
+  description: 'HoopDrft - head-to-head fantasy NBA draft with a 2-minute timer and snake format',
 }
 
 export const viewport: Viewport = {

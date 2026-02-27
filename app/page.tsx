@@ -49,7 +49,7 @@ export default function Page() {
               <Trophy className="h-4 w-4 text-primary-foreground" />
             </div>
             <span className="font-display text-lg font-bold uppercase tracking-wider text-foreground">
-              NBA Draft
+              HoopDrft
             </span>
           </div>
 

@@ -1,6 +1,6 @@
-# NBA Fantasy Draft
+# HoopDrft
 
-A real-time fantasy basketball draft application with snake draft format, timer, and comprehensive player statistics.
+HoopDrft is a real-time fantasy basketball draft application with snake draft format, timer, and comprehensive player statistics.
 
 ## Features
 
