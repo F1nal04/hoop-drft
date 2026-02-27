@@ -31,6 +31,13 @@ export function DraftBoard({ players, draftedPlayerIds, onDraft, disabled }: Dra
   const [posFilter, setPosFilter] = useState<Position | "ALL">("ALL")
   const [sortBy, setSortBy] = useState<SortOption>("rank")
 
+  const handleDraft = (player: Player) => {
+    onDraft(player)
+    setSearch("")
+    setPosFilter("ALL")
+    setSortBy("rank")
+  }
+
   const filtered = useMemo(() => {
     return players
       .filter((p) => {
@@ -123,7 +130,7 @@ export function DraftBoard({ players, draftedPlayerIds, onDraft, disabled }: Dra
             key={`${player.era}-${player.id}`}
             player={player}
             isDrafted={draftedPlayerIds.has(`${player.era}-${player.id}`)}
-            onDraft={onDraft}
+            onDraft={handleDraft}
             disabled={disabled}
           />
         ))}
