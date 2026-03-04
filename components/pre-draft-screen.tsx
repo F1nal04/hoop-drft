@@ -83,34 +83,34 @@ export function PreDraftScreen({ onStart }: PreDraftScreenProps) {
   };
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center gap-10 px-4">
-      <div className="flex flex-col items-center gap-4 text-center">
-        <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-primary">
-          <Trophy className="h-8 w-8 text-primary-foreground" />
+    <div className="flex min-h-screen flex-col items-center justify-center gap-6 px-4 py-4">
+      <div className="flex flex-col items-center gap-3 text-center">
+        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary">
+          <Trophy className="h-6 w-6 text-primary-foreground" />
         </div>
-        <h1 className="font-display text-5xl font-bold uppercase tracking-tight text-foreground md:text-6xl">
+        <h1 className="font-display text-4xl font-bold uppercase tracking-tight text-foreground md:text-5xl">
           HoopDrft
         </h1>
-        <p className="max-w-md text-base leading-relaxed text-muted-foreground">
+        <p className="max-w-md text-sm leading-relaxed text-muted-foreground">
           Head-to-head snake draft. Normal mode is 10 rounds, money mode is 5.
           Choose your player pool, name your squads, and get on the clock.
         </p>
       </div>
 
-      <div className="flex w-full max-w-lg flex-col gap-8">
+      <div className="flex w-full max-w-lg flex-col gap-5">
         {/* Draft mode selector */}
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-2">
           <label className="text-xs font-bold uppercase tracking-widest text-muted-foreground">
             Draft Type
           </label>
-          <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+          <div className="grid grid-cols-1 gap-1.5 sm:grid-cols-2">
             {DRAFT_MODE_OPTIONS.map((option) => (
               <button
                 key={option.value}
                 type="button"
                 onClick={() => setDraftMode(option.value)}
                 className={cn(
-                  "flex flex-col items-center gap-2 rounded-xl border px-4 py-4 text-center transition-all",
+                  "flex flex-col items-center gap-1.5 rounded-lg border px-3 py-2.5 text-center transition-all",
                   draftMode === option.value
                     ? "border-primary bg-primary/10 text-foreground"
                     : "border-border bg-secondary/30 text-muted-foreground hover:border-primary/30 hover:bg-secondary/60",
@@ -118,7 +118,7 @@ export function PreDraftScreen({ onStart }: PreDraftScreenProps) {
               >
                 <div
                   className={cn(
-                    "flex h-10 w-10 items-center justify-center rounded-lg transition-colors",
+                    "flex h-8 w-8 items-center justify-center rounded-md transition-colors",
                     draftMode === option.value
                       ? "bg-primary text-primary-foreground"
                       : "bg-secondary text-muted-foreground",
@@ -126,7 +126,7 @@ export function PreDraftScreen({ onStart }: PreDraftScreenProps) {
                 >
                   {option.icon}
                 </div>
-                <span className="text-sm font-bold">{option.label}</span>
+                <span className="text-xs font-bold">{option.label}</span>
                 <span className="text-[11px] leading-tight text-muted-foreground">
                   {option.description}
                 </span>
@@ -136,18 +136,18 @@ export function PreDraftScreen({ onStart }: PreDraftScreenProps) {
         </div>
 
         {/* Player set selector */}
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-2">
           <label className="text-xs font-bold uppercase tracking-widest text-muted-foreground">
             Player Pool
           </label>
-          <div className="grid grid-cols-1 gap-2 sm:grid-cols-3">
+          <div className="grid grid-cols-1 gap-1.5 sm:grid-cols-3">
             {PLAYER_SET_OPTIONS.map((option) => (
               <button
                 key={option.value}
                 type="button"
                 onClick={() => setPlayerSet(option.value)}
                 className={cn(
-                  "flex flex-col items-center gap-2 rounded-xl border px-4 py-4 text-center transition-all",
+                  "flex flex-col items-center gap-1.5 rounded-lg border px-3 py-2.5 text-center transition-all",
                   playerSet === option.value
                     ? "border-primary bg-primary/10 text-foreground"
                     : "border-border bg-secondary/30 text-muted-foreground hover:border-primary/30 hover:bg-secondary/60",
@@ -155,7 +155,7 @@ export function PreDraftScreen({ onStart }: PreDraftScreenProps) {
               >
                 <div
                   className={cn(
-                    "flex h-10 w-10 items-center justify-center rounded-lg transition-colors",
+                    "flex h-8 w-8 items-center justify-center rounded-md transition-colors",
                     playerSet === option.value
                       ? "bg-primary text-primary-foreground"
                       : "bg-secondary text-muted-foreground",
@@ -163,7 +163,7 @@ export function PreDraftScreen({ onStart }: PreDraftScreenProps) {
                 >
                   {option.icon}
                 </div>
-                <span className="text-sm font-bold">{option.label}</span>
+                <span className="text-xs font-bold">{option.label}</span>
                 <span className="text-[11px] leading-tight text-muted-foreground">
                   {option.description}
                 </span>
@@ -173,7 +173,7 @@ export function PreDraftScreen({ onStart }: PreDraftScreenProps) {
         </div>
 
         {/* Team names */}
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
           <div className="flex flex-col gap-2">
             <label
               className="text-xs font-bold uppercase tracking-widest text-team-1"
@@ -207,7 +207,7 @@ export function PreDraftScreen({ onStart }: PreDraftScreenProps) {
         </div>
 
         {/* Info pills */}
-        <div className="flex flex-wrap items-center justify-center gap-3 text-xs text-muted-foreground">
+        <div className="flex flex-wrap items-center justify-center gap-2 text-[11px] text-muted-foreground">
           <span className="flex items-center gap-1.5 rounded-full bg-secondary px-3 py-1.5">
             <Clock className="h-3 w-3" /> 2 min per pick
           </span>
@@ -220,10 +220,10 @@ export function PreDraftScreen({ onStart }: PreDraftScreenProps) {
         </div>
 
         <Button
-          size="lg"
+          size="default"
           onClick={handleStart}
           disabled={isLoading}
-          className="w-full bg-primary font-display text-lg font-bold uppercase tracking-wider text-primary-foreground hover:bg-primary/90"
+          className="h-10 w-full bg-primary font-display text-base font-bold uppercase tracking-wider text-primary-foreground hover:bg-primary/90"
         >
           {isLoading ? "Loading Players..." : "Start Draft"}
         </Button>
