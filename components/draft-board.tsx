@@ -15,6 +15,8 @@ interface DraftBoardProps {
   draftMode: DraftMode
   moneyPools: Record<PlayerPrice, Player[]>
   activeTeamBudget: number
+  activeTeamRosterSize: number
+  totalRounds: number
 }
 
 const POSITIONS: (Position | "ALL")[] = ["ALL", "PG", "SG", "SF", "PF", "C"]
@@ -39,6 +41,8 @@ export function DraftBoard({
   draftMode,
   moneyPools,
   activeTeamBudget,
+  activeTeamRosterSize,
+  totalRounds,
 }: DraftBoardProps) {
   const [search, setSearch] = useState("")
   const [posFilter, setPosFilter] = useState<Position | "ALL">("ALL")
@@ -183,7 +187,13 @@ export function DraftBoard({
                 <div className="flex flex-col gap-1.5">
                   {tierPlayers.map((player) => {
                     const isDrafted = draftedPlayerIds.has(`${player.era}-${player.id}`)
-                    const cannotAfford = player.price > activeTeamBudget
+                    const remainingSlotsAfterPick = Math.max(
+                      0,
+                      totalRounds - (activeTeamRosterSize + 1),
+                    )
+                    const budgetAfterPick = activeTeamBudget - player.price
+                    const cannotAfford =
+                      player.price > activeTeamBudget || budgetAfterPick < remainingSlotsAfterPick
                     return (
                       <PlayerCard
                         key={`${player.era}-${player.id}`}

@@ -187,6 +187,8 @@ export default function Page() {
             draftMode={draft.draftMode}
             moneyPools={draft.moneyPools}
             activeTeamBudget={draft.remainingBudget[draft.currentTeamIndex]}
+            activeTeamRosterSize={draft.teamRosters[draft.currentTeamIndex].length}
+            totalRounds={draft.totalRounds}
           />
 
           {/* Draft history */}

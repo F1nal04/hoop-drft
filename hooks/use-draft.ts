@@ -132,8 +132,12 @@ export function useDraft() {
       const playerKey = `${player.era}-${player.id}`
       if (status !== "drafting" || draftedPlayerIds.has(playerKey) || isComplete) return
       if (draftMode === "money") {
-        const canAfford = player.price <= remainingBudget[currentTeamIndex]
-        if (!canAfford) return
+        const currentTeamPicksMade = teamRosters[currentTeamIndex].length
+        const remainingSlotsAfterPick = Math.max(0, totalRounds - (currentTeamPicksMade + 1))
+        const budgetAfterPick = remainingBudget[currentTeamIndex] - player.price
+        const canAffordNow = player.price <= remainingBudget[currentTeamIndex]
+        const canAffordFutureSlots = budgetAfterPick >= remainingSlotsAfterPick
+        if (!canAffordNow || !canAffordFutureSlots) return
 
         const isPlayerInPool = Object.values(moneyPools).some((tierPlayers) =>
           tierPlayers.some((poolPlayer) => `${poolPlayer.era}-${poolPlayer.id}` === playerKey),
@@ -191,8 +195,10 @@ export function useDraft() {
       currentRound,
       currentTeamIndex,
       currentPick,
+      teamRosters,
       remainingBudget,
       moneyPools,
+      totalRounds,
       totalPicks,
       startTimer,
       clearTimer,
