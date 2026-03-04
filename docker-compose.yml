@@ -1,0 +1,13 @@
+services:
+  hoopdrft:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: hoopdrft:latest
+    container_name: hoopdrft
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+      DATABASE_URL: ${DATABASE_URL}

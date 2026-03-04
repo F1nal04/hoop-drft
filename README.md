@@ -37,3 +37,28 @@ bun run dev
 ```
 
 Set `DATABASE_URL` in `.env` before running DB commands.
+
+## Docker (VPS)
+
+Build image:
+
+```bash
+docker build -t hoopdrft:latest .
+```
+
+Run container:
+
+```bash
+docker run -d \
+  --name hoopdrft \
+  --restart unless-stopped \
+  -p 3000:3000 \
+  -e DATABASE_URL="postgresql://user:pass@host:5432/dbname" \
+  hoopdrft:latest
+```
+
+Or with Compose:
+
+```bash
+DATABASE_URL="postgresql://user:pass@host:5432/dbname" docker compose up -d --build
+```
