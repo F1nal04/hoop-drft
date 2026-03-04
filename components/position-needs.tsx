@@ -7,12 +7,12 @@ import { POSITION_COLORS } from "@/lib/types"
 interface PositionNeedsProps {
   roster: (Player | null)[]
   teamIndex: number
+  targetPerPosition?: number
 }
 
 const POSITIONS: Position[] = ["PG", "SG", "SF", "PF", "C"]
-const TARGET_PER_POSITION = 2
 
-export function PositionNeeds({ roster, teamIndex }: PositionNeedsProps) {
+export function PositionNeeds({ roster, teamIndex, targetPerPosition = 2 }: PositionNeedsProps) {
   const positionCounts: Record<Position, number> = {
     PG: roster.filter((p) => p && p.position === "PG").length,
     SG: roster.filter((p) => p && p.position === "SG").length,
@@ -40,7 +40,7 @@ export function PositionNeeds({ roster, teamIndex }: PositionNeedsProps) {
       <div className="flex flex-wrap gap-1">
         {POSITIONS.map((pos) => {
           const current = positionCounts[pos]
-          const statusColor = getStatusColor(current, TARGET_PER_POSITION)
+          const statusColor = getStatusColor(current, targetPerPosition)
 
           return (
             <div
@@ -52,7 +52,7 @@ export function PositionNeeds({ roster, teamIndex }: PositionNeedsProps) {
             >
               <span className="text-[10px] font-bold uppercase tracking-wider">{pos}</span>
               <span className={cn("text-[11px] font-bold", statusColor)}>
-                {current}/{TARGET_PER_POSITION}
+                {current}/{targetPerPosition}
               </span>
             </div>
           )

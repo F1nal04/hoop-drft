@@ -5,15 +5,16 @@ import React from "react";
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import type { PlayerSet } from "@/lib/types";
+import type { DraftMode, PlayerSet } from "@/lib/types";
 import { cn } from "@/lib/utils";
-import { Trophy, Clock, Users, History } from "lucide-react";
+import { Trophy, Clock, Users, History, DollarSign } from "lucide-react";
 
 interface PreDraftScreenProps {
   onStart: (
     name1: string,
     name2: string,
     playerSet: PlayerSet,
+    draftMode: DraftMode,
   ) => Promise<void>;
 }
 
@@ -43,16 +44,37 @@ const PLAYER_SET_OPTIONS: {
   },
 ];
 
+const DRAFT_MODE_OPTIONS: {
+  value: DraftMode;
+  label: string;
+  description: string;
+  icon: React.ReactNode;
+}[] = [
+  {
+    value: "normal",
+    label: "Normal Draft",
+    description: "Classic full player board",
+    icon: <Trophy className="h-5 w-5" />,
+  },
+  {
+    value: "money",
+    label: "Money Draft",
+    description: "$15 budget, $1-$5 tier pools",
+    icon: <DollarSign className="h-5 w-5" />,
+  },
+];
+
 export function PreDraftScreen({ onStart }: PreDraftScreenProps) {
   const [name1, setName1] = useState("");
   const [name2, setName2] = useState("");
   const [playerSet, setPlayerSet] = useState<PlayerSet>("current");
+  const [draftMode, setDraftMode] = useState<DraftMode>("normal");
   const [isLoading, setIsLoading] = useState(false);
 
   const handleStart = async () => {
     setIsLoading(true);
     try {
-      await onStart(name1, name2, playerSet);
+      await onStart(name1, name2, playerSet, draftMode);
     } catch (error) {
       console.error("Failed to start draft:", error);
     } finally {
@@ -70,12 +92,49 @@ export function PreDraftScreen({ onStart }: PreDraftScreenProps) {
           HoopDrft
         </h1>
         <p className="max-w-md text-base leading-relaxed text-muted-foreground">
-          Head-to-head snake draft. 10 rounds, 2 minutes per pick. Choose your
-          player pool, name your squads, and get on the clock.
+          Head-to-head snake draft. Normal mode is 10 rounds, money mode is 5.
+          Choose your player pool, name your squads, and get on the clock.
         </p>
       </div>
 
       <div className="flex w-full max-w-lg flex-col gap-8">
+        {/* Draft mode selector */}
+        <div className="flex flex-col gap-3">
+          <label className="text-xs font-bold uppercase tracking-widest text-muted-foreground">
+            Draft Type
+          </label>
+          <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+            {DRAFT_MODE_OPTIONS.map((option) => (
+              <button
+                key={option.value}
+                type="button"
+                onClick={() => setDraftMode(option.value)}
+                className={cn(
+                  "flex flex-col items-center gap-2 rounded-xl border px-4 py-4 text-center transition-all",
+                  draftMode === option.value
+                    ? "border-primary bg-primary/10 text-foreground"
+                    : "border-border bg-secondary/30 text-muted-foreground hover:border-primary/30 hover:bg-secondary/60",
+                )}
+              >
+                <div
+                  className={cn(
+                    "flex h-10 w-10 items-center justify-center rounded-lg transition-colors",
+                    draftMode === option.value
+                      ? "bg-primary text-primary-foreground"
+                      : "bg-secondary text-muted-foreground",
+                  )}
+                >
+                  {option.icon}
+                </div>
+                <span className="text-sm font-bold">{option.label}</span>
+                <span className="text-[11px] leading-tight text-muted-foreground">
+                  {option.description}
+                </span>
+              </button>
+            ))}
+          </div>
+        </div>
+
         {/* Player set selector */}
         <div className="flex flex-col gap-3">
           <label className="text-xs font-bold uppercase tracking-widest text-muted-foreground">
@@ -156,7 +215,7 @@ export function PreDraftScreen({ onStart }: PreDraftScreenProps) {
             <Users className="h-3 w-3" /> Snake draft
           </span>
           <span className="flex items-center gap-1.5 rounded-full bg-secondary px-3 py-1.5">
-            <Trophy className="h-3 w-3" /> 10 rounds
+            <Trophy className="h-3 w-3" /> {draftMode === "money" ? "5 rounds" : "10 rounds"}
           </span>
         </div>
 

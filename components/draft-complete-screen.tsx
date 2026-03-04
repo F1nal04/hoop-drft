@@ -1,6 +1,6 @@
 "use client"
 
-import type { Player } from "@/lib/types"
+import type { DraftMode, Player } from "@/lib/types"
 import { POSITION_COLORS } from "@/lib/types"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
@@ -10,14 +10,18 @@ import { PositionNeeds } from "@/components/position-needs"
 interface DraftCompleteScreenProps {
   teamNames: [string, string]
   teamRosters: [(Player | null)[], (Player | null)[]]
+  draftMode: DraftMode
   onReset: () => void
 }
 
 export function DraftCompleteScreen({
   teamNames,
   teamRosters,
+  draftMode,
   onReset,
 }: DraftCompleteScreenProps) {
+  const targetPerPosition = draftMode === "money" ? 1 : 2
+
   return (
     <div className="flex min-h-screen flex-col items-center gap-10 px-4 py-12">
       <div className="flex flex-col items-center gap-4 text-center">
@@ -50,7 +54,11 @@ export function DraftCompleteScreen({
               {teamNames[teamIdx]}
             </h2>
             <div className="mb-4">
-              <PositionNeeds roster={teamRosters[teamIdx]} teamIndex={teamIdx} />
+              <PositionNeeds
+                roster={teamRosters[teamIdx]}
+                teamIndex={teamIdx}
+                targetPerPosition={targetPerPosition}
+              />
             </div>
             <div className="flex flex-col gap-1.5">
               {teamRosters[teamIdx].map((player, i) => (

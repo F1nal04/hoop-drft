@@ -34,6 +34,7 @@ export default function Page() {
       <DraftCompleteScreen
         teamNames={draft.teamNames}
         teamRosters={draft.teamRosters}
+        draftMode={draft.draftMode}
         onReset={draft.resetDraft}
       />
     )
@@ -87,6 +88,11 @@ export default function Page() {
               >
                 {draft.teamNames[draft.currentTeamIndex]} picks
               </span>
+              {draft.draftMode === "money" && (
+                <span className="rounded-full bg-accent/20 px-3 py-1 text-xs font-bold uppercase tracking-wider text-accent">
+                  ${draft.remainingBudget[draft.currentTeamIndex]} left
+                </span>
+              )}
             </div>
             <AlertDialog>
               <AlertDialogTrigger asChild>
@@ -132,6 +138,8 @@ export default function Page() {
             teamIndex={0}
             isActive={draft.currentTeamIndex === 0}
             totalRounds={draft.totalRounds}
+            draftMode={draft.draftMode}
+            remainingBudget={draft.remainingBudget[0]}
           />
         </aside>
 
@@ -163,8 +171,9 @@ export default function Page() {
                 {draft.teamNames[draft.currentTeamIndex]}
               </h2>
               <p className="text-xs text-muted-foreground">
-                Round {draft.currentRound}, Pick {draft.currentTeamIndex + 1} &middot;
-                Select a player from the board below
+                {draft.draftMode === "money"
+                  ? `Round ${draft.currentRound}, Pick ${draft.currentTeamIndex + 1} | Budget: $${draft.remainingBudget[draft.currentTeamIndex]}`
+                  : `Round ${draft.currentRound}, Pick ${draft.currentTeamIndex + 1} | Select a player from the board below`}
               </p>
             </div>
           </div>
@@ -175,6 +184,9 @@ export default function Page() {
             draftedPlayerIds={draft.draftedPlayerIds}
             onDraft={draft.draftPlayer}
             disabled={false}
+            draftMode={draft.draftMode}
+            moneyPools={draft.moneyPools}
+            activeTeamBudget={draft.remainingBudget[draft.currentTeamIndex]}
           />
 
           {/* Draft history */}
@@ -189,6 +201,8 @@ export default function Page() {
             teamIndex={1}
             isActive={draft.currentTeamIndex === 1}
             totalRounds={draft.totalRounds}
+            draftMode={draft.draftMode}
+            remainingBudget={draft.remainingBudget[1]}
           />
         </aside>
       </main>

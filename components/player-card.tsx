@@ -10,9 +10,16 @@ interface PlayerCardProps {
   isDrafted: boolean
   onDraft: (player: Player) => void
   disabled: boolean
+  cannotAfford?: boolean
 }
 
-export function PlayerCard({ player, isDrafted, onDraft, disabled }: PlayerCardProps) {
+export function PlayerCard({
+  player,
+  isDrafted,
+  onDraft,
+  disabled,
+  cannotAfford = false,
+}: PlayerCardProps) {
   return (
     <button
       type="button"
@@ -38,6 +45,9 @@ export function PlayerCard({ player, isDrafted, onDraft, disabled }: PlayerCardP
       >
         {player.position}
       </span>
+      <span className="inline-flex shrink-0 items-center rounded bg-accent/20 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-accent">
+        ${player.price}
+      </span>
       <div className="flex min-w-0 flex-1 flex-col gap-0.5">
         <span className="truncate text-sm font-semibold text-foreground">
           {player.name}
@@ -54,6 +64,10 @@ export function PlayerCard({ player, isDrafted, onDraft, disabled }: PlayerCardP
       ) : !disabled ? (
         <span className="shrink-0 rounded-md bg-primary px-2.5 py-1 text-xs font-bold text-primary-foreground opacity-0 transition-opacity group-hover:opacity-100">
           Draft
+        </span>
+      ) : cannotAfford ? (
+        <span className="shrink-0 rounded-md bg-destructive/15 px-2 py-1 text-[10px] font-bold uppercase tracking-wider text-destructive">
+          Too Expensive
         </span>
       ) : null}
     </button>

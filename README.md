@@ -12,6 +12,7 @@ HoopDrft is a real-time fantasy basketball draft application with snake draft fo
 - **Draft Cancellation**: Cancel mid-draft with confirmation
 - **Missed Picks**: Visual indicator when timer expires without selection
 - **Player Pools**: Choose from current NBA stars, all-time legends, or combined (80 players)
+- **Money Draft Mode**: Optional `$15` salary-cap draft with fixed `$1-$5` tier pools (5 random players per tier)
 
 ## Tech Stack
 
@@ -92,9 +93,19 @@ bun run dev
 
 ## Draft Flow
 
-1. **Pre-Draft**: Select player pool and name teams
+1. **Pre-Draft**: Select draft type, player pool, and team names
 2. **Drafting**: Snake draft with timer (Team 1 → Team 2 → Team 2 → Team 1)
 3. **Complete**: View final rosters with position analysis
+
+### Money Draft Rules
+
+- Both teams start with a `$15` budget
+- Draft length is `5` rounds per team
+- Position needs target is `1` per position (`PG`, `SG`, `SF`, `PF`, `C`)
+- Players are assigned prices from `$1` to `$5` using equal rank buckets
+- At draft start, each price tier gets a fixed random pool of 5 players
+- Tier pools do not refresh during the draft
+- Teams can only draft players they can afford
 
 ## Player Rankings
 

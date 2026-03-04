@@ -1,7 +1,7 @@
 "use client"
 
 import { cn } from "@/lib/utils"
-import type { Player } from "@/lib/types"
+import type { DraftMode, Player } from "@/lib/types"
 import { POSITION_COLORS } from "@/lib/types"
 import { Users, XCircle } from "lucide-react"
 import { PositionNeeds } from "@/components/position-needs"
@@ -12,6 +12,8 @@ interface TeamRosterProps {
   teamIndex: number
   isActive: boolean
   totalRounds: number
+  draftMode: DraftMode
+  remainingBudget: number
 }
 
 export function TeamRoster({
@@ -20,8 +22,11 @@ export function TeamRoster({
   teamIndex,
   isActive,
   totalRounds,
+  draftMode,
+  remainingBudget,
 }: TeamRosterProps) {
   const teamColor = teamIndex === 0 ? "team-1" : "team-2"
+  const targetPerPosition = draftMode === "money" ? 1 : 2
 
   return (
     <div
@@ -57,6 +62,9 @@ export function TeamRoster({
           <p className="text-xs text-muted-foreground">
             {roster.length}/{totalRounds} picks
           </p>
+          {draftMode === "money" && (
+            <p className="text-xs font-medium text-muted-foreground">Budget: ${remainingBudget}</p>
+          )}
         </div>
         {isActive && (
           <span
@@ -73,7 +81,11 @@ export function TeamRoster({
       </div>
 
       <div className="flex flex-col gap-3 p-3">
-        <PositionNeeds roster={roster} teamIndex={teamIndex} />
+        <PositionNeeds
+          roster={roster}
+          teamIndex={teamIndex}
+          targetPerPosition={targetPerPosition}
+        />
         
         {roster.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-8 text-center">

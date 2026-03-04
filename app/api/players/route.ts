@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server"
 import { prisma } from "@/lib/prisma"
-import type { Player, PlayerSet } from "@/lib/types"
+import type { Player, PlayerPrice, PlayerSet } from "@/lib/types"
 
 export async function GET(request: Request) {
   try {
@@ -52,7 +52,19 @@ export async function GET(request: Request) {
     // Sort by rank for the final result
     players.sort((a, b) => a.rank - b.rank)
 
-    return NextResponse.json(players)
+    const totalPlayers = players.length
+    if (totalPlayers === 0) {
+      return NextResponse.json([])
+    }
+    const pricedPlayers = players.map((player, index) => {
+      // Split players into 5 equal buckets by sorted rank order.
+      // Top bucket gets $5, bottom bucket gets $1.
+      const bucket = Math.floor((index * 5) / totalPlayers)
+      const price = (5 - bucket) as PlayerPrice
+      return { ...player, price }
+    })
+
+    return NextResponse.json(pricedPlayers)
   } catch (error) {
     console.error("Error fetching players:", error)
     return NextResponse.json({ error: "Failed to fetch players" }, { status: 500 })

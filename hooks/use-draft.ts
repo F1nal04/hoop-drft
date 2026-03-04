@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useCallback, useRef, useEffect } from "react"
-import type { Player, PlayerSet } from "@/lib/types"
+import type { DraftMode, Player, PlayerPrice, PlayerSet } from "@/lib/types"
 import { getPlayerSet } from "@/lib/types"
 
 export type DraftStatus = "pre-draft" | "drafting" | "completed"
@@ -15,10 +15,53 @@ export interface DraftPick {
 }
 
 const TIMER_DURATION = 120
-const TOTAL_ROUNDS = 10
+const NORMAL_DRAFT_ROUNDS = 10
+const MONEY_DRAFT_ROUNDS = 5
+const MONEY_DRAFT_BUDGET = 15
+const MONEY_TIER_POOL_SIZE = 5
+
+type MoneyPools = Record<PlayerPrice, Player[]>
+
+const EMPTY_MONEY_POOLS: MoneyPools = {
+  1: [],
+  2: [],
+  3: [],
+  4: [],
+  5: [],
+}
+
+function shufflePlayers(players: Player[]): Player[] {
+  const shuffled = [...players]
+  for (let i = shuffled.length - 1; i > 0; i -= 1) {
+    const randomIndex = Math.floor(Math.random() * (i + 1))
+    const temp = shuffled[i]
+    shuffled[i] = shuffled[randomIndex]
+    shuffled[randomIndex] = temp
+  }
+  return shuffled
+}
+
+function buildMoneyPools(players: Player[]): MoneyPools {
+  const pools: MoneyPools = {
+    1: [],
+    2: [],
+    3: [],
+    4: [],
+    5: [],
+  }
+
+  ;([1, 2, 3, 4, 5] as const).forEach((price) => {
+    const tierPlayers = players.filter((player) => player.price === price)
+    pools[price] = shufflePlayers(tierPlayers).slice(0, MONEY_TIER_POOL_SIZE)
+  })
+
+  return pools
+}
 
 export function useDraft() {
   const [status, setStatus] = useState<DraftStatus>("pre-draft")
+  const [draftMode, setDraftMode] = useState<DraftMode>("normal")
+  const [totalRounds, setTotalRounds] = useState(NORMAL_DRAFT_ROUNDS)
   const [currentPick, setCurrentPick] = useState(1)
   const [currentRound, setCurrentRound] = useState(1)
   const [currentTeamIndex, setCurrentTeamIndex] = useState(0)
@@ -28,6 +71,11 @@ export function useDraft() {
   const [draftHistory, setDraftHistory] = useState<DraftPick[]>([])
   const [timeRemaining, setTimeRemaining] = useState(TIMER_DURATION)
   const [players, setPlayers] = useState<Player[]>([])
+  const [remainingBudget, setRemainingBudget] = useState<[number, number]>([
+    MONEY_DRAFT_BUDGET,
+    MONEY_DRAFT_BUDGET,
+  ])
+  const [moneyPools, setMoneyPools] = useState<MoneyPools>(EMPTY_MONEY_POOLS)
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null)
 
   const clearTimer = useCallback(() => {
@@ -50,14 +98,16 @@ export function useDraft() {
     }, 1000)
   }, [clearTimer])
 
-  const totalPicks = TOTAL_ROUNDS * 2
+  const totalPicks = totalRounds * 2
   const isComplete = currentPick > totalPicks
 
   const startDraft = useCallback(
-    async (name1: string, name2: string, playerSet: PlayerSet) => {
+    async (name1: string, name2: string, playerSet: PlayerSet, selectedDraftMode: DraftMode) => {
       setTeamNames([name1 || "Team 1", name2 || "Team 2"])
       const playerData = await getPlayerSet(playerSet)
       setPlayers(playerData)
+      setDraftMode(selectedDraftMode)
+      setTotalRounds(selectedDraftMode === "money" ? MONEY_DRAFT_ROUNDS : NORMAL_DRAFT_ROUNDS)
       setStatus("drafting")
       setCurrentPick(1)
       setCurrentRound(1)
@@ -66,6 +116,12 @@ export function useDraft() {
       setTeamRosters([[], []])
       setDraftedPlayerIds(new Set())
       setDraftHistory([])
+      setRemainingBudget([MONEY_DRAFT_BUDGET, MONEY_DRAFT_BUDGET])
+      if (selectedDraftMode === "money") {
+        setMoneyPools(buildMoneyPools(playerData))
+      } else {
+        setMoneyPools(EMPTY_MONEY_POOLS)
+      }
       startTimer()
     },
     [startTimer],
@@ -75,6 +131,16 @@ export function useDraft() {
     (player: Player) => {
       const playerKey = `${player.era}-${player.id}`
       if (status !== "drafting" || draftedPlayerIds.has(playerKey) || isComplete) return
+      if (draftMode === "money") {
+        const canAfford = player.price <= remainingBudget[currentTeamIndex]
+        if (!canAfford) return
+
+        const isPlayerInPool = Object.values(moneyPools).some((tierPlayers) =>
+          tierPlayers.some((poolPlayer) => `${poolPlayer.era}-${poolPlayer.id}` === playerKey),
+        )
+
+        if (!isPlayerInPool) return
+      }
 
       const pick: DraftPick = {
         round: currentRound,
@@ -91,6 +157,13 @@ export function useDraft() {
         return updated
       })
       setDraftedPlayerIds((prev) => new Set([...prev, playerKey]))
+      if (draftMode === "money") {
+        setRemainingBudget((prev) => {
+          const updated: [number, number] = [...prev] as [number, number]
+          updated[currentTeamIndex] = Math.max(0, updated[currentTeamIndex] - player.price)
+          return updated
+        })
+      }
 
       const nextPick = currentPick + 1
       if (nextPick > totalPicks) {
@@ -112,11 +185,14 @@ export function useDraft() {
     },
     [
       status,
+      draftMode,
       draftedPlayerIds,
       isComplete,
       currentRound,
       currentTeamIndex,
       currentPick,
+      remainingBudget,
+      moneyPools,
       totalPicks,
       startTimer,
       clearTimer,
@@ -182,6 +258,10 @@ export function useDraft() {
     setDraftHistory([])
     setTimeRemaining(TIMER_DURATION)
     setPlayers([])
+    setDraftMode("normal")
+    setTotalRounds(NORMAL_DRAFT_ROUNDS)
+    setRemainingBudget([MONEY_DRAFT_BUDGET, MONEY_DRAFT_BUDGET])
+    setMoneyPools(EMPTY_MONEY_POOLS)
   }, [clearTimer])
 
   useEffect(() => {
@@ -190,6 +270,7 @@ export function useDraft() {
 
   return {
     status,
+    draftMode,
     currentPick,
     currentRound,
     currentTeamIndex,
@@ -199,9 +280,11 @@ export function useDraft() {
     draftHistory,
     timeRemaining,
     totalPicks,
-    totalRounds: TOTAL_ROUNDS,
+    totalRounds,
     timerDuration: TIMER_DURATION,
     players,
+    remainingBudget,
+    moneyPools,
     startDraft,
     draftPlayer,
     resetDraft,

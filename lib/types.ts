@@ -1,6 +1,8 @@
 export type Position = "PG" | "SG" | "SF" | "PF" | "C"
 
 export type PlayerSet = "current" | "historical" | "all"
+export type DraftMode = "normal" | "money"
+export type PlayerPrice = 1 | 2 | 3 | 4 | 5
 
 export interface Player {
   id: number
@@ -11,6 +13,7 @@ export interface Player {
   apg: number
   bpg: number
   rank: number
+  price: PlayerPrice
   era: "current" | "historical"
 }
 
