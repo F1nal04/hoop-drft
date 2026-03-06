@@ -88,11 +88,6 @@ export default function Page() {
               >
                 {draft.teamNames[draft.currentTeamIndex]} picks
               </span>
-              {draft.draftMode === "money" && (
-                <span className="rounded-full bg-accent/20 px-3 py-1 text-xs font-bold uppercase tracking-wider text-accent">
-                  ${draft.remainingBudget[draft.currentTeamIndex]} left
-                </span>
-              )}
             </div>
             <AlertDialog>
               <AlertDialogTrigger asChild>
@@ -172,10 +167,18 @@ export default function Page() {
               </h2>
               <p className="text-xs text-muted-foreground">
                 {draft.draftMode === "money"
-                  ? `Round ${draft.currentRound}, Pick ${draft.currentTeamIndex + 1} | Budget: $${draft.remainingBudget[draft.currentTeamIndex]}`
+                  ? `Round ${draft.currentRound}, Pick ${draft.currentTeamIndex + 1}`
                   : `Round ${draft.currentRound}, Pick ${draft.currentTeamIndex + 1} | Select a player from the board below`}
               </p>
             </div>
+            {draft.draftMode === "money" && (
+              <div className="flex flex-col items-center gap-0.5 rounded-lg bg-accent/15 px-4 py-2 text-accent sm:ml-auto sm:items-end">
+                <span className="text-[10px] font-bold uppercase tracking-widest text-accent/80">
+                  Budget Left
+                </span>
+                <span className="font-display text-3xl font-black leading-none">${draft.remainingBudget[draft.currentTeamIndex]}</span>
+              </div>
+            )}
           </div>
 
           {/* Draft board */}
