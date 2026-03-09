@@ -31,12 +31,10 @@ This project is purely coded by AI and built just for fun to help us run quick d
 
 ```bash
 bun install
-bun run db:migrate
-bun run db:seed
 bun run dev
 ```
 
-Set `DATABASE_URL` in `.env` before running DB commands.
+Player data is served from `public/data/players.json`, so there is no database setup.
 
 ## Docker (VPS)
 
@@ -53,12 +51,11 @@ docker run -d \
   --name hoopdrft \
   --restart unless-stopped \
   -p 3000:3000 \
-  -e DATABASE_URL="postgresql://user:pass@host:5432/dbname" \
   hoopdrft:latest
 ```
 
 Or with Compose:
 
 ```bash
-DATABASE_URL="postgresql://user:pass@host:5432/dbname" docker compose up -d --build
+docker compose up -d --build
 ```
