@@ -26,17 +26,19 @@ export const POSITION_COLORS: Record<Position, string> = {
 }
 
 type RawPlayer = Omit<Player, "era" | "price">
+type RawPlayerAsset = Omit<RawPlayer, "id"> & { id?: number }
 
 interface PlayerAsset {
-  current_players: RawPlayer[]
-  historical_players: RawPlayer[]
+  current_players: RawPlayerAsset[]
+  historical_players: RawPlayerAsset[]
 }
 
 let playerSetsPromise: Promise<Record<PlayerSet, Player[]>> | null = null
 
-function addEra(players: RawPlayer[], era: Player["era"]): Omit<Player, "price">[] {
-  return players.map((player) => ({
+function addEra(players: RawPlayerAsset[], era: Player["era"]): Omit<Player, "price">[] {
+  return players.map((player, index) => ({
     ...player,
+    id: player.id ?? index + 1,
     era,
   }))
 }
