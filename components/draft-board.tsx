@@ -161,6 +161,7 @@ export function DraftBoard({
                 isDrafted={draftedPlayerIds.has(`${player.era}-${player.id}`)}
                 onDraft={handleDraft}
                 disabled={disabled}
+                showPrice={false}
               />
             ))}
             {filtered.length === 0 && (
@@ -202,6 +203,7 @@ export function DraftBoard({
                         onDraft={handleDraft}
                         disabled={disabled || cannotAfford}
                         cannotAfford={cannotAfford && !isDrafted}
+                        showPrice
                       />
                     )
                   })}

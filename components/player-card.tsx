@@ -11,6 +11,7 @@ interface PlayerCardProps {
   onDraft: (player: Player) => void
   disabled: boolean
   cannotAfford?: boolean
+  showPrice?: boolean
 }
 
 export function PlayerCard({
@@ -19,6 +20,7 @@ export function PlayerCard({
   onDraft,
   disabled,
   cannotAfford = false,
+  showPrice = false,
 }: PlayerCardProps) {
   return (
     <button
@@ -45,9 +47,11 @@ export function PlayerCard({
       >
         {player.position}
       </span>
-      <span className="inline-flex shrink-0 items-center rounded bg-accent/20 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-accent">
-        ${player.price}
-      </span>
+      {showPrice && (
+        <span className="inline-flex shrink-0 items-center rounded bg-accent/20 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-accent">
+          ${player.price}
+        </span>
+      )}
       <div className="flex min-w-0 flex-1 flex-col gap-0.5">
         <span className="truncate text-sm font-semibold text-foreground">
           {player.name}
