@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useMemo } from "react"
+import { useState } from "react"
 import type { DraftMode, Player, PlayerPrice, Position } from "@/lib/types"
 import { PlayerCard } from "@/components/player-card"
 import { Input } from "@/components/ui/input"
@@ -55,35 +55,29 @@ export function DraftBoard({
     setSortBy("rank")
   }
 
-  const filtered = useMemo(() => {
-    return players
-      .filter((p) => {
-        const matchesSearch =
-          search === "" ||
-          p.name.toLowerCase().includes(search.toLowerCase())
-        const matchesPos = posFilter === "ALL" || p.position === posFilter
-        return matchesSearch && matchesPos
-      })
-      .sort((a, b) => {
-        // For rank, sort ascending (lower is better)
-        if (sortBy === "rank") {
-          return a.rank - b.rank
-        }
-        // For stats, sort descending (higher is better)
-        return b[sortBy] - a[sortBy]
-      })
-  }, [players, search, posFilter, sortBy])
+  const filtered = players
+    .filter((p) => {
+      const matchesSearch =
+        search === "" ||
+        p.name.toLowerCase().includes(search.toLowerCase())
+      const matchesPos = posFilter === "ALL" || p.position === posFilter
+      return matchesSearch && matchesPos
+    })
+    .sort((a, b) => {
+      // For rank, sort ascending (lower is better)
+      if (sortBy === "rank") {
+        return a.rank - b.rank
+      }
+      // For stats, sort descending (higher is better)
+      return b[sortBy] - a[sortBy]
+    })
 
   const availableCount = players.filter((p) => !draftedPlayerIds.has(`${p.era}-${p.id}`)).length
-  const availableMoneyPoolCount = useMemo(
-    () =>
-      MONEY_TIERS.reduce(
-        (count, tier) =>
-          count +
-          moneyPools[tier].filter((p) => !draftedPlayerIds.has(`${p.era}-${p.id}`)).length,
-        0,
-      ),
-    [moneyPools, draftedPlayerIds],
+  const availableMoneyPoolCount = MONEY_TIERS.reduce(
+    (count, tier) =>
+      count +
+      moneyPools[tier].filter((p) => !draftedPlayerIds.has(`${p.era}-${p.id}`)).length,
+    0,
   )
 
   return (

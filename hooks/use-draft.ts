@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useCallback, useRef, useEffect } from "react"
+import { useState, useRef, useEffect } from "react"
 import type { DraftMode, Player, PlayerPrice, PlayerSet } from "@/lib/types"
 import { getPlayerSet } from "@/lib/types"
 
@@ -78,14 +78,14 @@ export function useDraft() {
   const [moneyPools, setMoneyPools] = useState<MoneyPools>(EMPTY_MONEY_POOLS)
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null)
 
-  const clearTimer = useCallback(() => {
+  const clearTimer = () => {
     if (timerRef.current) {
       clearInterval(timerRef.current)
       timerRef.current = null
     }
-  }, [])
+  }
 
-  const startTimer = useCallback(() => {
+  const startTimer = () => {
     clearTimer()
     setTimeRemaining(TIMER_DURATION)
     timerRef.current = setInterval(() => {
@@ -96,114 +96,93 @@ export function useDraft() {
         return prev - 1
       })
     }, 1000)
-  }, [clearTimer])
+  }
 
   const totalPicks = totalRounds * 2
   const isComplete = currentPick > totalPicks
 
-  const startDraft = useCallback(
-    async (name1: string, name2: string, playerSet: PlayerSet, selectedDraftMode: DraftMode) => {
-      setTeamNames([name1 || "Team 1", name2 || "Team 2"])
-      const playerData = await getPlayerSet(playerSet)
-      setPlayers(playerData)
-      setDraftMode(selectedDraftMode)
-      setTotalRounds(selectedDraftMode === "money" ? MONEY_DRAFT_ROUNDS : NORMAL_DRAFT_ROUNDS)
-      setStatus("drafting")
-      setCurrentPick(1)
-      setCurrentRound(1)
-      const randomFirstPicker = Math.floor(Math.random() * 2) as 0 | 1
-      setCurrentTeamIndex(randomFirstPicker)
-      setTeamRosters([[], []])
-      setDraftedPlayerIds(new Set())
-      setDraftHistory([])
-      setRemainingBudget([MONEY_DRAFT_BUDGET, MONEY_DRAFT_BUDGET])
-      if (selectedDraftMode === "money") {
-        setMoneyPools(buildMoneyPools(playerData))
-      } else {
-        setMoneyPools(EMPTY_MONEY_POOLS)
-      }
-      startTimer()
-    },
-    [startTimer],
-  )
+  const startDraft = async (name1: string, name2: string, playerSet: PlayerSet, selectedDraftMode: DraftMode) => {
+    setTeamNames([name1 || "Team 1", name2 || "Team 2"])
+    const playerData = await getPlayerSet(playerSet)
+    setPlayers(playerData)
+    setDraftMode(selectedDraftMode)
+    setTotalRounds(selectedDraftMode === "money" ? MONEY_DRAFT_ROUNDS : NORMAL_DRAFT_ROUNDS)
+    setStatus("drafting")
+    setCurrentPick(1)
+    setCurrentRound(1)
+    const randomFirstPicker = Math.floor(Math.random() * 2) as 0 | 1
+    setCurrentTeamIndex(randomFirstPicker)
+    setTeamRosters([[], []])
+    setDraftedPlayerIds(new Set())
+    setDraftHistory([])
+    setRemainingBudget([MONEY_DRAFT_BUDGET, MONEY_DRAFT_BUDGET])
+    if (selectedDraftMode === "money") {
+      setMoneyPools(buildMoneyPools(playerData))
+    } else {
+      setMoneyPools(EMPTY_MONEY_POOLS)
+    }
+    startTimer()
+  }
 
-  const draftPlayer = useCallback(
-    (player: Player) => {
-      const playerKey = `${player.era}-${player.id}`
-      if (status !== "drafting" || draftedPlayerIds.has(playerKey) || isComplete) return
-      if (draftMode === "money") {
-        const currentTeamPicksMade = teamRosters[currentTeamIndex].length
-        const remainingSlotsAfterPick = Math.max(0, totalRounds - (currentTeamPicksMade + 1))
-        const budgetAfterPick = remainingBudget[currentTeamIndex] - player.price
-        const canAffordNow = player.price <= remainingBudget[currentTeamIndex]
-        const canAffordFutureSlots = budgetAfterPick >= remainingSlotsAfterPick
-        if (!canAffordNow || !canAffordFutureSlots) return
+  const draftPlayer = (player: Player) => {
+    const playerKey = `${player.era}-${player.id}`
+    if (status !== "drafting" || draftedPlayerIds.has(playerKey) || isComplete) return
+    if (draftMode === "money") {
+      const currentTeamPicksMade = teamRosters[currentTeamIndex].length
+      const remainingSlotsAfterPick = Math.max(0, totalRounds - (currentTeamPicksMade + 1))
+      const budgetAfterPick = remainingBudget[currentTeamIndex] - player.price
+      const canAffordNow = player.price <= remainingBudget[currentTeamIndex]
+      const canAffordFutureSlots = budgetAfterPick >= remainingSlotsAfterPick
+      if (!canAffordNow || !canAffordFutureSlots) return
 
-        const isPlayerInPool = Object.values(moneyPools).some((tierPlayers) =>
-          tierPlayers.some((poolPlayer) => `${poolPlayer.era}-${poolPlayer.id}` === playerKey),
-        )
+      const isPlayerInPool = Object.values(moneyPools).some((tierPlayers) =>
+        tierPlayers.some((poolPlayer) => `${poolPlayer.era}-${poolPlayer.id}` === playerKey),
+      )
 
-        if (!isPlayerInPool) return
-      }
+      if (!isPlayerInPool) return
+    }
 
-      const pick: DraftPick = {
-        round: currentRound,
-        pick: currentTeamIndex + 1,
-        overallPick: currentPick,
-        teamIndex: currentTeamIndex,
-        player,
-      }
+    const pick: DraftPick = {
+      round: currentRound,
+      pick: currentTeamIndex + 1,
+      overallPick: currentPick,
+      teamIndex: currentTeamIndex,
+      player,
+    }
 
-      setDraftHistory((prev) => [...prev, pick])
-      setTeamRosters((prev) => {
-        const updated: [(Player | null)[], (Player | null)[]] = [[...prev[0]], [...prev[1]]]
-        updated[currentTeamIndex] = [...updated[currentTeamIndex], player]
+    setDraftHistory((prev) => [...prev, pick])
+    setTeamRosters((prev) => {
+      const updated: [(Player | null)[], (Player | null)[]] = [[...prev[0]], [...prev[1]]]
+      updated[currentTeamIndex] = [...updated[currentTeamIndex], player]
+      return updated
+    })
+    setDraftedPlayerIds((prev) => new Set([...prev, playerKey]))
+    if (draftMode === "money") {
+      setRemainingBudget((prev) => {
+        const updated: [number, number] = [...prev] as [number, number]
+        updated[currentTeamIndex] = Math.max(0, updated[currentTeamIndex] - player.price)
         return updated
       })
-      setDraftedPlayerIds((prev) => new Set([...prev, playerKey]))
-      if (draftMode === "money") {
-        setRemainingBudget((prev) => {
-          const updated: [number, number] = [...prev] as [number, number]
-          updated[currentTeamIndex] = Math.max(0, updated[currentTeamIndex] - player.price)
-          return updated
-        })
-      }
+    }
 
-      const nextPick = currentPick + 1
-      if (nextPick > totalPicks) {
-        setCurrentPick(nextPick)
-        setStatus("completed")
-        clearTimer()
-        return
-      }
-
-      const nextTeamIndex = currentTeamIndex === 0 ? 1 : 0
-      const nextRound = Math.ceil(nextPick / 2)
-
+    const nextPick = currentPick + 1
+    if (nextPick > totalPicks) {
       setCurrentPick(nextPick)
-      setCurrentTeamIndex(nextTeamIndex)
-      if (nextRound !== currentRound) {
-        setCurrentRound(nextRound)
-      }
-      startTimer()
-    },
-    [
-      status,
-      draftMode,
-      draftedPlayerIds,
-      isComplete,
-      currentRound,
-      currentTeamIndex,
-      currentPick,
-      teamRosters,
-      remainingBudget,
-      moneyPools,
-      totalRounds,
-      totalPicks,
-      startTimer,
-      clearTimer,
-    ],
-  )
+      setStatus("completed")
+      clearTimer()
+      return
+    }
+
+    const nextTeamIndex = currentTeamIndex === 0 ? 1 : 0
+    const nextRound = Math.ceil(nextPick / 2)
+
+    setCurrentPick(nextPick)
+    setCurrentTeamIndex(nextTeamIndex)
+    if (nextRound !== currentRound) {
+      setCurrentRound(nextRound)
+    }
+    startTimer()
+  }
 
   useEffect(() => {
     if (timeRemaining === 0 && status === "drafting" && !isComplete) {
@@ -249,11 +228,9 @@ export function useDraft() {
     totalPicks,
     currentTeamIndex,
     currentRound,
-    startTimer,
-    clearTimer,
   ])
 
-  const resetDraft = useCallback(() => {
+  const resetDraft = () => {
     clearTimer()
     setStatus("pre-draft")
     setCurrentPick(1)
@@ -268,11 +245,11 @@ export function useDraft() {
     setTotalRounds(NORMAL_DRAFT_ROUNDS)
     setRemainingBudget([MONEY_DRAFT_BUDGET, MONEY_DRAFT_BUDGET])
     setMoneyPools(EMPTY_MONEY_POOLS)
-  }, [clearTimer])
+  }
 
   useEffect(() => {
     return () => clearTimer()
-  }, [clearTimer])
+  }, [])
 
   return {
     status,
