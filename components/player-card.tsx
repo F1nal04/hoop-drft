@@ -28,7 +28,7 @@ export function PlayerCard({
       onClick={() => onDraft(player)}
       disabled={isDrafted || disabled}
       className={cn(
-        "group relative flex w-full items-center gap-3 rounded-lg border border-border px-3 py-2.5 text-left transition-all",
+        "group relative flex w-full items-center gap-3 rounded-lg border border-border bg-transparent px-3 py-2.5 text-left transition-all",
         isDrafted
           ? "cursor-not-allowed border-border/50 opacity-40"
           : disabled

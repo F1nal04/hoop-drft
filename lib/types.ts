@@ -18,11 +18,11 @@ export interface Player {
 }
 
 export const POSITION_COLORS: Record<Position, string> = {
-  PG: "bg-sky-600 text-sky-50",
-  SG: "bg-emerald-600 text-emerald-50",
-  SF: "bg-amber-600 text-amber-50",
-  PF: "bg-rose-600 text-rose-50",
-  C: "bg-indigo-600 text-indigo-50",
+  PG: "text-foreground",
+  SG: "text-foreground",
+  SF: "text-foreground",
+  PF: "text-foreground",
+  C: "text-foreground",
 }
 
 type RawPlayer = Omit<Player, "era" | "price">
