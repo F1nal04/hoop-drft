@@ -115,14 +115,14 @@ export function PreDraftScreen({
           <label className="text-xs font-bold uppercase tracking-widest text-muted-foreground">
             Draft Type
           </label>
-          <div className="grid grid-cols-1 gap-1.5 sm:grid-cols-2">
+          <div className="grid grid-cols-1 gap-1.5 sm:grid-cols-3">
             {DRAFT_MODE_OPTIONS.map((option) => (
               <button
                 key={option.value}
                 type="button"
                 onClick={() => setDraftMode(option.value)}
                 className={cn(
-                  "flex flex-col items-center gap-1.5 rounded-lg border px-3 py-2.5 text-center transition-all",
+                  "flex min-h-32 flex-col items-center justify-center gap-1.5 rounded-lg border px-3 py-3 text-center transition-all",
                   draftMode === option.value
                     ? "border-primary bg-primary/10 text-foreground"
                     : "border-border bg-secondary/30 text-muted-foreground hover:border-primary/30 hover:bg-secondary/60",
