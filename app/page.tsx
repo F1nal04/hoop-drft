@@ -26,7 +26,13 @@ export default function Page() {
   const draft = useDraft()
 
   if (draft.status === "pre-draft") {
-    return <PreDraftScreen onStart={draft.startDraft} />
+    return (
+      <PreDraftScreen
+        onStart={draft.startDraft}
+        savedSnakePlayerCount={draft.savedSnakePlayerIds.size}
+        onClearSavedSnakePlayers={draft.clearSavedSnakePlayers}
+      />
+    )
   }
 
   if (draft.status === "completed") {
@@ -35,7 +41,9 @@ export default function Page() {
         teamNames={draft.teamNames}
         teamRosters={draft.teamRosters}
         draftMode={draft.draftMode}
+        savedSnakePlayerCount={draft.savedSnakePlayerIds.size}
         onReset={draft.resetDraft}
+        onStartNextSavedSnakeDraft={draft.startNextSavedSnakeDraft}
       />
     )
   }

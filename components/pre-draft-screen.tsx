@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import type { DraftMode, PlayerSet } from "@/lib/types";
 import { cn } from "@/lib/utils";
-import { Trophy, Clock, Users, History, DollarSign } from "lucide-react";
+import { Trophy, Clock, Users, History, DollarSign, Database } from "lucide-react";
 
 interface PreDraftScreenProps {
   onStart: (
@@ -16,6 +16,8 @@ interface PreDraftScreenProps {
     playerSet: PlayerSet,
     draftMode: DraftMode,
   ) => Promise<void>;
+  savedSnakePlayerCount: number;
+  onClearSavedSnakePlayers: () => void;
 }
 
 const PLAYER_SET_OPTIONS: {
@@ -57,6 +59,12 @@ const DRAFT_MODE_OPTIONS: {
     icon: <Trophy className="h-5 w-5" />,
   },
   {
+    value: "snakeSaved",
+    label: "Saved Snake",
+    description: "Carry drafted players into the next run",
+    icon: <Database className="h-5 w-5" />,
+  },
+  {
     value: "money",
     label: "Money Draft",
     description: "$15 budget, $1-$5 tier pools",
@@ -64,7 +72,11 @@ const DRAFT_MODE_OPTIONS: {
   },
 ];
 
-export function PreDraftScreen({ onStart }: PreDraftScreenProps) {
+export function PreDraftScreen({
+  onStart,
+  savedSnakePlayerCount,
+  onClearSavedSnakePlayers,
+}: PreDraftScreenProps) {
   const [name1, setName1] = useState("");
   const [name2, setName2] = useState("");
   const [playerSet, setPlayerSet] = useState<PlayerSet>("current");
@@ -92,7 +104,7 @@ export function PreDraftScreen({ onStart }: PreDraftScreenProps) {
           HoopDrft
         </h1>
         <p className="max-w-md text-sm leading-relaxed text-muted-foreground">
-          Head-to-head snake draft. Normal mode is 10 rounds, money mode is 5.
+          Head-to-head snake draft. Normal and saved snake are 10 rounds, money mode is 5.
           Choose your player pool, name your squads, and get on the clock.
         </p>
       </div>
@@ -133,6 +145,20 @@ export function PreDraftScreen({ onStart }: PreDraftScreenProps) {
               </button>
             ))}
           </div>
+          {draftMode === "snakeSaved" && (
+            <div className="flex items-center justify-between rounded-lg border border-border bg-secondary/30 px-3 py-2 text-xs text-muted-foreground">
+              <span>{savedSnakePlayerCount} saved drafted players will be excluded</span>
+              <Button
+                type="button"
+                variant="ghost"
+                size="sm"
+                onClick={onClearSavedSnakePlayers}
+                className="h-auto px-2 py-1 text-xs font-semibold"
+              >
+                Clear Saved
+              </Button>
+            </div>
+          )}
         </div>
 
         {/* Player set selector */}

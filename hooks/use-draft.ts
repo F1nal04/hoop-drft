@@ -19,8 +19,16 @@ const NORMAL_DRAFT_ROUNDS = 10
 const MONEY_DRAFT_ROUNDS = 5
 const MONEY_DRAFT_BUDGET = 15
 const MONEY_TIER_POOL_SIZE = 5
+const SAVED_SNAKE_STORAGE_KEY = "hoopdrft-saved-snake-player-ids"
 
 type MoneyPools = Record<PlayerPrice, Player[]>
+
+interface DraftConfig {
+  name1: string
+  name2: string
+  playerSet: PlayerSet
+  draftMode: DraftMode
+}
 
 const EMPTY_MONEY_POOLS: MoneyPools = {
   1: [],
@@ -58,6 +66,15 @@ function buildMoneyPools(players: Player[]): MoneyPools {
   return pools
 }
 
+function getTeamIndexForPick(overallPick: number, firstTeamIndex: 0 | 1) {
+  const round = Math.ceil(overallPick / 2)
+  const pickInRound = ((overallPick - 1) % 2) + 1
+  const roundOrder: [0 | 1, 0 | 1] =
+    round % 2 === 1 ? [firstTeamIndex, firstTeamIndex === 0 ? 1 : 0] : [firstTeamIndex === 0 ? 1 : 0, firstTeamIndex]
+
+  return roundOrder[pickInRound - 1]
+}
+
 export function useDraft() {
   const [status, setStatus] = useState<DraftStatus>("pre-draft")
   const [draftMode, setDraftMode] = useState<DraftMode>("normal")
@@ -67,6 +84,7 @@ export function useDraft() {
   const [currentTeamIndex, setCurrentTeamIndex] = useState(0)
   const [teamNames, setTeamNames] = useState<[string, string]>(["Team 1", "Team 2"])
   const [teamRosters, setTeamRosters] = useState<[(Player | null)[], (Player | null)[]]>([[], []])
+  const [firstTeamIndex, setFirstTeamIndex] = useState<0 | 1>(0)
   const [draftedPlayerIds, setDraftedPlayerIds] = useState<Set<string>>(new Set())
   const [draftHistory, setDraftHistory] = useState<DraftPick[]>([])
   const [timeRemaining, setTimeRemaining] = useState(TIMER_DURATION)
@@ -76,7 +94,25 @@ export function useDraft() {
     MONEY_DRAFT_BUDGET,
   ])
   const [moneyPools, setMoneyPools] = useState<MoneyPools>(EMPTY_MONEY_POOLS)
+  const [savedSnakePlayerIds, setSavedSnakePlayerIds] = useState<Set<string>>(new Set())
+  const [lastDraftConfig, setLastDraftConfig] = useState<DraftConfig | null>(null)
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null)
+  const hasSavedCompletedSnakeDraftRef = useRef(false)
+
+  const persistSavedSnakePlayerIds = (playerIds: Set<string>) => {
+    setSavedSnakePlayerIds(playerIds)
+    if (typeof window !== "undefined") {
+      window.localStorage.setItem(SAVED_SNAKE_STORAGE_KEY, JSON.stringify([...playerIds]))
+    }
+  }
+
+  const filterPlayersForDraft = (playerData: Player[], selectedDraftMode: DraftMode) => {
+    if (selectedDraftMode !== "snakeSaved") {
+      return playerData
+    }
+
+    return playerData.filter((player) => !savedSnakePlayerIds.has(`${player.era}-${player.id}`))
+  }
 
   const clearTimer = () => {
     if (timerRef.current) {
@@ -104,20 +140,29 @@ export function useDraft() {
   const startDraft = async (name1: string, name2: string, playerSet: PlayerSet, selectedDraftMode: DraftMode) => {
     setTeamNames([name1 || "Team 1", name2 || "Team 2"])
     const playerData = await getPlayerSet(playerSet)
-    setPlayers(playerData)
+    const filteredPlayers = filterPlayersForDraft(playerData, selectedDraftMode)
+    setPlayers(filteredPlayers)
     setDraftMode(selectedDraftMode)
     setTotalRounds(selectedDraftMode === "money" ? MONEY_DRAFT_ROUNDS : NORMAL_DRAFT_ROUNDS)
     setStatus("drafting")
     setCurrentPick(1)
     setCurrentRound(1)
     const randomFirstPicker = Math.floor(Math.random() * 2) as 0 | 1
+    setFirstTeamIndex(randomFirstPicker)
     setCurrentTeamIndex(randomFirstPicker)
     setTeamRosters([[], []])
     setDraftedPlayerIds(new Set())
     setDraftHistory([])
     setRemainingBudget([MONEY_DRAFT_BUDGET, MONEY_DRAFT_BUDGET])
+    setLastDraftConfig({
+      name1: name1 || "Team 1",
+      name2: name2 || "Team 2",
+      playerSet,
+      draftMode: selectedDraftMode,
+    })
+    hasSavedCompletedSnakeDraftRef.current = false
     if (selectedDraftMode === "money") {
-      setMoneyPools(buildMoneyPools(playerData))
+      setMoneyPools(buildMoneyPools(filteredPlayers))
     } else {
       setMoneyPools(EMPTY_MONEY_POOLS)
     }
@@ -173,7 +218,7 @@ export function useDraft() {
       return
     }
 
-    const nextTeamIndex = currentTeamIndex === 0 ? 1 : 0
+    const nextTeamIndex = getTeamIndexForPick(nextPick, firstTeamIndex)
     const nextRound = Math.ceil(nextPick / 2)
 
     setCurrentPick(nextPick)
@@ -183,6 +228,25 @@ export function useDraft() {
     }
     startTimer()
   }
+
+  useEffect(() => {
+    if (typeof window === "undefined") {
+      return
+    }
+
+    const storedPlayerIds = window.localStorage.getItem(SAVED_SNAKE_STORAGE_KEY)
+    if (!storedPlayerIds) {
+      return
+    }
+
+    try {
+      const parsedPlayerIds = JSON.parse(storedPlayerIds) as string[]
+      setSavedSnakePlayerIds(new Set(parsedPlayerIds))
+    } catch (error) {
+      console.error("Failed to parse saved snake draft players:", error)
+      window.localStorage.removeItem(SAVED_SNAKE_STORAGE_KEY)
+    }
+  }, [])
 
   useEffect(() => {
     if (timeRemaining === 0 && status === "drafting" && !isComplete) {
@@ -210,7 +274,7 @@ export function useDraft() {
         return
       }
 
-      const nextTeamIndex = currentTeamIndex === 0 ? 1 : 0
+      const nextTeamIndex = getTeamIndexForPick(nextPick, firstTeamIndex)
       const nextRound = Math.ceil(nextPick / 2)
 
       setCurrentPick(nextPick)
@@ -228,7 +292,25 @@ export function useDraft() {
     totalPicks,
     currentTeamIndex,
     currentRound,
+    firstTeamIndex,
   ])
+
+  useEffect(() => {
+    if (status !== "completed" || draftMode !== "snakeSaved" || hasSavedCompletedSnakeDraftRef.current) {
+      return
+    }
+
+    const completedDraftPlayerIds = draftHistory
+      .map((pick) => pick.player)
+      .filter((player): player is Player => player !== null)
+      .map((player) => `${player.era}-${player.id}`)
+
+    if (completedDraftPlayerIds.length > 0) {
+      persistSavedSnakePlayerIds(new Set([...savedSnakePlayerIds, ...completedDraftPlayerIds]))
+    }
+
+    hasSavedCompletedSnakeDraftRef.current = true
+  }, [draftHistory, draftMode, savedSnakePlayerIds, status])
 
   const resetDraft = () => {
     clearTimer()
@@ -236,6 +318,7 @@ export function useDraft() {
     setCurrentPick(1)
     setCurrentRound(1)
     setCurrentTeamIndex(0)
+    setFirstTeamIndex(0)
     setTeamRosters([[], []])
     setDraftedPlayerIds(new Set())
     setDraftHistory([])
@@ -245,6 +328,24 @@ export function useDraft() {
     setTotalRounds(NORMAL_DRAFT_ROUNDS)
     setRemainingBudget([MONEY_DRAFT_BUDGET, MONEY_DRAFT_BUDGET])
     setMoneyPools(EMPTY_MONEY_POOLS)
+    hasSavedCompletedSnakeDraftRef.current = false
+  }
+
+  const startNextSavedSnakeDraft = async () => {
+    if (!lastDraftConfig || lastDraftConfig.draftMode !== "snakeSaved") {
+      return
+    }
+
+    await startDraft(
+      lastDraftConfig.name1,
+      lastDraftConfig.name2,
+      lastDraftConfig.playerSet,
+      lastDraftConfig.draftMode,
+    )
+  }
+
+  const clearSavedSnakePlayers = () => {
+    persistSavedSnakePlayerIds(new Set())
   }
 
   useEffect(() => {
@@ -268,8 +369,11 @@ export function useDraft() {
     players,
     remainingBudget,
     moneyPools,
+    savedSnakePlayerIds,
     startDraft,
     draftPlayer,
     resetDraft,
+    startNextSavedSnakeDraft,
+    clearSavedSnakePlayers,
   }
 }

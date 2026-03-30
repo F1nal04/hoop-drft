@@ -11,14 +11,18 @@ interface DraftCompleteScreenProps {
   teamNames: [string, string]
   teamRosters: [(Player | null)[], (Player | null)[]]
   draftMode: DraftMode
+  savedSnakePlayerCount: number
   onReset: () => void
+  onStartNextSavedSnakeDraft: () => void
 }
 
 export function DraftCompleteScreen({
   teamNames,
   teamRosters,
   draftMode,
+  savedSnakePlayerCount,
   onReset,
+  onStartNextSavedSnakeDraft,
 }: DraftCompleteScreenProps) {
   const targetPerPosition = draftMode === "money" ? 1 : 2
 
@@ -34,6 +38,11 @@ export function DraftCompleteScreen({
         <p className="text-base text-muted-foreground">
           Both squads are locked in. Time to see who built the better team!
         </p>
+        {draftMode === "snakeSaved" && (
+          <p className="text-sm text-muted-foreground">
+            {savedSnakePlayerCount} drafted players are now saved and can be removed from the next snake draft.
+          </p>
+        )}
       </div>
 
       <div className="grid w-full max-w-5xl grid-cols-1 gap-6 md:grid-cols-2">
@@ -104,14 +113,32 @@ export function DraftCompleteScreen({
         ))}
       </div>
 
-      <Button
-        size="lg"
-        onClick={onReset}
-        className="bg-primary font-display text-base font-bold uppercase tracking-wider text-primary-foreground hover:bg-primary/90"
-      >
-        <RotateCcw className="mr-2 h-4 w-4" />
-        New Draft
-      </Button>
+      <div className="flex flex-col items-center gap-3 sm:flex-row">
+        {draftMode === "snakeSaved" && (
+          <Button
+            size="lg"
+            onClick={onStartNextSavedSnakeDraft}
+            className="bg-primary font-display text-base font-bold uppercase tracking-wider text-primary-foreground hover:bg-primary/90"
+          >
+            <RotateCcw className="mr-2 h-4 w-4" />
+            New Draft Without Drafted Players
+          </Button>
+        )}
+        <Button
+          size="lg"
+          variant={draftMode === "snakeSaved" ? "outline" : "default"}
+          onClick={onReset}
+          className={cn(
+            "font-display text-base font-bold uppercase tracking-wider",
+            draftMode === "snakeSaved"
+              ? ""
+              : "bg-primary text-primary-foreground hover:bg-primary/90",
+          )}
+        >
+          <RotateCcw className="mr-2 h-4 w-4" />
+          New Draft
+        </Button>
+      </div>
     </div>
   )
 }
