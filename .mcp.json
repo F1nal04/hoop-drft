@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "next-devtools": {
+      "command": "bunx",
+      "args": ["next-devtools-mcp@latest"]
+    },
+    "context7": {
+      "url": "https://mcp.context7.com/mcp"
+    },
+    "playwright": {
+      "command": "bunx",
+      "args": ["@playwright/mcp@latest"]
+    }
+  }
+}
