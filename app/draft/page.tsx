@@ -12,7 +12,8 @@ type PosFilter = "ALL" | Position
 interface TeamState extends TeamResult {}
 
 const POOL_LIMIT = 80
-const STAT_COLS = "grid-cols-[30px_38px_1fr_50px_50px_50px_60px_80px]"
+const STAT_COLS_MONEY = "grid-cols-[30px_38px_1fr_50px_50px_50px_60px_80px]"
+const STAT_COLS_SNAKE = "grid-cols-[30px_38px_1fr_50px_50px_50px_80px]"
 
 function pickOrder(idx: number, mode: HDConfig["mode"], firstTeam: 0 | 1): 0 | 1 {
   if (mode === "snake") {
@@ -227,6 +228,7 @@ export default function DraftPage() {
   const timerWarn = secondsLeft <= 10
   const onClockTeam = teams[onClock]
   const showMoney = config.mode === "money"
+  const statCols = showMoney ? STAT_COLS_MONEY : STAT_COLS_SNAKE
   const progress = secondsLeft / Math.max(1, config.clock)
 
   return (
@@ -325,7 +327,7 @@ export default function DraftPage() {
               <option value="ppg">Sort · PPG</option>
               <option value="rpg">Sort · RPG</option>
               <option value="apg">Sort · APG</option>
-              <option value="cost">Sort · $</option>
+              {showMoney && <option value="cost">Sort · $</option>}
             </select>
 
             <div className="relative flex-1">
@@ -339,7 +341,7 @@ export default function DraftPage() {
           </div>
 
           <div
-            className={`grid ${STAT_COLS} gap-2.5 border-y border-line bg-paper px-7 py-2.5 font-mono text-[10px] uppercase tracking-[0.12em] text-ink-mute`}
+            className={`grid ${statCols} gap-2.5 border-y border-line bg-paper px-7 py-2.5 font-mono text-[10px] uppercase tracking-[0.12em] text-ink-mute`}
           >
             <span className="text-right">#</span>
             <span />
@@ -347,7 +349,7 @@ export default function DraftPage() {
             <span className="text-right">PPG</span>
             <span className="text-right">RPG</span>
             <span className="text-right">APG</span>
-            <span className="text-right">$M</span>
+            {showMoney && <span className="text-right">$M</span>}
             <span className="text-right">POS</span>
           </div>
 
@@ -371,7 +373,7 @@ export default function DraftPage() {
                     key={p.id}
                     type="button"
                     onClick={() => selectPlayer(p.id)}
-                    className={`grid ${STAT_COLS} w-full cursor-pointer items-center gap-2.5 border-b border-dashed border-line px-7 py-2.5 text-left ${
+                    className={`grid ${statCols} w-full cursor-pointer items-center gap-2.5 border-b border-dashed border-line px-7 py-2.5 text-left ${
                       selected ? "bg-orange-soft" : "bg-transparent hover:bg-paper-2"
                     }`}
                   >
@@ -412,9 +414,11 @@ export default function DraftPage() {
                     >
                       {p.apg}
                     </span>
-                    <span className="text-right font-mono text-[13px] font-semibold text-ok">
-                      ${p.cost}
-                    </span>
+                    {showMoney && (
+                      <span className="text-right font-mono text-[13px] font-semibold text-ok">
+                        ${p.cost}
+                      </span>
+                    )}
                     <span className="text-right font-mono text-[11px] tracking-[0.06em] text-ink-soft">
                       {p.pos}
                     </span>
