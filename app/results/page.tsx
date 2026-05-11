@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { useEffect, useState } from "react"
-import { type DraftResult, type TeamResult, gradeFor, readResult } from "@/lib/hd-results"
+import { type DraftResult, type TeamResult, readResult } from "@/lib/hd-results"
 
 const FALLBACK: DraftResult = {
   mode: "snake",
@@ -30,7 +30,7 @@ export default function ResultsPage() {
     lines.push(`Hoop Draft — ${result.mode === "money" ? "Money" : "Snake"} draft`)
     result.teams.forEach((team) => {
       lines.push("")
-      lines.push(`${team.name} (${gradeFor(team)})`)
+      lines.push(team.name)
       team.picks
         .slice()
         .sort((a, b) => a.pickNo - b.pickNo)
@@ -110,9 +110,6 @@ function RosterCard({
         <h2 className="m-0 flex-1 font-serif text-[22px] font-medium tracking-[-0.01em]">
           {team.name}
         </h2>
-        <span className="font-serif text-[28px] font-medium leading-none text-orange-hd">
-          {gradeFor(team)}
-        </span>
       </div>
       <div className="py-1">
         {sorted.length === 0 ? (

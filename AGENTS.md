@@ -35,7 +35,7 @@ Single-page Next.js 16 App Router project. React 19 with the **React Compiler en
   ├─ /options    → configure dataset, mode, team names, clock, budget
   ├─ /lobby      → share-code stub (no real multiplayer; UI placeholder)
   ├─ /draft      → live draft board (the bulk of the app, ~600 LOC)
-  └─ /results    → post-draft summary with letter grade
+  └─ /results    → post-draft summary listing both rosters
 ```
 
 State flows between pages **via `localStorage`**, not Next.js routing or context:
@@ -51,11 +51,9 @@ Players are loaded once from `public/data/players.json` (no DB, no API). `loadHD
 
 Raw JSON has `current_players` and `historical_players` arrays with `rank` fields. `mapPlayers` derives the in-app shape:
 
-- `cost` is computed from rank via `rankToCost` (global min/max across both eras), used by money mode and the post-draft grade.
+- `cost` is computed from rank via `rankToCost` (global min/max across both eras), used by money mode.
 - `tag` is `"NOW"` or `"ERA"`.
 - A `mixed` dataset is produced by merging both lists sorted by rank.
-
-If you change the rank→cost curve, money-mode pricing and snake-mode grade thresholds shift together.
 
 ### Draft engine (`app/draft/page.tsx`)
 
