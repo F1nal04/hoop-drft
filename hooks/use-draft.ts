@@ -75,6 +75,14 @@ function getTeamIndexForPick(overallPick: number, firstTeamIndex: 0 | 1) {
   return roundOrder[pickInRound - 1]
 }
 
+function getNextTeamIndex(nextPick: number, draftMode: DraftMode, firstTeamIndex: 0 | 1) {
+  if (draftMode === "snakeSaved") {
+    return nextPick % 2 === 1 ? firstTeamIndex : firstTeamIndex === 0 ? 1 : 0
+  }
+
+  return getTeamIndexForPick(nextPick, firstTeamIndex)
+}
+
 export function useDraft() {
   const [status, setStatus] = useState<DraftStatus>("pre-draft")
   const [draftMode, setDraftMode] = useState<DraftMode>("normal")
@@ -218,7 +226,7 @@ export function useDraft() {
       return
     }
 
-    const nextTeamIndex = getTeamIndexForPick(nextPick, firstTeamIndex)
+    const nextTeamIndex = getNextTeamIndex(nextPick, draftMode, firstTeamIndex)
     const nextRound = Math.ceil(nextPick / 2)
 
     setCurrentPick(nextPick)
@@ -274,7 +282,7 @@ export function useDraft() {
         return
       }
 
-      const nextTeamIndex = getTeamIndexForPick(nextPick, firstTeamIndex)
+      const nextTeamIndex = getNextTeamIndex(nextPick, draftMode, firstTeamIndex)
       const nextRound = Math.ceil(nextPick / 2)
 
       setCurrentPick(nextPick)
