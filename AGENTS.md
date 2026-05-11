@@ -51,12 +51,11 @@ Players are loaded once from `public/data/players.json` (no DB, no API). `loadHD
 
 Raw JSON has `current_players` and `historical_players` arrays with `rank` fields. `mapPlayers` derives the in-app shape:
 
-- `ovr` (65–99) is computed from rank via `rankToOvr` (global min/max across both eras).
-- `cost` is derived from `ovr` via `ovrToCost` (used by money mode).
+- `cost` is computed from rank via `rankToCost` (global min/max across both eras), used by money mode and the post-draft grade.
 - `tag` is `"NOW"` or `"ERA"`.
 - A `mixed` dataset is produced by merging both lists sorted by rank.
 
-If you change the rank→ovr or ovr→cost curves, both modes shift simultaneously — there is no per-mode override.
+If you change the rank→cost curve, money-mode pricing and snake-mode grade thresholds shift together.
 
 ### Draft engine (`app/draft/page.tsx`)
 

@@ -9,7 +9,6 @@ export interface HDPlayer {
   name: string
   tag: string
   pos: Position
-  ovr: number
   ppg: number
   rpg: number
   apg: number
@@ -42,13 +41,9 @@ function jerseyFor(seed: number): number {
   return JERSEYS[Math.abs(seed) % JERSEYS.length]
 }
 
-function rankToOvr(rank: number, ranks: { min: number; max: number }): number {
+function rankToCost(rank: number, ranks: { min: number; max: number }): number {
   const t = (rank - ranks.min) / Math.max(1, ranks.max - ranks.min)
-  return Math.max(65, Math.round(99 - t * 34))
-}
-
-function ovrToCost(ovr: number): number {
-  return Math.max(2, Math.round((ovr - 65) * 2.5))
+  return Math.max(2, Math.round((1 - t) * 85))
 }
 
 function tagFor(era: Era): string {
@@ -59,24 +54,20 @@ function mapPlayers(raw: RawPlayer[], era: Era, ranks: { min: number; max: numbe
   return raw
     .slice()
     .sort((a, b) => a.rank - b.rank)
-    .map((p, i) => {
-      const ovr = rankToOvr(p.rank, ranks)
-      return {
-        id: `${era}-${p.rank}-${i}`,
-        num: jerseyFor(p.rank + i * 13),
-        name: p.name,
-        tag: tagFor(era),
-        pos: p.position,
-        ovr,
-        ppg: p.ppg,
-        rpg: p.rpg,
-        apg: p.apg,
-        bpg: p.bpg,
-        cost: ovrToCost(ovr),
-        rank: p.rank,
-        era,
-      }
-    })
+    .map((p, i) => ({
+      id: `${era}-${p.rank}-${i}`,
+      num: jerseyFor(p.rank + i * 13),
+      name: p.name,
+      tag: tagFor(era),
+      pos: p.position,
+      ppg: p.ppg,
+      rpg: p.rpg,
+      apg: p.apg,
+      bpg: p.bpg,
+      cost: rankToCost(p.rank, ranks),
+      rank: p.rank,
+      era,
+    }))
 }
 
 let cache: Promise<Record<DatasetKey, HDPlayer[]>> | null = null

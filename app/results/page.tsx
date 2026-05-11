@@ -35,7 +35,7 @@ export default function ResultsPage() {
         .slice()
         .sort((a, b) => a.pickNo - b.pickNo)
         .forEach((p) => {
-          const tail = result.mode === "money" ? `$${p.cost}M` : `${p.ovr} OVR`
+          const tail = result.mode === "money" ? `$${p.cost}M` : `${p.ppg} PPG`
           lines.push(`  P${String(p.pickNo).padStart(2, "0")} · #${p.num} ${p.name} · ${p.pos} · ${tail}`)
         })
     })
@@ -142,7 +142,7 @@ function RosterCard({
                 </div>
               </div>
               <div className="text-right font-mono text-[13px] text-ink">
-                {mode === "money" ? `$${row.cost}M` : row.ovr}
+                {mode === "money" ? `$${row.cost}M` : `${row.ppg} PPG`}
               </div>
             </div>
           ))

@@ -6,13 +6,13 @@ import { DEFAULT_CONFIG, type HDConfig, readConfig } from "@/lib/hd-config"
 import { type HDPlayer, type Position, POSITIONS, loadHDPools } from "@/lib/hd-data"
 import { type DraftedPlayer, type TeamResult, writeResult } from "@/lib/hd-results"
 
-type SortKey = "ovr" | "ppg" | "rpg" | "apg" | "cost"
+type SortKey = "ppg" | "rpg" | "apg" | "cost"
 type PosFilter = "ALL" | Position
 
 interface TeamState extends TeamResult {}
 
 const POOL_LIMIT = 80
-const STAT_COLS = "grid-cols-[30px_38px_1fr_50px_50px_50px_50px_60px_80px]"
+const STAT_COLS = "grid-cols-[30px_38px_1fr_50px_50px_50px_60px_80px]"
 
 function pickOrder(idx: number, mode: HDConfig["mode"], firstTeam: 0 | 1): 0 | 1 {
   if (mode === "snake") {
@@ -54,7 +54,7 @@ export default function DraftPage() {
   const [draftedIds, setDraftedIds] = useState<Set<string>>(new Set())
   const [selectedId, setSelectedId] = useState<string | null>(null)
   const [posFilter, setPosFilter] = useState<PosFilter>("ALL")
-  const [sortKey, setSortKey] = useState<SortKey>("ovr")
+  const [sortKey, setSortKey] = useState<SortKey>("ppg")
   const [query, setQuery] = useState("")
   const completedRef = useRef(false)
 
@@ -145,7 +145,7 @@ export default function DraftPage() {
         const slotsAfter = Math.max(0, slotsLeft - 1)
         return p.cost <= remaining && remaining - p.cost >= slotsAfter * 2
       })
-      .sort((a, b) => b.ovr - a.ovr)[0]
+      .sort((a, b) => a.rank - b.rank)[0]
     advance(bestForTeam ?? null)
   }, [
     secondsLeft,
@@ -322,7 +322,6 @@ export default function DraftPage() {
               onChange={(e) => setSortKey(e.target.value as SortKey)}
               className="cursor-pointer rounded-full border border-line bg-paper px-3 py-1.5 font-mono text-[11px] tracking-[0.06em] text-ink-soft outline-none focus:border-orange-hd"
             >
-              <option value="ovr">Sort · OVR</option>
               <option value="ppg">Sort · PPG</option>
               <option value="rpg">Sort · RPG</option>
               <option value="apg">Sort · APG</option>
@@ -345,7 +344,6 @@ export default function DraftPage() {
             <span className="text-right">#</span>
             <span />
             <span>Player</span>
-            <span className="text-right">OVR</span>
             <span className="text-right">PPG</span>
             <span className="text-right">RPG</span>
             <span className="text-right">APG</span>
@@ -393,7 +391,6 @@ export default function DraftPage() {
                         {p.tag} · #{p.rank}
                       </span>
                     </span>
-                    <span className="text-right font-mono text-[13px] text-ink">{p.ovr}</span>
                     <span
                       className={`text-right font-mono text-[13px] ${
                         sortKey === "ppg" ? "text-ink" : "font-normal text-ink-mute"
@@ -550,7 +547,7 @@ function TeamRail({
                   </div>
                   <div className="mt-0.5 font-mono text-[10px] tracking-[0.06em] text-ink-mute">
                     {pick.pos}
-                    {mode === "money" ? ` · $${pick.cost}M` : ` · ${pick.ovr} OVR`}
+                    {mode === "money" ? ` · $${pick.cost}M` : ""}
                   </div>
                 </div>
                 <div className="font-mono text-[11px] text-ink-mute">

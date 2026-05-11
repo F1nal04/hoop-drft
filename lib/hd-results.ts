@@ -42,12 +42,12 @@ export function readResult(): DraftResult | null {
 
 export function gradeFor(team: TeamResult): string {
   if (team.picks.length === 0) return "—"
-  const avg = team.picks.reduce((sum, p) => sum + p.ovr, 0) / team.picks.length
-  if (avg >= 93) return "A"
-  if (avg >= 90) return "A−"
-  if (avg >= 87) return "B+"
-  if (avg >= 84) return "B"
-  if (avg >= 81) return "B−"
-  if (avg >= 78) return "C+"
+  const avg = team.picks.reduce((sum, p) => sum + p.cost, 0) / team.picks.length
+  if (avg >= 70) return "A"
+  if (avg >= 62) return "A−"
+  if (avg >= 55) return "B+"
+  if (avg >= 47) return "B"
+  if (avg >= 40) return "B−"
+  if (avg >= 32) return "C+"
   return "C"
 }
