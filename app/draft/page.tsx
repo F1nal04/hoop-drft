@@ -562,9 +562,7 @@ function TeamRail({
               key={i}
               className={`grid grid-cols-[32px_1fr_auto] items-center gap-2.5 border-b border-dashed border-line py-2 last:border-b-0 ${
                 isNext
-                  ? right
-                    ? "rounded-md bg-orange-soft pr-2 shadow-[inset_-2px_0_0_var(--color-orange-hd)]"
-                    : "rounded-md bg-orange-soft pl-2 shadow-[inset_2px_0_0_var(--color-orange-hd)]"
+                  ? "relative isolate before:absolute before:inset-y-0 before:-left-[18px] before:-right-[18px] before:-z-10 before:bg-orange-soft before:content-['']"
                   : ""
               }`}
             >
