@@ -546,10 +546,11 @@ function TeamRail({
                   <div className="font-serif text-[14px] font-medium leading-[1.1] tracking-[-0.01em]">
                     {pick.name}
                   </div>
-                  <div className="mt-0.5 font-mono text-[10px] tracking-[0.06em] text-ink-mute">
-                    #{pick.rank}
-                    {mode === "money" ? ` · $${pick.cost}M` : ""}
-                  </div>
+                  {mode === "money" && (
+                    <div className="mt-0.5 font-mono text-[10px] tracking-[0.06em] text-ink-mute">
+                      ${pick.cost}M
+                    </div>
+                  )}
                 </div>
                 <div className="font-mono text-[11px] text-ink-mute">
                   P<b className="font-semibold text-ink">{pick.pickNo}</b>
