@@ -390,7 +390,7 @@ export default function DraftPage() {
                         {p.name}
                       </span>
                       <span className="mt-[3px] block font-mono text-[10px] tracking-[0.04em] text-ink-mute">
-                        {p.tag} · #{p.rank}
+                        {p.tag}
                       </span>
                     </span>
                     <span

@@ -40,7 +40,7 @@ function rankToCost(rank: number, ranks: { min: number; max: number }): number {
 }
 
 function tagFor(era: Era): string {
-  return era === "current" ? "NOW" : "ERA"
+  return era === "current" ? "Current" : "Historical"
 }
 
 function mapPlayers(raw: RawPlayer[], era: Era, ranks: { min: number; max: number }): HDPlayer[] {
