@@ -15,15 +15,9 @@ const POOL_LIMIT = 80
 const STAT_COLS_MONEY = "grid-cols-[30px_38px_1fr_50px_50px_50px_60px]"
 const STAT_COLS_SNAKE = "grid-cols-[30px_38px_1fr_50px_50px_50px]"
 
-function pickOrder(idx: number, mode: HDConfig["mode"], firstTeam: 0 | 1): 0 | 1 {
-  if (mode === "snake") {
-    const round = Math.floor(idx / 2)
-    const inRound = idx % 2
-    const a = firstTeam
-    const b = (1 - firstTeam) as 0 | 1
-    return round % 2 === 0 ? (inRound === 0 ? a : b) : inRound === 0 ? b : a
-  }
-  return (idx % 2 === 0 ? firstTeam : ((1 - firstTeam) as 0 | 1))
+function pickOrder(idx: number, firstTeam: 0 | 1): 0 | 1 {
+  // Both modes alternate strictly between the two teams.
+  return idx % 2 === 0 ? firstTeam : ((1 - firstTeam) as 0 | 1)
 }
 
 function roundOf(idx: number) {
@@ -113,7 +107,7 @@ export default function DraftPage() {
       setSelectedId(null)
       setPickIdx(nextIdx)
       if (nextIdx < totalPicks) {
-        setOnClock(pickOrder(nextIdx, config.mode, firstTeam))
+        setOnClock(pickOrder(nextIdx, firstTeam))
         setSecondsLeft(config.clock)
       }
     },

@@ -59,7 +59,7 @@ Raw JSON has `current_players` and `historical_players` arrays with `rank` field
 
 The draft page owns all live state in `useState` (no reducer, no external store). Key invariants:
 
-- `firstTeam` is randomized once on mount; `pickOrder(idx, mode, firstTeam)` computes which team (0 or 1) is on the clock for pick index `idx`. Snake mode reverses order each round; money mode alternates strictly.
+- `firstTeam` is randomized once on mount; `pickOrder(idx, firstTeam)` computes which team (0 or 1) is on the clock for pick index `idx`. Both modes alternate strictly between the two teams (P1 → P2 → P1 → P2 …).
 - `pickIdx` is the global pick counter (0-indexed); `roundOf(idx)` derives the round number.
 - `completedRef` prevents double-writing results on the final pick.
 - Money mode enforces a **lockout rule**: a team cannot spend so much that the remaining required picks become impossible at minimum cost. This logic lives inside the draft page — search for `budget` / `spent` when editing.
