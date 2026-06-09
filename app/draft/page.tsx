@@ -12,8 +12,8 @@ type PosFilter = "ALL" | Position
 interface TeamState extends TeamResult {}
 
 const POOL_LIMIT = 80
-const STAT_COLS_MONEY = "grid-cols-[30px_38px_1fr_50px_50px_50px_60px]"
-const STAT_COLS_SNAKE = "grid-cols-[30px_38px_1fr_50px_50px_50px]"
+const STAT_COLS_MONEY = "grid-cols-[30px_38px_1fr_50px_50px_50px_60px_72px]"
+const STAT_COLS_SNAKE = "grid-cols-[30px_38px_1fr_50px_50px_50px_72px]"
 
 function pickOrder(idx: number, firstTeam: 0 | 1): 0 | 1 {
   // Both modes alternate strictly between the two teams.
@@ -178,18 +178,29 @@ export default function DraftPage() {
     setSelectedId(id)
   }
 
-  function makePick() {
-    if (!selectedId || isComplete) return
-    const player = pool.find((p) => p.id === selectedId)
-    if (!player || draftedIds.has(player.id)) return
-    if (teams[onClock].picks.length >= rosterMax) return
+  function canDraft(player: HDPlayer): boolean {
+    if (isComplete) return false
+    if (draftedIds.has(player.id)) return false
+    if (teams[onClock].picks.length >= rosterMax) return false
     if (config.mode === "money") {
       const remaining = config.budget - teams[onClock].spent
       const slotsAfter = rosterMax - teams[onClock].picks.length - 1
-      if (player.cost > remaining) return
-      if (remaining - player.cost < slotsAfter * 2) return
+      if (player.cost > remaining) return false
+      if (remaining - player.cost < slotsAfter * 2) return false
     }
+    return true
+  }
+
+  function draftPlayer(player: HDPlayer) {
+    if (!canDraft(player)) return
     advance(player)
+  }
+
+  function makePick() {
+    if (!selectedId) return
+    const player = pool.find((p) => p.id === selectedId)
+    if (!player) return
+    draftPlayer(player)
   }
 
   function renameTeam(t: 0 | 1, name: string) {
@@ -345,6 +356,7 @@ export default function DraftPage() {
             <span className="text-right">RPG</span>
             <span className="text-right">APG</span>
             {showMoney && <span className="text-right">$M</span>}
+            <span />
           </div>
 
           <div className="flex-1 overflow-y-auto">
@@ -362,12 +374,20 @@ export default function DraftPage() {
               !poolError &&
               filteredPool.map((p, i) => {
                 const selected = p.id === selectedId
+                const draftable = canDraft(p)
                 return (
-                  <button
+                  <div
                     key={p.id}
-                    type="button"
+                    role="button"
+                    tabIndex={0}
                     onClick={() => selectPlayer(p.id)}
-                    className={`grid ${statCols} w-full cursor-pointer items-center gap-2.5 border-b border-dashed border-line px-7 py-2.5 text-left ${
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault()
+                        selectPlayer(p.id)
+                      }
+                    }}
+                    className={`group grid ${statCols} w-full cursor-pointer items-center gap-2.5 border-b border-dashed border-line px-7 py-2.5 text-left ${
                       selected ? "bg-orange-soft" : "bg-transparent hover:bg-paper-2"
                     }`}
                   >
@@ -413,7 +433,18 @@ export default function DraftPage() {
                         ${p.cost}
                       </span>
                     )}
-                  </button>
+                    <button
+                      type="button"
+                      disabled={!draftable}
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        draftPlayer(p)
+                      }}
+                      className="invisible cursor-pointer justify-self-end rounded-full bg-orange-hd px-3 py-1.5 font-sans text-[11px] font-semibold tracking-[0.04em] text-white shadow-sm group-hover:visible group-focus-within:visible disabled:cursor-not-allowed disabled:bg-ink-mute"
+                    >
+                      Draft
+                    </button>
+                  </div>
                 )
               })}
           </div>
