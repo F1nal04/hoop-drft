@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { useEffect, useState } from "react"
+import { POSITIONS } from "@/lib/hd-data"
 import { type DraftResult, type TeamResult, readResult } from "@/lib/hd-results"
 
 const FALLBACK: DraftResult = {
@@ -24,22 +25,63 @@ export default function ResultsPage() {
     setHydrated(true)
   }, [])
 
-  function copyExport() {
+  function exportTables() {
     if (!result) return
-    const lines: string[] = []
-    lines.push(`Hoop Draft — ${result.mode === "money" ? "Money" : "Snake"} draft`)
-    result.teams.forEach((team) => {
-      lines.push("")
-      lines.push(team.name)
-      team.picks
-        .slice()
-        .sort((a, b) => a.pickNo - b.pickNo)
-        .forEach((p) => {
-          const tail = result.mode === "money" ? `$${p.cost}M` : `${p.ppg} PPG`
-          lines.push(`  P${String(p.pickNo).padStart(2, "0")} · #${p.rank} ${p.name} · ${p.pos} · ${tail}`)
-        })
-    })
-    navigator.clipboard?.writeText(lines.join("\n"))
+    const esc = (v: string) =>
+      v.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+
+    // One table per team; one column per position; players sorted by rank within a column.
+    const tableFor = (team: TeamResult) => {
+      const columns = POSITIONS.map((pos) =>
+        team.picks
+          .filter((p) => p.pos === pos)
+          .slice()
+          .sort((a, b) => a.rank - b.rank),
+      )
+      const rowCount = Math.max(0, ...columns.map((c) => c.length))
+      const head = POSITIONS.map((pos) => `<th>${pos}</th>`).join("")
+      let bodyRows = ""
+      for (let r = 0; r < rowCount; r++) {
+        const cells = columns
+          .map((col) => {
+            const p = col[r]
+            return `<td>${p ? esc(p.name) : ""}</td>`
+          })
+          .join("")
+        bodyRows += `        <tr>${cells}</tr>\n`
+      }
+      return (
+        `    <h2>${esc(team.name)}</h2>\n` +
+        `    <table>\n` +
+        `      <thead><tr>${head}</tr></thead>\n` +
+        `      <tbody>\n${bodyRows}      </tbody>\n` +
+        `    </table>`
+      )
+    }
+
+    const html =
+      `<!DOCTYPE html>\n<html lang="en">\n<head>\n` +
+      `<meta charset="UTF-8" />\n<title>Hoop Draft Results</title>\n` +
+      `<style>\n` +
+      `  body { font-family: sans-serif; padding: 24px; }\n` +
+      `  h2 { margin: 28px 0 8px; }\n` +
+      `  table { border-collapse: collapse; }\n` +
+      `  th, td { border: 1px solid #999; padding: 6px 12px; text-align: left; min-width: 130px; }\n` +
+      `  th { background: #eee; }\n` +
+      `</style>\n</head>\n<body>\n` +
+      `  <h1>Hoop Draft — ${result.mode === "money" ? "Money" : "Snake"} draft</h1>\n` +
+      `${result.teams.map(tableFor).join("\n")}\n` +
+      `</body>\n</html>`
+
+    const blob = new Blob([html], { type: "text/html" })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement("a")
+    a.href = url
+    a.download = "hoop-draft.html"
+    document.body.appendChild(a)
+    a.click()
+    a.remove()
+    URL.revokeObjectURL(url)
   }
 
   return (
@@ -73,7 +115,7 @@ export default function ResultsPage() {
         <div className="mt-9 flex justify-end gap-2.5">
           <button
             type="button"
-            onClick={copyExport}
+            onClick={exportTables}
             className="cursor-pointer rounded-lg border border-line bg-paper px-[18px] py-3 font-sans text-[14px] font-medium text-ink"
           >
             Export
