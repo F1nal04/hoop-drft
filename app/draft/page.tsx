@@ -6,7 +6,7 @@ import { DEFAULT_CONFIG, type HDConfig, readConfig } from "@/lib/hd-config"
 import { type HDPlayer, type Position, POSITIONS, loadHDPools } from "@/lib/hd-data"
 import { type DraftedPlayer, type TeamResult, writeResult } from "@/lib/hd-results"
 
-type SortKey = "ppg" | "rpg" | "apg" | "cost"
+type SortKey = "rank" | "ppg" | "rpg" | "apg" | "cost"
 type PosFilter = "ALL" | Position
 
 interface TeamState extends TeamResult {}
@@ -55,7 +55,7 @@ export default function DraftPage() {
   const [draftedIds, setDraftedIds] = useState<Set<string>>(new Set())
   const [selectedId, setSelectedId] = useState<string | null>(null)
   const [posFilter, setPosFilter] = useState<PosFilter>("ALL")
-  const [sortKey, setSortKey] = useState<SortKey>("ppg")
+  const [sortKey, setSortKey] = useState<SortKey>("rank")
   const [query, setQuery] = useState("")
   const completedRef = useRef(false)
 
@@ -221,7 +221,7 @@ export default function DraftPage() {
     }
     return p
       .slice()
-      .sort((a, b) => b[sortKey] - a[sortKey])
+      .sort((a, b) => (sortKey === "rank" ? a.rank - b.rank : b[sortKey] - a[sortKey]))
       .slice(0, POOL_LIMIT)
   }, [pool, draftedIds, posFilter, query, sortKey])
 
@@ -324,6 +324,7 @@ export default function DraftPage() {
               onChange={(e) => setSortKey(e.target.value as SortKey)}
               className="cursor-pointer rounded-full border border-line bg-paper px-3 py-1.5 font-mono text-[11px] tracking-[0.06em] text-ink-soft outline-none focus:border-orange-hd"
             >
+              <option value="rank">Sort · Rank</option>
               <option value="ppg">Sort · PPG</option>
               <option value="rpg">Sort · RPG</option>
               <option value="apg">Sort · APG</option>
