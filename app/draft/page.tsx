@@ -249,7 +249,7 @@ export default function DraftPage() {
           </div>
 
           <div
-            className={`relative min-w-[110px] rounded-lg bg-ink px-[22px] py-2.5 text-center font-mono text-[32px] font-semibold tracking-[0.04em] text-orange-hd-2 ${
+            className={`relative min-w-[110px] overflow-hidden rounded-lg bg-ink px-[22px] py-2.5 text-center font-mono text-[32px] font-semibold tracking-[0.04em] text-orange-hd-2 ${
               timerWarn ? "hd-timer-warn" : ""
             }`}
           >
