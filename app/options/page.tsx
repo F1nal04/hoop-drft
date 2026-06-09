@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { useEffect, useState } from "react"
 import { DEFAULT_CONFIG, type HDConfig, readConfig, writeConfig } from "@/lib/hd-config"
-import type { DatasetKey, DraftMode } from "@/lib/hd-data"
+import { type DatasetKey, type DraftMode, MONEY_BUDGET } from "@/lib/hd-data"
 
 const DATASET_LABEL: Record<DatasetKey, string> = {
   current: "Current",
@@ -19,7 +19,7 @@ const DATASET_OPTIONS: { value: DatasetKey; title: string; sub: string }[] = [
 
 const MODE_OPTIONS: { value: DraftMode; title: string; sub: string }[] = [
   { value: "snake", title: "Snake", sub: "10 players per team" },
-  { value: "money", title: "Money", sub: "5 players · $100M cap" },
+  { value: "money", title: "Money", sub: `5 players · $${MONEY_BUDGET}M cap` },
 ]
 
 const optButton = (active: boolean) =>
@@ -46,7 +46,8 @@ export default function OptionsPage() {
     })
   }
 
-  const rosterRecap = config.mode === "snake" ? "10 picks each" : `5 picks · $${config.budget}M`
+  const rosterRecap =
+    config.mode === "snake" ? "10 picks each" : `5 picks · $${MONEY_BUDGET}M cap`
 
   return (
     <div className="flex min-h-screen flex-col">

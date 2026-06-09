@@ -1,9 +1,17 @@
 "use client"
 
 import { useRouter } from "next/navigation"
-import { useCallback, useEffect, useMemo, useRef, useState } from "react"
+import { Fragment, useCallback, useEffect, useMemo, useRef, useState } from "react"
 import { DEFAULT_CONFIG, type HDConfig, readConfig } from "@/lib/hd-config"
-import { type HDPlayer, type Position, POSITIONS, loadHDPools } from "@/lib/hd-data"
+import {
+  type HDPlayer,
+  type Position,
+  POSITIONS,
+  MONEY_BUDGET,
+  MONEY_MIN_COST,
+  buildMoneyPool,
+  loadHDPools,
+} from "@/lib/hd-data"
 import { type DraftedPlayer, type TeamResult, writeResult } from "@/lib/hd-results"
 
 type SortKey = "rank" | "ppg" | "rpg" | "apg" | "cost"
@@ -55,6 +63,10 @@ export default function DraftPage() {
 
   useEffect(() => {
     const cfg = readConfig()
+    if (cfg.mode === "money") {
+      cfg.budget = MONEY_BUDGET // the $15 cap is fixed in money mode
+      setSortKey("cost") // group the board by price tier
+    }
     setConfig(cfg)
     setSecondsLeft(cfg.clock)
     const first = Math.floor(Math.random() * 2) as 0 | 1
@@ -68,7 +80,8 @@ export default function DraftPage() {
 
     loadHDPools()
       .then((pools) => {
-        setPool(pools[cfg.dataset] ?? pools.current)
+        const base = pools[cfg.dataset] ?? pools.current
+        setPool(cfg.mode === "money" ? buildMoneyPool(base) : base)
         setPoolLoading(false)
       })
       .catch((err) => {
@@ -138,7 +151,7 @@ export default function DraftPage() {
         const remaining = config.budget - teams[onClock].spent
         const slotsLeft = rosterMax - teams[onClock].picks.length
         const slotsAfter = Math.max(0, slotsLeft - 1)
-        return p.cost <= remaining && remaining - p.cost >= slotsAfter * 2
+        return p.cost <= remaining && remaining - p.cost >= slotsAfter * MONEY_MIN_COST
       })
       .sort((a, b) => a.rank - b.rank)[0]
     advance(bestForTeam ?? null)
@@ -175,6 +188,12 @@ export default function DraftPage() {
 
   function selectPlayer(id: string) {
     if (draftedIds.has(id)) return
+    // Money mode: a player the on-clock team can't legally afford (would lock the
+    // roster out of being completable) is not selectable — mirrors the disabled Draft button.
+    if (config.mode === "money") {
+      const player = pool.find((p) => p.id === id)
+      if (player && !canDraft(player)) return
+    }
     setSelectedId(id)
   }
 
@@ -186,7 +205,7 @@ export default function DraftPage() {
       const remaining = config.budget - teams[onClock].spent
       const slotsAfter = rosterMax - teams[onClock].picks.length - 1
       if (player.cost > remaining) return false
-      if (remaining - player.cost < slotsAfter * 2) return false
+      if (remaining - player.cost < slotsAfter * MONEY_MIN_COST) return false
     }
     return true
   }
@@ -235,6 +254,12 @@ export default function DraftPage() {
   const showMoney = config.mode === "money"
   const statCols = showMoney ? STAT_COLS_MONEY : STAT_COLS_SNAKE
   const progress = secondsLeft / Math.max(1, config.clock)
+
+  // Money mode is shown grouped by price tier; count how many of each remain for the
+  // category dividers. Tier grouping only makes sense while the board is sorted by cost.
+  const showTiers = showMoney && sortKey === "cost"
+  const tierCounts = new Map<number, number>()
+  if (showTiers) for (const x of filteredPool) tierCounts.set(x.cost, (tierCounts.get(x.cost) ?? 0) + 1)
 
   return (
     <div className="flex h-screen flex-col overflow-hidden">
@@ -375,22 +400,38 @@ export default function DraftPage() {
               filteredPool.map((p, i) => {
                 const selected = p.id === selectedId
                 const draftable = canDraft(p)
+                // In money mode an undraftable row means the on-clock team can't afford it
+                // without locking itself out of completing the roster.
+                const locked = showMoney && !draftable
+                const newTier = showTiers && (i === 0 || filteredPool[i - 1].cost !== p.cost)
                 return (
-                  <div
-                    key={p.id}
-                    role="button"
-                    tabIndex={0}
-                    onClick={() => selectPlayer(p.id)}
-                    onKeyDown={(e) => {
-                      if (e.key === "Enter" || e.key === " ") {
-                        e.preventDefault()
-                        selectPlayer(p.id)
-                      }
-                    }}
-                    className={`group grid ${statCols} w-full cursor-pointer items-center gap-2.5 border-b border-dashed border-line px-7 py-2.5 text-left ${
-                      selected ? "bg-orange-soft" : "bg-transparent hover:bg-paper-2"
-                    }`}
-                  >
+                  <Fragment key={p.id}>
+                    {newTier && (
+                      <div className="flex items-center gap-2 border-y border-line bg-paper-2 px-7 py-1.5 font-mono text-[10px] uppercase tracking-[0.14em] text-ink-mute">
+                        <span className="font-semibold text-ok">${p.cost}M</span>
+                        <span>tier</span>
+                        <span className="ml-auto">{tierCounts.get(p.cost) ?? 0} left</span>
+                      </div>
+                    )}
+                    <div
+                      role="button"
+                      tabIndex={locked ? -1 : 0}
+                      aria-disabled={locked}
+                      onClick={() => selectPlayer(p.id)}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter" || e.key === " ") {
+                          e.preventDefault()
+                          selectPlayer(p.id)
+                        }
+                      }}
+                      className={`group grid ${statCols} w-full items-center gap-2.5 border-b border-dashed border-line px-7 py-2.5 text-left ${
+                        locked
+                          ? "cursor-not-allowed opacity-40"
+                          : selected
+                            ? "cursor-pointer bg-orange-soft"
+                            : "cursor-pointer bg-transparent hover:bg-paper-2"
+                      }`}
+                    >
                     <span className="font-mono text-[11px] text-ink-mute">{i + 1}</span>
                     <span
                       className={`grid size-8 place-items-center rounded-md font-mono text-[12px] font-semibold ${
@@ -444,7 +485,8 @@ export default function DraftPage() {
                     >
                       Draft
                     </button>
-                  </div>
+                    </div>
+                  </Fragment>
                 )
               })}
           </div>

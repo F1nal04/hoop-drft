@@ -15,7 +15,7 @@ export const DEFAULT_CONFIG: HDConfig = {
   t1: "Alley-Oop Club",
   t2: "Hardwood Court",
   clock: 60,
-  budget: 100,
+  budget: 15,
 }
 
 const KEY = "hd-config"

@@ -51,9 +51,11 @@ Players are loaded once from `public/data/players.json` (no DB, no API). `loadHD
 
 Raw JSON has `current_players` and `historical_players` arrays with `rank` fields. `mapPlayers` derives the in-app shape:
 
-- `cost` is computed from rank via `rankToCost` (global min/max across both eras), used by money mode.
+- `cost` is computed from rank via `rankToCost` (global min/max across both eras). This is a baseline only — it is **not shown anywhere** (snake mode hides cost; money mode overrides it, see below).
 - `tag` is `"NOW"` or `"ERA"`.
 - A `mixed` dataset is produced by merging both lists sorted by rank.
+
+**Money-mode pool (`buildMoneyPool`).** Money mode does not draft from the full dataset. At draft start the chosen set is sorted by rank and split into `MONEY_TIERS` (5) rank-quintiles, priced top-fifth → `$5` down to bottom-fifth → `$1`. Within each tier, `MONEY_PER_POSITION` (2) players per position are randomly surfaced, producing a curated **50-player board** (2 of every position at every price tier). It returns fresh objects with `cost` overwritten to the tier price and never mutates the cached pool. The cap is fixed at `MONEY_BUDGET` ($15) and `MONEY_MIN_COST` ($1) feeds the lockout reserve — all four constants live in `lib/hd-data.ts`. Random selection is fixed once per draft (built in `/draft`'s mount effect).
 
 ### Draft engine (`app/draft/page.tsx`)
 
@@ -62,7 +64,7 @@ The draft page owns all live state in `useState` (no reducer, no external store)
 - `firstTeam` is randomized once on mount; `pickOrder(idx, firstTeam)` computes which team (0 or 1) is on the clock for pick index `idx`. Both modes alternate strictly between the two teams (P1 → P2 → P1 → P2 …).
 - `pickIdx` is the global pick counter (0-indexed); `roundOf(idx)` derives the round number.
 - `completedRef` prevents double-writing results on the final pick.
-- Money mode enforces a **lockout rule**: a team cannot spend so much that the remaining required picks become impossible at minimum cost. This logic lives inside the draft page — search for `budget` / `spent` when editing.
+- Money mode drafts from the curated `buildMoneyPool` board (see data pipeline above), with a fixed `$15` cap and a 5-player roster (one per position). It enforces a **lockout rule**: a team cannot spend so much that the remaining required picks become impossible at minimum cost (`MONEY_MIN_COST` reserved per unfilled slot). This logic lives in `canDraft` and the timer auto-skip effect — search for `budget` / `spent` when editing.
 
 ### Styling
 
