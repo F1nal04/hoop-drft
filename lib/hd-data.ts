@@ -5,7 +5,6 @@ export type Era = "current" | "historical"
 
 export interface HDPlayer {
   id: string
-  num: number
   name: string
   tag: string
   pos: Position
@@ -35,12 +34,6 @@ interface RawData {
 
 export const POSITIONS: Position[] = ["PG", "SG", "SF", "PF", "C"]
 
-const JERSEYS = [3, 6, 7, 8, 11, 12, 13, 14, 21, 23, 24, 25, 30, 32, 33, 34, 42, 44, 50, 91]
-
-function jerseyFor(seed: number): number {
-  return JERSEYS[Math.abs(seed) % JERSEYS.length]
-}
-
 function rankToCost(rank: number, ranks: { min: number; max: number }): number {
   const t = (rank - ranks.min) / Math.max(1, ranks.max - ranks.min)
   return Math.max(2, Math.round((1 - t) * 85))
@@ -56,7 +49,6 @@ function mapPlayers(raw: RawPlayer[], era: Era, ranks: { min: number; max: numbe
     .sort((a, b) => a.rank - b.rank)
     .map((p, i) => ({
       id: `${era}-${p.rank}-${i}`,
-      num: jerseyFor(p.rank + i * 13),
       name: p.name,
       tag: tagFor(era),
       pos: p.position,

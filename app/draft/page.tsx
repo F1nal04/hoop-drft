@@ -12,8 +12,8 @@ type PosFilter = "ALL" | Position
 interface TeamState extends TeamResult {}
 
 const POOL_LIMIT = 80
-const STAT_COLS_MONEY = "grid-cols-[30px_38px_1fr_50px_50px_50px_60px_80px]"
-const STAT_COLS_SNAKE = "grid-cols-[30px_38px_1fr_50px_50px_50px_80px]"
+const STAT_COLS_MONEY = "grid-cols-[30px_38px_1fr_50px_50px_50px_60px]"
+const STAT_COLS_SNAKE = "grid-cols-[30px_38px_1fr_50px_50px_50px]"
 
 function pickOrder(idx: number, mode: HDConfig["mode"], firstTeam: 0 | 1): 0 | 1 {
   if (mode === "snake") {
@@ -351,7 +351,6 @@ export default function DraftPage() {
             <span className="text-right">RPG</span>
             <span className="text-right">APG</span>
             {showMoney && <span className="text-right">$M</span>}
-            <span className="text-right">POS</span>
           </div>
 
           <div className="flex-1 overflow-y-auto">
@@ -384,7 +383,7 @@ export default function DraftPage() {
                         selected ? "bg-orange-hd text-white" : "bg-ink text-paper"
                       }`}
                     >
-                      {p.num}
+                      {p.pos}
                     </span>
                     <span>
                       <span className="block font-serif text-[16px] font-medium leading-none tracking-[-0.01em]">
@@ -420,9 +419,6 @@ export default function DraftPage() {
                         ${p.cost}
                       </span>
                     )}
-                    <span className="text-right font-mono text-[11px] tracking-[0.06em] text-ink-soft">
-                      {p.pos}
-                    </span>
                   </button>
                 )
               })}
@@ -544,14 +540,14 @@ function TeamRail({
                     right ? "bg-ink text-paper" : "bg-orange-hd text-white"
                   }`}
                 >
-                  {pick.num}
+                  {pick.pos}
                 </div>
                 <div>
                   <div className="font-serif text-[14px] font-medium leading-[1.1] tracking-[-0.01em]">
                     {pick.name}
                   </div>
                   <div className="mt-0.5 font-mono text-[10px] tracking-[0.06em] text-ink-mute">
-                    {pick.pos}
+                    #{pick.rank}
                     {mode === "money" ? ` · $${pick.cost}M` : ""}
                   </div>
                 </div>

@@ -36,7 +36,7 @@ export default function ResultsPage() {
         .sort((a, b) => a.pickNo - b.pickNo)
         .forEach((p) => {
           const tail = result.mode === "money" ? `$${p.cost}M` : `${p.ppg} PPG`
-          lines.push(`  P${String(p.pickNo).padStart(2, "0")} · #${p.num} ${p.name} · ${p.pos} · ${tail}`)
+          lines.push(`  P${String(p.pickNo).padStart(2, "0")} · #${p.rank} ${p.name} · ${p.pos} · ${tail}`)
         })
     })
     navigator.clipboard?.writeText(lines.join("\n"))
@@ -100,7 +100,7 @@ function RosterCard({
   mode: "snake" | "money"
 }) {
   const dotColor = side === "t1" ? "bg-orange-hd" : "bg-ink"
-  const jerseyClasses = side === "t1" ? "bg-orange-hd text-white" : "bg-ink text-paper"
+  const posClasses = side === "t1" ? "bg-orange-hd text-white" : "bg-ink text-paper"
   const sorted = team.picks.slice().sort((a, b) => a.pickNo - b.pickNo)
 
   return (
@@ -126,16 +126,16 @@ function RosterCard({
                 P{String(row.pickNo).padStart(2, "0")}
               </div>
               <div
-                className={`grid size-8 place-items-center rounded-md font-mono text-[12px] font-semibold ${jerseyClasses}`}
+                className={`grid size-8 place-items-center rounded-md font-mono text-[12px] font-semibold ${posClasses}`}
               >
-                {row.num}
+                {row.pos}
               </div>
               <div>
                 <div className="font-serif text-[15px] font-medium leading-none tracking-[-0.01em]">
                   {row.name}
                 </div>
                 <div className="mt-[3px] font-mono text-[10px] tracking-[0.04em] text-ink-mute">
-                  {row.pos} · {row.tag}
+                  #{row.rank} · {row.tag}
                 </div>
               </div>
               <div className="text-right font-mono text-[13px] text-ink">
