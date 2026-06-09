@@ -70,6 +70,8 @@ The draft page owns all live state in `useState` (no reducer, no external store)
 
 Tailwind **v4** with a custom theme defined in `app/globals.css` under `@theme { ... }`. Colors like `bg-ink`, `text-paper`, `border-line`, `text-orange-hd`, `text-ok`, `text-warn` are project tokens — don't replace them with raw hex or default Tailwind colors. The `hd-mark` and `hd-pulse-dot` classes are also defined there.
 
+**Theme is dark ("arena at night") with hardwood-court amber accents.** The tokens are named by *role*, not by lightness, and their lightness is the inverse of what the names suggest: `paper` is the dark base surface (+ the dark text that rides on bright boxes), while `ink` is a bright warm bone used for both primary text *and* the high-emphasis box fills (scoreboard, position badges, primary CTAs). This dual role keeps the two-team color system readable on dark — team-1 is `orange-hd` (amber), team-2 is `ink` (bone). The clock and cap-left readouts are the exception: they use `panel` (a near-black display surface) so the amber digits/values glow and stay legible — don't put them on the bright `ink` bone. Switching themes is mostly a matter of retuning the color vars in `@theme`; components reference tokens only (the few raw hexes are button hovers + the `hd-pulse` keyframe).
+
 Fonts are wired in `app/layout.tsx` via `next/font/google` (Fraunces serif, Inter Tight sans, JetBrains Mono) and exposed as CSS variables consumed by the `@theme` font tokens.
 
 ### AGENTS.md

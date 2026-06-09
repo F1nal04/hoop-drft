@@ -21,7 +21,7 @@ export default function HomePage() {
           <div className="mx-auto mt-14 grid max-w-[640px] grid-cols-2 gap-3.5">
             <Link
               href="/options"
-              className="block rounded-xl border border-ink bg-ink p-[28px_26px] text-left text-paper no-underline transition-all duration-150 hover:-translate-y-0.5 hover:bg-[#2a1d10] hover:shadow-hd-2"
+              className="block rounded-xl border border-ink bg-ink p-[28px_26px] text-left text-paper no-underline transition-all duration-150 hover:-translate-y-0.5 hover:bg-[#e6d3b0] hover:shadow-hd-2"
             >
               <div className="font-mono text-[10px] uppercase tracking-[0.18em] opacity-55">
                 Same couch

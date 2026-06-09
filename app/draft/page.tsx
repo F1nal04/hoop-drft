@@ -279,7 +279,7 @@ export default function DraftPage() {
           </div>
 
           <div
-            className={`relative min-w-[110px] overflow-hidden rounded-lg bg-ink px-[22px] py-2.5 text-center font-mono text-[32px] font-semibold tracking-[0.04em] text-orange-hd-2 ${
+            className={`relative min-w-[110px] overflow-hidden rounded-lg border border-line bg-panel px-[22px] py-2.5 text-center font-mono text-[32px] font-semibold tracking-[0.04em] text-orange-hd-2 ${
               timerWarn ? "hd-timer-warn" : ""
             }`}
           >
@@ -555,16 +555,16 @@ function TeamRail({
       </div>
 
       {showMoney && (
-        <div className="mb-[18px] rounded-lg bg-ink p-3.5 text-paper">
+        <div className="mb-[18px] rounded-lg border border-line bg-panel p-3.5 text-ink">
           <div className="flex items-baseline justify-between">
-            <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-paper/55">
+            <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-ink-mute">
               Cap left
             </span>
             <span className="font-mono text-[22px] font-semibold text-orange-hd-2">
               ${moneyRemaining}M
             </span>
           </div>
-          <div className="mt-2.5 h-1 overflow-hidden rounded-[2px] bg-paper/10">
+          <div className="mt-2.5 h-1 overflow-hidden rounded-[2px] bg-ink/15">
             <i className="block h-full bg-orange-hd" style={{ width: `${moneyPct}%` }} />
           </div>
         </div>

@@ -14,21 +14,27 @@
   --color-wood-800: #24190c;
   --color-wood-900: #140d06;
 
-  --color-ink: #1a1208;
-  --color-ink-soft: #4a3a26;
-  --color-ink-mute: #8a755a;
-  --color-paper: #f7eedb;
-  --color-paper-2: #efe2c5;
-  --color-line: #d8c19b;
-  --color-line-soft: #e8d4ad;
+  /* Dark "arena at night" theme. Semantics are unchanged from the light theme —
+     `ink` is still primary text AND the high-emphasis box fill (now a warm bone so it
+     stays bright on dark, preserving the two-team color system: team-1 amber, team-2 bone);
+     `paper` is still the base surface + the text that rides on those bright boxes.
+     Accents are hardwood-court amber/honey. */
+  --color-ink: #f1e5cf; /* primary text + emphasis boxes (scoreboard, badges, CTAs) */
+  --color-ink-soft: #c8b288; /* muted text */
+  --color-ink-mute: #9d8961; /* most-muted text / labels */
+  --color-paper: #15100a; /* base background — deep warm near-black */
+  --color-paper-2: #211910; /* elevated surface / hover / tier divider */
+  --color-line: #3a2c1a; /* borders on dark */
+  --color-line-soft: #2b2114;
+  --color-panel: #100b05; /* dark display surface for the clock + cap readouts (amber glows on it) */
 
-  --color-orange-hd: #e0651b;
-  --color-orange-hd-2: #f08538;
-  --color-orange-soft: #fbe2cc;
+  --color-orange-hd: #d98e3c; /* court hardwood amber — primary accent */
+  --color-orange-hd-2: #f0b257; /* brighter honey — scoreboard digits, glows */
+  --color-orange-soft: #4a3413; /* dark amber tint — selected row / on-clock band */
   --color-net: #f0f0eb;
 
-  --color-ok: #4a7a3a;
-  --color-warn: #c44b2a;
+  --color-ok: #7cb85a; /* brightened court green for $ values + live dot */
+  --color-warn: #e3683f; /* brightened warm red */
 
   --font-serif: var(--font-fraunces), Georgia, "Times New Roman", serif;
   --font-sans: var(--font-inter-tight), "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -112,13 +118,13 @@
     }
   }
 
-  /* Timer warning pulse */
+  /* Timer warning pulse — the bone scoreboard heats up toward court amber */
   .hd-timer-warn {
     animation: hd-pulse 1s infinite;
   }
   @keyframes hd-pulse {
     50% {
-      background: #2a1d10;
+      background: var(--color-orange-hd);
     }
   }
 }
