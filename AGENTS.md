@@ -15,8 +15,10 @@ bun install         # install deps
 bun run dev         # next dev --turbo
 bun run build       # next build (standalone output, used by Docker)
 bun run start       # next start
-bun run lint        # next lint
+bun run lint        # eslint . (flat config in eslint.config.mjs)
 ```
+
+Linting is the ESLint CLI (`next lint` was removed in Next 16). Config is `eslint.config.mjs` (flat, `eslint-config-next/core-web-vitals` + `/typescript`); `react-hooks/set-state-in-effect` is off project-wide because the localStorage hydration pattern below trips it on every page. **`eslint` is pinned to `^9`** — `eslint-plugin-react` (shipped via `eslint-config-next`) doesn't support ESLint 10 yet; bumping it breaks lint with `contextOrFilename.getFilename is not a function`.
 
 There is no test suite. There is no single-test command.
 

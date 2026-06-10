@@ -13,12 +13,12 @@ import {
   loadHDPools,
 } from "@/lib/hd-data"
 import { readExclusions } from "@/lib/hd-exclusions"
-import { type DraftedPlayer, type TeamResult, writeResult } from "@/lib/hd-results"
+import { type TeamResult, writeResult } from "@/lib/hd-results"
 
 type SortKey = "rank" | "ppg" | "rpg" | "apg" | "cost"
 type PosFilter = "ALL" | Position
 
-interface TeamState extends TeamResult {}
+type TeamState = TeamResult
 
 const POOL_LIMIT = 80
 const STAT_COLS_MONEY = "grid-cols-[30px_38px_1fr_50px_50px_50px_60px_72px]"
@@ -130,11 +130,6 @@ export default function DraftPage() {
     },
     [pickIdx, onClock, config.mode, config.clock, totalPicks, firstTeam],
   )
-
-  const onClockRef = useRef(onClock)
-  const pickIdxRef = useRef(pickIdx)
-  onClockRef.current = onClock
-  pickIdxRef.current = pickIdx
 
   useEffect(() => {
     if (!hydrated || poolLoading || isComplete) return
