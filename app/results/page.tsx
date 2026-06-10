@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 import { POSITIONS } from "@/lib/hd-data"
 import { addExclusions } from "@/lib/hd-exclusions"
+import { DEFAULT_TEAM_NAMES } from "@/lib/hd-names"
 import { type DraftResult, type TeamResult, readResult } from "@/lib/hd-results"
 
 const FALLBACK: DraftResult = {
@@ -12,8 +13,8 @@ const FALLBACK: DraftResult = {
   budget: 100,
   rosterMax: 5,
   teams: [
-    { name: "Alley-Oop Club", picks: [], spent: 0 },
-    { name: "Hardwood Court", picks: [], spent: 0 },
+    { name: DEFAULT_TEAM_NAMES[0], picks: [], spent: 0 },
+    { name: DEFAULT_TEAM_NAMES[1], picks: [], spent: 0 },
   ],
   completedAt: 0,
 }

@@ -219,7 +219,7 @@ function handleCreate(ws, msg) {
     code,
     status: "lobby",
     seats: [
-      { token: nanoid(), name: cleanName(msg.name, "Alley-Oop Club"), ws, connected: true },
+      { token: nanoid(), name: cleanName(msg.name, "Team 1"), ws, connected: true },
       null,
     ],
     config: null,
@@ -259,7 +259,7 @@ function handleJoin(ws, msg) {
     send(ws, { type: "error", message: "Room is full." })
     return
   }
-  room.seats[1] = { token: nanoid(), name: cleanName(msg.name, "Hardwood Court"), ws, connected: true }
+  room.seats[1] = { token: nanoid(), name: cleanName(msg.name, "Team 2"), ws, connected: true }
   ws.room = room
   send(ws, { type: "joined", code, seat: 1, token: room.seats[1].token, players: playerNames(room) })
   send(room.seats[0].ws, { type: "lobby", players: playerNames(room) })
