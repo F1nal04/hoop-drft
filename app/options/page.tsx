@@ -5,6 +5,7 @@ import { useEffect, useState } from "react"
 import { DEFAULT_CONFIG, type HDConfig, readConfig, writeConfig } from "@/lib/hd-config"
 import { type DatasetKey, type DraftMode, MONEY_BUDGET } from "@/lib/hd-data"
 import { clearExclusions } from "@/lib/hd-exclusions"
+import { useRemoteRoom } from "@/lib/hd-remote"
 
 const DATASET_LABEL: Record<DatasetKey, string> = {
   current: "Current",
@@ -33,6 +34,12 @@ const optButton = (active: boolean) =>
 export default function OptionsPage() {
   const [config, setConfig] = useState<HDConfig>(DEFAULT_CONFIG)
   const [hydrated, setHydrated] = useState(false)
+  // The remote-room socket survives client-side navigation, so the host can
+  // come here from the lobby to adjust pool/mode. While a room is active,
+  // team names are owned by the room seats and the CTA returns to the room
+  // instead of starting a local draft.
+  const remote = useRemoteRoom()
+  const inRoom = remote.phase === "lobby" || remote.phase === "drafting"
 
   useEffect(() => {
     setConfig(readConfig())
@@ -137,26 +144,43 @@ export default function OptionsPage() {
                 <span className="block size-2 rounded-full bg-orange-hd" />
                 Team 01
               </div>
-              <input
-                value={config.t1}
-                onChange={(e) => update("t1", e.target.value)}
-                maxLength={22}
-                className="w-full border-0 border-b-[1.5px] border-line bg-transparent px-0 pb-2 pt-1 font-serif text-[32px] font-medium tracking-[-0.02em] text-ink outline-none focus:border-orange-hd"
-              />
+              {inRoom ? (
+                <div className="border-b-[1.5px] border-line pb-2 pt-1 font-serif text-[32px] font-medium tracking-[-0.02em] text-ink">
+                  {remote.players[0] ?? "—"}
+                </div>
+              ) : (
+                <input
+                  value={config.t1}
+                  onChange={(e) => update("t1", e.target.value)}
+                  maxLength={22}
+                  className="w-full border-0 border-b-[1.5px] border-line bg-transparent px-0 pb-2 pt-1 font-serif text-[32px] font-medium tracking-[-0.02em] text-ink outline-none focus:border-orange-hd"
+                />
+              )}
             </div>
             <div>
               <div className="mb-3.5 flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.16em] text-ink-mute">
                 <span className="block size-2 rounded-full bg-ink" />
                 Team 02
               </div>
-              <input
-                value={config.t2}
-                onChange={(e) => update("t2", e.target.value)}
-                maxLength={22}
-                className="w-full border-0 border-b-[1.5px] border-line bg-transparent px-0 pb-2 pt-1 font-serif text-[32px] font-medium tracking-[-0.02em] text-ink outline-none focus:border-orange-hd"
-              />
+              {inRoom ? (
+                <div className="border-b-[1.5px] border-line pb-2 pt-1 font-serif text-[32px] font-medium tracking-[-0.02em] text-ink-mute">
+                  {remote.players[1] ?? "Waiting for player 2"}
+                </div>
+              ) : (
+                <input
+                  value={config.t2}
+                  onChange={(e) => update("t2", e.target.value)}
+                  maxLength={22}
+                  className="w-full border-0 border-b-[1.5px] border-line bg-transparent px-0 pb-2 pt-1 font-serif text-[32px] font-medium tracking-[-0.02em] text-ink outline-none focus:border-orange-hd"
+                />
+              )}
             </div>
           </div>
+          {inRoom && (
+            <p className="mt-3.5 font-mono text-[11px] uppercase tracking-[0.1em] text-ink-mute">
+              Team names are set in the lobby for remote drafts.
+            </p>
+          )}
         </section>
 
         <div className="mt-14 flex items-center justify-between border-t border-line pt-6">
@@ -167,13 +191,22 @@ export default function OptionsPage() {
             </b>{" "}
             · <b className="font-semibold text-ink">{rosterRecap}</b>
           </div>
-          <Link
-            href="/draft"
-            onClick={clearExclusions}
-            className="inline-flex cursor-pointer items-center gap-2 rounded-lg border-0 bg-ink px-[22px] py-3.5 font-sans text-[14px] font-semibold text-paper no-underline hover:bg-[#e6d3b0]"
-          >
-            Start draft →
-          </Link>
+          {inRoom ? (
+            <Link
+              href={remote.phase === "lobby" ? "/lobby" : `/draft?room=${remote.code}`}
+              className="inline-flex cursor-pointer items-center gap-2 rounded-lg border-0 bg-ink px-[22px] py-3.5 font-sans text-[14px] font-semibold text-paper no-underline hover:bg-[#e6d3b0]"
+            >
+              {remote.phase === "lobby" ? "Back to lobby →" : "Back to draft →"}
+            </Link>
+          ) : (
+            <Link
+              href="/draft"
+              onClick={clearExclusions}
+              className="inline-flex cursor-pointer items-center gap-2 rounded-lg border-0 bg-ink px-[22px] py-3.5 font-sans text-[14px] font-semibold text-paper no-underline hover:bg-[#e6d3b0]"
+            >
+              Start draft →
+            </Link>
+          )}
         </div>
       </main>
     </div>
