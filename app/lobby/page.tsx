@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 import { readConfig } from "@/lib/hd-config"
 import { MONEY_BUDGET, buildMoneyPool, loadHDPools } from "@/lib/hd-data"
+import { rollTeamNames } from "@/lib/hd-names"
 import { clearError, createRoom, joinRoom, leaveRoom, startDraft, useRemoteRoom } from "@/lib/hd-remote"
 
 const ORANGE_INDICES = new Set([1, 4])
@@ -26,8 +27,12 @@ export default function LobbyPage() {
   useEffect(() => {
     clearError() // don't resurface a stale error from a previous visit
     const cfg = readConfig()
-    setHostName(cfg.t1)
-    setJoinName(cfg.t2)
+    // Fresh fake-NBA names each visit; custom names saved in /options pass
+    // through. Ephemeral — these go into the room over the socket, not back
+    // into the saved config.
+    const [t1, t2] = rollTeamNames(cfg.t1, cfg.t2)
+    setHostName(t1)
+    setJoinName(t2)
     setRecap(
       `${DATASET_LABEL[cfg.dataset]} · ${cfg.mode === "snake" ? "Snake · 10 picks each" : `Money · 5 picks · $${MONEY_BUDGET}M cap`}`,
     )
