@@ -17,9 +17,11 @@ This project is purely coded by AI and built just for fun to help us run quick d
 
 ## Remote Draft
 
-Pick "Remote start" on the home page. The host creates a room and gets a short code (and a copyable share link); the other player joins with the code and their own team name. The host's settings from the Options page (pool + mode) apply to the room. Once both are in, the host starts the draft.
+Pick "Remote start" on the home page. The host creates a room and gets a short code (and a copyable share link); the other player joins with the code and their own team name. The host's settings from the Options page (pool, mode, and pick clock) apply to the room. Once both are in, the host starts the draft.
 
 The draft itself works exactly like a local one, except each player can only draft for their own team. The pick clock and auto-picks run on the server, so a dropped connection or page refresh doesn't break the draft — you reconnect and pick up where it stands. If one player leaves for good, their picks keep auto-running on the clock.
+
+Rooms live in server memory only — restarting the server (or its container) drops any active rooms.
 
 ## Draft Modes
 

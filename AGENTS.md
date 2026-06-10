@@ -36,7 +36,7 @@ Single-page Next.js 16 App Router project. React 19 with the **React Compiler en
 
 ```
 / (app/page.tsx)
-  ├─ /options    → configure dataset, mode, team names, clock, budget
+  ├─ /options    → configure dataset, mode, team names, clock (money budget is fixed)
   ├─ /lobby      → remote draft lobby: create a room (nanoid code) or join one
   ├─ /draft      → live draft board; /draft?room=CODE is the remote variant
   └─ /results    → post-draft summary listing both rosters
@@ -54,8 +54,9 @@ Both modules guard `typeof window === "undefined"` for SSR safety and fall back 
 
 - **Server side**: `server/rooms.mjs`, attached to the `/ws` endpoint by `server.mjs`. The server is **authoritative** for remote drafts: room lifecycle (`lobby → drafting → complete`), turn order, pick validation (including the money lockout rule), the pick clock, and timeout autopicks all live there. Rooms are in-memory only (`Map` keyed by 6-char nanoid code; no persistence — a server restart drops live rooms).
 - **The host's client builds the board** (dataset choice, `buildMoneyPool`) with the normal `lib/hd-data.ts` pipeline and sends it in the `start` message; the server sanitizes it and treats it as the room's pool, so player-data logic is never duplicated server-side. The money `minCost` reserve is derived from the board (cheapest price) on both sides rather than importing the TS constant.
-- **Client side**: `lib/hd-remote.ts` — protocol types plus a module-singleton WebSocket + `useSyncExternalStore` store. The socket survives client-side navigation (`/lobby → /draft`); page refreshes recover via per-seat rejoin tokens in `sessionStorage` (`hd-remote-session`) — the server resyncs the full room on `rejoin`. Disconnected players' picks keep auto-running on the server clock.
+- **Client side**: `lib/hd-remote.ts` — protocol types plus a module-singleton WebSocket + `useSyncExternalStore` store. The socket survives client-side navigation (`/lobby → /draft`); page refreshes recover via per-seat rejoin tokens in `sessionStorage` (`hd-remote-session`) — the server resyncs the full room on `rejoin`. Opening the room in a second window supersedes the first: the old socket gets `room_closed` (`SUPERSEDED`) so its auto-rejoin doesn't fight for the seat. Disconnected players' picks keep auto-running on the server clock.
 - **Seats**: host = seat 0 (team 1 / orange), guest = seat 1 (team 2 / bone). Team names are fixed in the lobby; renames are disabled mid-draft in remote.
+- **Room-aware `/options`**: while a room is active (`useRemoteRoom` phase `lobby` or `drafting`), the options page shows the room's seat names read-only and swaps its "Start draft" CTA for "Back to lobby/draft" — starting a local draft from there would silently abandon the room. Pool/mode/clock changes still apply when the host starts the room.
 
 ### Player data pipeline (`lib/hd-data.ts`)
 
