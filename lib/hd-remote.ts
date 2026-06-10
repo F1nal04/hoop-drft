@@ -281,9 +281,11 @@ export function leaveRoom() {
   deliberateClose = true
   stopRejoining()
   writeSession(null)
-  if (socket && socket.readyState === WebSocket.OPEN) {
-    socket.send(JSON.stringify({ type: "leave" }))
-    socket.close()
+  if (socket) {
+    if (socket.readyState === WebSocket.OPEN) {
+      socket.send(JSON.stringify({ type: "leave" }))
+    }
+    socket.close() // legal even while CONNECTING — don't orphan the socket
   }
   socket = null
   state = IDLE

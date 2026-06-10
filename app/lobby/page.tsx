@@ -24,6 +24,7 @@ export default function LobbyPage() {
   const [startError, setStartError] = useState<string | null>(null)
 
   useEffect(() => {
+    clearError() // don't resurface a stale error from a previous visit
     const cfg = readConfig()
     setHostName(cfg.t1)
     setJoinName(cfg.t2)

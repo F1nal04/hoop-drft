@@ -276,7 +276,14 @@ function handleRejoin(ws, msg) {
   }
   const seat = room.seats[seatIdx]
   if (seat.ws && seat.ws !== ws) {
+    // Same seat opened elsewhere — tell the old socket so its client doesn't
+    // auto-rejoin and fight the new one for the seat.
     seat.ws.room = null
+    send(seat.ws, {
+      type: "room_closed",
+      reason: "SUPERSEDED",
+      message: "This draft was opened in another window.",
+    })
     seat.ws.close()
   }
   seat.ws = ws
