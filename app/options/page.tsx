@@ -6,6 +6,7 @@ import { DEFAULT_CONFIG, type HDConfig, readConfig, writeConfig } from "@/lib/hd
 import { type DatasetKey, type DraftMode, MONEY_BUDGET } from "@/lib/hd-data"
 import { clearExclusions } from "@/lib/hd-exclusions"
 import { useRemoteRoom } from "@/lib/hd-remote"
+import { rollTeamNames } from "@/lib/hd-names"
 
 const DATASET_LABEL: Record<DatasetKey, string> = {
   current: "Current",
@@ -42,7 +43,14 @@ export default function OptionsPage() {
   const inRoom = remote.phase === "lobby" || remote.phase === "drafting"
 
   useEffect(() => {
-    setConfig(readConfig())
+    const cfg = readConfig()
+    // Fresh fake-NBA names each visit; names the user typed pass through.
+    // Persist immediately — "Start draft" launches /draft, which reads the
+    // config from localStorage itself, so what's shown must be what's saved.
+    const [t1, t2] = rollTeamNames(cfg.t1, cfg.t2)
+    const next = { ...cfg, t1, t2 }
+    if (t1 !== cfg.t1 || t2 !== cfg.t2) writeConfig(next)
+    setConfig(next)
     setHydrated(true)
   }, [])
 
