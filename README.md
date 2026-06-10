@@ -7,14 +7,16 @@ This project is purely coded by AI and built just for fun to help us run quick d
 ## What It Does
 
 - 2-team draft setup with custom team names
-- choose player pool: `current`, `historical`, or `all`
-- timer per pick
+- choose player pool: `current`, `historical`, or `mixed`
+- timer per pick — on expiry the best available player is auto-picked
 - draft history and team rosters
 - position needs tracking
+- export finished drafts as an HTML file
+- continue drafting from the results page: new draft, same settings, already-drafted players removed from the pool
 
 ## Draft Modes
 
-### Normal Draft
+### Snake Draft
 
 - full player board
 - 10 rounds per team
@@ -22,9 +24,9 @@ This project is purely coded by AI and built just for fun to help us run quick d
 ### Money Draft
 
 - each team starts with `$15`
-- 5 rounds per team
-- players are priced `$1` to `$5`
-- fixed random pool: 5 players per price tier at draft start
+- 5 rounds per team, one player per position
+- players are priced `$1` to `$5` by rank tier
+- fixed random board at draft start: 50 players, 2 per position at every price tier
 - lockout prevention: you cannot spend in a way that makes your remaining picks impossible
 
 ## Quick Start
