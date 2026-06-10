@@ -42,6 +42,7 @@ State flows between pages **via `localStorage`**, not Next.js routing or context
 
 - `lib/hd-config.ts` — `hd-config` key, written by `/options`, read by `/draft`.
 - `lib/hd-results.ts` — `hd-results` key, written when `/draft` completes, read by `/results`.
+- `lib/hd-exclusions.ts` — `hd-exclusions` key, accumulated drafted-player ids. Written by `/results`' "Continue drafting" button (which re-enters `/draft` with the same config), filtered out of the pool in `/draft`'s mount effect (before `buildMoneyPool` in money mode), and cleared by `/options`' "Start draft" so fresh drafts use the full pool.
 
 Both modules guard `typeof window === "undefined"` for SSR safety and fall back to `DEFAULT_CONFIG` / `null`. Pages hydrate by setting a `hydrated` flag in `useEffect` to avoid SSR/CSR mismatches.
 

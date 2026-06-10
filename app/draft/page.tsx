@@ -12,6 +12,7 @@ import {
   buildMoneyPool,
   loadHDPools,
 } from "@/lib/hd-data"
+import { readExclusions } from "@/lib/hd-exclusions"
 import { type DraftedPlayer, type TeamResult, writeResult } from "@/lib/hd-results"
 
 type SortKey = "rank" | "ppg" | "rpg" | "apg" | "cost"
@@ -81,7 +82,10 @@ export default function DraftPage() {
     loadHDPools()
       .then((pools) => {
         const base = pools[cfg.dataset] ?? pools.current
-        setPool(cfg.mode === "money" ? buildMoneyPool(base) : base)
+        // "Continue drafting" carries over the ids drafted in previous rounds.
+        const excluded = new Set(readExclusions())
+        const available = excluded.size ? base.filter((p) => !excluded.has(p.id)) : base
+        setPool(cfg.mode === "money" ? buildMoneyPool(available) : available)
         setPoolLoading(false)
       })
       .catch((err) => {

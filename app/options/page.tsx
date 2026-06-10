@@ -4,6 +4,7 @@ import Link from "next/link"
 import { useEffect, useState } from "react"
 import { DEFAULT_CONFIG, type HDConfig, readConfig, writeConfig } from "@/lib/hd-config"
 import { type DatasetKey, type DraftMode, MONEY_BUDGET } from "@/lib/hd-data"
+import { clearExclusions } from "@/lib/hd-exclusions"
 
 const DATASET_LABEL: Record<DatasetKey, string> = {
   current: "Current",
@@ -168,6 +169,7 @@ export default function OptionsPage() {
           </div>
           <Link
             href="/draft"
+            onClick={clearExclusions}
             className="inline-flex cursor-pointer items-center gap-2 rounded-lg border-0 bg-ink px-[22px] py-3.5 font-sans text-[14px] font-semibold text-paper no-underline hover:bg-[#e6d3b0]"
           >
             Start draft →

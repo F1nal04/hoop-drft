@@ -1,8 +1,10 @@
 "use client"
 
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
 import { POSITIONS } from "@/lib/hd-data"
+import { addExclusions } from "@/lib/hd-exclusions"
 import { type DraftResult, type TeamResult, readResult } from "@/lib/hd-results"
 
 const FALLBACK: DraftResult = {
@@ -17,6 +19,7 @@ const FALLBACK: DraftResult = {
 }
 
 export default function ResultsPage() {
+  const router = useRouter()
   const [result, setResult] = useState<DraftResult | null>(null)
   const [hydrated, setHydrated] = useState(false)
 
@@ -24,6 +27,14 @@ export default function ResultsPage() {
     setResult(readResult() ?? FALLBACK)
     setHydrated(true)
   }, [])
+
+  function continueDrafting() {
+    if (!result) return
+    // Carry the drafted players over as exclusions so the next draft (same
+    // hd-config settings) runs on the remaining pool.
+    addExclusions(result.teams.flatMap((t) => t.picks.map((p) => p.id)))
+    router.push("/draft")
+  }
 
   function exportTables() {
     if (!result) return
@@ -112,7 +123,7 @@ export default function ResultsPage() {
           </section>
         )}
 
-        <div className="mt-9 flex justify-end gap-2.5">
+        <div className="mt-9 flex justify-center gap-2.5">
           <button
             type="button"
             onClick={exportTables}
@@ -122,10 +133,18 @@ export default function ResultsPage() {
           </button>
           <Link
             href="/options"
-            className="rounded-lg border border-ink bg-ink px-[18px] py-3 font-sans text-[14px] font-medium text-paper no-underline"
+            className="rounded-lg border border-line bg-paper px-[18px] py-3 font-sans text-[14px] font-medium text-ink no-underline"
           >
-            New draft →
+            New draft
           </Link>
+          <button
+            type="button"
+            onClick={continueDrafting}
+            disabled={!hydrated || !result}
+            className="cursor-pointer rounded-lg border border-ink bg-ink px-[18px] py-3 font-sans text-[14px] font-medium text-paper disabled:cursor-not-allowed disabled:opacity-35"
+          >
+            Continue drafting →
+          </button>
         </div>
       </main>
     </div>
