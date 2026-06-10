@@ -12,7 +12,14 @@ This project is purely coded by AI and built just for fun to help us run quick d
 - draft history and team rosters
 - position needs tracking
 - export finished drafts as an HTML file
-- continue drafting from the results page: new draft, same settings, already-drafted players removed from the pool
+- continue drafting from the results page: new draft, same settings, already-drafted players removed from the pool (local drafts)
+- **remote drafting**: create a room, share the 6-letter code, draft against each other from different devices
+
+## Remote Draft
+
+Pick "Remote start" on the home page. The host creates a room and gets a short code (and a copyable share link); the other player joins with the code and their own team name. The host's settings from the Options page (pool + mode) apply to the room. Once both are in, the host starts the draft.
+
+The draft itself works exactly like a local one, except each player can only draft for their own team. The pick clock and auto-picks run on the server, so a dropped connection or page refresh doesn't break the draft — you reconnect and pick up where it stands. If one player leaves for good, their picks keep auto-running on the clock.
 
 ## Draft Modes
 
@@ -36,7 +43,7 @@ bun install
 bun run dev
 ```
 
-Player data is served from `public/data/players.json`, so there is no database setup.
+Player data is served from `public/data/players.json`, so there is no database setup. The dev server is a small custom Node server (`server.mjs`) that runs Next plus the remote-draft WebSocket endpoint on the same port.
 
 ## Docker (VPS)
 

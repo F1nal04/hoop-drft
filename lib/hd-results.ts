@@ -16,6 +16,9 @@ export interface DraftResult {
   rosterMax: number
   teams: [TeamResult, TeamResult]
   completedAt: number
+  // Set by the room server for remote drafts. "Continue drafting" only makes
+  // sense for local drafts (it replays the local pool minus exclusions).
+  remote?: boolean
 }
 
 const KEY = "hd-results"

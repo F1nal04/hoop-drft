@@ -137,14 +137,16 @@ export default function ResultsPage() {
           >
             New draft
           </Link>
-          <button
-            type="button"
-            onClick={continueDrafting}
-            disabled={!hydrated || !result}
-            className="cursor-pointer rounded-lg border border-ink bg-ink px-[18px] py-3 font-sans text-[14px] font-medium text-paper disabled:cursor-not-allowed disabled:opacity-35"
-          >
-            Continue drafting →
-          </button>
+          {!result?.remote && (
+            <button
+              type="button"
+              onClick={continueDrafting}
+              disabled={!hydrated || !result}
+              className="cursor-pointer rounded-lg border border-ink bg-ink px-[18px] py-3 font-sans text-[14px] font-medium text-paper disabled:cursor-not-allowed disabled:opacity-35"
+            >
+              Continue drafting →
+            </button>
+          )}
         </div>
       </main>
     </div>

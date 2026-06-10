@@ -12,11 +12,13 @@ Package manager is **bun** (`bun.lock` is the lockfile — don't generate `packa
 
 ```bash
 bun install         # install deps
-bun run dev         # next dev --turbo
-bun run build       # next build (standalone output, used by Docker)
-bun run start       # next start
+bun run dev         # node server.mjs (custom server: Next dev w/ Turbopack + /ws WebSocket)
+bun run build       # next build
+bun run start       # NODE_ENV=production node server.mjs
 bun run lint        # eslint . (flat config in eslint.config.mjs)
 ```
+
+The app runs through a **custom server** (`server.mjs`): one HTTP server that hands normal requests to Next and routes WebSocket upgrades — `/ws` to the remote-draft room server (`server/rooms.mjs`), everything else to Next's own upgrade handler (dev HMR). Because of this, `output: "standalone"` is **not** used (Next forbids combining it with a custom server); the Docker runner ships production `node_modules` instead. `server.mjs` and `server/*.mjs` are plain Node ESM — they do not go through the Next compiler, so no TypeScript/JSX there.
 
 Linting is the ESLint CLI (`next lint` was removed in Next 16). Config is `eslint.config.mjs` (flat, `eslint-config-next/core-web-vitals` + `/typescript`); `react-hooks/set-state-in-effect` is off project-wide because the localStorage hydration pattern below trips it on every page. **`eslint` is pinned to `^9`** — `eslint-plugin-react` (shipped via `eslint-config-next`) doesn't support ESLint 10 yet; bumping it breaks lint with `contextOrFilename.getFilename is not a function`.
 
@@ -35,18 +37,25 @@ Single-page Next.js 16 App Router project. React 19 with the **React Compiler en
 ```
 / (app/page.tsx)
   ├─ /options    → configure dataset, mode, team names, clock, budget
-  ├─ /lobby      → share-code stub (no real multiplayer; UI placeholder)
-  ├─ /draft      → live draft board (the bulk of the app, ~600 LOC)
+  ├─ /lobby      → remote draft lobby: create a room (nanoid code) or join one
+  ├─ /draft      → live draft board; /draft?room=CODE is the remote variant
   └─ /results    → post-draft summary listing both rosters
 ```
 
 State flows between pages **via `localStorage`**, not Next.js routing or context:
 
-- `lib/hd-config.ts` — `hd-config` key, written by `/options`, read by `/draft`.
-- `lib/hd-results.ts` — `hd-results` key, written when `/draft` completes, read by `/results`.
-- `lib/hd-exclusions.ts` — `hd-exclusions` key, accumulated drafted-player ids. Written by `/results`' "Continue drafting" button (which re-enters `/draft` with the same config), filtered out of the pool in `/draft`'s mount effect (before `buildMoneyPool` in money mode), and cleared by `/options`' "Start draft" so fresh drafts use the full pool.
+- `lib/hd-config.ts` — `hd-config` key, written by `/options`, read by `/draft` (and by `/lobby` for the host's room settings + both players' default team names).
+- `lib/hd-results.ts` — `hd-results` key, written when `/draft` completes (local engine or remote `complete` message), read by `/results`. Remote results carry `remote: true`, which hides "Continue drafting".
+- `lib/hd-exclusions.ts` — `hd-exclusions` key, accumulated drafted-player ids. Written by `/results`' "Continue drafting" button (which re-enters `/draft` with the same config), filtered out of the pool in `/draft`'s mount effect (before `buildMoneyPool` in money mode), and cleared by `/options`' "Start draft" so fresh drafts use the full pool. Local-only — remote drafts always use the full pool.
 
 Both modules guard `typeof window === "undefined"` for SSR safety and fall back to `DEFAULT_CONFIG` / `null`. Pages hydrate by setting a `hydrated` flag in `useEffect` to avoid SSR/CSR mismatches.
+
+### Remote drafting (rooms over WebSocket)
+
+- **Server side**: `server/rooms.mjs`, attached to the `/ws` endpoint by `server.mjs`. The server is **authoritative** for remote drafts: room lifecycle (`lobby → drafting → complete`), turn order, pick validation (including the money lockout rule), the pick clock, and timeout autopicks all live there. Rooms are in-memory only (`Map` keyed by 6-char nanoid code; no persistence — a server restart drops live rooms).
+- **The host's client builds the board** (dataset choice, `buildMoneyPool`) with the normal `lib/hd-data.ts` pipeline and sends it in the `start` message; the server sanitizes it and treats it as the room's pool, so player-data logic is never duplicated server-side. The money `minCost` reserve is derived from the board (cheapest price) on both sides rather than importing the TS constant.
+- **Client side**: `lib/hd-remote.ts` — protocol types plus a module-singleton WebSocket + `useSyncExternalStore` store. The socket survives client-side navigation (`/lobby → /draft`); page refreshes recover via per-seat rejoin tokens in `sessionStorage` (`hd-remote-session`) — the server resyncs the full room on `rejoin`. Disconnected players' picks keep auto-running on the server clock.
+- **Seats**: host = seat 0 (team 1 / orange), guest = seat 1 (team 2 / bone). Team names are fixed in the lobby; renames are disabled mid-draft in remote.
 
 ### Player data pipeline (`lib/hd-data.ts`)
 
@@ -58,16 +67,24 @@ Raw JSON has `current_players` and `historical_players` arrays with `rank` field
 - `tag` is `"NOW"` or `"ERA"`.
 - A `mixed` dataset is produced by merging both lists sorted by rank.
 
-**Money-mode pool (`buildMoneyPool`).** Money mode does not draft from the full dataset. At draft start the chosen set is sorted by rank and split into `MONEY_TIERS` (5) rank-quintiles, priced top-fifth → `$5` down to bottom-fifth → `$1`. Within each tier, `MONEY_PER_POSITION` (2) players per position are randomly surfaced, producing a curated **50-player board** (2 of every position at every price tier). It returns fresh objects with `cost` overwritten to the tier price and never mutates the cached pool. The cap is fixed at `MONEY_BUDGET` ($15) and `MONEY_MIN_COST` ($1) feeds the lockout reserve — all four constants live in `lib/hd-data.ts`. Random selection is fixed once per draft (built in `/draft`'s mount effect).
+**Money-mode pool (`buildMoneyPool`).** Money mode does not draft from the full dataset. At draft start the chosen set is sorted by rank and split into `MONEY_TIERS` (5) rank-quintiles, priced top-fifth → `$5` down to bottom-fifth → `$1`. Within each tier, `MONEY_PER_POSITION` (2) players per position are randomly surfaced, producing a curated **50-player board** (2 of every position at every price tier). It returns fresh objects with `cost` overwritten to the tier price and never mutates the cached pool. The cap is fixed at `MONEY_BUDGET` ($15) and `MONEY_MIN_COST` ($1) feeds the lockout reserve — all four constants live in `lib/hd-data.ts`. Random selection is fixed once per draft (built in `/draft`'s mount effect locally, or by the host in `/lobby` for remote rooms).
 
-### Draft engine (`app/draft/page.tsx`)
+### Draft engine (`app/draft/`)
 
-The draft page owns all live state in `useState` (no reducer, no external store). Key invariants:
+The page is split into a view-model interface and two engines feeding one presentational board:
 
-- `firstTeam` is randomized once on mount; `pickOrder(idx, firstTeam)` computes which team (0 or 1) is on the clock for pick index `idx`. Both modes alternate strictly between the two teams (P1 → P2 → P1 → P2 …).
+- `engine.ts` — the `DraftEngine` interface + shared helpers (`pickOrder`, `roundOf`, `posReqFor`, `rosterMaxFor`).
+- `use-local-draft.ts` — the hot-seat engine: all live state in `useState` on this device, both teams controlled here (`mySeat: null`, `myTurn` always true).
+- `use-remote-draft.ts` — the remote engine: renders server snapshots, only acts for the local seat (`myTurn` gating), cosmetic countdown re-anchored on every snapshot (`snapshotAt + remainingMs`), writes `hd-results` and routes to `/results` on `complete`.
+- `draft-board.tsx` — all presentation (header, pool, team rails); filters/sort/search/selection are view state here and rules come through the engine.
+- `page.tsx` — picks the engine from the `room` query param (read from `window.location` on mount — no `useSearchParams`/Suspense), plus the loading/room-closed screens for remote.
+
+Key invariants (both engines):
+
+- `firstTeam` is randomized once at draft start; `pickOrder(idx, firstTeam)` computes which team (0 or 1) is on the clock for pick index `idx`. Both modes alternate strictly between the two teams (P1 → P2 → P1 → P2 …).
 - `pickIdx` is the global pick counter (0-indexed); `roundOf(idx)` derives the round number.
 - `completedRef` prevents double-writing results on the final pick.
-- Money mode drafts from the curated `buildMoneyPool` board (see data pipeline above), with a fixed `$15` cap and a 5-player roster (one per position). It enforces a **lockout rule**: a team cannot spend so much that the remaining required picks become impossible at minimum cost (`MONEY_MIN_COST` reserved per unfilled slot). This logic lives in `canDraft` and the timer auto-skip effect — search for `budget` / `spent` when editing.
+- Money mode drafts from the curated `buildMoneyPool` board (see data pipeline above), with a fixed `$15` cap and a 5-player roster (one per position). It enforces a **lockout rule**: a team cannot spend so much that the remaining required picks become impossible at minimum cost (the cheapest board price reserved per unfilled slot). Locally this lives in `use-local-draft.ts` (`canDraft` + the timer auto-skip effect); remotely the same rule is enforced in `server/rooms.mjs` (`canDraft`) and mirrored for display in `use-remote-draft.ts`.
 
 ### Styling
 
