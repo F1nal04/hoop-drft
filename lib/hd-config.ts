@@ -1,4 +1,5 @@
 import type { DatasetKey, DraftMode } from "./hd-data"
+import { DEFAULT_TEAM_NAMES } from "./hd-names"
 
 export interface HDConfig {
   dataset: DatasetKey
@@ -12,8 +13,8 @@ export interface HDConfig {
 export const DEFAULT_CONFIG: HDConfig = {
   dataset: "current",
   mode: "snake",
-  t1: "Alley-Oop Club",
-  t2: "Hardwood Court",
+  t1: DEFAULT_TEAM_NAMES[0],
+  t2: DEFAULT_TEAM_NAMES[1],
   clock: 60,
   budget: 15,
 }
