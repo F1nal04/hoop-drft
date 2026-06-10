@@ -45,7 +45,7 @@ function pickTwo<T>(arr: readonly T[]): [T, T] {
   return [arr[i], arr[j]]
 }
 
-export function randomTeamName(): string {
+function randomTeamName(): string {
   return `${pick(NAME_CITIES)} ${pick(NAME_MASCOTS)}`
 }
 

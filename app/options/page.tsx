@@ -5,8 +5,8 @@ import { useEffect, useState } from "react"
 import { DEFAULT_CONFIG, type HDConfig, readConfig, writeConfig } from "@/lib/hd-config"
 import { type DatasetKey, type DraftMode, MONEY_BUDGET } from "@/lib/hd-data"
 import { clearExclusions } from "@/lib/hd-exclusions"
-import { useRemoteRoom } from "@/lib/hd-remote"
 import { rollTeamNames } from "@/lib/hd-names"
+import { useRemoteRoom } from "@/lib/hd-remote"
 
 const DATASET_LABEL: Record<DatasetKey, string> = {
   current: "Current",
