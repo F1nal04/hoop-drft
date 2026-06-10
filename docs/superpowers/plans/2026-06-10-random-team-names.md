@@ -243,6 +243,46 @@ git add app/lobby/page.tsx
 git commit -m "Roll random team names in lobby defaults"
 ```
 
+### Task 4.5: Purge legacy names from remaining fallbacks
+
+Discovered during Task 2 review: the legacy strings survive in two fallbacks outside the spec's original file list. The user asked for the current names to be removed entirely.
+
+**Files:**
+- Modify: `app/results/page.tsx:15-16`
+- Modify: `server/rooms.mjs:222,262`
+
+- [ ] **Step 1: Results page placeholder**
+
+Replace the initial pre-hydration team state
+
+```ts
+{ name: "Alley-Oop Club", picks: [], spent: 0 },
+{ name: "Hardwood Court", picks: [], spent: 0 },
+```
+
+with the static generated combos:
+
+```ts
+{ name: DEFAULT_TEAM_NAMES[0], picks: [], spent: 0 },
+{ name: DEFAULT_TEAM_NAMES[1], picks: [], spent: 0 },
+```
+
+adding `import { DEFAULT_TEAM_NAMES } from "@/lib/hd-names"`.
+
+- [ ] **Step 2: Room server join fallbacks**
+
+`server/rooms.mjs` is plain Node ESM (not compiled by Next) and cannot import the TS module. Replace the fallback names in `cleanName(msg.name, "Alley-Oop Club")` / `cleanName(msg.name, "Hardwood Court")` with neutral `"Team 1"` / `"Team 2"` — these only appear when a player submits a blank or control-character-only name.
+
+- [ ] **Step 3: Verify and commit**
+
+Run: `bunx tsc --noEmit && bun run lint`
+Expected: both clean
+
+```bash
+git add app/results/page.tsx server/rooms.mjs
+git commit -m "Drop legacy default names from fallbacks"
+```
+
 ### Task 5: Build, manual verification, docs
 
 **Files:**
