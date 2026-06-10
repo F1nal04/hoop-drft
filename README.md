@@ -6,7 +6,7 @@ This project is purely coded by AI and built just for fun to help us run quick d
 
 ## What It Does
 
-- 2-team draft setup with custom team names
+- 2-team draft setup with custom team names (random fake-NBA names by default — "Berlin Bears", "Madrid Royals")
 - choose player pool: `current`, `historical`, or `mixed`
 - timer per pick — on expiry the best available player is auto-picked
 - draft history and team rosters
