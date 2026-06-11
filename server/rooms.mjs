@@ -16,7 +16,7 @@ const POSITIONS = new Set(["PG", "SG", "SF", "PF", "C"])
 const MAX_ROOMS = 100
 const MAX_POOL = 3000
 const NAME_MAX = 22
-const COMPLETE_TTL_MS = 5 * 60 * 1000 // room lingers so a dropped client can fetch the result
+const COMPLETE_TTL_MS = 10 * 60 * 1000 // room lingers so clients can fetch the result and "continue drafting"
 const EMPTY_TTL_MS = 10 * 60 * 1000 // both players gone (refresh, crash) — keep the seat warm
 const LOBBY_GRACE_MS = 60 * 1000 // host socket dropped in the lobby (refresh) — allow rejoin
 
@@ -112,6 +112,7 @@ function applyPick(room, player) {
 function completeDraft(room) {
   room.status = "complete"
   room.deadline = null
+  for (const id of room.drafted) room.excluded.add(id)
   room.result = {
     mode: room.config.mode,
     budget: room.config.budget,
@@ -120,8 +121,11 @@ function completeDraft(room) {
     completedAt: Date.now(),
     remote: true,
   }
-  broadcast(room, { type: "complete", result: room.result })
-  room.completeTimer = setTimeout(() => destroyRoom(room, null), COMPLETE_TTL_MS)
+  broadcast(room, { type: "complete", result: room.result, excluded: [...room.excluded] })
+  room.completeTimer = setTimeout(
+    () => destroyRoom(room, { reason: "EXPIRED", message: "This draft room has expired." }),
+    COMPLETE_TTL_MS,
+  )
 }
 
 function destroyRoom(room, closed) {
@@ -173,9 +177,12 @@ function handleDisconnect(ws) {
   broadcast(room, { type: "peer", connected: false })
   if (room.seats.every((s) => !s || !s.connected)) {
     clearTimeout(room.emptyTimer)
+    // Complete rooms get a short grace (a refresh on /results disconnects
+    // before the rejoin lands) instead of dying immediately — the room is
+    // still continuable until COMPLETE_TTL_MS.
     room.emptyTimer = setTimeout(
       () => destroyRoom(room, null),
-      room.status === "complete" ? 0 : EMPTY_TTL_MS,
+      room.status === "complete" ? LOBBY_GRACE_MS : EMPTY_TTL_MS,
     )
   }
 }
@@ -225,6 +232,7 @@ function handleCreate(ws, msg) {
     pool: [],
     poolById: new Map(),
     drafted: new Set(),
+    excluded: new Set(), // every id drafted in this room across rounds — "continue drafting" never resurfaces them
     minCost: 1,
     firstTeam: 0,
     pickIdx: 0,
@@ -300,6 +308,7 @@ function handleRejoin(ws, msg) {
     pool: room.status === "lobby" ? null : room.pool,
     state: room.status === "lobby" ? null : snapshot(room),
     result: room.result,
+    excluded: [...room.excluded],
   })
   const other = room.seats[1 - seatIdx]
   if (other) send(other.ws, { type: room.status === "lobby" ? "lobby" : "peer", players: playerNames(room), connected: true })
@@ -340,22 +349,27 @@ function sanitizePool(pool) {
   return byId
 }
 
-function handleStart(ws, msg) {
-  const room = ws.room
-  if (!room || room.status !== "lobby") return
+// Shared by `start` (from the lobby) and `continue` (rematch from the results
+// screen): sanitize the host-built board and flip the room into drafting.
+function beginDraft(ws, room, msg) {
   if (room.seats[0]?.ws !== ws) {
     send(ws, { type: "error", message: "Only the host can start the draft." })
-    return
+    return false
   }
   if (!room.seats[1] || !room.seats[1].connected) {
     send(ws, { type: "error", message: "Waiting for player 2 to join." })
-    return
+    return false
   }
   const config = sanitizeConfig(msg.config)
   const poolById = sanitizePool(msg.pool)
   if (!config || !poolById) {
     send(ws, { type: "error", message: "Invalid draft setup." })
-    return
+    return false
+  }
+  for (const id of room.excluded) poolById.delete(id)
+  if (poolById.size === 0) {
+    send(ws, { type: "error", message: "No players left to draft." })
+    return false
   }
   const pool = [...poolById.values()]
   const rosterMax = config.mode === "snake" ? 10 : 5
@@ -363,7 +377,7 @@ function handleStart(ws, msg) {
     const minCost = Math.min(...pool.map((p) => p.cost))
     if (config.budget < rosterMax * minCost) {
       send(ws, { type: "error", message: "Invalid draft setup." })
-      return
+      return false
     }
     room.minCost = minCost
   }
@@ -382,6 +396,28 @@ function handleStart(ws, msg) {
   room.status = "drafting"
   schedulePick(room)
   broadcast(room, { type: "started", config, pool, state: snapshot(room) })
+  return true
+}
+
+function handleStart(ws, msg) {
+  const room = ws.room
+  if (!room || room.status !== "lobby") return
+  beginDraft(ws, room, msg)
+}
+
+// "Continue drafting" on a completed room: same start path, but the new board
+// arrives with this room's drafted players already excluded (and beginDraft
+// re-filters against room.excluded regardless).
+function handleContinue(ws, msg) {
+  const room = ws.room
+  if (!room || room.status !== "complete") {
+    send(ws, { type: "error", message: "This room is gone — start a new one from the lobby." })
+    return
+  }
+  if (!beginDraft(ws, room, msg)) return
+  clearTimeout(room.completeTimer)
+  room.completeTimer = null
+  room.result = null
 }
 
 function handlePick(ws, msg) {
@@ -402,6 +438,7 @@ const HANDLERS = {
   join: handleJoin,
   rejoin: handleRejoin,
   start: handleStart,
+  continue: handleContinue,
   pick: handlePick,
   leave: (ws) => handleLeave(ws),
 }

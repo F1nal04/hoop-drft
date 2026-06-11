@@ -16,8 +16,8 @@ export interface DraftResult {
   rosterMax: number
   teams: [TeamResult, TeamResult]
   completedAt: number
-  // Set by the room server for remote drafts. "Continue drafting" only makes
-  // sense for local drafts (it replays the local pool minus exclusions).
+  // Set by the room server for remote drafts: /results swaps the local
+  // "Continue drafting" (hd-exclusions replay) for the room's continue flow.
   remote?: boolean
 }
 

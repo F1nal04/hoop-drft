@@ -37,6 +37,7 @@ export interface RemoteState {
   snapshot: RemoteSnapshot | null
   snapshotAt: number // Date.now() when the snapshot arrived — anchors the local countdown
   result: DraftResult | null
+  excluded: string[] // ids drafted in this room across rounds — feeds "continue drafting"
   peerConnected: boolean
   reconnecting: boolean
   error: string | null // transient (bad code, invalid pick, …)
@@ -53,6 +54,7 @@ const IDLE: RemoteState = {
   snapshot: null,
   snapshotAt: 0,
   result: null,
+  excluded: [],
   peerConnected: true,
   reconnecting: false,
   error: null,
@@ -182,6 +184,7 @@ function handleMessage(msg: any) {
         pool: msg.pool,
         snapshot: msg.state,
         snapshotAt: Date.now(),
+        result: null, // a continued draft replaces the previous round's result
         peerConnected: true,
         error: null,
       })
@@ -191,7 +194,7 @@ function handleMessage(msg: any) {
       break
     case "complete":
       // Keep the last snapshot so the board stays painted until navigation.
-      setState({ phase: "complete", result: msg.result })
+      setState({ phase: "complete", result: msg.result, excluded: msg.excluded ?? state.excluded })
       break
     case "peer":
       setState({ peerConnected: msg.connected, players: msg.players ?? state.players })
@@ -208,6 +211,7 @@ function handleMessage(msg: any) {
         snapshot: msg.state,
         snapshotAt: Date.now(),
         result: msg.result,
+        excluded: msg.excluded ?? [],
         peerConnected: true,
         reconnecting: false,
         error: null,
@@ -273,6 +277,12 @@ export function startDraft(config: RemoteConfig, pool: HDPlayer[]) {
   sendMsg({ type: "start", config, pool })
 }
 
+// Host, from the results screen: restart the completed room on a fresh board
+// (built client-side from the remaining pool, like `start`).
+export function continueDraft(config: RemoteConfig, pool: HDPlayer[]) {
+  sendMsg({ type: "continue", config, pool })
+}
+
 export function sendPick(playerId: string) {
   sendMsg({ type: "pick", playerId })
 }
@@ -300,6 +310,17 @@ export function resetRemote() {
   stopRejoining()
   state = IDLE
   for (const fn of listeners) fn()
+}
+
+// Results page mount: that URL carries no room code, so reattach to whatever
+// room this tab last sat in. Returns false when there's no session to resume.
+export function resumeFromSession(): boolean {
+  if (state.code && state.phase !== "idle" && state.phase !== "closed") return true
+  const session = readSession()
+  if (!session) return false
+  setState({ ...IDLE, phase: "connecting", code: session.code, seat: session.seat, reconnecting: true })
+  sendMsg({ type: "rejoin", code: session.code, token: session.token })
+  return true
 }
 
 // Draft page mount / page refresh: make sure we're attached to `code`.

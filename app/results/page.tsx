@@ -3,9 +3,17 @@
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
-import { POSITIONS } from "@/lib/hd-data"
+import { readConfig } from "@/lib/hd-config"
+import { MONEY_BUDGET, POSITIONS, buildMoneyPool, loadHDPools } from "@/lib/hd-data"
 import { addExclusions } from "@/lib/hd-exclusions"
 import { DEFAULT_TEAM_NAMES } from "@/lib/hd-names"
+import {
+  type RemoteState,
+  clearError,
+  continueDraft,
+  resumeFromSession,
+  useRemoteRoom,
+} from "@/lib/hd-remote"
 import { type DraftResult, type TeamResult, readResult } from "@/lib/hd-results"
 
 const FALLBACK: DraftResult = {
@@ -21,13 +29,37 @@ const FALLBACK: DraftResult = {
 
 export default function ResultsPage() {
   const router = useRouter()
+  const remote = useRemoteRoom()
   const [result, setResult] = useState<DraftResult | null>(null)
   const [hydrated, setHydrated] = useState(false)
+  const [continuing, setContinuing] = useState(false)
+  const [continueError, setContinueError] = useState<string | null>(null)
 
   useEffect(() => {
-    setResult(readResult() ?? FALLBACK)
+    const stored = readResult() ?? FALLBACK
+    setResult(stored)
     setHydrated(true)
+    if (stored.remote) {
+      // Reattach to the (still lingering) room so the host can continue the
+      // draft and the guest follows along when they do.
+      clearError()
+      resumeFromSession()
+    }
   }, [])
+
+  // The host continued the draft — the room is live again, get back on the board.
+  const remoteResult = result?.remote ?? false
+  const code = remote.code
+  useEffect(() => {
+    if (remoteResult && remote.phase === "drafting" && code) {
+      router.push(`/draft?room=${code}`)
+    }
+  }, [remoteResult, remote.phase, code, router])
+
+  // A rejected continue (room expired, pool empty) re-enables the button.
+  useEffect(() => {
+    if (remote.error) setContinuing(false)
+  }, [remote.error])
 
   function continueDrafting() {
     if (!result) return
@@ -35,6 +67,34 @@ export default function ResultsPage() {
     // hd-config settings) runs on the remaining pool.
     addExclusions(result.teams.flatMap((t) => t.picks.map((p) => p.id)))
     router.push("/draft")
+  }
+
+  // Remote variant of "Continue drafting": the host rebuilds the board from
+  // the remaining pool (same pipeline as the lobby start) and asks the server
+  // to restart the room. Exclusions live in the room, not in hd-exclusions.
+  async function continueRemote() {
+    if (!result || continuing) return
+    setContinuing(true)
+    setContinueError(null)
+    clearError()
+    try {
+      const cfg = readConfig()
+      const pools = await loadHDPools()
+      const base = pools[cfg.dataset] ?? pools.current
+      const excluded = new Set([
+        ...remote.excluded,
+        ...result.teams.flatMap((t) => t.picks.map((p) => p.id)),
+      ])
+      const rest = base.filter((p) => !excluded.has(p.id))
+      const pool = cfg.mode === "money" ? buildMoneyPool(rest) : rest
+      continueDraft(
+        { mode: cfg.mode, clock: cfg.clock, budget: cfg.mode === "money" ? MONEY_BUDGET : 0 },
+        pool,
+      )
+    } catch (err) {
+      setContinueError(err instanceof Error ? err.message : "Failed to load players")
+      setContinuing(false)
+    }
   }
 
   function exportTables() {
@@ -138,7 +198,7 @@ export default function ResultsPage() {
           >
             New draft
           </Link>
-          {!result?.remote && (
+          {!result?.remote ? (
             <button
               type="button"
               onClick={continueDrafting}
@@ -147,10 +207,49 @@ export default function ResultsPage() {
             >
               Continue drafting →
             </button>
-          )}
+          ) : remote.phase === "complete" && remote.seat === 0 ? (
+            <button
+              type="button"
+              onClick={continueRemote}
+              disabled={!remote.peerConnected || continuing}
+              className="cursor-pointer rounded-lg border border-ink bg-ink px-[18px] py-3 font-sans text-[14px] font-medium text-paper disabled:cursor-not-allowed disabled:opacity-35"
+            >
+              {continuing ? "Starting…" : "Continue drafting →"}
+            </button>
+          ) : null}
         </div>
+
+        {hydrated && result?.remote && <RemoteNote remote={remote} continueError={continueError} />}
       </main>
     </div>
+  )
+}
+
+// One status line under the buttons for the remote continue flow: errors, the
+// guest's "the host runs it back" hint, or the host waiting on the guest.
+function RemoteNote({ remote, continueError }: { remote: RemoteState; continueError: string | null }) {
+  const error = continueError ?? remote.error
+  let text: string | null = null
+  let warn = false
+  if (error) {
+    text = error
+    warn = true
+  } else if (remote.phase === "complete") {
+    if (remote.seat === 1) {
+      text = `${remote.players[0] ?? "The host"} can continue the draft with the remaining players — stick around.`
+    } else if (!remote.peerConnected) {
+      text = `${remote.players[1] ?? "Player 2"} disconnected — they need to be back before you can continue.`
+    }
+  }
+  if (!text) return null
+  return (
+    <p
+      className={`mt-5 text-center font-mono text-[11px] uppercase tracking-[0.12em] ${
+        warn ? "text-warn" : "text-ink-mute"
+      }`}
+    >
+      {text}
+    </p>
   )
 }
 
