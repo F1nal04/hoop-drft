@@ -38,6 +38,7 @@ export default function LobbyPage() {
   const [hostName, setHostName] = useState("")
   const [joinName, setJoinName] = useState("")
   const [joinCode, setJoinCode] = useState("")
+  const [invited, setInvited] = useState(false)
   const [recap, setRecap] = useState("")
   const [starting, setStarting] = useState(false)
   const [startError, setStartError] = useState<string | null>(null)
@@ -56,7 +57,10 @@ export default function LobbyPage() {
     )
     // Share links land here as /lobby?code=XXXXXX
     const code = new URLSearchParams(window.location.search).get("code")
-    if (code) setJoinCode(code.toUpperCase())
+    if (code) {
+      setJoinCode(code.toUpperCase())
+      setInvited(true)
+    }
     setHydrated(true)
   }, [])
 
@@ -122,6 +126,7 @@ export default function LobbyPage() {
             hostName={hostName}
             joinName={joinName}
             joinCode={joinCode}
+            invited={invited}
             error={remote.error ?? remote.closedMessage}
             onHostName={setHostName}
             onJoinName={setJoinName}
@@ -163,6 +168,7 @@ interface SetupViewProps {
   hostName: string
   joinName: string
   joinCode: string
+  invited: boolean
   error: string | null | undefined
   onHostName: (v: string) => void
   onJoinName: (v: string) => void
@@ -175,6 +181,7 @@ function SetupView({
   hostName,
   joinName,
   joinCode,
+  invited,
   error,
   onHostName,
   onJoinName,
@@ -188,10 +195,12 @@ function SetupView({
   return (
     <div className="w-full max-w-[760px] text-center">
       <h1 className="m-0 mb-3 font-serif text-[56px] font-medium leading-none tracking-[-0.025em]">
-        Draft from anywhere.
+        {invited ? "You're invited." : "Draft from anywhere."}
       </h1>
       <p className="mb-9 text-[15px] text-ink-mute">
-        Start a room and send the code, or punch in the one you got.
+        {invited
+          ? "The room code came with your link — name your team and join."
+          : "Start a room and send the code, or punch in the one you got."}
       </p>
       <ErrorLine message={error} />
 
@@ -218,12 +227,20 @@ function SetupView({
           </button>
         </section>
 
-        <section className="rounded-xl border border-line bg-paper p-[26px]">
-          <div className="mb-6 font-mono text-[10px] uppercase tracking-[0.18em] text-ink-mute">
-            Have a code?
+        <section
+          className={`rounded-xl border bg-paper p-[26px] ${
+            invited ? "border-orange-hd" : "border-line"
+          }`}
+        >
+          <div
+            className={`mb-6 font-mono text-[10px] uppercase tracking-[0.18em] ${
+              invited ? "text-orange-hd" : "text-ink-mute"
+            }`}
+          >
+            {invited ? "Your invite" : "Have a code?"}
           </div>
           <label className={fieldLabel}>
-            Room code
+            {invited ? "Room code · filled in from your link" : "Room code"}
             <input
               value={joinCode}
               onChange={(e) => onJoinCode(e.target.value)}
@@ -238,6 +255,7 @@ function SetupView({
               value={joinName}
               onChange={(e) => onJoinName(e.target.value)}
               maxLength={22}
+              autoFocus={invited}
               className={fieldInput}
             />
           </label>
@@ -245,7 +263,11 @@ function SetupView({
             type="button"
             onClick={onJoin}
             disabled={joinCode.trim().length < 6}
-            className="mt-7 w-full cursor-pointer rounded-lg border border-line bg-paper px-[18px] py-3.5 font-sans text-[14px] font-semibold text-ink hover:border-ink disabled:cursor-not-allowed disabled:opacity-35"
+            className={`mt-7 w-full cursor-pointer rounded-lg px-[18px] py-3.5 font-sans text-[14px] font-semibold disabled:cursor-not-allowed disabled:opacity-35 ${
+              invited
+                ? "border-0 bg-ink text-paper hover:bg-[#e6d3b0]"
+                : "border border-line bg-paper text-ink hover:border-ink"
+            }`}
           >
             Join room →
           </button>
