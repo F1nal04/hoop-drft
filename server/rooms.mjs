@@ -10,8 +10,7 @@
 
 import { customAlphabet, nanoid } from "nanoid"
 
-// No 0/O/1/I/L — codes get read out loud and retyped.
-const makeCode = customAlphabet("ABCDEFGHJKMNPQRSTUVWXYZ23456789", 6)
+const makeCode = customAlphabet("1234567890ABCDEF", 6)
 
 const POSITIONS = new Set(["PG", "SG", "SF", "PF", "C"])
 const MAX_ROOMS = 100

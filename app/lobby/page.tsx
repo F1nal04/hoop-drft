@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { useRouter } from "next/navigation"
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { readConfig } from "@/lib/hd-config"
 import { MONEY_BUDGET, buildMoneyPool, loadHDPools } from "@/lib/hd-data"
 import { rollTeamNames } from "@/lib/hd-names"
@@ -11,6 +11,24 @@ import { clearError, createRoom, joinRoom, leaveRoom, startDraft, useRemoteRoom 
 const ORANGE_INDICES = new Set([1, 4])
 
 const DATASET_LABEL = { current: "Current", historical: "Historical", mixed: "Mixed" } as const
+
+async function copyText(text: string): Promise<boolean> {
+  try {
+    await navigator.clipboard.writeText(text)
+    return true
+  } catch {
+    // navigator.clipboard is absent on http (non-secure) origins, e.g. LAN play
+    const ta = document.createElement("textarea")
+    ta.value = text
+    ta.style.position = "fixed"
+    ta.style.opacity = "0"
+    document.body.appendChild(ta)
+    ta.select()
+    const ok = document.execCommand("copy")
+    ta.remove()
+    return ok
+  }
+}
 
 export default function LobbyPage() {
   const router = useRouter()
@@ -210,7 +228,7 @@ function SetupView({
               value={joinCode}
               onChange={(e) => onJoinCode(e.target.value)}
               maxLength={6}
-              placeholder="R7KP3Q"
+              placeholder="F3A92B"
               className={`${fieldInput} font-mono uppercase tracking-[0.3em]`}
             />
           </label>
@@ -248,15 +266,22 @@ interface HostRoomViewProps {
 }
 
 function HostRoomView({ code, guestName, recap, starting, error, onStart, onLeave }: HostRoomViewProps) {
-  const [copied, setCopied] = useState(false)
+  const [copied, setCopied] = useState<"code" | "link" | null>(null)
+  const copyTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
   const ready = Boolean(guestName)
 
-  function copy() {
-    const link = `${window.location.origin}/lobby?code=${code}`
-    navigator.clipboard?.writeText(link).then(() => {
-      setCopied(true)
-      setTimeout(() => setCopied(false), 1600)
-    })
+  function flashCopied(kind: "code" | "link") {
+    setCopied(kind)
+    if (copyTimer.current) clearTimeout(copyTimer.current)
+    copyTimer.current = setTimeout(() => setCopied(null), 1600)
+  }
+
+  function copyCode() {
+    copyText(code).then((ok) => ok && flashCopied("code"))
+  }
+
+  function copyLink() {
+    copyText(`${window.location.origin}/lobby?code=${code}`).then((ok) => ok && flashCopied("link"))
   }
 
   return (
@@ -269,20 +294,32 @@ function HostRoomView({ code, guestName, recap, starting, error, onStart, onLeav
       </p>
       <ErrorLine message={error} />
 
-      <div className="mb-9 flex justify-center gap-2">
+      <button
+        type="button"
+        onClick={copyCode}
+        aria-label="Copy room code"
+        className="group mx-auto mb-3 flex cursor-pointer justify-center gap-2 border-0 bg-transparent p-0"
+      >
         {code.split("").map((ch, i) => (
           <span
             key={i}
             className={
               ORANGE_INDICES.has(i)
                 ? "grid h-[70px] w-[56px] place-items-center rounded-[10px] border border-orange-hd bg-orange-hd font-mono text-[32px] font-semibold text-white"
-                : "grid h-[70px] w-[56px] place-items-center rounded-[10px] border border-line bg-paper font-mono text-[32px] font-semibold"
+                : "grid h-[70px] w-[56px] place-items-center rounded-[10px] border border-line bg-paper font-mono text-[32px] font-semibold text-ink transition-colors group-hover:border-ink-soft"
             }
           >
             {ch}
           </span>
         ))}
-      </div>
+      </button>
+      <p
+        className={`mb-7 font-mono text-[10px] uppercase tracking-[0.16em] ${
+          copied === "code" ? "text-ok" : "text-ink-mute"
+        }`}
+      >
+        {copied === "code" ? "Copied" : "Click code to copy"}
+      </p>
 
       <div className="mb-4 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.14em] text-ok">
         <span className="hd-pulse-dot" />
@@ -306,10 +343,10 @@ function HostRoomView({ code, guestName, recap, starting, error, onStart, onLeav
         </button>
         <button
           type="button"
-          onClick={copy}
+          onClick={copyLink}
           className="cursor-pointer rounded-lg border border-line bg-paper px-[18px] py-3 font-sans text-[14px] font-medium text-ink"
         >
-          {copied ? "Copied" : "Copy link"}
+          {copied === "link" ? "Copied" : "Copy link"}
         </button>
         <button
           type="button"
