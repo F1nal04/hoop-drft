@@ -1,13 +1,31 @@
 {
   "current_players": [
     {
-      "name": "LeBron James",
-      "position": "SF",
-      "ppg": 27.1,
-      "rpg": 7.5,
-      "apg": 7.4,
-      "bpg": 0.8,
+      "name": "Nikola Jokic",
+      "position": "C",
+      "ppg": 21.8,
+      "rpg": 10.8,
+      "apg": 7.0,
+      "bpg": 0.7,
       "rank": 2
+    },
+    {
+      "name": "Shai Gilgeous-Alexander",
+      "position": "PG",
+      "ppg": 25.5,
+      "rpg": 5.0,
+      "apg": 5.5,
+      "bpg": 0.9,
+      "rank": 4
+    },
+    {
+      "name": "Luka Doncic",
+      "position": "PG",
+      "ppg": 28.6,
+      "rpg": 8.7,
+      "apg": 8.0,
+      "bpg": 0.5,
+      "rank": 5
     },
     {
       "name": "Stephen Curry",
@@ -16,7 +34,34 @@
       "rpg": 4.7,
       "apg": 6.4,
       "bpg": 0.2,
-      "rank": 11
+      "rank": 6
+    },
+    {
+      "name": "LeBron James",
+      "position": "SF",
+      "ppg": 27.0,
+      "rpg": 7.5,
+      "apg": 7.4,
+      "bpg": 0.7,
+      "rank": 7
+    },
+    {
+      "name": "Anthony Edwards",
+      "position": "SG",
+      "ppg": 25.0,
+      "rpg": 5.5,
+      "apg": 4.5,
+      "bpg": 0.6,
+      "rank": 10
+    },
+    {
+      "name": "Giannis Antetokounmpo",
+      "position": "PF",
+      "ppg": 23.5,
+      "rpg": 9.8,
+      "apg": 5.0,
+      "bpg": 1.2,
+      "rank": 12
     },
     {
       "name": "Kevin Durant",
@@ -25,142 +70,88 @@
       "rpg": 7.0,
       "apg": 4.4,
       "bpg": 1.1,
-      "rank": 13
-    },
-    {
-      "name": "Nikola Jokic",
-      "position": "C",
-      "ppg": 21.0,
-      "rpg": 10.7,
-      "apg": 6.9,
-      "bpg": 0.7,
       "rank": 15
-    },
-    {
-      "name": "Giannis Antetokounmpo",
-      "position": "PF",
-      "ppg": 23.4,
-      "rpg": 9.8,
-      "apg": 4.9,
-      "bpg": 1.1,
-      "rank": 18
-    },
-    {
-      "name": "Luka Doncic",
-      "position": "PG",
-      "ppg": 28.7,
-      "rpg": 8.7,
-      "apg": 8.3,
-      "bpg": 0.5,
-      "rank": 21
-    },
-    {
-      "name": "Joel Embiid",
-      "position": "C",
-      "ppg": 27.8,
-      "rpg": 11.2,
-      "apg": 3.6,
-      "bpg": 1.7,
-      "rank": 23
-    },
-    {
-      "name": "Shai Gilgeous-Alexander",
-      "position": "PG",
-      "ppg": 22.8,
-      "rpg": 4.7,
-      "apg": 4.9,
-      "bpg": 0.8,
-      "rank": 26
-    },
-    {
-      "name": "Jayson Tatum",
-      "position": "SF",
-      "ppg": 23.2,
-      "rpg": 7.2,
-      "apg": 3.6,
-      "bpg": 0.7,
-      "rank": 29
-    },
-    {
-      "name": "Anthony Davis",
-      "position": "PF",
-      "ppg": 24.1,
-      "rpg": 10.6,
-      "apg": 2.5,
-      "bpg": 2.3,
-      "rank": 33
-    },
-    {
-      "name": "Anthony Edwards",
-      "position": "SG",
-      "ppg": 22.9,
-      "rpg": 5.2,
-      "apg": 4.1,
-      "bpg": 0.6,
-      "rank": 36
-    },
-    {
-      "name": "Devin Booker",
-      "position": "SG",
-      "ppg": 24.3,
-      "rpg": 4.0,
-      "apg": 5.0,
-      "bpg": 0.3,
-      "rank": 40
-    },
-    {
-      "name": "Donovan Mitchell",
-      "position": "SG",
-      "ppg": 24.9,
-      "rpg": 4.3,
-      "apg": 4.6,
-      "bpg": 0.3,
-      "rank": 43
-    },
-    {
-      "name": "Jalen Brunson",
-      "position": "PG",
-      "ppg": 16.9,
-      "rpg": 3.2,
-      "apg": 4.7,
-      "bpg": 0.1,
-      "rank": 46
     },
     {
       "name": "Victor Wembanyama",
       "position": "C",
-      "ppg": 22.5,
+      "ppg": 22.0,
       "rpg": 11.0,
-      "apg": 4.2,
-      "bpg": 3.5,
-      "rank": 48
+      "apg": 3.7,
+      "bpg": 3.6,
+      "rank": 18
     },
     {
-      "name": "Kawhi Leonard",
-      "position": "SF",
-      "ppg": 19.9,
-      "rpg": 6.4,
-      "apg": 3.0,
-      "bpg": 0.6,
-      "rank": 50
-    },
-    {
-      "name": "Jaylen Brown",
+      "name": "Devin Booker",
       "position": "SG",
-      "ppg": 18.6,
-      "rpg": 5.2,
-      "apg": 2.4,
-      "bpg": 0.4,
-      "rank": 53
+      "ppg": 24.5,
+      "rpg": 4.2,
+      "apg": 5.5,
+      "bpg": 0.3,
+      "rank": 21
     },
     {
-      "name": "Tyrese Haliburton",
+      "name": "Jayson Tatum",
+      "position": "SF",
+      "ppg": 23.5,
+      "rpg": 7.5,
+      "apg": 4.0,
+      "bpg": 0.7,
+      "rank": 22
+    },
+    {
+      "name": "Joel Embiid",
+      "position": "C",
+      "ppg": 27.9,
+      "rpg": 11.2,
+      "apg": 3.8,
+      "bpg": 1.7,
+      "rank": 23
+    },
+    {
+      "name": "Donovan Mitchell",
+      "position": "SG",
+      "ppg": 24.0,
+      "rpg": 4.3,
+      "apg": 4.7,
+      "bpg": 0.3,
+      "rank": 26
+    },
+    {
+      "name": "Jalen Brunson",
       "position": "PG",
-      "ppg": 18.2,
-      "rpg": 3.7,
-      "apg": 9.3,
-      "bpg": 0.5,
-      "rank": 56
+      "ppg": 20.5,
+      "rpg": 3.5,
+      "apg": 5.5,
+      "bpg": 0.2,
+      "rank": 27
+    },
+    {
+      "name": "Cade Cunningham",
+      "position": "PG",
+      "ppg": 21.5,
+      "rpg": 6.0,
+      "apg": 7.2,
+      "bpg": 0.7,
+      "rank": 28
+    },
+    {
+      "name": "Anthony Davis",
+      "position": "PF",
+      "ppg": 24.0,
+      "rpg": 10.4,
+      "apg": 2.4,
+      "bpg": 2.3,
+      "rank": 30
+    },
+    {
+      "name": "Damian Lillard",
+      "position": "PG",
+      "ppg": 25.1,
+      "rpg": 4.3,
+      "apg": 6.7,
+      "bpg": 0.3,
+      "rank": 32
     },
     {
       "name": "Kyrie Irving",
@@ -168,1475 +159,2096 @@
       "ppg": 23.6,
       "rpg": 4.0,
       "apg": 5.7,
-      "bpg": 0.4,
-      "rank": 59
-    },
-    {
-      "name": "Bam Adebayo",
-      "position": "C",
-      "ppg": 15.4,
-      "rpg": 8.7,
-      "apg": 3.5,
-      "bpg": 0.9,
-      "rank": 63
-    },
-    {
-      "name": "Jimmy Butler",
-      "position": "SF",
-      "ppg": 18.3,
-      "rpg": 5.3,
-      "apg": 4.3,
-      "bpg": 0.5,
-      "rank": 66
-    },
-    {
-      "name": "Ja Morant",
-      "position": "PG",
-      "ppg": 22.5,
-      "rpg": 4.8,
-      "apg": 7.4,
-      "bpg": 0.3,
-      "rank": 68
-    },
-    {
-      "name": "Damian Lillard",
-      "position": "PG",
-      "ppg": 25.1,
-      "rpg": 4.2,
-      "apg": 6.7,
-      "bpg": 0.3,
-      "rank": 70
-    },
-    {
-      "name": "Paolo Banchero",
-      "position": "PF",
-      "ppg": 21.3,
-      "rpg": 6.9,
-      "apg": 4.6,
       "bpg": 0.6,
-      "rank": 72
-    },
-    {
-      "name": "Zion Williamson",
-      "position": "PF",
-      "ppg": 24.7,
-      "rpg": 6.5,
-      "apg": 4.1,
-      "bpg": 0.6,
-      "rank": 75
-    },
-    {
-      "name": "Tyrese Maxey",
-      "position": "PG",
-      "ppg": 18.2,
-      "rpg": 3.1,
-      "apg": 4.4,
-      "bpg": 0.3,
-      "rank": 77
-    },
-    {
-      "name": "De'Aaron Fox",
-      "position": "PG",
-      "ppg": 21.2,
-      "rpg": 3.8,
-      "apg": 6.1,
-      "bpg": 0.4,
-      "rank": 79
+      "rank": 37
     },
     {
       "name": "Trae Young",
       "position": "PG",
       "ppg": 25.5,
-      "rpg": 3.6,
+      "rpg": 3.9,
       "apg": 9.5,
-      "bpg": 0.1,
-      "rank": 82
+      "bpg": 0.2,
+      "rank": 39
     },
     {
-      "name": "Domantas Sabonis",
-      "position": "C",
-      "ppg": 15.7,
-      "rpg": 10.3,
-      "apg": 4.8,
+      "name": "Ja Morant",
+      "position": "PG",
+      "ppg": 22.8,
+      "rpg": 5.6,
+      "apg": 7.4,
+      "bpg": 0.3,
+      "rank": 41
+    },
+    {
+      "name": "Kawhi Leonard",
+      "position": "SF",
+      "ppg": 20.0,
+      "rpg": 6.4,
+      "apg": 3.2,
+      "bpg": 0.6,
+      "rank": 42
+    },
+    {
+      "name": "Tyrese Haliburton",
+      "position": "PG",
+      "ppg": 18.9,
+      "rpg": 3.9,
+      "apg": 9.5,
+      "bpg": 0.6,
+      "rank": 44
+    },
+    {
+      "name": "De'Aaron Fox",
+      "position": "PG",
+      "ppg": 21.8,
+      "rpg": 4.0,
+      "apg": 6.2,
+      "bpg": 0.4,
+      "rank": 45
+    },
+    {
+      "name": "Jaylen Brown",
+      "position": "SF",
+      "ppg": 20.0,
+      "rpg": 5.2,
+      "apg": 3.2,
+      "bpg": 0.4,
+      "rank": 50
+    },
+    {
+      "name": "Jimmy Butler",
+      "position": "SF",
+      "ppg": 18.0,
+      "rpg": 5.3,
+      "apg": 4.4,
       "bpg": 0.5,
-      "rank": 84
+      "rank": 53
     },
     {
-      "name": "Pascal Siakam",
-      "position": "PF",
-      "ppg": 17.7,
-      "rpg": 6.6,
-      "apg": 3.6,
-      "bpg": 0.7,
-      "rank": 86
+      "name": "Cooper Flagg",
+      "position": "SF",
+      "ppg": 21.0,
+      "rpg": 6.7,
+      "apg": 4.5,
+      "bpg": 0.9,
+      "rank": 58
     },
     {
       "name": "Karl-Anthony Towns",
-      "position": "PF",
-      "ppg": 22.9,
-      "rpg": 10.8,
+      "position": "C",
+      "ppg": 23.0,
+      "rpg": 10.5,
       "apg": 3.2,
-      "bpg": 1.3,
-      "rank": 88
+      "bpg": 1.2,
+      "rank": 62
     },
     {
-      "name": "Paul George",
-      "position": "SF",
-      "ppg": 20.7,
-      "rpg": 6.3,
-      "apg": 3.7,
-      "bpg": 0.4,
-      "rank": 90
-    },
-    {
-      "name": "Lauri Markkanen",
-      "position": "PF",
-      "ppg": 18.1,
-      "rpg": 7.3,
-      "apg": 1.5,
-      "bpg": 0.5,
-      "rank": 92
-    },
-    {
-      "name": "Jamal Murray",
+      "name": "Tyrese Maxey",
       "position": "PG",
-      "ppg": 17.5,
-      "rpg": 3.7,
+      "ppg": 18.5,
+      "rpg": 3.2,
       "apg": 4.5,
       "bpg": 0.3,
-      "rank": 95
+      "rank": 65
+    },
+    {
+      "name": "Bam Adebayo",
+      "position": "C",
+      "ppg": 16.0,
+      "rpg": 9.0,
+      "apg": 4.0,
+      "bpg": 0.8,
+      "rank": 67
     },
     {
       "name": "Chet Holmgren",
-      "position": "PF",
-      "ppg": 16.8,
-      "rpg": 7.9,
+      "position": "C",
+      "ppg": 17.0,
+      "rpg": 8.0,
       "apg": 2.5,
-      "bpg": 2.3,
-      "rank": 97
+      "bpg": 2.4,
+      "rank": 68
     },
     {
-      "name": "Scottie Barnes",
+      "name": "Franz Wagner",
       "position": "SF",
-      "ppg": 16.6,
-      "rpg": 7.4,
-      "apg": 4.7,
-      "bpg": 1.1,
-      "rank": 99
-    },
-    {
-      "name": "Alperen Sengun",
-      "position": "C",
-      "ppg": 18.2,
-      "rpg": 9.2,
-      "apg": 5.1,
-      "bpg": 0.9,
-      "rank": 101
-    },
-    {
-      "name": "Jalen Williams",
-      "position": "SG",
-      "ppg": 16.2,
-      "rpg": 4.5,
-      "apg": 3.9,
-      "bpg": 0.6,
-      "rank": 103
-    },
-    {
-      "name": "Rudy Gobert",
-      "position": "C",
-      "ppg": 12.7,
-      "rpg": 11.8,
-      "apg": 1.3,
-      "bpg": 2.1,
-      "rank": 105
-    },
-    {
-      "name": "James Harden",
-      "position": "PG",
-      "ppg": 24.1,
-      "rpg": 5.6,
-      "apg": 7.1,
-      "bpg": 0.5,
-      "rank": 107
-    },
-    {
-      "name": "DeMar DeRozan",
-      "position": "SG",
-      "ppg": 21.2,
-      "rpg": 4.4,
-      "apg": 4.0,
-      "bpg": 0.3,
-      "rank": 110
-    },
-    {
-      "name": "Chris Paul",
-      "position": "PG",
-      "ppg": 17.5,
-      "rpg": 4.5,
-      "apg": 9.4,
-      "bpg": 0.1,
-      "rank": 112
-    },
-    {
-      "name": "Cade Cunningham",
-      "position": "PG",
-      "ppg": 20.0,
-      "rpg": 5.0,
-      "apg": 6.5,
+      "ppg": 18.0,
+      "rpg": 5.2,
+      "apg": 4.2,
       "bpg": 0.4,
-      "rank": 115
+      "rank": 69
     },
     {
       "name": "LaMelo Ball",
       "position": "PG",
-      "ppg": 20.0,
-      "rpg": 6.2,
-      "apg": 7.4,
+      "ppg": 20.2,
+      "rpg": 6.0,
+      "apg": 7.7,
       "bpg": 0.3,
-      "rank": 117
+      "rank": 72
+    },
+    {
+      "name": "Paolo Banchero",
+      "position": "PF",
+      "ppg": 21.5,
+      "rpg": 6.8,
+      "apg": 4.5,
+      "bpg": 0.6,
+      "rank": 73
+    },
+    {
+      "name": "Paul George",
+      "position": "SF",
+      "ppg": 20.4,
+      "rpg": 6.2,
+      "apg": 3.6,
+      "bpg": 0.4,
+      "rank": 74
+    },
+    {
+      "name": "Darius Garland",
+      "position": "PG",
+      "ppg": 19.5,
+      "rpg": 3.0,
+      "apg": 7.3,
+      "bpg": 0.1,
+      "rank": 79
     },
     {
       "name": "Evan Mobley",
       "position": "PF",
-      "ppg": 15.6,
-      "rpg": 8.8,
+      "ppg": 15.5,
+      "rpg": 9.0,
       "apg": 2.8,
-      "bpg": 1.6,
-      "rank": 119
+      "bpg": 1.5,
+      "rank": 80
     },
     {
-      "name": "Jaren Jackson Jr.",
+      "name": "Zion Williamson",
       "position": "PF",
-      "ppg": 17.6,
-      "rpg": 5.5,
-      "apg": 1.2,
-      "bpg": 2.1,
-      "rank": 121
+      "ppg": 24.5,
+      "rpg": 6.8,
+      "apg": 4.5,
+      "bpg": 0.6,
+      "rank": 82
     },
     {
-      "name": "Derrick White",
+      "name": "Jamal Murray",
       "position": "PG",
-      "ppg": 12.3,
-      "rpg": 3.5,
-      "apg": 4.0,
-      "bpg": 0.9,
-      "rank": 124
-    },
-    {
-      "name": "Jrue Holiday",
-      "position": "PG",
-      "ppg": 16.1,
-      "rpg": 4.2,
-      "apg": 6.4,
-      "bpg": 0.5,
-      "rank": 127
-    },
-    {
-      "name": "Bradley Beal",
-      "position": "SG",
-      "ppg": 21.9,
-      "rpg": 4.1,
-      "apg": 4.3,
-      "bpg": 0.4,
-      "rank": 129
-    },
-    {
-      "name": "Zach LaVine",
-      "position": "SG",
-      "ppg": 20.5,
-      "rpg": 4.1,
-      "apg": 3.9,
+      "ppg": 18.6,
+      "rpg": 3.9,
+      "apg": 5.0,
       "bpg": 0.3,
-      "rank": 131
+      "rank": 83
+    },
+    {
+      "name": "Alperen Sengun",
+      "position": "PF",
+      "ppg": 17.5,
+      "rpg": 9.5,
+      "apg": 5.0,
+      "bpg": 0.7,
+      "rank": 86
     },
     {
       "name": "Brandon Ingram",
       "position": "SF",
-      "ppg": 19.4,
+      "ppg": 20.0,
       "rpg": 5.2,
-      "apg": 4.1,
+      "apg": 4.4,
       "bpg": 0.6,
-      "rank": 133
+      "rank": 88
+    },
+    {
+      "name": "Jaren Jackson Jr.",
+      "position": "PF",
+      "ppg": 18.0,
+      "rpg": 5.5,
+      "apg": 1.5,
+      "bpg": 2.2,
+      "rank": 90
+    },
+    {
+      "name": "Jrue Holiday",
+      "position": "PG",
+      "ppg": 17.0,
+      "rpg": 4.5,
+      "apg": 6.0,
+      "bpg": 0.7,
+      "rank": 91
+    },
+    {
+      "name": "Pascal Siakam",
+      "position": "PF",
+      "ppg": 18.5,
+      "rpg": 7.0,
+      "apg": 3.8,
+      "bpg": 0.6,
+      "rank": 93
+    },
+    {
+      "name": "Chris Paul",
+      "position": "PG",
+      "ppg": 17.3,
+      "rpg": 4.4,
+      "apg": 9.3,
+      "bpg": 0.1,
+      "rank": 96
+    },
+    {
+      "name": "DeMar DeRozan",
+      "position": "SF",
+      "ppg": 20.8,
+      "rpg": 4.3,
+      "apg": 4.0,
+      "bpg": 0.3,
+      "rank": 98
+    },
+    {
+      "name": "Domantas Sabonis",
+      "position": "PF",
+      "ppg": 16.5,
+      "rpg": 10.5,
+      "apg": 5.0,
+      "bpg": 0.5,
+      "rank": 100
+    },
+    {
+      "name": "Klay Thompson",
+      "position": "SG",
+      "ppg": 19.0,
+      "rpg": 3.4,
+      "apg": 2.3,
+      "bpg": 0.5,
+      "rank": 101
+    },
+    {
+      "name": "Rudy Gobert",
+      "position": "C",
+      "ppg": 12.5,
+      "rpg": 11.7,
+      "apg": 1.3,
+      "bpg": 2.1,
+      "rank": 102
+    },
+    {
+      "name": "Russell Westbrook",
+      "position": "PG",
+      "ppg": 21.2,
+      "rpg": 7.0,
+      "apg": 8.0,
+      "bpg": 0.3,
+      "rank": 106
+    },
+    {
+      "name": "Bradley Beal",
+      "position": "SG",
+      "ppg": 21.5,
+      "rpg": 4.2,
+      "apg": 4.3,
+      "bpg": 0.5,
+      "rank": 108
+    },
+    {
+      "name": "Scottie Barnes",
+      "position": "PF",
+      "ppg": 15.5,
+      "rpg": 7.0,
+      "apg": 5.0,
+      "bpg": 0.9,
+      "rank": 109
+    },
+    {
+      "name": "Austin Reaves",
+      "position": "SG",
+      "ppg": 15.5,
+      "rpg": 4.0,
+      "apg": 5.0,
+      "bpg": 0.3,
+      "rank": 112
+    },
+    {
+      "name": "Desmond Bane",
+      "position": "SG",
+      "ppg": 18.5,
+      "rpg": 4.5,
+      "apg": 4.0,
+      "bpg": 0.4,
+      "rank": 114
+    },
+    {
+      "name": "Julius Randle",
+      "position": "PF",
+      "ppg": 19.0,
+      "rpg": 9.5,
+      "apg": 3.5,
+      "bpg": 0.3,
+      "rank": 117
     },
     {
       "name": "Mikal Bridges",
       "position": "SF",
-      "ppg": 14.3,
-      "rpg": 4.1,
-      "apg": 2.6,
+      "ppg": 15.5,
+      "rpg": 4.0,
+      "apg": 3.0,
       "bpg": 0.6,
-      "rank": 136
+      "rank": 118
     },
     {
-      "name": "Kristaps Porzingis",
-      "position": "C",
-      "ppg": 19.6,
-      "rpg": 7.9,
-      "apg": 1.8,
-      "bpg": 1.8,
+      "name": "Zach LaVine",
+      "position": "SG",
+      "ppg": 20.0,
+      "rpg": 4.3,
+      "apg": 4.2,
+      "bpg": 0.4,
+      "rank": 121
+    },
+    {
+      "name": "OG Anunoby",
+      "position": "SF",
+      "ppg": 14.0,
+      "rpg": 4.5,
+      "apg": 2.0,
+      "bpg": 0.6,
+      "rank": 126
+    },
+    {
+      "name": "Tyler Herro",
+      "position": "SG",
+      "ppg": 19.0,
+      "rpg": 5.0,
+      "apg": 4.0,
+      "bpg": 0.2,
+      "rank": 128
+    },
+    {
+      "name": "Amen Thompson",
+      "position": "SF",
+      "ppg": 12.0,
+      "rpg": 6.5,
+      "apg": 4.0,
+      "bpg": 0.7,
+      "rank": 131
+    },
+    {
+      "name": "Dejounte Murray",
+      "position": "PG",
+      "ppg": 17.0,
+      "rpg": 5.7,
+      "apg": 5.5,
+      "bpg": 0.4,
+      "rank": 134
+    },
+    {
+      "name": "Draymond Green",
+      "position": "PF",
+      "ppg": 8.6,
+      "rpg": 6.9,
+      "apg": 5.6,
+      "bpg": 0.8,
+      "rank": 135
+    },
+    {
+      "name": "Jalen Green",
+      "position": "SG",
+      "ppg": 19.5,
+      "rpg": 5.0,
+      "apg": 3.5,
+      "bpg": 0.4,
+      "rank": 137
+    },
+    {
+      "name": "Kon Knueppel",
+      "position": "SF",
+      "ppg": 18.5,
+      "rpg": 5.3,
+      "apg": 3.4,
+      "bpg": 0.2,
       "rank": 138
     },
     {
       "name": "Myles Turner",
       "position": "C",
-      "ppg": 13.9,
-      "rpg": 6.8,
-      "apg": 1.2,
-      "bpg": 2.2,
-      "rank": 140
-    },
-    {
-      "name": "Julius Randle",
-      "position": "PF",
-      "ppg": 19.1,
-      "rpg": 9.4,
-      "apg": 3.7,
-      "bpg": 0.4,
-      "rank": 142
-    },
-    {
-      "name": "Draymond Green",
-      "position": "PF",
-      "ppg": 8.7,
-      "rpg": 6.9,
-      "apg": 5.6,
-      "bpg": 1.0,
-      "rank": 145
-    },
-    {
-      "name": "OG Anunoby",
-      "position": "SF",
-      "ppg": 12.8,
-      "rpg": 4.4,
-      "apg": 1.7,
-      "bpg": 0.6,
-      "rank": 147
-    },
-    {
-      "name": "Desmond Bane",
-      "position": "SG",
-      "ppg": 17.5,
-      "rpg": 4.2,
-      "apg": 3.2,
-      "bpg": 0.4,
-      "rank": 149
-    },
-    {
-      "name": "Jarrett Allen",
-      "position": "C",
-      "ppg": 12.5,
-      "rpg": 9.1,
-      "apg": 1.6,
-      "bpg": 1.3,
-      "rank": 151
-    },
-    {
-      "name": "Dejounte Murray",
-      "position": "PG",
-      "ppg": 15.4,
-      "rpg": 5.8,
-      "apg": 5.3,
-      "bpg": 0.3,
-      "rank": 153
-    },
-    {
-      "name": "Fred VanVleet",
-      "position": "PG",
       "ppg": 15.0,
-      "rpg": 3.4,
-      "apg": 5.7,
-      "bpg": 0.4,
-      "rank": 155
-    },
-    {
-      "name": "CJ McCollum",
-      "position": "SG",
-      "ppg": 19.4,
-      "rpg": 3.6,
-      "apg": 3.8,
-      "bpg": 0.4,
-      "rank": 157
-    },
-    {
-      "name": "Cooper Flagg",
-      "position": "SF",
-      "ppg": 19.5,
-      "rpg": 7.8,
-      "apg": 3.8,
-      "bpg": 1.6,
-      "rank": 160
-    },
-    {
-      "name": "Darius Garland",
-      "position": "PG",
-      "ppg": 18.4,
-      "rpg": 2.6,
-      "apg": 6.7,
-      "bpg": 0.1,
-      "rank": 162
-    },
-    {
-      "name": "Franz Wagner",
-      "position": "SF",
-      "ppg": 17.8,
-      "rpg": 4.6,
-      "apg": 3.4,
-      "bpg": 0.3,
-      "rank": 164
-    },
-    {
-      "name": "Michael Porter Jr.",
-      "position": "SF",
-      "ppg": 15.7,
-      "rpg": 6.2,
-      "apg": 1.2,
-      "bpg": 0.6,
-      "rank": 166
-    },
-    {
-      "name": "Jerami Grant",
-      "position": "SF",
-      "ppg": 13.5,
-      "rpg": 4.1,
-      "apg": 1.6,
-      "bpg": 1.0,
-      "rank": 168
-    },
-    {
-      "name": "Khris Middleton",
-      "position": "SF",
-      "ppg": 16.9,
-      "rpg": 4.8,
-      "apg": 3.9,
-      "bpg": 0.2,
-      "rank": 170
-    },
-    {
-      "name": "Russell Westbrook",
-      "position": "PG",
-      "ppg": 21.7,
-      "rpg": 7.1,
-      "apg": 8.1,
-      "bpg": 0.3,
-      "rank": 172
-    },
-    {
-      "name": "Tyler Herro",
-      "position": "SG",
-      "ppg": 18.1,
-      "rpg": 4.9,
-      "apg": 3.6,
-      "bpg": 0.1,
-      "rank": 175
-    },
-    {
-      "name": "Jalen Green",
-      "position": "SG",
-      "ppg": 19.8,
-      "rpg": 3.8,
-      "apg": 3.3,
-      "bpg": 0.3,
-      "rank": 177
-    },
-    {
-      "name": "Aaron Gordon",
-      "position": "PF",
-      "ppg": 13.4,
-      "rpg": 6.3,
-      "apg": 2.5,
-      "bpg": 0.6,
-      "rank": 179
-    },
-    {
-      "name": "Naz Reid",
-      "position": "PF",
-      "ppg": 12.8,
-      "rpg": 4.8,
+      "rpg": 6.8,
       "apg": 1.3,
-      "bpg": 0.9,
-      "rank": 181
-    },
-    {
-      "name": "Tobias Harris",
-      "position": "PF",
-      "ppg": 16.3,
-      "rpg": 6.2,
-      "apg": 2.4,
-      "bpg": 0.5,
-      "rank": 183
-    },
-    {
-      "name": "Deandre Ayton",
-      "position": "C",
-      "ppg": 16.7,
-      "rpg": 10.5,
-      "apg": 1.6,
-      "bpg": 1.0,
-      "rank": 185
-    },
-    {
-      "name": "Brook Lopez",
-      "position": "C",
-      "ppg": 16.1,
-      "rpg": 6.2,
-      "apg": 1.4,
-      "bpg": 1.8,
-      "rank": 187
-    },
-    {
-      "name": "Nikola Vucevic",
-      "position": "C",
-      "ppg": 16.5,
-      "rpg": 10.2,
-      "apg": 2.8,
-      "bpg": 0.9,
-      "rank": 189
-    },
-    {
-      "name": "Josh Giddey",
-      "position": "PG",
-      "ppg": 13.9,
-      "rpg": 7.3,
-      "apg": 5.7,
-      "bpg": 0.4,
-      "rank": 191
-    },
-    {
-      "name": "Coby White",
-      "position": "PG",
-      "ppg": 12.9,
-      "rpg": 3.5,
-      "apg": 3.7,
-      "bpg": 0.2,
-      "rank": 193
-    },
-    {
-      "name": "D'Angelo Russell",
-      "position": "PG",
-      "ppg": 17.6,
-      "rpg": 3.4,
-      "apg": 5.8,
-      "bpg": 0.3,
-      "rank": 195
-    },
-    {
-      "name": "Anfernee Simons",
-      "position": "SG",
-      "ppg": 15.5,
-      "rpg": 2.6,
-      "apg": 2.9,
-      "bpg": 0.1,
-      "rank": 197
-    },
-    {
-      "name": "Austin Reaves",
-      "position": "SG",
-      "ppg": 14.2,
-      "rpg": 3.5,
-      "apg": 3.8,
-      "bpg": 0.2,
-      "rank": 199
-    },
-    {
-      "name": "Jordan Poole",
-      "position": "SG",
-      "ppg": 16.1,
-      "rpg": 2.6,
-      "apg": 3.6,
-      "bpg": 0.2,
-      "rank": 201
-    },
-    {
-      "name": "Kyle Kuzma",
-      "position": "SF",
-      "ppg": 17.3,
-      "rpg": 6.4,
-      "apg": 2.7,
-      "bpg": 0.5,
-      "rank": 203
+      "bpg": 2.2,
+      "rank": 148
     },
     {
       "name": "RJ Barrett",
       "position": "SF",
-      "ppg": 18.4,
-      "rpg": 5.4,
-      "apg": 2.9,
+      "ppg": 18.0,
+      "rpg": 5.0,
+      "apg": 3.0,
       "bpg": 0.3,
-      "rank": 205
+      "rank": 150
     },
     {
-      "name": "Miles Bridges",
-      "position": "PF",
-      "ppg": 16.8,
-      "rpg": 6.1,
-      "apg": 2.7,
-      "bpg": 0.7,
-      "rank": 207
-    },
-    {
-      "name": "John Collins",
-      "position": "PF",
-      "ppg": 15.7,
-      "rpg": 8.0,
-      "apg": 1.5,
-      "bpg": 1.0,
-      "rank": 209
-    },
-    {
-      "name": "Jonas Valanciunas",
-      "position": "C",
-      "ppg": 13.4,
-      "rpg": 9.5,
-      "apg": 1.3,
-      "bpg": 1.0,
-      "rank": 211
-    },
-    {
-      "name": "Clint Capela",
-      "position": "C",
-      "ppg": 11.7,
-      "rpg": 10.6,
-      "apg": 1.0,
-      "bpg": 1.5,
-      "rank": 213
-    },
-    {
-      "name": "Mike Conley",
-      "position": "PG",
-      "ppg": 14.4,
-      "rpg": 3.0,
-      "apg": 5.7,
-      "bpg": 0.2,
-      "rank": 215
-    },
-    {
-      "name": "Scoot Henderson",
-      "position": "PG",
-      "ppg": 14.5,
-      "rpg": 3.4,
-      "apg": 5.9,
-      "bpg": 0.2,
-      "rank": 217
-    },
-    {
-      "name": "Immanuel Quickley",
-      "position": "PG",
-      "ppg": 13.7,
-      "rpg": 3.2,
-      "apg": 3.6,
-      "bpg": 0.2,
-      "rank": 219
-    },
-    {
-      "name": "Malik Monk",
+      "name": "CJ McCollum",
       "position": "SG",
-      "ppg": 11.5,
-      "rpg": 2.5,
-      "apg": 2.6,
-      "bpg": 0.2,
-      "rank": 221
-    },
-    {
-      "name": "Cam Thomas",
-      "position": "SG",
-      "ppg": 16.8,
-      "rpg": 2.8,
-      "apg": 1.9,
-      "bpg": 0.2,
-      "rank": 223
-    },
-    {
-      "name": "Keegan Murray",
-      "position": "SF",
-      "ppg": 14.8,
-      "rpg": 5.6,
-      "apg": 1.6,
-      "bpg": 0.5,
-      "rank": 225
-    },
-    {
-      "name": "Herbert Jones",
-      "position": "SF",
-      "ppg": 10.1,
+      "ppg": 19.5,
       "rpg": 3.8,
-      "apg": 2.4,
-      "bpg": 0.8,
-      "rank": 227
-    },
-    {
-      "name": "PJ Washington",
-      "position": "PF",
-      "ppg": 12.9,
-      "rpg": 5.5,
-      "apg": 2.3,
-      "bpg": 0.9,
-      "rank": 229
-    },
-    {
-      "name": "Jabari Smith Jr.",
-      "position": "PF",
-      "ppg": 14.2,
-      "rpg": 7.6,
-      "apg": 1.6,
-      "bpg": 0.9,
-      "rank": 231
-    },
-    {
-      "name": "Jusuf Nurkic",
-      "position": "C",
-      "ppg": 12.1,
-      "rpg": 8.6,
-      "apg": 2.4,
-      "bpg": 1.1,
-      "rank": 233
-    },
-    {
-      "name": "Ivica Zubac",
-      "position": "C",
-      "ppg": 10.5,
-      "rpg": 8.4,
-      "apg": 1.2,
-      "bpg": 1.0,
-      "rank": 235
-    },
-    {
-      "name": "Jalen Suggs",
-      "position": "PG",
-      "ppg": 11.5,
-      "rpg": 3.2,
-      "apg": 3.2,
+      "apg": 3.5,
       "bpg": 0.5,
-      "rank": 237
+      "rank": 152
     },
     {
-      "name": "Keyonte George",
+      "name": "Fred VanVleet",
       "position": "PG",
-      "ppg": 13.2,
-      "rpg": 2.8,
-      "apg": 4.5,
-      "bpg": 0.1,
-      "rank": 239
+      "ppg": 15.2,
+      "rpg": 3.8,
+      "apg": 6.2,
+      "bpg": 0.3,
+      "rank": 154
     },
     {
-      "name": "Collin Sexton",
-      "position": "SG",
-      "ppg": 19.2,
-      "rpg": 2.9,
-      "apg": 3.2,
-      "bpg": 0.1,
-      "rank": 241
-    },
-    {
-      "name": "Bogdan Bogdanovic",
-      "position": "SG",
+      "name": "Aaron Gordon",
+      "position": "SF",
       "ppg": 14.5,
-      "rpg": 3.4,
+      "rpg": 6.2,
       "apg": 3.2,
-      "bpg": 0.2,
-      "rank": 243
+      "bpg": 0.7,
+      "rank": 157
     },
     {
       "name": "Andrew Wiggins",
       "position": "SF",
-      "ppg": 18.5,
+      "ppg": 17.5,
       "rpg": 4.5,
       "apg": 2.3,
       "bpg": 0.7,
-      "rank": 245
+      "rank": 158
     },
     {
-      "name": "Keldon Johnson",
-      "position": "SF",
-      "ppg": 16.3,
-      "rpg": 5.5,
-      "apg": 2.1,
-      "bpg": 0.2,
-      "rank": 247
-    },
-    {
-      "name": "Jonathan Kuminga",
-      "position": "PF",
-      "ppg": 14.5,
-      "rpg": 4.5,
-      "apg": 1.9,
-      "bpg": 0.4,
-      "rank": 249
-    },
-    {
-      "name": "Jeremy Sochan",
-      "position": "PF",
-      "ppg": 11.5,
-      "rpg": 5.8,
-      "apg": 3.5,
-      "bpg": 0.4,
-      "rank": 251
-    },
-    {
-      "name": "Jakob Poeltl",
+      "name": "Brook Lopez",
       "position": "C",
-      "ppg": 8.3,
-      "rpg": 6.7,
+      "ppg": 15.5,
+      "rpg": 4.8,
+      "apg": 1.4,
+      "bpg": 1.9,
+      "rank": 161
+    },
+    {
+      "name": "Deandre Ayton",
+      "position": "C",
+      "ppg": 16.5,
+      "rpg": 10.0,
       "apg": 1.7,
-      "bpg": 1.3,
-      "rank": 253
+      "bpg": 0.9,
+      "rank": 162
     },
     {
-      "name": "Walker Kessler",
-      "position": "C",
-      "ppg": 9.2,
-      "rpg": 8.4,
-      "apg": 0.9,
-      "bpg": 2.4,
-      "rank": 255
-    },
-    {
-      "name": "Reed Sheppard",
-      "position": "PG",
-      "ppg": 12.5,
-      "rpg": 4.1,
+      "name": "Jalen Johnson",
+      "position": "PF",
+      "ppg": 15.0,
+      "rpg": 8.5,
       "apg": 4.5,
-      "bpg": 0.7,
-      "rank": 257
+      "bpg": 0.9,
+      "rank": 163
+    },
+    {
+      "name": "Jarrett Allen",
+      "position": "PF",
+      "ppg": 13.5,
+      "rpg": 9.5,
+      "apg": 1.8,
+      "bpg": 1.3,
+      "rank": 164
+    },
+    {
+      "name": "Lauri Markkanen",
+      "position": "PF",
+      "ppg": 18.0,
+      "rpg": 7.5,
+      "apg": 1.8,
+      "bpg": 0.5,
+      "rank": 168
+    },
+    {
+      "name": "Michael Porter Jr.",
+      "position": "SF",
+      "ppg": 16.0,
+      "rpg": 6.5,
+      "apg": 1.5,
+      "bpg": 0.5,
+      "rank": 170
     },
     {
       "name": "Stephon Castle",
       "position": "PG",
-      "ppg": 11.1,
-      "rpg": 3.9,
-      "apg": 3.8,
-      "bpg": 0.4,
-      "rank": 259
-    },
-    {
-      "name": "Dalton Knecht",
-      "position": "SG",
-      "ppg": 13.5,
-      "rpg": 3.2,
-      "apg": 1.8,
+      "ppg": 15.6,
+      "rpg": 4.4,
+      "apg": 5.6,
       "bpg": 0.3,
-      "rank": 261
+      "rank": 171
     },
     {
-      "name": "Alex Caruso",
-      "position": "SG",
-      "ppg": 8.5,
-      "rpg": 3.2,
+      "name": "Al Horford",
+      "position": "C",
+      "ppg": 13.4,
+      "rpg": 8.1,
       "apg": 3.1,
-      "bpg": 0.5,
-      "rank": 263
-    },
-    {
-      "name": "Bennedict Mathurin",
-      "position": "SF",
-      "ppg": 16.7,
-      "rpg": 4.1,
-      "apg": 1.9,
-      "bpg": 0.3,
-      "rank": 265
-    },
-    {
-      "name": "Dillon Brooks",
-      "position": "SF",
-      "ppg": 14.2,
-      "rpg": 3.2,
-      "apg": 2.0,
-      "bpg": 0.3,
-      "rank": 267
-    },
-    {
-      "name": "Cameron Johnson",
-      "position": "PF",
-      "ppg": 11.7,
-      "rpg": 3.9,
-      "apg": 1.7,
-      "bpg": 0.3,
-      "rank": 269
-    },
-    {
-      "name": "Christian Wood",
-      "position": "PF",
-      "ppg": 13.6,
-      "rpg": 7.0,
-      "apg": 1.4,
-      "bpg": 0.9,
-      "rank": 271
-    },
-    {
-      "name": "Nic Claxton",
-      "position": "C",
-      "ppg": 10.3,
-      "rpg": 7.8,
-      "apg": 1.6,
-      "bpg": 2.1,
-      "rank": 273
-    },
-    {
-      "name": "Mitchell Robinson",
-      "position": "C",
-      "ppg": 8.2,
-      "rpg": 7.9,
-      "apg": 0.6,
-      "bpg": 1.9,
-      "rank": 275
-    },
-    {
-      "name": "Amen Thompson",
-      "position": "PG",
-      "ppg": 10.1,
-      "rpg": 6.9,
-      "apg": 2.8,
-      "bpg": 0.6,
-      "rank": 277
-    },
-    {
-      "name": "Ausar Thompson",
-      "position": "SF",
-      "ppg": 10.2,
-      "rpg": 7.3,
-      "apg": 2.8,
       "bpg": 1.1,
-      "rank": 279
-    },
-    {
-      "name": "Shaedon Sharpe",
-      "position": "SG",
-      "ppg": 15.9,
-      "rpg": 5.0,
-      "apg": 2.9,
-      "bpg": 0.4,
-      "rank": 281
-    },
-    {
-      "name": "Donte DiVincenzo",
-      "position": "SG",
-      "ppg": 10.5,
-      "rpg": 3.9,
-      "apg": 2.6,
-      "bpg": 0.2,
-      "rank": 283
-    },
-    {
-      "name": "Trey Murphy III",
-      "position": "SF",
-      "ppg": 12.5,
-      "rpg": 3.8,
-      "apg": 1.4,
-      "bpg": 0.5,
-      "rank": 285
-    },
-    {
-      "name": "Deni Avdija",
-      "position": "SF",
-      "ppg": 11.8,
-      "rpg": 6.0,
-      "apg": 2.9,
-      "bpg": 0.4,
-      "rank": 287
-    },
-    {
-      "name": "Rui Hachimura",
-      "position": "PF",
-      "ppg": 12.4,
-      "rpg": 4.8,
-      "apg": 1.3,
-      "bpg": 0.3,
-      "rank": 289
-    },
-    {
-      "name": "Tari Eason",
-      "position": "PF",
-      "ppg": 9.3,
-      "rpg": 6.0,
-      "apg": 1.1,
-      "bpg": 0.6,
-      "rank": 291
-    },
-    {
-      "name": "Dereck Lively II",
-      "position": "C",
-      "ppg": 8.8,
-      "rpg": 7.2,
-      "apg": 1.5,
-      "bpg": 1.4,
-      "rank": 293
-    },
-    {
-      "name": "Daniel Gafford",
-      "position": "C",
-      "ppg": 9.1,
-      "rpg": 5.4,
-      "apg": 1.0,
-      "bpg": 1.5,
-      "rank": 295
-    },
-    {
-      "name": "Rob Dillingham",
-      "position": "PG",
-      "ppg": 10.2,
-      "rpg": 2.1,
-      "apg": 3.4,
-      "bpg": 0.1,
-      "rank": 297
+      "rank": 176
     },
     {
       "name": "Alex Sarr",
       "position": "C",
-      "ppg": 9.4,
-      "rpg": 5.8,
-      "apg": 1.4,
-      "bpg": 1.5,
-      "rank": 299
-    },
-    {
-      "name": "Kon Knueppel",
-      "position": "SF",
-      "ppg": 14.5,
-      "rpg": 4.2,
-      "apg": 2.1,
-      "bpg": 0.3,
-      "rank": 301
-    },
-    {
-      "name": "Norman Powell",
-      "position": "SG",
-      "ppg": 12.5,
-      "rpg": 2.6,
-      "apg": 1.8,
-      "bpg": 0.3,
-      "rank": 303
-    },
-    {
-      "name": "Buddy Hield",
-      "position": "SG",
-      "ppg": 15.5,
-      "rpg": 4.2,
+      "ppg": 12.0,
+      "rpg": 6.5,
       "apg": 2.5,
-      "bpg": 0.3,
-      "rank": 305
+      "bpg": 1.5,
+      "rank": 177
     },
     {
-      "name": "Al Horford",
-      "position": "PF",
-      "ppg": 13.2,
-      "rpg": 8.0,
-      "apg": 3.2,
-      "bpg": 1.2,
-      "rank": 307
-    },
-    {
-      "name": "Obi Toppin",
-      "position": "PF",
-      "ppg": 8.5,
+      "name": "Coby White",
+      "position": "PG",
+      "ppg": 14.0,
       "rpg": 3.5,
-      "apg": 1.0,
-      "bpg": 0.3,
-      "rank": 309
+      "apg": 4.0,
+      "bpg": 0.2,
+      "rank": 181
     },
     {
-      "name": "Mark Williams",
+      "name": "Deni Avdija",
+      "position": "SF",
+      "ppg": 13.0,
+      "rpg": 6.0,
+      "apg": 3.5,
+      "bpg": 0.4,
+      "rank": 184
+    },
+    {
+      "name": "Dyson Daniels",
+      "position": "SF",
+      "ppg": 12.0,
+      "rpg": 5.5,
+      "apg": 4.5,
+      "bpg": 0.8,
+      "rank": 186
+    },
+    {
+      "name": "Ivica Zubac",
       "position": "C",
-      "ppg": 10.1,
-      "rpg": 7.5,
-      "apg": 0.8,
+      "ppg": 12.0,
+      "rpg": 9.5,
+      "apg": 1.7,
+      "bpg": 1.1,
+      "rank": 189
+    },
+    {
+      "name": "Josh Hart",
+      "position": "SF",
+      "ppg": 9.5,
+      "rpg": 6.0,
+      "apg": 3.5,
+      "bpg": 0.3,
+      "rank": 190
+    },
+    {
+      "name": "Keegan Murray",
+      "position": "SF",
+      "ppg": 12.5,
+      "rpg": 5.5,
+      "apg": 1.5,
+      "bpg": 0.6,
+      "rank": 191
+    },
+    {
+      "name": "Mike Conley",
+      "position": "PG",
+      "ppg": 14.3,
+      "rpg": 3.0,
+      "apg": 5.7,
+      "bpg": 0.2,
+      "rank": 194
+    },
+    {
+      "name": "Nikola Vucevic",
+      "position": "PF",
+      "ppg": 17.0,
+      "rpg": 10.5,
+      "apg": 3.0,
+      "bpg": 0.8,
+      "rank": 195
+    },
+    {
+      "name": "Tobias Harris",
+      "position": "SF",
+      "ppg": 15.5,
+      "rpg": 6.0,
+      "apg": 2.3,
+      "bpg": 0.6,
+      "rank": 198
+    },
+    {
+      "name": "Zach Edey",
+      "position": "PF",
+      "ppg": 14.0,
+      "rpg": 9.0,
+      "apg": 1.5,
       "bpg": 1.2,
-      "rank": 311
+      "rank": 199
+    },
+    {
+      "name": "Herbert Jones",
+      "position": "SF",
+      "ppg": 11.0,
+      "rpg": 3.6,
+      "apg": 2.6,
+      "bpg": 0.8,
+      "rank": 201
+    },
+    {
+      "name": "Immanuel Quickley",
+      "position": "PG",
+      "ppg": 13.5,
+      "rpg": 3.5,
+      "apg": 4.0,
+      "bpg": 0.3,
+      "rank": 202
+    },
+    {
+      "name": "Bennedict Mathurin",
+      "position": "SG",
+      "ppg": 16.0,
+      "rpg": 4.5,
+      "apg": 2.0,
+      "bpg": 0.3,
+      "rank": 207
+    },
+    {
+      "name": "D'Angelo Russell",
+      "position": "PG",
+      "ppg": 17.4,
+      "rpg": 3.5,
+      "apg": 5.8,
+      "bpg": 0.3,
+      "rank": 208
     },
     {
       "name": "Isaiah Hartenstein",
       "position": "C",
-      "ppg": 8.5,
-      "rpg": 6.8,
-      "apg": 2.4,
-      "bpg": 1.1,
-      "rank": 313
+      "ppg": 10.0,
+      "rpg": 8.5,
+      "apg": 3.0,
+      "bpg": 1.2,
+      "rank": 211
     },
     {
-      "name": "Bilal Coulibaly",
+      "name": "Jalen Duren",
+      "position": "C",
+      "ppg": 12.0,
+      "rpg": 10.0,
+      "apg": 2.0,
+      "bpg": 1.0,
+      "rank": 213
+    },
+    {
+      "name": "Jerami Grant",
       "position": "SF",
-      "ppg": 8.4,
-      "rpg": 4.1,
-      "apg": 1.7,
-      "bpg": 0.8,
-      "rank": 315
-    },
-    {
-      "name": "Gradey Dick",
-      "position": "SG",
-      "ppg": 8.5,
-      "rpg": 2.2,
-      "apg": 1.1,
-      "bpg": 0.1,
-      "rank": 317
-    },
-    {
-      "name": "Dyson Daniels",
-      "position": "PG",
-      "ppg": 7.2,
-      "rpg": 3.9,
-      "apg": 2.7,
-      "bpg": 0.4,
-      "rank": 319
-    },
-    {
-      "name": "Matas Buzelis",
-      "position": "SF",
-      "ppg": 9.2,
-      "rpg": 4.5,
-      "apg": 1.2,
+      "ppg": 14.0,
+      "rpg": 4.0,
+      "apg": 1.8,
       "bpg": 0.9,
-      "rank": 321
+      "rank": 214
+    },
+    {
+      "name": "Kyle Kuzma",
+      "position": "SF",
+      "ppg": 15.5,
+      "rpg": 5.5,
+      "apg": 2.8,
+      "bpg": 0.5,
+      "rank": 215
+    },
+    {
+      "name": "Nic Claxton",
+      "position": "C",
+      "ppg": 11.0,
+      "rpg": 8.5,
+      "apg": 1.6,
+      "bpg": 1.9,
+      "rank": 216
+    },
+    {
+      "name": "Walker Kessler",
+      "position": "C",
+      "ppg": 9.0,
+      "rpg": 9.5,
+      "apg": 1.2,
+      "bpg": 2.4,
+      "rank": 218
     },
     {
       "name": "Zaccharie Risacher",
       "position": "SF",
-      "ppg": 10.1,
-      "rpg": 3.8,
+      "ppg": 12.5,
+      "rpg": 4.0,
       "apg": 1.5,
       "bpg": 0.5,
-      "rank": 323
+      "rank": 219
     },
     {
-      "name": "Ron Holland",
-      "position": "SF",
-      "ppg": 9.8,
-      "rpg": 4.2,
-      "apg": 1.8,
-      "bpg": 0.6,
-      "rank": 325
+      "name": "Anfernee Simons",
+      "position": "PG",
+      "ppg": 17.5,
+      "rpg": 3.0,
+      "apg": 4.5,
+      "bpg": 0.2,
+      "rank": 220
     },
     {
-      "name": "Kel'el Ware",
-      "position": "C",
-      "ppg": 7.2,
-      "rpg": 5.1,
-      "apg": 0.8,
-      "bpg": 1.1,
-      "rank": 327
+      "name": "Collin Sexton",
+      "position": "PG",
+      "ppg": 19.0,
+      "rpg": 3.0,
+      "apg": 4.0,
+      "bpg": 0.2,
+      "rank": 222
     },
     {
-      "name": "Tidjane Salaun",
-      "position": "PF",
-      "ppg": 6.8,
-      "rpg": 3.5,
-      "apg": 0.9,
+      "name": "Norman Powell",
+      "position": "SG",
+      "ppg": 15.5,
+      "rpg": 2.7,
+      "apg": 2.0,
+      "bpg": 0.3,
+      "rank": 223
+    },
+    {
+      "name": "Shaedon Sharpe",
+      "position": "SG",
+      "ppg": 16.0,
+      "rpg": 4.5,
+      "apg": 3.0,
       "bpg": 0.4,
-      "rank": 329
+      "rank": 224
     },
     {
-      "name": "Kentavious Caldwell-Pope",
-      "position": "SG",
-      "ppg": 11.4,
-      "rpg": 3.0,
-      "apg": 1.8,
-      "bpg": 0.2,
-      "rank": 331
-    },
-    {
-      "name": "Caris LeVert",
-      "position": "SG",
-      "ppg": 14.1,
-      "rpg": 3.9,
-      "apg": 4.1,
-      "bpg": 0.3,
-      "rank": 333
-    },
-    {
-      "name": "Spencer Dinwiddie",
-      "position": "PG",
-      "ppg": 13.3,
-      "rpg": 3.0,
-      "apg": 5.2,
-      "bpg": 0.2,
-      "rank": 335
-    },
-    {
-      "name": "Cole Anthony",
-      "position": "PG",
-      "ppg": 14.0,
-      "rpg": 4.1,
-      "apg": 4.1,
-      "bpg": 0.3,
-      "rank": 337
-    },
-    {
-      "name": "Patrick Williams",
-      "position": "PF",
-      "ppg": 9.7,
-      "rpg": 4.2,
-      "apg": 1.3,
-      "bpg": 0.5,
-      "rank": 339
-    },
-    {
-      "name": "Jarace Walker",
-      "position": "PF",
-      "ppg": 7.5,
-      "rpg": 4.1,
-      "apg": 1.8,
-      "bpg": 0.6,
-      "rank": 341
-    },
-    {
-      "name": "Wendell Carter Jr.",
+      "name": "Andre Drummond",
       "position": "C",
-      "ppg": 12.5,
-      "rpg": 8.5,
-      "apg": 2.0,
-      "bpg": 0.8,
-      "rank": 343
+      "ppg": 13.5,
+      "rpg": 11.5,
+      "apg": 1.6,
+      "bpg": 1.3,
+      "rank": 227
     },
     {
-      "name": "Zach Collins",
-      "position": "C",
-      "ppg": 7.8,
-      "rpg": 5.0,
-      "apg": 2.0,
+      "name": "Bilal Coulibaly",
+      "position": "SF",
+      "ppg": 10.0,
+      "rpg": 4.0,
+      "apg": 3.0,
       "bpg": 0.7,
-      "rank": 345
+      "rank": 230
     },
     {
-      "name": "Josh Hart",
+      "name": "Bogdan Bogdanovic",
       "position": "SG",
-      "ppg": 10.1,
-      "rpg": 6.8,
-      "apg": 3.1,
+      "ppg": 15.0,
+      "rpg": 3.5,
+      "apg": 3.3,
       "bpg": 0.3,
-      "rank": 347
+      "rank": 232
     },
     {
-      "name": "Grayson Allen",
+      "name": "Cam Thomas",
       "position": "SG",
-      "ppg": 10.5,
-      "rpg": 3.0,
-      "apg": 1.8,
+      "ppg": 17.0,
+      "rpg": 2.8,
+      "apg": 2.8,
       "bpg": 0.2,
-      "rank": 349
+      "rank": 233
+    },
+    {
+      "name": "Cameron Johnson",
+      "position": "SF",
+      "ppg": 13.0,
+      "rpg": 4.0,
+      "apg": 2.0,
+      "bpg": 0.4,
+      "rank": 234
+    },
+    {
+      "name": "Clint Capela",
+      "position": "C",
+      "ppg": 12.0,
+      "rpg": 10.0,
+      "apg": 1.0,
+      "bpg": 1.3,
+      "rank": 236
     },
     {
       "name": "Harrison Barnes",
       "position": "SF",
       "ppg": 14.0,
-      "rpg": 4.9,
+      "rpg": 4.8,
       "apg": 1.8,
-      "bpg": 0.2,
-      "rank": 351
-    },
-    {
-      "name": "Jaime Jaquez Jr.",
-      "position": "SF",
-      "ppg": 11.9,
-      "rpg": 3.8,
-      "apg": 2.6,
-      "bpg": 0.2,
-      "rank": 353
-    },
-    {
-      "name": "Jalen Duren",
-      "position": "C",
-      "ppg": 11.4,
-      "rpg": 10.2,
-      "apg": 1.8,
-      "bpg": 0.8,
-      "rank": 355
-    },
-    {
-      "name": "Onyeka Okongwu",
-      "position": "C",
-      "ppg": 8.5,
-      "rpg": 6.0,
-      "apg": 1.2,
-      "bpg": 1.0,
-      "rank": 357
-    },
-    {
-      "name": "Taylor Hendricks",
-      "position": "PF",
-      "ppg": 7.2,
-      "rpg": 4.5,
-      "apg": 0.8,
-      "bpg": 0.8,
-      "rank": 359
-    },
-    {
-      "name": "Grant Williams",
-      "position": "PF",
-      "ppg": 6.5,
-      "rpg": 3.5,
-      "apg": 1.3,
-      "bpg": 0.4,
-      "rank": 361
-    },
-    {
-      "name": "Tre Jones",
-      "position": "PG",
-      "ppg": 9.5,
-      "rpg": 3.4,
-      "apg": 5.8,
-      "bpg": 0.1,
-      "rank": 363
-    },
-    {
-      "name": "Tyus Jones",
-      "position": "PG",
-      "ppg": 9.8,
-      "rpg": 3.0,
-      "apg": 5.9,
-      "bpg": 0.1,
-      "rank": 365
-    },
-    {
-      "name": "Brandin Podziemski",
-      "position": "SG",
-      "ppg": 9.2,
-      "rpg": 5.8,
-      "apg": 3.7,
-      "bpg": 0.2,
-      "rank": 367
-    },
-    {
-      "name": "Luguentz Dort",
-      "position": "SG",
-      "ppg": 12.8,
-      "rpg": 3.8,
-      "apg": 1.6,
       "bpg": 0.3,
-      "rank": 369
+      "rank": 241
     },
     {
-      "name": "De'Andre Hunter",
-      "position": "SF",
-      "ppg": 14.3,
-      "rpg": 4.1,
+      "name": "Jabari Smith Jr.",
+      "position": "PF",
+      "ppg": 12.5,
+      "rpg": 7.5,
       "apg": 1.5,
-      "bpg": 0.3,
-      "rank": 371
+      "bpg": 0.8,
+      "rank": 242
     },
     {
-      "name": "Kelly Oubre Jr.",
+      "name": "Jaden McDaniels",
       "position": "SF",
-      "ppg": 13.1,
-      "rpg": 4.2,
-      "apg": 1.0,
-      "bpg": 0.5,
-      "rank": 373
+      "ppg": 11.0,
+      "rpg": 4.0,
+      "apg": 1.7,
+      "bpg": 0.8,
+      "rank": 243
     },
     {
-      "name": "Bobby Portis",
+      "name": "John Collins",
       "position": "PF",
-      "ppg": 11.8,
-      "rpg": 7.2,
-      "apg": 1.2,
-      "bpg": 0.4,
-      "rank": 375
-    },
-    {
-      "name": "P.J. Tucker",
-      "position": "PF",
-      "ppg": 6.6,
-      "rpg": 5.4,
+      "ppg": 15.5,
+      "rpg": 8.0,
       "apg": 1.4,
+      "bpg": 1.0,
+      "rank": 245
+    },
+    {
+      "name": "Jonathan Kuminga",
+      "position": "SF",
+      "ppg": 13.0,
+      "rpg": 4.5,
+      "apg": 2.2,
+      "bpg": 0.5,
+      "rank": 246
+    },
+    {
+      "name": "Jordan Poole",
+      "position": "PG",
+      "ppg": 17.0,
+      "rpg": 3.0,
+      "apg": 4.5,
       "bpg": 0.3,
-      "rank": 377
+      "rank": 247
+    },
+    {
+      "name": "Trey Murphy III",
+      "position": "SF",
+      "ppg": 13.0,
+      "rpg": 4.5,
+      "apg": 2.0,
+      "bpg": 0.6,
+      "rank": 253
+    },
+    {
+      "name": "Buddy Hield",
+      "position": "SG",
+      "ppg": 14.5,
+      "rpg": 3.7,
+      "apg": 2.8,
+      "bpg": 0.3,
+      "rank": 257
+    },
+    {
+      "name": "Dennis Schroder",
+      "position": "PG",
+      "ppg": 14.0,
+      "rpg": 3.0,
+      "apg": 5.0,
+      "bpg": 0.2,
+      "rank": 258
+    },
+    {
+      "name": "Devin Vassell",
+      "position": "SG",
+      "ppg": 13.0,
+      "rpg": 3.5,
+      "apg": 2.7,
+      "bpg": 0.4,
+      "rank": 259
+    },
+    {
+      "name": "Ausar Thompson",
+      "position": "SF",
+      "ppg": 10.0,
+      "rpg": 6.0,
+      "apg": 2.5,
+      "bpg": 1.0,
+      "rank": 267
+    },
+    {
+      "name": "Dillon Brooks",
+      "position": "SF",
+      "ppg": 14.0,
+      "rpg": 3.3,
+      "apg": 2.0,
+      "bpg": 0.4,
+      "rank": 270
     },
     {
       "name": "Donovan Clingan",
       "position": "C",
-      "ppg": 6.5,
-      "rpg": 5.5,
-      "apg": 0.5,
-      "bpg": 1.8,
-      "rank": 379
+      "ppg": 7.0,
+      "rpg": 7.5,
+      "apg": 1.2,
+      "bpg": 1.6,
+      "rank": 271
     },
     {
-      "name": "Zach Edey",
+      "name": "Jaden Ivey",
+      "position": "SG",
+      "ppg": 14.0,
+      "rpg": 3.5,
+      "apg": 4.0,
+      "bpg": 0.3,
+      "rank": 273
+    },
+    {
+      "name": "Jakob Poeltl",
       "position": "C",
-      "ppg": 7.5,
-      "rpg": 4.8,
-      "apg": 0.3,
+      "ppg": 11.0,
+      "rpg": 8.0,
+      "apg": 2.3,
+      "bpg": 1.3,
+      "rank": 274
+    },
+    {
+      "name": "Jonas Valanciunas",
+      "position": "PF",
+      "ppg": 13.5,
+      "rpg": 9.0,
+      "apg": 1.6,
       "bpg": 0.9,
-      "rank": 381
+      "rank": 276
     },
     {
-      "name": "Nikola Topic",
-      "position": "PG",
-      "ppg": 0.0,
-      "rpg": 0.0,
-      "apg": 0.0,
-      "bpg": 0.0,
-      "rank": 383
+      "name": "Kel'el Ware",
+      "position": "PF",
+      "ppg": 12.0,
+      "rpg": 8.0,
+      "apg": 1.2,
+      "bpg": 1.5,
+      "rank": 277
     },
     {
-      "name": "Isaiah Collier",
+      "name": "Malcolm Brogdon",
       "position": "PG",
-      "ppg": 8.1,
-      "rpg": 2.2,
-      "apg": 3.1,
+      "ppg": 15.3,
+      "rpg": 4.2,
+      "apg": 4.7,
       "bpg": 0.2,
-      "rank": 385
+      "rank": 279
     },
     {
-      "name": "Max Christie",
+      "name": "Mark Williams",
+      "position": "C",
+      "ppg": 13.0,
+      "rpg": 9.5,
+      "apg": 1.2,
+      "bpg": 1.1,
+      "rank": 280
+    },
+    {
+      "name": "Naz Reid",
+      "position": "PF",
+      "ppg": 12.0,
+      "rpg": 5.5,
+      "apg": 1.5,
+      "bpg": 0.9,
+      "rank": 283
+    },
+    {
+      "name": "P.J. Washington",
+      "position": "PF",
+      "ppg": 13.0,
+      "rpg": 6.0,
+      "apg": 2.3,
+      "bpg": 0.9,
+      "rank": 285
+    },
+    {
+      "name": "Payton Pritchard",
+      "position": "PG",
+      "ppg": 12.0,
+      "rpg": 3.0,
+      "apg": 3.8,
+      "bpg": 0.1,
+      "rank": 287
+    },
+    {
+      "name": "Reed Sheppard",
+      "position": "PG",
+      "ppg": 10.0,
+      "rpg": 2.4,
+      "apg": 2.6,
+      "bpg": 0.6,
+      "rank": 288
+    },
+    {
+      "name": "Tari Eason",
+      "position": "PF",
+      "ppg": 11.0,
+      "rpg": 6.5,
+      "apg": 1.5,
+      "bpg": 0.7,
+      "rank": 289
+    },
+    {
+      "name": "De'Andre Hunter",
+      "position": "SF",
+      "ppg": 14.0,
+      "rpg": 3.8,
+      "apg": 1.6,
+      "bpg": 0.4,
+      "rank": 293
+    },
+    {
+      "name": "Kentavious Caldwell-Pope",
       "position": "SG",
-      "ppg": 5.8,
+      "ppg": 11.5,
       "rpg": 2.5,
-      "apg": 1.0,
-      "bpg": 0.2,
-      "rank": 387
+      "apg": 2.0,
+      "bpg": 0.4,
+      "rank": 296
     },
     {
-      "name": "Moses Moody",
-      "position": "SG",
-      "ppg": 6.5,
-      "rpg": 2.8,
-      "apg": 0.8,
-      "bpg": 0.2,
-      "rank": 389
+      "name": "Bobby Portis",
+      "position": "PF",
+      "ppg": 12.5,
+      "rpg": 7.5,
+      "apg": 1.4,
+      "bpg": 0.3,
+      "rank": 299
     },
     {
       "name": "Cam Whitmore",
       "position": "SF",
-      "ppg": 10.5,
-      "rpg": 3.5,
-      "apg": 0.6,
+      "ppg": 12.0,
+      "rpg": 4.0,
+      "apg": 1.2,
       "bpg": 0.3,
+      "rank": 300
+    },
+    {
+      "name": "Daniel Gafford",
+      "position": "C",
+      "ppg": 11.0,
+      "rpg": 7.0,
+      "apg": 1.2,
+      "bpg": 1.5,
+      "rank": 302
+    },
+    {
+      "name": "Dereck Lively II",
+      "position": "C",
+      "ppg": 8.5,
+      "rpg": 7.5,
+      "apg": 1.3,
+      "bpg": 1.4,
+      "rank": 303
+    },
+    {
+      "name": "Donte DiVincenzo",
+      "position": "SG",
+      "ppg": 11.0,
+      "rpg": 4.0,
+      "apg": 3.0,
+      "bpg": 0.3,
+      "rank": 304
+    },
+    {
+      "name": "Jared McCain",
+      "position": "PG",
+      "ppg": 15.3,
+      "rpg": 2.6,
+      "apg": 2.6,
+      "bpg": 0.3,
+      "rank": 305
+    },
+    {
+      "name": "Jordan Clarkson",
+      "position": "SG",
+      "ppg": 15.5,
+      "rpg": 3.2,
+      "apg": 3.2,
+      "bpg": 0.2,
+      "rank": 306
+    },
+    {
+      "name": "Jusuf Nurkic",
+      "position": "C",
+      "ppg": 12.0,
+      "rpg": 9.0,
+      "apg": 3.0,
+      "bpg": 0.9,
+      "rank": 307
+    },
+    {
+      "name": "Kelly Oubre Jr.",
+      "position": "SF",
+      "ppg": 15.0,
+      "rpg": 4.4,
+      "apg": 1.5,
+      "bpg": 0.6,
+      "rank": 308
+    },
+    {
+      "name": "Kevin Love",
+      "position": "PF",
+      "ppg": 17.0,
+      "rpg": 10.0,
+      "apg": 2.4,
+      "bpg": 0.4,
+      "rank": 309
+    },
+    {
+      "name": "Malik Monk",
+      "position": "SG",
+      "ppg": 12.5,
+      "rpg": 3.0,
+      "apg": 3.5,
+      "bpg": 0.3,
+      "rank": 311
+    },
+    {
+      "name": "Mitchell Robinson",
+      "position": "C",
+      "ppg": 8.0,
+      "rpg": 8.0,
+      "apg": 0.8,
+      "bpg": 1.6,
+      "rank": 313
+    },
+    {
+      "name": "Wendell Carter Jr.",
+      "position": "C",
+      "ppg": 12.0,
+      "rpg": 8.5,
+      "apg": 2.2,
+      "bpg": 0.7,
+      "rank": 318
+    },
+    {
+      "name": "Gary Trent Jr.",
+      "position": "SG",
+      "ppg": 13.5,
+      "rpg": 2.5,
+      "apg": 1.8,
+      "bpg": 0.3,
+      "rank": 323
+    },
+    {
+      "name": "Gradey Dick",
+      "position": "SG",
+      "ppg": 13.0,
+      "rpg": 3.5,
+      "apg": 2.0,
+      "bpg": 0.2,
+      "rank": 325
+    },
+    {
+      "name": "Jalen Suggs",
+      "position": "PG",
+      "ppg": 12.5,
+      "rpg": 3.5,
+      "apg": 4.0,
+      "bpg": 0.5,
+      "rank": 326
+    },
+    {
+      "name": "Tyus Jones",
+      "position": "PG",
+      "ppg": 9.5,
+      "rpg": 2.5,
+      "apg": 4.8,
+      "bpg": 0.1,
+      "rank": 332
+    },
+    {
+      "name": "DeAndre Jordan",
+      "position": "C",
+      "ppg": 9.5,
+      "rpg": 9.5,
+      "apg": 1.0,
+      "bpg": 1.2,
+      "rank": 337
+    },
+    {
+      "name": "Grayson Allen",
+      "position": "SG",
+      "ppg": 11.0,
+      "rpg": 3.0,
+      "apg": 2.5,
+      "bpg": 0.2,
+      "rank": 339
+    },
+    {
+      "name": "Keyonte George",
+      "position": "PG",
+      "ppg": 14.0,
+      "rpg": 3.5,
+      "apg": 5.0,
+      "bpg": 0.2,
+      "rank": 342
+    },
+    {
+      "name": "Quentin Grimes",
+      "position": "SG",
+      "ppg": 11.0,
+      "rpg": 3.5,
+      "apg": 2.5,
+      "bpg": 0.3,
+      "rank": 343
+    },
+    {
+      "name": "Robert Williams III",
+      "position": "C",
+      "ppg": 8.5,
+      "rpg": 7.0,
+      "apg": 1.5,
+      "bpg": 1.7,
+      "rank": 345
+    },
+    {
+      "name": "Scoot Henderson",
+      "position": "PG",
+      "ppg": 13.5,
+      "rpg": 3.3,
+      "apg": 5.4,
+      "bpg": 0.3,
+      "rank": 346
+    },
+    {
+      "name": "Spencer Dinwiddie",
+      "position": "PG",
+      "ppg": 14.0,
+      "rpg": 3.3,
+      "apg": 5.5,
+      "bpg": 0.3,
+      "rank": 348
+    },
+    {
+      "name": "Steven Adams",
+      "position": "C",
+      "ppg": 8.5,
+      "rpg": 7.5,
+      "apg": 1.4,
+      "bpg": 0.9,
+      "rank": 350
+    },
+    {
+      "name": "Toumani Camara",
+      "position": "SF",
+      "ppg": 10.0,
+      "rpg": 5.0,
+      "apg": 2.0,
+      "bpg": 0.6,
+      "rank": 351
+    },
+    {
+      "name": "T.J. McConnell",
+      "position": "PG",
+      "ppg": 8.5,
+      "rpg": 2.8,
+      "apg": 4.8,
+      "bpg": 0.2,
+      "rank": 359
+    },
+    {
+      "name": "Bub Carrington",
+      "position": "SG",
+      "ppg": 10.0,
+      "rpg": 4.5,
+      "apg": 4.0,
+      "bpg": 0.3,
+      "rank": 362
+    },
+    {
+      "name": "Cole Anthony",
+      "position": "PG",
+      "ppg": 12.5,
+      "rpg": 4.0,
+      "apg": 3.8,
+      "bpg": 0.2,
+      "rank": 363
+    },
+    {
+      "name": "Jeremy Sochan",
+      "position": "PF",
+      "ppg": 10.5,
+      "rpg": 6.0,
+      "apg": 3.0,
+      "bpg": 0.5,
+      "rank": 364
+    },
+    {
+      "name": "Max Strus",
+      "position": "SG",
+      "ppg": 11.0,
+      "rpg": 3.5,
+      "apg": 2.5,
+      "bpg": 0.3,
+      "rank": 365
+    },
+    {
+      "name": "Onyeka Okongwu",
+      "position": "PF",
+      "ppg": 10.5,
+      "rpg": 6.5,
+      "apg": 1.4,
+      "bpg": 1.1,
+      "rank": 366
+    },
+    {
+      "name": "Saddiq Bey",
+      "position": "SF",
+      "ppg": 12.0,
+      "rpg": 5.0,
+      "apg": 1.7,
+      "bpg": 0.4,
+      "rank": 368
+    },
+    {
+      "name": "Cason Wallace",
+      "position": "SG",
+      "ppg": 8.0,
+      "rpg": 2.5,
+      "apg": 2.0,
+      "bpg": 0.5,
+      "rank": 369
+    },
+    {
+      "name": "Duncan Robinson",
+      "position": "SG",
+      "ppg": 11.0,
+      "rpg": 2.5,
+      "apg": 1.7,
+      "bpg": 0.2,
+      "rank": 371
+    },
+    {
+      "name": "Jaylen Wells",
+      "position": "SG",
+      "ppg": 11.0,
+      "rpg": 3.5,
+      "apg": 2.0,
+      "bpg": 0.4,
+      "rank": 372
+    },
+    {
+      "name": "Anthony Black",
+      "position": "SG",
+      "ppg": 8.0,
+      "rpg": 3.0,
+      "apg": 3.0,
+      "bpg": 0.4,
+      "rank": 377
+    },
+    {
+      "name": "Dalton Knecht",
+      "position": "SG",
+      "ppg": 7.1,
+      "rpg": 2.2,
+      "apg": 0.7,
+      "bpg": 0.2,
+      "rank": 380
+    },
+    {
+      "name": "Davion Mitchell",
+      "position": "PG",
+      "ppg": 7.0,
+      "rpg": 2.3,
+      "apg": 3.5,
+      "bpg": 0.3,
+      "rank": 381
+    },
+    {
+      "name": "Kelly Olynyk",
+      "position": "C",
+      "ppg": 10.0,
+      "rpg": 4.8,
+      "apg": 2.4,
+      "bpg": 0.5,
+      "rank": 385
+    },
+    {
+      "name": "Kevin Huerter",
+      "position": "SG",
+      "ppg": 11.0,
+      "rpg": 3.0,
+      "apg": 2.8,
+      "bpg": 0.2,
+      "rank": 386
+    },
+    {
+      "name": "Kyle Anderson",
+      "position": "PF",
+      "ppg": 8.0,
+      "rpg": 4.5,
+      "apg": 3.5,
+      "bpg": 0.6,
+      "rank": 387
+    },
+    {
+      "name": "Kyle Filipowski",
+      "position": "PF",
+      "ppg": 10.0,
+      "rpg": 6.0,
+      "apg": 2.0,
+      "bpg": 0.6,
+      "rank": 388
+    },
+    {
+      "name": "Markelle Fultz",
+      "position": "PG",
+      "ppg": 12.0,
+      "rpg": 3.5,
+      "apg": 5.0,
+      "bpg": 0.4,
+      "rank": 389
+    },
+    {
+      "name": "Nickeil Alexander-Walker",
+      "position": "SG",
+      "ppg": 9.5,
+      "rpg": 2.5,
+      "apg": 2.2,
+      "bpg": 0.4,
+      "rank": 390
+    },
+    {
+      "name": "Obi Toppin",
+      "position": "PF",
+      "ppg": 10.5,
+      "rpg": 4.0,
+      "apg": 1.6,
+      "bpg": 0.4,
       "rank": 391
     },
     {
-      "name": "Cody Williams",
+      "name": "Peyton Watson",
       "position": "SF",
-      "ppg": 7.8,
-      "rpg": 2.9,
-      "apg": 1.2,
-      "bpg": 0.4,
-      "rank": 393
+      "ppg": 8.5,
+      "rpg": 3.5,
+      "apg": 1.5,
+      "bpg": 0.9,
+      "rank": 392
     },
     {
       "name": "Santi Aldama",
       "position": "PF",
-      "ppg": 9.5,
+      "ppg": 10.0,
       "rpg": 5.5,
-      "apg": 2.1,
+      "apg": 2.5,
       "bpg": 0.7,
-      "rank": 395
+      "rank": 394
     },
     {
-      "name": "Maxi Kleber",
-      "position": "PF",
-      "ppg": 6.8,
+      "name": "Vince Williams Jr.",
+      "position": "SG",
+      "ppg": 10.5,
       "rpg": 4.5,
-      "apg": 1.1,
-      "bpg": 0.8,
+      "apg": 3.0,
+      "bpg": 0.5,
+      "rank": 396
+    },
+    {
+      "name": "Yves Missi",
+      "position": "PF",
+      "ppg": 9.0,
+      "rpg": 8.0,
+      "apg": 1.0,
+      "bpg": 1.0,
       "rank": 397
     },
     {
-      "name": "Andre Drummond",
+      "name": "Isaiah Collier",
+      "position": "PG",
+      "ppg": 8.5,
+      "rpg": 3.0,
+      "apg": 6.3,
+      "bpg": 0.2,
+      "rank": 403
+    },
+    {
+      "name": "Corey Kispert",
+      "position": "SF",
+      "ppg": 10.5,
+      "rpg": 3.0,
+      "apg": 1.7,
+      "bpg": 0.2,
+      "rank": 408
+    },
+    {
+      "name": "GG Jackson",
+      "position": "SG",
+      "ppg": 12.0,
+      "rpg": 4.0,
+      "apg": 1.2,
+      "bpg": 0.3,
+      "rank": 410
+    },
+    {
+      "name": "Grant Williams",
+      "position": "PF",
+      "ppg": 8.5,
+      "rpg": 4.0,
+      "apg": 1.7,
+      "bpg": 0.5,
+      "rank": 411
+    },
+    {
+      "name": "Jose Alvarado",
+      "position": "PG",
+      "ppg": 8.0,
+      "rpg": 2.2,
+      "apg": 3.2,
+      "bpg": 0.3,
+      "rank": 412
+    },
+    {
+      "name": "Luke Kennard",
+      "position": "SG",
+      "ppg": 10.0,
+      "rpg": 2.5,
+      "apg": 2.5,
+      "bpg": 0.1,
+      "rank": 414
+    },
+    {
+      "name": "Naji Marshall",
+      "position": "SF",
+      "ppg": 9.0,
+      "rpg": 3.7,
+      "apg": 2.5,
+      "bpg": 0.4,
+      "rank": 416
+    },
+    {
+      "name": "Patrick Williams",
+      "position": "PF",
+      "ppg": 9.5,
+      "rpg": 4.0,
+      "apg": 1.5,
+      "bpg": 0.9,
+      "rank": 417
+    },
+    {
+      "name": "Rob Dillingham",
+      "position": "PG",
+      "ppg": 8.0,
+      "rpg": 2.0,
+      "apg": 2.9,
+      "bpg": 0.2,
+      "rank": 419
+    },
+    {
+      "name": "Taylor Hendricks",
+      "position": "SF",
+      "ppg": 8.0,
+      "rpg": 4.5,
+      "apg": 1.0,
+      "bpg": 0.8,
+      "rank": 420
+    },
+    {
+      "name": "Trayce Jackson-Davis",
       "position": "C",
-      "ppg": 12.7,
-      "rpg": 12.4,
+      "ppg": 8.0,
+      "rpg": 6.0,
+      "apg": 2.0,
+      "bpg": 1.1,
+      "rank": 421
+    },
+    {
+      "name": "Ayo Dosunmu",
+      "position": "PG",
+      "ppg": 9.5,
+      "rpg": 3.0,
+      "apg": 3.3,
+      "bpg": 0.3,
+      "rank": 423
+    },
+    {
+      "name": "Jordan Hawkins",
+      "position": "SG",
+      "ppg": 10.0,
+      "rpg": 2.5,
+      "apg": 1.6,
+      "bpg": 0.2,
+      "rank": 425
+    },
+    {
+      "name": "Dario Saric",
+      "position": "PF",
+      "ppg": 9.0,
+      "rpg": 5.0,
+      "apg": 2.3,
+      "bpg": 0.3,
+      "rank": 428
+    },
+    {
+      "name": "Isaiah Stewart",
+      "position": "PF",
+      "ppg": 8.0,
+      "rpg": 6.5,
+      "apg": 1.2,
+      "bpg": 1.2,
+      "rank": 430
+    },
+    {
+      "name": "Keon Ellis",
+      "position": "SG",
+      "ppg": 8.0,
+      "rpg": 2.7,
+      "apg": 1.8,
+      "bpg": 0.4,
+      "rank": 432
+    },
+    {
+      "name": "Larry Nance Jr.",
+      "position": "PF",
+      "ppg": 7.5,
+      "rpg": 5.5,
+      "apg": 2.0,
+      "bpg": 0.6,
+      "rank": 433
+    },
+    {
+      "name": "Matisse Thybulle",
+      "position": "SF",
+      "ppg": 5.0,
+      "rpg": 2.3,
       "apg": 1.3,
-      "bpg": 1.3,
-      "rank": 399
+      "bpg": 0.5,
+      "rank": 434
+    },
+    {
+      "name": "Monte Morris",
+      "position": "PG",
+      "ppg": 8.5,
+      "rpg": 2.0,
+      "apg": 3.5,
+      "bpg": 0.1,
+      "rank": 435
+    },
+    {
+      "name": "Moritz Wagner",
+      "position": "C",
+      "ppg": 10.0,
+      "rpg": 4.5,
+      "apg": 1.8,
+      "bpg": 0.4,
+      "rank": 436
+    },
+    {
+      "name": "Nick Richards",
+      "position": "C",
+      "ppg": 8.5,
+      "rpg": 7.5,
+      "apg": 0.7,
+      "bpg": 1.0,
+      "rank": 437
+    },
+    {
+      "name": "Nikola Jovic",
+      "position": "PF",
+      "ppg": 9.0,
+      "rpg": 4.0,
+      "apg": 2.5,
+      "bpg": 0.5,
+      "rank": 438
+    },
+    {
+      "name": "Ochai Agbaji",
+      "position": "SG",
+      "ppg": 9.0,
+      "rpg": 3.5,
+      "apg": 1.7,
+      "bpg": 0.4,
+      "rank": 439
+    },
+    {
+      "name": "Precious Achiuwa",
+      "position": "PF",
+      "ppg": 8.0,
+      "rpg": 6.0,
+      "apg": 1.3,
+      "bpg": 0.8,
+      "rank": 441
+    },
+    {
+      "name": "Tre Jones",
+      "position": "PG",
+      "ppg": 8.5,
+      "rpg": 2.7,
+      "apg": 4.8,
+      "bpg": 0.2,
+      "rank": 444
+    },
+    {
+      "name": "Zach Collins",
+      "position": "C",
+      "ppg": 9.0,
+      "rpg": 6.0,
+      "apg": 2.5,
+      "bpg": 0.8,
+      "rank": 445
+    },
+    {
+      "name": "Ziaire Williams",
+      "position": "SF",
+      "ppg": 9.0,
+      "rpg": 3.5,
+      "apg": 1.7,
+      "bpg": 0.3,
+      "rank": 446
+    },
+    {
+      "name": "Gary Harris",
+      "position": "SG",
+      "ppg": 9.5,
+      "rpg": 2.5,
+      "apg": 1.7,
+      "bpg": 0.3,
+      "rank": 448
+    },
+    {
+      "name": "Josh Green",
+      "position": "SG",
+      "ppg": 8.5,
+      "rpg": 3.0,
+      "apg": 2.3,
+      "bpg": 0.3,
+      "rank": 450
+    },
+    {
+      "name": "Keon Johnson",
+      "position": "SF",
+      "ppg": 10.0,
+      "rpg": 3.5,
+      "apg": 3.0,
+      "bpg": 0.4,
+      "rank": 451
+    },
+    {
+      "name": "Bol Bol",
+      "position": "C",
+      "ppg": 8.0,
+      "rpg": 4.5,
+      "apg": 1.0,
+      "bpg": 1.2,
+      "rank": 455
+    },
+    {
+      "name": "Delon Wright",
+      "position": "PG",
+      "ppg": 7.0,
+      "rpg": 3.0,
+      "apg": 3.2,
+      "bpg": 0.5,
+      "rank": 457
+    },
+    {
+      "name": "Dennis Smith Jr.",
+      "position": "PG",
+      "ppg": 8.5,
+      "rpg": 3.0,
+      "apg": 4.5,
+      "bpg": 0.4,
+      "rank": 458
+    },
+    {
+      "name": "Goga Bitadze",
+      "position": "C",
+      "ppg": 7.5,
+      "rpg": 6.0,
+      "apg": 1.5,
+      "bpg": 1.1,
+      "rank": 459
+    },
+    {
+      "name": "Guerschon Yabusele",
+      "position": "C",
+      "ppg": 9.0,
+      "rpg": 5.5,
+      "apg": 2.0,
+      "bpg": 0.4,
+      "rank": 460
+    },
+    {
+      "name": "Isaiah Jackson",
+      "position": "C",
+      "ppg": 7.5,
+      "rpg": 6.0,
+      "apg": 0.8,
+      "bpg": 1.2,
+      "rank": 461
+    },
+    {
+      "name": "Isaiah Joe",
+      "position": "SG",
+      "ppg": 9.5,
+      "rpg": 2.5,
+      "apg": 1.7,
+      "bpg": 0.2,
+      "rank": 462
+    },
+    {
+      "name": "Jae'Sean Tate",
+      "position": "SF",
+      "ppg": 8.5,
+      "rpg": 4.5,
+      "apg": 2.5,
+      "bpg": 0.4,
+      "rank": 463
+    },
+    {
+      "name": "Kris Murray",
+      "position": "SF",
+      "ppg": 8.0,
+      "rpg": 4.0,
+      "apg": 1.5,
+      "bpg": 0.4,
+      "rank": 464
+    },
+    {
+      "name": "Luke Kornet",
+      "position": "C",
+      "ppg": 5.5,
+      "rpg": 4.5,
+      "apg": 1.2,
+      "bpg": 1.2,
+      "rank": 465
+    },
+    {
+      "name": "Marvin Bagley III",
+      "position": "PF",
+      "ppg": 11.0,
+      "rpg": 6.5,
+      "apg": 1.3,
+      "bpg": 0.7,
+      "rank": 466
+    },
+    {
+      "name": "Neemias Queta",
+      "position": "C",
+      "ppg": 7.0,
+      "rpg": 6.0,
+      "apg": 0.9,
+      "bpg": 1.0,
+      "rank": 467
+    },
+    {
+      "name": "Sam Merrill",
+      "position": "SG",
+      "ppg": 9.0,
+      "rpg": 2.5,
+      "apg": 1.8,
+      "bpg": 0.2,
+      "rank": 469
+    },
+    {
+      "name": "Thomas Bryant",
+      "position": "C",
+      "ppg": 9.5,
+      "rpg": 5.0,
+      "apg": 1.0,
+      "bpg": 0.7,
+      "rank": 470
+    },
+    {
+      "name": "Trey Lyles",
+      "position": "PF",
+      "ppg": 8.5,
+      "rpg": 4.5,
+      "apg": 1.4,
+      "bpg": 0.4,
+      "rank": 471
+    },
+    {
+      "name": "Day'Ron Sharpe",
+      "position": "PF",
+      "ppg": 7.5,
+      "rpg": 6.5,
+      "apg": 1.3,
+      "bpg": 0.7,
+      "rank": 473
+    },
+    {
+      "name": "Nick Smith Jr.",
+      "position": "SG",
+      "ppg": 8.5,
+      "rpg": 2.0,
+      "apg": 2.0,
+      "bpg": 0.2,
+      "rank": 474
+    },
+    {
+      "name": "AJ Johnson",
+      "position": "SG",
+      "ppg": 7.0,
+      "rpg": 2.0,
+      "apg": 2.0,
+      "bpg": 0.2,
+      "rank": 475
+    },
+    {
+      "name": "Jaxson Hayes",
+      "position": "C",
+      "ppg": 7.0,
+      "rpg": 4.5,
+      "apg": 0.9,
+      "bpg": 1.0,
+      "rank": 476
+    },
+    {
+      "name": "Landry Shamet",
+      "position": "SG",
+      "ppg": 8.0,
+      "rpg": 1.8,
+      "apg": 1.5,
+      "bpg": 0.1,
+      "rank": 479
+    },
+    {
+      "name": "Ben Sheppard",
+      "position": "SG",
+      "ppg": 6.5,
+      "rpg": 2.5,
+      "apg": 1.5,
+      "bpg": 0.2,
+      "rank": 482
+    },
+    {
+      "name": "JaMychal Green",
+      "position": "PF",
+      "ppg": 8.0,
+      "rpg": 5.5,
+      "apg": 1.1,
+      "bpg": 0.5,
+      "rank": 483
+    },
+    {
+      "name": "Jay Huff",
+      "position": "C",
+      "ppg": 6.0,
+      "rpg": 4.0,
+      "apg": 1.0,
+      "bpg": 1.4,
+      "rank": 485
+    },
+    {
+      "name": "Jaylin Williams",
+      "position": "PF",
+      "ppg": 6.0,
+      "rpg": 5.0,
+      "apg": 2.5,
+      "bpg": 0.5,
+      "rank": 486
+    },
+    {
+      "name": "Xavier Tillman",
+      "position": "PF",
+      "ppg": 6.0,
+      "rpg": 4.5,
+      "apg": 1.6,
+      "bpg": 0.6,
+      "rank": 487
+    },
+    {
+      "name": "Bismack Biyombo",
+      "position": "C",
+      "ppg": 5.0,
+      "rpg": 5.5,
+      "apg": 0.6,
+      "bpg": 1.4,
+      "rank": 488
+    },
+    {
+      "name": "Drew Eubanks",
+      "position": "PF",
+      "ppg": 6.5,
+      "rpg": 5.0,
+      "apg": 1.2,
+      "bpg": 0.9,
+      "rank": 489
+    },
+    {
+      "name": "Jonathan Mogbo",
+      "position": "PF",
+      "ppg": 6.0,
+      "rpg": 4.5,
+      "apg": 2.0,
+      "bpg": 0.7,
+      "rank": 490
+    },
+    {
+      "name": "Mo Bamba",
+      "position": "PF",
+      "ppg": 6.5,
+      "rpg": 5.5,
+      "apg": 0.7,
+      "bpg": 1.2,
+      "rank": 491
+    },
+    {
+      "name": "Dean Wade",
+      "position": "C",
+      "ppg": 6.0,
+      "rpg": 4.0,
+      "apg": 1.5,
+      "bpg": 0.6,
+      "rank": 492
+    },
+    {
+      "name": "Jabari Walker",
+      "position": "PF",
+      "ppg": 6.5,
+      "rpg": 5.0,
+      "apg": 1.0,
+      "bpg": 0.4,
+      "rank": 493
+    },
+    {
+      "name": "Sandro Mamukelashvili",
+      "position": "C",
+      "ppg": 7.0,
+      "rpg": 4.0,
+      "apg": 1.5,
+      "bpg": 0.4,
+      "rank": 495
+    },
+    {
+      "name": "Duop Reath",
+      "position": "C",
+      "ppg": 7.0,
+      "rpg": 4.0,
+      "apg": 1.0,
+      "bpg": 0.6,
+      "rank": 497
+    },
+    {
+      "name": "Charles Bassey",
+      "position": "C",
+      "ppg": 5.0,
+      "rpg": 4.5,
+      "apg": 0.5,
+      "bpg": 1.0,
+      "rank": 498
+    },
+    {
+      "name": "Kai Jones",
+      "position": "C",
+      "ppg": 5.0,
+      "rpg": 4.0,
+      "apg": 0.5,
+      "bpg": 0.8,
+      "rank": 499
     }
   ],
   "historical_players": [
@@ -1659,13 +2271,13 @@
       "rank": 3
     },
     {
-      "name": "Bill Russell",
+      "name": "Wilt Chamberlain",
       "position": "C",
-      "ppg": 15.1,
-      "rpg": 22.5,
-      "apg": 4.3,
-      "bpg": 8.1,
-      "rank": 4
+      "ppg": 30.1,
+      "rpg": 22.9,
+      "apg": 4.4,
+      "bpg": 0.0,
+      "rank": 8
     },
     {
       "name": "Magic Johnson",
@@ -1674,42 +2286,6 @@
       "rpg": 7.2,
       "apg": 11.2,
       "bpg": 0.4,
-      "rank": 5
-    },
-    {
-      "name": "Wilt Chamberlain",
-      "position": "C",
-      "ppg": 30.1,
-      "rpg": 22.9,
-      "apg": 4.4,
-      "bpg": 5.4,
-      "rank": 6
-    },
-    {
-      "name": "Larry Bird",
-      "position": "SF",
-      "ppg": 24.3,
-      "rpg": 10.0,
-      "apg": 6.3,
-      "bpg": 0.8,
-      "rank": 7
-    },
-    {
-      "name": "Tim Duncan",
-      "position": "PF",
-      "ppg": 19.0,
-      "rpg": 10.8,
-      "apg": 3.0,
-      "bpg": 2.2,
-      "rank": 8
-    },
-    {
-      "name": "Shaquille O'Neal",
-      "position": "C",
-      "ppg": 23.7,
-      "rpg": 10.9,
-      "apg": 2.5,
-      "bpg": 2.3,
       "rank": 9
     },
     {
@@ -1719,7 +2295,43 @@
       "rpg": 5.2,
       "apg": 4.7,
       "bpg": 0.5,
-      "rank": 10
+      "rank": 11
+    },
+    {
+      "name": "Larry Bird",
+      "position": "SF",
+      "ppg": 24.3,
+      "rpg": 10.0,
+      "apg": 6.3,
+      "bpg": 0.8,
+      "rank": 13
+    },
+    {
+      "name": "Shaquille O'Neal",
+      "position": "C",
+      "ppg": 23.7,
+      "rpg": 10.9,
+      "apg": 2.5,
+      "bpg": 2.3,
+      "rank": 14
+    },
+    {
+      "name": "Oscar Robertson",
+      "position": "PG",
+      "ppg": 25.7,
+      "rpg": 7.5,
+      "apg": 9.5,
+      "bpg": 0.0,
+      "rank": 16
+    },
+    {
+      "name": "Tim Duncan",
+      "position": "PF",
+      "ppg": 19.0,
+      "rpg": 10.8,
+      "apg": 3.0,
+      "bpg": 2.2,
+      "rank": 17
     },
     {
       "name": "Hakeem Olajuwon",
@@ -1728,16 +2340,16 @@
       "rpg": 11.1,
       "apg": 2.5,
       "bpg": 3.1,
-      "rank": 12
+      "rank": 19
     },
     {
-      "name": "Oscar Robertson",
-      "position": "PG",
-      "ppg": 25.7,
-      "rpg": 7.5,
-      "apg": 9.5,
-      "bpg": 0.1,
-      "rank": 14
+      "name": "Bill Russell",
+      "position": "C",
+      "ppg": 15.1,
+      "rpg": 22.5,
+      "apg": 4.3,
+      "bpg": 0.0,
+      "rank": 20
     },
     {
       "name": "Karl Malone",
@@ -1746,16 +2358,7 @@
       "rpg": 10.1,
       "apg": 3.6,
       "bpg": 0.8,
-      "rank": 16
-    },
-    {
-      "name": "Kevin Garnett",
-      "position": "PF",
-      "ppg": 17.8,
-      "rpg": 10.0,
-      "apg": 3.7,
-      "bpg": 1.4,
-      "rank": 17
+      "rank": 24
     },
     {
       "name": "Jerry West",
@@ -1764,34 +2367,16 @@
       "rpg": 5.8,
       "apg": 6.7,
       "bpg": 0.7,
-      "rank": 19
+      "rank": 25
     },
     {
-      "name": "Dwyane Wade",
+      "name": "James Harden",
       "position": "SG",
-      "ppg": 22.0,
-      "rpg": 4.7,
-      "apg": 5.4,
-      "bpg": 0.8,
-      "rank": 20
-    },
-    {
-      "name": "Julius Erving",
-      "position": "SF",
-      "ppg": 24.2,
-      "rpg": 8.5,
-      "apg": 4.2,
-      "bpg": 1.7,
-      "rank": 22
-    },
-    {
-      "name": "Dirk Nowitzki",
-      "position": "PF",
-      "ppg": 20.7,
-      "rpg": 7.5,
-      "apg": 2.4,
-      "bpg": 0.8,
-      "rank": 24
+      "ppg": 24.0,
+      "rpg": 5.5,
+      "apg": 7.0,
+      "bpg": 0.5,
+      "rank": 29
     },
     {
       "name": "Charles Barkley",
@@ -1800,25 +2385,25 @@
       "rpg": 11.7,
       "apg": 3.9,
       "bpg": 0.8,
-      "rank": 25
+      "rank": 31
     },
     {
-      "name": "Isiah Thomas",
-      "position": "PG",
-      "ppg": 19.2,
-      "rpg": 3.6,
-      "apg": 9.3,
-      "bpg": 0.3,
-      "rank": 27
+      "name": "Dwyane Wade",
+      "position": "SG",
+      "ppg": 22.0,
+      "rpg": 4.7,
+      "apg": 5.4,
+      "bpg": 0.8,
+      "rank": 33
     },
     {
-      "name": "David Robinson",
-      "position": "C",
-      "ppg": 21.1,
-      "rpg": 10.6,
-      "apg": 2.5,
-      "bpg": 3.0,
-      "rank": 28
+      "name": "Elgin Baylor",
+      "position": "SF",
+      "ppg": 27.4,
+      "rpg": 13.5,
+      "apg": 4.3,
+      "bpg": 0.0,
+      "rank": 34
     },
     {
       "name": "John Stockton",
@@ -1827,79 +2412,70 @@
       "rpg": 2.7,
       "apg": 10.5,
       "bpg": 0.2,
-      "rank": 30
+      "rank": 35
     },
     {
-      "name": "Allen Iverson",
-      "position": "SG",
-      "ppg": 26.7,
-      "rpg": 3.7,
-      "apg": 6.2,
-      "bpg": 0.2,
-      "rank": 31
+      "name": "Julius Erving",
+      "position": "SF",
+      "ppg": 24.2,
+      "rpg": 8.5,
+      "apg": 4.6,
+      "bpg": 1.5,
+      "rank": 36
     },
     {
-      "name": "Steve Nash",
+      "name": "Dirk Nowitzki",
+      "position": "PF",
+      "ppg": 20.7,
+      "rpg": 7.5,
+      "apg": 2.4,
+      "bpg": 0.8,
+      "rank": 38
+    },
+    {
+      "name": "David Robinson",
+      "position": "C",
+      "ppg": 21.1,
+      "rpg": 10.6,
+      "apg": 2.5,
+      "bpg": 3.0,
+      "rank": 40
+    },
+    {
+      "name": "Kevin Garnett",
+      "position": "PF",
+      "ppg": 17.8,
+      "rpg": 10.0,
+      "apg": 3.7,
+      "bpg": 1.4,
+      "rank": 43
+    },
+    {
+      "name": "Isiah Thomas",
       "position": "PG",
-      "ppg": 14.3,
-      "rpg": 3.0,
-      "apg": 8.5,
-      "bpg": 0.1,
-      "rank": 32
+      "ppg": 19.2,
+      "rpg": 3.6,
+      "apg": 9.3,
+      "bpg": 0.3,
+      "rank": 46
     },
     {
       "name": "Moses Malone",
       "position": "C",
-      "ppg": 20.6,
+      "ppg": 20.3,
       "rpg": 12.2,
       "apg": 1.4,
       "bpg": 1.3,
-      "rank": 34
+      "rank": 47
     },
     {
-      "name": "John Havlicek",
-      "position": "SF",
-      "ppg": 20.8,
-      "rpg": 6.3,
-      "apg": 4.8,
-      "bpg": 0.3,
-      "rank": 35
-    },
-    {
-      "name": "Patrick Ewing",
-      "position": "C",
-      "ppg": 21.0,
-      "rpg": 9.8,
-      "apg": 1.9,
-      "bpg": 2.4,
-      "rank": 37
-    },
-    {
-      "name": "Elgin Baylor",
-      "position": "SF",
-      "ppg": 27.4,
-      "rpg": 13.5,
-      "apg": 4.3,
-      "bpg": 0.5,
-      "rank": 38
-    },
-    {
-      "name": "Scottie Pippen",
-      "position": "SF",
-      "ppg": 16.1,
-      "rpg": 6.4,
-      "apg": 5.2,
-      "bpg": 0.8,
-      "rank": 39
-    },
-    {
-      "name": "Jason Kidd",
+      "name": "Allen Iverson",
       "position": "PG",
-      "ppg": 12.6,
-      "rpg": 6.3,
-      "apg": 8.7,
-      "bpg": 0.3,
-      "rank": 41
+      "ppg": 26.7,
+      "rpg": 3.7,
+      "apg": 6.2,
+      "bpg": 0.2,
+      "rank": 48
     },
     {
       "name": "Bob Pettit",
@@ -1908,7 +2484,34 @@
       "rpg": 16.2,
       "apg": 3.0,
       "bpg": 0.0,
-      "rank": 42
+      "rank": 49
+    },
+    {
+      "name": "Scottie Pippen",
+      "position": "SF",
+      "ppg": 16.1,
+      "rpg": 6.4,
+      "apg": 5.2,
+      "bpg": 0.8,
+      "rank": 51
+    },
+    {
+      "name": "Steve Nash",
+      "position": "PG",
+      "ppg": 14.3,
+      "rpg": 3.0,
+      "apg": 8.5,
+      "bpg": 0.1,
+      "rank": 52
+    },
+    {
+      "name": "Patrick Ewing",
+      "position": "C",
+      "ppg": 21.0,
+      "rpg": 9.8,
+      "apg": 1.9,
+      "bpg": 2.4,
+      "rank": 54
     },
     {
       "name": "Clyde Drexler",
@@ -1917,16 +2520,7 @@
       "rpg": 6.1,
       "apg": 5.6,
       "bpg": 0.7,
-      "rank": 44
-    },
-    {
-      "name": "Rick Barry",
-      "position": "SF",
-      "ppg": 24.8,
-      "rpg": 6.7,
-      "apg": 4.9,
-      "bpg": 0.5,
-      "rank": 45
+      "rank": 55
     },
     {
       "name": "Gary Payton",
@@ -1935,16 +2529,16 @@
       "rpg": 3.9,
       "apg": 6.7,
       "bpg": 0.2,
-      "rank": 47
+      "rank": 56
     },
     {
-      "name": "George Mikan",
-      "position": "C",
-      "ppg": 23.1,
-      "rpg": 13.4,
-      "apg": 2.8,
-      "bpg": 2.0,
-      "rank": 49
+      "name": "John Havlicek",
+      "position": "SF",
+      "ppg": 20.8,
+      "rpg": 6.3,
+      "apg": 4.8,
+      "bpg": 0.0,
+      "rank": 57
     },
     {
       "name": "Elvin Hayes",
@@ -1953,16 +2547,34 @@
       "rpg": 12.5,
       "apg": 1.8,
       "bpg": 2.0,
-      "rank": 51
+      "rank": 59
     },
     {
-      "name": "Bob Cousy",
+      "name": "George Gervin",
+      "position": "SG",
+      "ppg": 25.1,
+      "rpg": 5.3,
+      "apg": 2.6,
+      "bpg": 0.8,
+      "rank": 60
+    },
+    {
+      "name": "Jason Kidd",
       "position": "PG",
-      "ppg": 18.4,
-      "rpg": 5.2,
-      "apg": 7.5,
-      "bpg": 0.0,
-      "rank": 52
+      "ppg": 12.6,
+      "rpg": 6.3,
+      "apg": 8.7,
+      "bpg": 0.3,
+      "rank": 61
+    },
+    {
+      "name": "Rick Barry",
+      "position": "SF",
+      "ppg": 24.8,
+      "rpg": 6.7,
+      "apg": 5.1,
+      "bpg": 0.5,
+      "rank": 63
     },
     {
       "name": "Dominique Wilkins",
@@ -1971,61 +2583,7 @@
       "rpg": 6.7,
       "apg": 2.5,
       "bpg": 0.6,
-      "rank": 54
-    },
-    {
-      "name": "George Gervin",
-      "position": "SG",
-      "ppg": 25.1,
-      "rpg": 5.3,
-      "apg": 2.6,
-      "bpg": 1.0,
-      "rank": 55
-    },
-    {
-      "name": "Kevin McHale",
-      "position": "PF",
-      "ppg": 17.9,
-      "rpg": 7.3,
-      "apg": 1.7,
-      "bpg": 1.7,
-      "rank": 57
-    },
-    {
-      "name": "Walt Frazier",
-      "position": "PG",
-      "ppg": 18.9,
-      "rpg": 5.9,
-      "apg": 6.1,
-      "bpg": 0.2,
-      "rank": 58
-    },
-    {
-      "name": "Paul Pierce",
-      "position": "SF",
-      "ppg": 19.7,
-      "rpg": 5.6,
-      "apg": 3.5,
-      "bpg": 0.6,
-      "rank": 60
-    },
-    {
-      "name": "James Worthy",
-      "position": "SF",
-      "ppg": 17.6,
-      "rpg": 5.1,
-      "apg": 3.0,
-      "bpg": 0.7,
-      "rank": 61
-    },
-    {
-      "name": "Reggie Miller",
-      "position": "SG",
-      "ppg": 18.2,
-      "rpg": 3.0,
-      "apg": 3.0,
-      "bpg": 0.2,
-      "rank": 62
+      "rank": 64
     },
     {
       "name": "Ray Allen",
@@ -2034,7 +2592,52 @@
       "rpg": 4.1,
       "apg": 3.4,
       "bpg": 0.2,
-      "rank": 64
+      "rank": 66
+    },
+    {
+      "name": "George Mikan",
+      "position": "C",
+      "ppg": 23.1,
+      "rpg": 13.4,
+      "apg": 2.8,
+      "bpg": 0.0,
+      "rank": 70
+    },
+    {
+      "name": "Kevin McHale",
+      "position": "PF",
+      "ppg": 17.9,
+      "rpg": 7.3,
+      "apg": 1.7,
+      "bpg": 1.7,
+      "rank": 71
+    },
+    {
+      "name": "Paul Pierce",
+      "position": "SF",
+      "ppg": 19.7,
+      "rpg": 5.6,
+      "apg": 3.5,
+      "bpg": 0.6,
+      "rank": 75
+    },
+    {
+      "name": "Reggie Miller",
+      "position": "SG",
+      "ppg": 18.2,
+      "rpg": 3.0,
+      "apg": 3.0,
+      "bpg": 0.2,
+      "rank": 76
+    },
+    {
+      "name": "Walt Frazier",
+      "position": "PG",
+      "ppg": 18.9,
+      "rpg": 5.9,
+      "apg": 6.1,
+      "bpg": 0.0,
+      "rank": 77
     },
     {
       "name": "Carmelo Anthony",
@@ -2043,97 +2646,7 @@
       "rpg": 6.2,
       "apg": 2.7,
       "bpg": 0.5,
-      "rank": 65
-    },
-    {
-      "name": "Bill Walton",
-      "position": "C",
-      "ppg": 13.3,
-      "rpg": 10.5,
-      "apg": 3.4,
-      "bpg": 2.2,
-      "rank": 67
-    },
-    {
-      "name": "Willis Reed",
-      "position": "C",
-      "ppg": 18.7,
-      "rpg": 12.9,
-      "apg": 1.8,
-      "bpg": 1.1,
-      "rank": 69
-    },
-    {
-      "name": "Dwight Howard",
-      "position": "C",
-      "ppg": 15.7,
-      "rpg": 11.8,
-      "apg": 1.3,
-      "bpg": 1.8,
-      "rank": 71
-    },
-    {
-      "name": "Wes Unseld",
-      "position": "C",
-      "ppg": 10.8,
-      "rpg": 14.0,
-      "apg": 3.9,
-      "bpg": 0.6,
-      "rank": 73
-    },
-    {
-      "name": "Robert Parish",
-      "position": "C",
-      "ppg": 14.5,
-      "rpg": 9.1,
-      "apg": 1.4,
-      "bpg": 1.5,
-      "rank": 74
-    },
-    {
-      "name": "Dennis Rodman",
-      "position": "PF",
-      "ppg": 7.3,
-      "rpg": 13.1,
-      "apg": 1.8,
-      "bpg": 0.6,
-      "rank": 76
-    },
-    {
-      "name": "Pau Gasol",
-      "position": "PF",
-      "ppg": 17.0,
-      "rpg": 9.2,
-      "apg": 3.2,
-      "bpg": 1.6,
       "rank": 78
-    },
-    {
-      "name": "Vince Carter",
-      "position": "SG",
-      "ppg": 16.7,
-      "rpg": 4.3,
-      "apg": 3.1,
-      "bpg": 0.5,
-      "rank": 80
-    },
-    {
-      "name": "Tracy McGrady",
-      "position": "SG",
-      "ppg": 19.6,
-      "rpg": 5.6,
-      "apg": 4.4,
-      "bpg": 0.9,
-      "rank": 81
-    },
-    {
-      "name": "Chris Bosh",
-      "position": "PF",
-      "ppg": 19.2,
-      "rpg": 8.5,
-      "apg": 2.0,
-      "bpg": 1.0,
-      "rank": 83
     },
     {
       "name": "Manu Ginobili",
@@ -2142,7 +2655,34 @@
       "rpg": 3.5,
       "apg": 3.8,
       "bpg": 0.3,
+      "rank": 81
+    },
+    {
+      "name": "Pau Gasol",
+      "position": "PF",
+      "ppg": 17.0,
+      "rpg": 9.2,
+      "apg": 3.2,
+      "bpg": 1.6,
+      "rank": 84
+    },
+    {
+      "name": "Tracy McGrady",
+      "position": "SG",
+      "ppg": 19.6,
+      "rpg": 5.6,
+      "apg": 4.4,
+      "bpg": 0.9,
       "rank": 85
+    },
+    {
+      "name": "Bob Cousy",
+      "position": "PG",
+      "ppg": 18.4,
+      "rpg": 5.2,
+      "apg": 7.5,
+      "bpg": 0.0,
+      "rank": 87
     },
     {
       "name": "Chris Webber",
@@ -2151,115 +2691,7 @@
       "rpg": 9.8,
       "apg": 4.2,
       "bpg": 1.4,
-      "rank": 87
-    },
-    {
-      "name": "Alex English",
-      "position": "SF",
-      "ppg": 21.5,
-      "rpg": 5.5,
-      "apg": 3.6,
-      "bpg": 0.7,
       "rank": 89
-    },
-    {
-      "name": "Tony Parker",
-      "position": "PG",
-      "ppg": 15.5,
-      "rpg": 2.7,
-      "apg": 5.6,
-      "bpg": 0.1,
-      "rank": 91
-    },
-    {
-      "name": "Nate Archibald",
-      "position": "PG",
-      "ppg": 18.8,
-      "rpg": 2.3,
-      "apg": 7.4,
-      "bpg": 0.1,
-      "rank": 93
-    },
-    {
-      "name": "Dave Bing",
-      "position": "PG",
-      "ppg": 20.3,
-      "rpg": 3.8,
-      "apg": 6.0,
-      "bpg": 0.2,
-      "rank": 94
-    },
-    {
-      "name": "Lenny Wilkens",
-      "position": "PG",
-      "ppg": 16.5,
-      "rpg": 4.7,
-      "apg": 6.7,
-      "bpg": 0.2,
-      "rank": 96
-    },
-    {
-      "name": "Grant Hill",
-      "position": "SF",
-      "ppg": 16.7,
-      "rpg": 6.0,
-      "apg": 4.1,
-      "bpg": 0.6,
-      "rank": 98
-    },
-    {
-      "name": "Sidney Moncrief",
-      "position": "SG",
-      "ppg": 15.6,
-      "rpg": 4.7,
-      "apg": 3.6,
-      "bpg": 0.3,
-      "rank": 100
-    },
-    {
-      "name": "Chris Mullin",
-      "position": "SF",
-      "ppg": 18.2,
-      "rpg": 4.1,
-      "apg": 3.5,
-      "bpg": 0.6,
-      "rank": 102
-    },
-    {
-      "name": "Bernard King",
-      "position": "SF",
-      "ppg": 22.5,
-      "rpg": 5.8,
-      "apg": 3.3,
-      "bpg": 0.3,
-      "rank": 104
-    },
-    {
-      "name": "Joe Dumars",
-      "position": "SG",
-      "ppg": 16.1,
-      "rpg": 2.2,
-      "apg": 4.5,
-      "bpg": 0.1,
-      "rank": 106
-    },
-    {
-      "name": "Adrian Dantley",
-      "position": "SF",
-      "ppg": 24.3,
-      "rpg": 5.7,
-      "apg": 3.0,
-      "bpg": 0.1,
-      "rank": 108
-    },
-    {
-      "name": "Alonzo Mourning",
-      "position": "C",
-      "ppg": 17.1,
-      "rpg": 8.5,
-      "apg": 1.1,
-      "bpg": 2.8,
-      "rank": 109
     },
     {
       "name": "Nate Thurmond",
@@ -2267,8 +2699,17 @@
       "ppg": 15.0,
       "rpg": 15.0,
       "apg": 2.7,
-      "bpg": 2.1,
-      "rank": 111
+      "bpg": 0.0,
+      "rank": 92
+    },
+    {
+      "name": "Pete Maravich",
+      "position": "SG",
+      "ppg": 24.2,
+      "rpg": 4.2,
+      "apg": 5.4,
+      "bpg": 0.2,
+      "rank": 94
     },
     {
       "name": "Artis Gilmore",
@@ -2277,16 +2718,124 @@
       "rpg": 12.3,
       "apg": 2.3,
       "bpg": 2.4,
+      "rank": 95
+    },
+    {
+      "name": "Dave Cowens",
+      "position": "PF",
+      "ppg": 17.6,
+      "rpg": 13.6,
+      "apg": 3.8,
+      "bpg": 0.9,
+      "rank": 97
+    },
+    {
+      "name": "Dennis Rodman",
+      "position": "SF",
+      "ppg": 7.3,
+      "rpg": 13.1,
+      "apg": 1.8,
+      "bpg": 0.6,
+      "rank": 99
+    },
+    {
+      "name": "Tony Parker",
+      "position": "PG",
+      "ppg": 15.5,
+      "rpg": 2.7,
+      "apg": 5.6,
+      "bpg": 0.1,
+      "rank": 103
+    },
+    {
+      "name": "Vince Carter",
+      "position": "SG",
+      "ppg": 16.7,
+      "rpg": 4.3,
+      "apg": 3.1,
+      "bpg": 0.6,
+      "rank": 104
+    },
+    {
+      "name": "Willis Reed",
+      "position": "C",
+      "ppg": 18.7,
+      "rpg": 12.9,
+      "apg": 1.8,
+      "bpg": 0.0,
+      "rank": 105
+    },
+    {
+      "name": "Adrian Dantley",
+      "position": "SF",
+      "ppg": 24.3,
+      "rpg": 5.7,
+      "apg": 3.0,
+      "bpg": 0.2,
+      "rank": 107
+    },
+    {
+      "name": "Wes Unseld",
+      "position": "C",
+      "ppg": 10.8,
+      "rpg": 14.0,
+      "apg": 3.9,
+      "bpg": 0.6,
+      "rank": 110
+    },
+    {
+      "name": "Bill Walton",
+      "position": "C",
+      "ppg": 13.3,
+      "rpg": 10.5,
+      "apg": 3.4,
+      "bpg": 2.2,
+      "rank": 111
+    },
+    {
+      "name": "Dennis Rodman (PF)",
+      "position": "PF",
+      "ppg": 7.3,
+      "rpg": 13.1,
+      "apg": 1.8,
+      "bpg": 0.6,
       "rank": 113
     },
     {
-      "name": "Bob Lanier",
+      "name": "Dwight Howard",
       "position": "C",
-      "ppg": 20.1,
-      "rpg": 10.1,
-      "apg": 3.1,
+      "ppg": 15.7,
+      "rpg": 11.8,
+      "apg": 1.3,
+      "bpg": 1.8,
+      "rank": 115
+    },
+    {
+      "name": "James Worthy",
+      "position": "SF",
+      "ppg": 17.6,
+      "rpg": 5.1,
+      "apg": 3.0,
+      "bpg": 0.7,
+      "rank": 116
+    },
+    {
+      "name": "Robert Parish",
+      "position": "C",
+      "ppg": 14.5,
+      "rpg": 9.1,
+      "apg": 1.4,
       "bpg": 1.5,
-      "rank": 114
+      "rank": 119
+    },
+    {
+      "name": "Sam Jones",
+      "position": "SG",
+      "ppg": 17.7,
+      "rpg": 4.9,
+      "apg": 2.5,
+      "bpg": 0.0,
+      "rank": 120
     },
     {
       "name": "Chauncey Billups",
@@ -2295,7 +2844,25 @@
       "rpg": 2.9,
       "apg": 5.4,
       "bpg": 0.2,
-      "rank": 116
+      "rank": 122
+    },
+    {
+      "name": "Bernard King",
+      "position": "SF",
+      "ppg": 22.5,
+      "rpg": 5.8,
+      "apg": 3.3,
+      "bpg": 0.3,
+      "rank": 123
+    },
+    {
+      "name": "Bob Lanier",
+      "position": "C",
+      "ppg": 20.1,
+      "rpg": 10.1,
+      "apg": 3.1,
+      "bpg": 1.3,
+      "rank": 124
     },
     {
       "name": "Dikembe Mutombo",
@@ -2304,7 +2871,7 @@
       "rpg": 10.3,
       "apg": 1.0,
       "bpg": 2.8,
-      "rank": 118
+      "rank": 125
     },
     {
       "name": "Tim Hardaway",
@@ -2312,8 +2879,62 @@
       "ppg": 17.7,
       "rpg": 3.3,
       "apg": 8.2,
+      "bpg": 0.2,
+      "rank": 127
+    },
+    {
+      "name": "Alex English",
+      "position": "SF",
+      "ppg": 21.5,
+      "rpg": 5.5,
+      "apg": 3.6,
+      "bpg": 0.4,
+      "rank": 129
+    },
+    {
+      "name": "Alonzo Mourning",
+      "position": "C",
+      "ppg": 17.1,
+      "rpg": 8.5,
+      "apg": 1.1,
+      "bpg": 2.8,
+      "rank": 130
+    },
+    {
+      "name": "Bob McAdoo",
+      "position": "C",
+      "ppg": 22.1,
+      "rpg": 9.4,
+      "apg": 2.3,
+      "bpg": 1.5,
+      "rank": 132
+    },
+    {
+      "name": "Chris Bosh",
+      "position": "PF",
+      "ppg": 19.2,
+      "rpg": 8.5,
+      "apg": 2.0,
+      "bpg": 1.0,
+      "rank": 133
+    },
+    {
+      "name": "Earl Monroe",
+      "position": "SG",
+      "ppg": 18.8,
+      "rpg": 3.0,
+      "apg": 3.9,
       "bpg": 0.1,
-      "rank": 120
+      "rank": 136
+    },
+    {
+      "name": "Nate Archibald",
+      "position": "PG",
+      "ppg": 18.8,
+      "rpg": 2.3,
+      "apg": 7.4,
+      "bpg": 0.1,
+      "rank": 139
     },
     {
       "name": "Kevin Johnson",
@@ -2321,98 +2942,8 @@
       "ppg": 17.9,
       "rpg": 3.3,
       "apg": 9.1,
-      "bpg": 0.2,
-      "rank": 122
-    },
-    {
-      "name": "Derrick Rose",
-      "position": "PG",
-      "ppg": 17.4,
-      "rpg": 3.2,
-      "apg": 5.2,
       "bpg": 0.3,
-      "rank": 123
-    },
-    {
-      "name": "Penny Hardaway",
-      "position": "PG",
-      "ppg": 15.2,
-      "rpg": 4.5,
-      "apg": 5.0,
-      "bpg": 0.4,
-      "rank": 125
-    },
-    {
-      "name": "Dennis Johnson",
-      "position": "PG",
-      "ppg": 14.1,
-      "rpg": 3.9,
-      "apg": 5.0,
-      "bpg": 0.6,
-      "rank": 126
-    },
-    {
-      "name": "Baron Davis",
-      "position": "PG",
-      "ppg": 16.1,
-      "rpg": 3.8,
-      "apg": 7.2,
-      "bpg": 0.4,
-      "rank": 128
-    },
-    {
-      "name": "Gilbert Arenas",
-      "position": "PG",
-      "ppg": 20.7,
-      "rpg": 3.9,
-      "apg": 5.3,
-      "bpg": 0.2,
-      "rank": 130
-    },
-    {
-      "name": "Mark Price",
-      "position": "PG",
-      "ppg": 15.2,
-      "rpg": 2.6,
-      "apg": 6.7,
-      "bpg": 0.1,
-      "rank": 132
-    },
-    {
-      "name": "Sam Jones",
-      "position": "SG",
-      "ppg": 17.7,
-      "rpg": 4.9,
-      "apg": 2.5,
-      "bpg": 0.1,
-      "rank": 134
-    },
-    {
-      "name": "Rajon Rondo",
-      "position": "PG",
-      "ppg": 9.8,
-      "rpg": 4.5,
-      "apg": 7.9,
-      "bpg": 0.1,
-      "rank": 135
-    },
-    {
-      "name": "Hal Greer",
-      "position": "SG",
-      "ppg": 19.2,
-      "rpg": 5.0,
-      "apg": 4.0,
-      "bpg": 0.1,
-      "rank": 137
-    },
-    {
-      "name": "David Thompson",
-      "position": "SG",
-      "ppg": 22.7,
-      "rpg": 4.1,
-      "apg": 3.3,
-      "bpg": 0.9,
-      "rank": 139
+      "rank": 140
     },
     {
       "name": "Mitch Richmond",
@@ -2420,233 +2951,8 @@
       "ppg": 21.0,
       "rpg": 3.9,
       "apg": 3.5,
-      "bpg": 0.2,
+      "bpg": 0.3,
       "rank": 141
-    },
-    {
-      "name": "Bill Sharman",
-      "position": "SG",
-      "ppg": 17.8,
-      "rpg": 3.9,
-      "apg": 3.0,
-      "bpg": 0.0,
-      "rank": 143
-    },
-    {
-      "name": "Brandon Roy",
-      "position": "SG",
-      "ppg": 18.8,
-      "rpg": 4.3,
-      "apg": 4.7,
-      "bpg": 0.2,
-      "rank": 144
-    },
-    {
-      "name": "Rip Hamilton",
-      "position": "SG",
-      "ppg": 17.1,
-      "rpg": 3.1,
-      "apg": 3.4,
-      "bpg": 0.1,
-      "rank": 146
-    },
-    {
-      "name": "Joe Johnson",
-      "position": "SG",
-      "ppg": 16.0,
-      "rpg": 4.0,
-      "apg": 3.9,
-      "bpg": 0.2,
-      "rank": 148
-    },
-    {
-      "name": "Lou Hudson",
-      "position": "SG",
-      "ppg": 20.2,
-      "rpg": 4.4,
-      "apg": 2.7,
-      "bpg": 0.3,
-      "rank": 150
-    },
-    {
-      "name": "Gail Goodrich",
-      "position": "SG",
-      "ppg": 18.6,
-      "rpg": 3.2,
-      "apg": 4.7,
-      "bpg": 0.2,
-      "rank": 152
-    },
-    {
-      "name": "Glen Rice",
-      "position": "SF",
-      "ppg": 18.3,
-      "rpg": 4.4,
-      "apg": 2.1,
-      "bpg": 0.3,
-      "rank": 154
-    },
-    {
-      "name": "Shawn Marion",
-      "position": "SF",
-      "ppg": 15.2,
-      "rpg": 8.7,
-      "apg": 1.9,
-      "bpg": 1.1,
-      "rank": 156
-    },
-    {
-      "name": "Peja Stojakovic",
-      "position": "SF",
-      "ppg": 17.0,
-      "rpg": 4.7,
-      "apg": 1.8,
-      "bpg": 0.1,
-      "rank": 158
-    },
-    {
-      "name": "Andrei Kirilenko",
-      "position": "SF",
-      "ppg": 11.8,
-      "rpg": 5.5,
-      "apg": 2.7,
-      "bpg": 1.8,
-      "rank": 159
-    },
-    {
-      "name": "Jamal Mashburn",
-      "position": "SF",
-      "ppg": 19.1,
-      "rpg": 5.4,
-      "apg": 4.0,
-      "bpg": 0.2,
-      "rank": 161
-    },
-    {
-      "name": "Metta World Peace",
-      "position": "SF",
-      "ppg": 13.2,
-      "rpg": 4.5,
-      "apg": 2.7,
-      "bpg": 0.5,
-      "rank": 163
-    },
-    {
-      "name": "Tayshaun Prince",
-      "position": "SF",
-      "ppg": 11.1,
-      "rpg": 4.3,
-      "apg": 2.4,
-      "bpg": 0.5,
-      "rank": 165
-    },
-    {
-      "name": "Clifford Robinson",
-      "position": "SF",
-      "ppg": 14.2,
-      "rpg": 4.6,
-      "apg": 2.2,
-      "bpg": 1.0,
-      "rank": 167
-    },
-    {
-      "name": "Detlef Schrempf",
-      "position": "SF",
-      "ppg": 13.9,
-      "rpg": 6.2,
-      "apg": 3.4,
-      "bpg": 0.2,
-      "rank": 169
-    },
-    {
-      "name": "Shawn Kemp",
-      "position": "PF",
-      "ppg": 14.6,
-      "rpg": 8.4,
-      "apg": 1.6,
-      "bpg": 1.2,
-      "rank": 171
-    },
-    {
-      "name": "Rasheed Wallace",
-      "position": "PF",
-      "ppg": 14.4,
-      "rpg": 6.7,
-      "apg": 1.8,
-      "bpg": 1.3,
-      "rank": 173
-    },
-    {
-      "name": "Amar'e Stoudemire",
-      "position": "PF",
-      "ppg": 18.9,
-      "rpg": 7.8,
-      "apg": 1.2,
-      "bpg": 1.2,
-      "rank": 174
-    },
-    {
-      "name": "Blake Griffin",
-      "position": "PF",
-      "ppg": 19.0,
-      "rpg": 8.0,
-      "apg": 4.0,
-      "bpg": 0.5,
-      "rank": 176
-    },
-    {
-      "name": "Jerry Lucas",
-      "position": "PF",
-      "ppg": 17.0,
-      "rpg": 15.6,
-      "apg": 3.3,
-      "bpg": 0.3,
-      "rank": 178
-    },
-    {
-      "name": "Dave DeBusschere",
-      "position": "PF",
-      "ppg": 16.1,
-      "rpg": 11.0,
-      "apg": 2.9,
-      "bpg": 0.5,
-      "rank": 180
-    },
-    {
-      "name": "LaMarcus Aldridge",
-      "position": "PF",
-      "ppg": 19.1,
-      "rpg": 8.1,
-      "apg": 1.9,
-      "bpg": 1.1,
-      "rank": 182
-    },
-    {
-      "name": "Zach Randolph",
-      "position": "PF",
-      "ppg": 16.6,
-      "rpg": 9.1,
-      "apg": 1.8,
-      "bpg": 0.3,
-      "rank": 184
-    },
-    {
-      "name": "Marc Gasol",
-      "position": "C",
-      "ppg": 14.0,
-      "rpg": 7.4,
-      "apg": 3.4,
-      "bpg": 1.4,
-      "rank": 186
-    },
-    {
-      "name": "Arvydas Sabonis",
-      "position": "C",
-      "ppg": 12.0,
-      "rpg": 7.3,
-      "apg": 2.1,
-      "bpg": 1.1,
-      "rank": 188
     },
     {
       "name": "Ben Wallace",
@@ -2655,385 +2961,151 @@
       "rpg": 9.6,
       "apg": 1.3,
       "bpg": 2.0,
-      "rank": 190
+      "rank": 142
     },
     {
-      "name": "DeMarcus Cousins",
-      "position": "C",
-      "ppg": 19.6,
-      "rpg": 10.2,
-      "apg": 3.0,
-      "bpg": 1.1,
-      "rank": 192
+      "name": "Grant Hill",
+      "position": "SF",
+      "ppg": 16.7,
+      "rpg": 6.0,
+      "apg": 4.1,
+      "bpg": 0.6,
+      "rank": 143
     },
     {
-      "name": "Brad Daugherty",
-      "position": "C",
-      "ppg": 19.0,
-      "rpg": 9.5,
-      "apg": 3.7,
-      "bpg": 0.8,
-      "rank": 194
-    },
-    {
-      "name": "Earl Monroe",
-      "position": "SG",
-      "ppg": 18.8,
-      "rpg": 3.0,
-      "apg": 3.9,
-      "bpg": 0.2,
-      "rank": 196
-    },
-    {
-      "name": "Latrell Sprewell",
-      "position": "SG",
-      "ppg": 18.3,
+      "name": "Chris Mullin",
+      "position": "SF",
+      "ppg": 18.2,
       "rpg": 4.1,
+      "apg": 3.5,
+      "bpg": 0.5,
+      "rank": 144
+    },
+    {
+      "name": "Dennis Johnson",
+      "position": "PG",
+      "ppg": 14.1,
+      "rpg": 3.9,
+      "apg": 5.0,
+      "bpg": 0.4,
+      "rank": 145
+    },
+    {
+      "name": "Joe Dumars",
+      "position": "SG",
+      "ppg": 16.1,
+      "rpg": 2.2,
+      "apg": 4.5,
+      "bpg": 0.1,
+      "rank": 146
+    },
+    {
+      "name": "Hal Greer",
+      "position": "SG",
+      "ppg": 19.2,
+      "rpg": 5.0,
+      "apg": 4.0,
+      "bpg": 0.0,
+      "rank": 147
+    },
+    {
+      "name": "Penny Hardaway",
+      "position": "PG",
+      "ppg": 15.2,
+      "rpg": 4.5,
+      "apg": 5.0,
+      "bpg": 0.4,
+      "rank": 149
+    },
+    {
+      "name": "Shawn Marion",
+      "position": "SF",
+      "ppg": 15.2,
+      "rpg": 8.7,
+      "apg": 1.9,
+      "bpg": 1.1,
+      "rank": 151
+    },
+    {
+      "name": "Deron Williams",
+      "position": "PG",
+      "ppg": 16.3,
+      "rpg": 3.1,
+      "apg": 8.1,
+      "bpg": 0.2,
+      "rank": 153
+    },
+    {
+      "name": "Shawn Kemp",
+      "position": "PF",
+      "ppg": 14.6,
+      "rpg": 8.4,
+      "apg": 1.6,
+      "bpg": 1.2,
+      "rank": 155
+    },
+    {
+      "name": "Sidney Moncrief",
+      "position": "SG",
+      "ppg": 15.6,
+      "rpg": 4.7,
+      "apg": 3.6,
+      "bpg": 0.4,
+      "rank": 156
+    },
+    {
+      "name": "Billy Cunningham",
+      "position": "SF",
+      "ppg": 20.8,
+      "rpg": 10.1,
+      "apg": 4.0,
+      "bpg": 0.0,
+      "rank": 159
+    },
+    {
+      "name": "Blake Griffin",
+      "position": "PF",
+      "ppg": 19.8,
+      "rpg": 8.4,
       "apg": 4.0,
       "bpg": 0.4,
-      "rank": 198
+      "rank": 160
     },
     {
-      "name": "Jeff Hornacek",
-      "position": "SG",
+      "name": "Jerry Lucas",
+      "position": "PF",
+      "ppg": 17.0,
+      "rpg": 15.6,
+      "apg": 3.3,
+      "bpg": 0.0,
+      "rank": 165
+    },
+    {
+      "name": "Kyle Lowry",
+      "position": "PG",
       "ppg": 14.5,
-      "rpg": 3.4,
-      "apg": 4.9,
-      "bpg": 0.2,
-      "rank": 200
-    },
-    {
-      "name": "Nick Van Exel",
-      "position": "PG",
-      "ppg": 14.4,
-      "rpg": 2.9,
-      "apg": 6.6,
-      "bpg": 0.1,
-      "rank": 202
-    },
-    {
-      "name": "Elton Brand",
-      "position": "PF",
-      "ppg": 15.9,
-      "rpg": 8.5,
-      "apg": 2.1,
-      "bpg": 1.7,
-      "rank": 204
-    },
-    {
-      "name": "Jermaine O'Neal",
-      "position": "PF",
-      "ppg": 13.2,
-      "rpg": 7.2,
-      "apg": 1.4,
-      "bpg": 1.8,
-      "rank": 206
-    },
-    {
-      "name": "Buck Williams",
-      "position": "PF",
-      "ppg": 12.8,
-      "rpg": 10.0,
-      "apg": 1.3,
-      "bpg": 0.8,
-      "rank": 208
-    },
-    {
-      "name": "Antawn Jamison",
-      "position": "PF",
-      "ppg": 18.5,
-      "rpg": 7.5,
-      "apg": 1.6,
-      "bpg": 0.4,
-      "rank": 210
-    },
-    {
-      "name": "Horace Grant",
-      "position": "PF",
-      "ppg": 11.2,
-      "rpg": 8.1,
-      "apg": 2.2,
-      "bpg": 1.0,
-      "rank": 212
-    },
-    {
-      "name": "Charles Oakley",
-      "position": "PF",
-      "ppg": 9.7,
-      "rpg": 9.5,
-      "apg": 2.5,
-      "bpg": 0.3,
-      "rank": 214
-    },
-    {
-      "name": "Rod Strickland",
-      "position": "PG",
-      "ppg": 13.2,
-      "rpg": 3.7,
-      "apg": 7.3,
-      "bpg": 0.2,
-      "rank": 216
-    },
-    {
-      "name": "Terrell Brandon",
-      "position": "PG",
-      "ppg": 13.8,
-      "rpg": 3.0,
+      "rpg": 4.4,
       "apg": 6.1,
       "bpg": 0.3,
-      "rank": 218
+      "rank": 166
     },
     {
-      "name": "Andre Miller",
-      "position": "PG",
-      "ppg": 12.5,
-      "rpg": 3.7,
-      "apg": 6.5,
-      "bpg": 0.2,
-      "rank": 220
-    },
-    {
-      "name": "Stephon Marbury",
-      "position": "PG",
-      "ppg": 19.3,
-      "rpg": 3.0,
-      "apg": 7.6,
-      "bpg": 0.1,
-      "rank": 222
-    },
-    {
-      "name": "Ron Harper",
-      "position": "PG",
-      "ppg": 13.8,
-      "rpg": 4.3,
-      "apg": 3.9,
-      "bpg": 0.7,
-      "rank": 224
-    },
-    {
-      "name": "Kenny Smith",
-      "position": "PG",
-      "ppg": 12.8,
-      "rpg": 2.0,
-      "apg": 5.5,
-      "bpg": 0.1,
-      "rank": 226
-    },
-    {
-      "name": "Muggsy Bogues",
-      "position": "PG",
-      "ppg": 7.7,
-      "rpg": 2.6,
-      "apg": 7.6,
-      "bpg": 0.0,
-      "rank": 228
-    },
-    {
-      "name": "Spud Webb",
-      "position": "PG",
-      "ppg": 9.9,
-      "rpg": 2.1,
-      "apg": 5.3,
-      "bpg": 0.1,
-      "rank": 230
-    },
-    {
-      "name": "Mark Jackson",
-      "position": "PG",
-      "ppg": 9.6,
-      "rpg": 3.8,
-      "apg": 8.0,
-      "bpg": 0.1,
-      "rank": 232
-    },
-    {
-      "name": "Steve Francis",
-      "position": "PG",
-      "ppg": 18.1,
-      "rpg": 5.6,
-      "apg": 6.0,
-      "bpg": 0.3,
-      "rank": 234
-    },
-    {
-      "name": "Michael Finley",
-      "position": "SG",
-      "ppg": 15.7,
-      "rpg": 4.4,
-      "apg": 2.9,
-      "bpg": 0.3,
-      "rank": 236
-    },
-    {
-      "name": "Stephen Jackson",
-      "position": "SG",
-      "ppg": 15.1,
-      "rpg": 3.9,
-      "apg": 3.1,
-      "bpg": 0.3,
-      "rank": 238
-    },
-    {
-      "name": "Jason Terry",
-      "position": "SG",
-      "ppg": 13.4,
-      "rpg": 2.3,
-      "apg": 3.8,
-      "bpg": 0.2,
-      "rank": 240
-    },
-    {
-      "name": "Eddie Jones",
-      "position": "SG",
-      "ppg": 14.8,
-      "rpg": 4.0,
-      "apg": 2.9,
-      "bpg": 0.6,
-      "rank": 242
-    },
-    {
-      "name": "John Starks",
-      "position": "SG",
-      "ppg": 12.9,
-      "rpg": 2.5,
-      "apg": 3.6,
-      "bpg": 0.1,
-      "rank": 244
-    },
-    {
-      "name": "Marques Johnson",
-      "position": "SF",
-      "ppg": 20.1,
-      "rpg": 7.0,
-      "apg": 3.6,
-      "bpg": 0.8,
-      "rank": 246
-    },
-    {
-      "name": "Jerry Stackhouse",
-      "position": "SG",
-      "ppg": 16.9,
-      "rpg": 3.2,
-      "apg": 3.3,
-      "bpg": 0.3,
-      "rank": 248
-    },
-    {
-      "name": "Allan Houston",
-      "position": "SG",
-      "ppg": 17.3,
-      "rpg": 2.9,
-      "apg": 2.4,
-      "bpg": 0.2,
-      "rank": 250
-    },
-    {
-      "name": "Jamal Crawford",
-      "position": "SG",
-      "ppg": 14.6,
-      "rpg": 2.2,
-      "apg": 3.4,
-      "bpg": 0.2,
-      "rank": 252
-    },
-    {
-      "name": "Lou Williams",
-      "position": "SG",
-      "ppg": 13.9,
-      "rpg": 2.2,
-      "apg": 3.4,
-      "bpg": 0.2,
-      "rank": 254
-    },
-    {
-      "name": "Vernon Maxwell",
-      "position": "SG",
-      "ppg": 12.8,
-      "rpg": 2.6,
-      "apg": 3.4,
-      "bpg": 0.1,
-      "rank": 256
-    },
-    {
-      "name": "Byron Scott",
-      "position": "SG",
-      "ppg": 14.1,
-      "rpg": 2.8,
-      "apg": 2.5,
-      "bpg": 0.3,
-      "rank": 258
-    },
-    {
-      "name": "Tony Allen",
-      "position": "SG",
-      "ppg": 8.1,
-      "rpg": 3.5,
-      "apg": 1.3,
-      "bpg": 0.4,
-      "rank": 260
-    },
-    {
-      "name": "Richard Jefferson",
-      "position": "SF",
-      "ppg": 12.6,
-      "rpg": 4.0,
-      "apg": 2.0,
-      "bpg": 0.3,
-      "rank": 262
-    },
-    {
-      "name": "Luol Deng",
-      "position": "SF",
-      "ppg": 14.8,
-      "rpg": 6.1,
-      "apg": 2.3,
-      "bpg": 0.5,
-      "rank": 264
-    },
-    {
-      "name": "Danny Granger",
-      "position": "SF",
-      "ppg": 16.8,
-      "rpg": 4.9,
+      "name": "LaMarcus Aldridge",
+      "position": "PF",
+      "ppg": 19.4,
+      "rpg": 8.2,
       "apg": 1.9,
-      "bpg": 0.8,
-      "rank": 266
+      "bpg": 1.0,
+      "rank": 167
     },
     {
-      "name": "Rashard Lewis",
-      "position": "SF",
-      "ppg": 14.9,
-      "rpg": 5.2,
-      "apg": 1.7,
-      "bpg": 0.5,
-      "rank": 268
-    },
-    {
-      "name": "Toni Kukoc",
-      "position": "SF",
-      "ppg": 11.6,
-      "rpg": 4.2,
-      "apg": 3.7,
-      "bpg": 0.3,
-      "rank": 270
-    },
-    {
-      "name": "Hedo Turkoglu",
-      "position": "SF",
-      "ppg": 11.1,
-      "rpg": 4.0,
-      "apg": 2.8,
-      "bpg": 0.3,
-      "rank": 272
-    },
-    {
-      "name": "Bruce Bowen",
-      "position": "SF",
-      "ppg": 6.1,
-      "rpg": 2.8,
-      "apg": 1.2,
-      "bpg": 0.4,
-      "rank": 274
+      "name": "Lenny Wilkens",
+      "position": "PG",
+      "ppg": 16.5,
+      "rpg": 4.7,
+      "apg": 6.7,
+      "bpg": 0.0,
+      "rank": 169
     },
     {
       "name": "Yao Ming",
@@ -3042,25 +3114,169 @@
       "rpg": 9.2,
       "apg": 1.6,
       "bpg": 1.9,
-      "rank": 276
+      "rank": 172
     },
     {
-      "name": "Ralph Sampson",
-      "position": "C",
-      "ppg": 15.4,
-      "rpg": 8.8,
-      "apg": 2.3,
-      "bpg": 1.6,
-      "rank": 278
+      "name": "Baron Davis",
+      "position": "PG",
+      "ppg": 16.1,
+      "rpg": 3.8,
+      "apg": 7.2,
+      "bpg": 0.4,
+      "rank": 173
     },
     {
-      "name": "Mark Eaton",
+      "name": "Larry Nance",
+      "position": "PF",
+      "ppg": 17.1,
+      "rpg": 8.0,
+      "apg": 2.6,
+      "bpg": 2.2,
+      "rank": 174
+    },
+    {
+      "name": "Sam Cassell",
+      "position": "PG",
+      "ppg": 15.7,
+      "rpg": 3.2,
+      "apg": 6.0,
+      "bpg": 0.1,
+      "rank": 175
+    },
+    {
+      "name": "Amar'e Stoudemire",
+      "position": "PF",
+      "ppg": 18.9,
+      "rpg": 7.8,
+      "apg": 1.2,
+      "bpg": 1.3,
+      "rank": 178
+    },
+    {
+      "name": "Bill Sharman",
+      "position": "SG",
+      "ppg": 17.8,
+      "rpg": 3.9,
+      "apg": 3.0,
+      "bpg": 0.0,
+      "rank": 179
+    },
+    {
+      "name": "Brad Daugherty",
       "position": "C",
-      "ppg": 6.0,
-      "rpg": 7.9,
-      "apg": 1.0,
-      "bpg": 3.5,
-      "rank": 280
+      "ppg": 19.0,
+      "rpg": 9.5,
+      "apg": 3.7,
+      "bpg": 0.4,
+      "rank": 180
+    },
+    {
+      "name": "Dan Issel",
+      "position": "PF",
+      "ppg": 22.6,
+      "rpg": 9.1,
+      "apg": 2.4,
+      "bpg": 0.9,
+      "rank": 182
+    },
+    {
+      "name": "Dave DeBusschere",
+      "position": "SF",
+      "ppg": 16.1,
+      "rpg": 11.0,
+      "apg": 2.9,
+      "bpg": 0.0,
+      "rank": 183
+    },
+    {
+      "name": "Dolph Schayes",
+      "position": "PF",
+      "ppg": 18.2,
+      "rpg": 12.1,
+      "apg": 3.1,
+      "bpg": 0.0,
+      "rank": 185
+    },
+    {
+      "name": "Gilbert Arenas",
+      "position": "PG",
+      "ppg": 20.7,
+      "rpg": 3.9,
+      "apg": 5.3,
+      "bpg": 0.2,
+      "rank": 187
+    },
+    {
+      "name": "Glenn Robinson",
+      "position": "SF",
+      "ppg": 20.7,
+      "rpg": 6.1,
+      "apg": 2.7,
+      "bpg": 0.4,
+      "rank": 188
+    },
+    {
+      "name": "Marc Gasol",
+      "position": "C",
+      "ppg": 14.0,
+      "rpg": 7.4,
+      "apg": 3.4,
+      "bpg": 1.4,
+      "rank": 192
+    },
+    {
+      "name": "Mark Jackson",
+      "position": "PG",
+      "ppg": 9.6,
+      "rpg": 3.7,
+      "apg": 8.0,
+      "bpg": 0.1,
+      "rank": 193
+    },
+    {
+      "name": "Rasheed Wallace",
+      "position": "PF",
+      "ppg": 14.4,
+      "rpg": 6.7,
+      "apg": 1.8,
+      "bpg": 1.3,
+      "rank": 196
+    },
+    {
+      "name": "Shareef Abdur-Rahim",
+      "position": "SF",
+      "ppg": 18.1,
+      "rpg": 7.5,
+      "apg": 2.5,
+      "bpg": 0.9,
+      "rank": 197
+    },
+    {
+      "name": "Buck Williams",
+      "position": "PF",
+      "ppg": 12.8,
+      "rpg": 10.0,
+      "apg": 1.3,
+      "bpg": 0.7,
+      "rank": 200
+    },
+    {
+      "name": "Marques Johnson",
+      "position": "SF",
+      "ppg": 20.1,
+      "rpg": 7.0,
+      "apg": 3.6,
+      "bpg": 0.6,
+      "rank": 203
+    },
+    {
+      "name": "Rod Strickland",
+      "position": "PG",
+      "ppg": 13.2,
+      "rpg": 3.7,
+      "apg": 7.3,
+      "bpg": 0.1,
+      "rank": 204
     },
     {
       "name": "Vlade Divac",
@@ -3069,97 +3285,97 @@
       "rpg": 8.2,
       "apg": 3.1,
       "bpg": 1.4,
-      "rank": 282
+      "rank": 205
     },
     {
-      "name": "Joakim Noah",
-      "position": "C",
-      "ppg": 8.8,
-      "rpg": 9.0,
-      "apg": 2.8,
-      "bpg": 1.3,
-      "rank": 284
-    },
-    {
-      "name": "Andrew Bogut",
-      "position": "C",
-      "ppg": 9.6,
-      "rpg": 8.7,
-      "apg": 2.2,
-      "bpg": 1.5,
-      "rank": 286
-    },
-    {
-      "name": "Tyson Chandler",
-      "position": "C",
-      "ppg": 8.2,
-      "rpg": 9.0,
-      "apg": 0.8,
-      "bpg": 1.2,
-      "rank": 288
-    },
-    {
-      "name": "Al Jefferson",
-      "position": "C",
-      "ppg": 15.7,
-      "rpg": 8.4,
-      "apg": 1.5,
-      "bpg": 1.2,
-      "rank": 290
-    },
-    {
-      "name": "Shareef Abdur-Rahim",
+      "name": "Zach Randolph",
       "position": "PF",
-      "ppg": 18.1,
-      "rpg": 7.5,
-      "apg": 2.5,
-      "bpg": 0.8,
-      "rank": 292
+      "ppg": 16.6,
+      "rpg": 9.1,
+      "apg": 1.8,
+      "bpg": 0.2,
+      "rank": 206
     },
     {
-      "name": "David West",
-      "position": "PF",
-      "ppg": 13.6,
-      "rpg": 6.4,
-      "apg": 2.2,
-      "bpg": 0.7,
-      "rank": 294
+      "name": "Glen Rice",
+      "position": "SF",
+      "ppg": 18.3,
+      "rpg": 4.4,
+      "apg": 2.1,
+      "bpg": 0.2,
+      "rank": 209
     },
     {
-      "name": "Paul Millsap",
+      "name": "Horace Grant",
       "position": "PF",
-      "ppg": 13.4,
-      "rpg": 7.1,
+      "ppg": 11.2,
+      "rpg": 8.1,
       "apg": 2.2,
       "bpg": 1.0,
-      "rank": 296
+      "rank": 210
     },
     {
-      "name": "Serge Ibaka",
+      "name": "Jack Sikma",
       "position": "PF",
-      "ppg": 12.0,
-      "rpg": 7.1,
-      "apg": 0.8,
-      "bpg": 1.9,
-      "rank": 298
+      "ppg": 15.6,
+      "rpg": 9.8,
+      "apg": 3.2,
+      "bpg": 1.1,
+      "rank": 212
     },
     {
-      "name": "Pete Maravich",
+      "name": "Stephon Marbury",
       "position": "PG",
-      "ppg": 24.2,
-      "rpg": 4.2,
-      "apg": 5.4,
-      "bpg": 0.3,
-      "rank": 300
+      "ppg": 19.3,
+      "rpg": 3.0,
+      "apg": 7.6,
+      "bpg": 0.1,
+      "rank": 217
     },
     {
-      "name": "Rik Smits",
-      "position": "C",
-      "ppg": 14.8,
-      "rpg": 6.1,
-      "apg": 1.4,
-      "bpg": 1.3,
-      "rank": 302
+      "name": "Latrell Sprewell",
+      "position": "SG",
+      "ppg": 18.3,
+      "rpg": 4.1,
+      "apg": 4.0,
+      "bpg": 0.4,
+      "rank": 221
+    },
+    {
+      "name": "Jerry Stackhouse",
+      "position": "SG",
+      "ppg": 16.9,
+      "rpg": 3.2,
+      "apg": 3.3,
+      "bpg": 0.4,
+      "rank": 225
+    },
+    {
+      "name": "Peja Stojakovic",
+      "position": "SF",
+      "ppg": 17.0,
+      "rpg": 4.7,
+      "apg": 1.8,
+      "bpg": 0.2,
+      "rank": 226
+    },
+    {
+      "name": "Andrei Kirilenko",
+      "position": "SF",
+      "ppg": 11.8,
+      "rpg": 5.5,
+      "apg": 2.7,
+      "bpg": 1.8,
+      "rank": 228
+    },
+    {
+      "name": "Antawn Jamison",
+      "position": "SF",
+      "ppg": 18.5,
+      "rpg": 7.5,
+      "apg": 1.5,
+      "bpg": 0.4,
+      "rank": 229
     },
     {
       "name": "Bill Laimbeer",
@@ -3167,224 +3383,8 @@
       "ppg": 12.9,
       "rpg": 9.7,
       "apg": 2.0,
-      "bpg": 0.9,
-      "rank": 304
-    },
-    {
-      "name": "Marcus Camby",
-      "position": "C",
-      "ppg": 9.5,
-      "rpg": 9.8,
-      "apg": 1.9,
-      "bpg": 2.4,
-      "rank": 306
-    },
-    {
-      "name": "Larry Johnson",
-      "position": "PF",
-      "ppg": 16.2,
-      "rpg": 7.5,
-      "apg": 3.3,
-      "bpg": 0.4,
-      "rank": 308
-    },
-    {
-      "name": "Derrick Coleman",
-      "position": "PF",
-      "ppg": 16.5,
-      "rpg": 9.3,
-      "apg": 2.5,
-      "bpg": 1.3,
-      "rank": 310
-    },
-    {
-      "name": "Vin Baker",
-      "position": "PF",
-      "ppg": 15.0,
-      "rpg": 7.4,
-      "apg": 1.9,
-      "bpg": 1.0,
-      "rank": 312
-    },
-    {
-      "name": "Anthony Mason",
-      "position": "PF",
-      "ppg": 10.9,
-      "rpg": 8.3,
-      "apg": 3.4,
-      "bpg": 0.3,
-      "rank": 314
-    },
-    {
-      "name": "Josh Smith",
-      "position": "PF",
-      "ppg": 14.5,
-      "rpg": 7.4,
-      "apg": 3.1,
-      "bpg": 1.9,
-      "rank": 316
-    },
-    {
-      "name": "Kenyon Martin",
-      "position": "PF",
-      "ppg": 12.3,
-      "rpg": 6.8,
-      "apg": 1.9,
-      "bpg": 1.1,
-      "rank": 318
-    },
-    {
-      "name": "Lamar Odom",
-      "position": "PF",
-      "ppg": 13.3,
-      "rpg": 8.4,
-      "apg": 3.7,
-      "bpg": 0.9,
-      "rank": 320
-    },
-    {
-      "name": "Xavier McDaniel",
-      "position": "SF",
-      "ppg": 15.6,
-      "rpg": 6.1,
-      "apg": 2.0,
-      "bpg": 0.5,
-      "rank": 322
-    },
-    {
-      "name": "Sean Elliott",
-      "position": "SF",
-      "ppg": 14.2,
-      "rpg": 4.3,
-      "apg": 2.6,
-      "bpg": 0.4,
-      "rank": 324
-    },
-    {
-      "name": "Shane Battier",
-      "position": "SF",
-      "ppg": 8.6,
-      "rpg": 4.2,
-      "apg": 1.8,
-      "bpg": 0.9,
-      "rank": 326
-    },
-    {
-      "name": "Robert Horry",
-      "position": "SF",
-      "ppg": 7.0,
-      "rpg": 4.8,
-      "apg": 2.1,
-      "bpg": 0.9,
-      "rank": 328
-    },
-    {
-      "name": "Kyle Korver",
-      "position": "SF",
-      "ppg": 9.7,
-      "rpg": 3.0,
-      "apg": 1.7,
-      "bpg": 0.3,
-      "rank": 330
-    },
-    {
-      "name": "J.J. Redick",
-      "position": "SG",
-      "ppg": 12.8,
-      "rpg": 2.0,
-      "apg": 2.0,
-      "bpg": 0.1,
-      "rank": 332
-    },
-    {
-      "name": "Monta Ellis",
-      "position": "SG",
-      "ppg": 17.8,
-      "rpg": 3.5,
-      "apg": 4.6,
-      "bpg": 0.4,
-      "rank": 334
-    },
-    {
-      "name": "Hersey Hawkins",
-      "position": "SG",
-      "ppg": 14.7,
-      "rpg": 3.6,
-      "apg": 2.9,
-      "bpg": 0.3,
-      "rank": 336
-    },
-    {
-      "name": "Dell Curry",
-      "position": "SG",
-      "ppg": 11.7,
-      "rpg": 2.4,
-      "apg": 1.8,
-      "bpg": 0.2,
-      "rank": 338
-    },
-    {
-      "name": "Dan Majerle",
-      "position": "SG",
-      "ppg": 11.4,
-      "rpg": 4.5,
-      "apg": 2.9,
-      "bpg": 0.4,
-      "rank": 340
-    },
-    {
-      "name": "Derek Fisher",
-      "position": "PG",
-      "ppg": 8.3,
-      "rpg": 2.1,
-      "apg": 3.0,
-      "bpg": 0.1,
-      "rank": 342
-    },
-    {
-      "name": "Kenny Anderson",
-      "position": "PG",
-      "ppg": 12.6,
-      "rpg": 3.1,
-      "apg": 6.1,
-      "bpg": 0.1,
-      "rank": 344
-    },
-    {
-      "name": "Mo Williams",
-      "position": "PG",
-      "ppg": 13.2,
-      "rpg": 2.8,
-      "apg": 4.9,
-      "bpg": 0.1,
-      "rank": 346
-    },
-    {
-      "name": "Jameer Nelson",
-      "position": "PG",
-      "ppg": 11.3,
-      "rpg": 3.0,
-      "apg": 5.1,
-      "bpg": 0.1,
-      "rank": 348
-    },
-    {
-      "name": "Kirk Hinrich",
-      "position": "PG",
-      "ppg": 10.9,
-      "rpg": 2.9,
-      "apg": 4.8,
-      "bpg": 0.3,
-      "rank": 350
-    },
-    {
-      "name": "Antoine Walker",
-      "position": "PF",
-      "ppg": 17.5,
-      "rpg": 7.7,
-      "apg": 3.5,
-      "bpg": 0.5,
-      "rank": 352
+      "bpg": 0.6,
+      "rank": 231
     },
     {
       "name": "Carlos Boozer",
@@ -3393,7 +3393,844 @@
       "rpg": 9.5,
       "apg": 2.2,
       "bpg": 0.4,
+      "rank": 235
+    },
+    {
+      "name": "Derrick Coleman",
+      "position": "PF",
+      "ppg": 16.5,
+      "rpg": 9.3,
+      "apg": 2.5,
+      "bpg": 1.3,
+      "rank": 237
+    },
+    {
+      "name": "Detlef Schrempf",
+      "position": "SF",
+      "ppg": 13.9,
+      "rpg": 6.2,
+      "apg": 3.4,
+      "bpg": 0.3,
+      "rank": 238
+    },
+    {
+      "name": "Elton Brand",
+      "position": "C",
+      "ppg": 15.9,
+      "rpg": 8.5,
+      "apg": 2.1,
+      "bpg": 1.7,
+      "rank": 239
+    },
+    {
+      "name": "Fat Lever",
+      "position": "PG",
+      "ppg": 13.9,
+      "rpg": 6.0,
+      "apg": 6.2,
+      "bpg": 0.4,
+      "rank": 240
+    },
+    {
+      "name": "Jermaine O'Neal",
+      "position": "PF",
+      "ppg": 13.2,
+      "rpg": 7.0,
+      "apg": 1.4,
+      "bpg": 1.9,
+      "rank": 244
+    },
+    {
+      "name": "Marcus Camby",
+      "position": "C",
+      "ppg": 9.5,
+      "rpg": 9.8,
+      "apg": 1.8,
+      "bpg": 2.4,
+      "rank": 248
+    },
+    {
+      "name": "Mark Eaton",
+      "position": "C",
+      "ppg": 6.0,
+      "rpg": 7.9,
+      "apg": 1.0,
+      "bpg": 3.5,
+      "rank": 249
+    },
+    {
+      "name": "Rolando Blackman",
+      "position": "SG",
+      "ppg": 18.0,
+      "rpg": 3.3,
+      "apg": 3.0,
+      "bpg": 0.2,
+      "rank": 250
+    },
+    {
+      "name": "Rudy Gay",
+      "position": "SF",
+      "ppg": 15.8,
+      "rpg": 5.4,
+      "apg": 1.9,
+      "bpg": 0.6,
+      "rank": 251
+    },
+    {
+      "name": "Terry Porter",
+      "position": "PG",
+      "ppg": 15.1,
+      "rpg": 3.6,
+      "apg": 7.1,
+      "bpg": 0.1,
+      "rank": 252
+    },
+    {
+      "name": "Chet Walker",
+      "position": "SF",
+      "ppg": 18.2,
+      "rpg": 7.1,
+      "apg": 2.1,
+      "bpg": 0.0,
+      "rank": 254
+    },
+    {
+      "name": "Maurice Cheeks",
+      "position": "PG",
+      "ppg": 11.1,
+      "rpg": 3.1,
+      "apg": 6.7,
+      "bpg": 0.3,
+      "rank": 255
+    },
+    {
+      "name": "Rip Hamilton",
+      "position": "SG",
+      "ppg": 17.1,
+      "rpg": 3.1,
+      "apg": 3.4,
+      "bpg": 0.1,
+      "rank": 256
+    },
+    {
+      "name": "Mookie Blaylock",
+      "position": "PG",
+      "ppg": 13.5,
+      "rpg": 4.0,
+      "apg": 6.7,
+      "bpg": 0.3,
+      "rank": 260
+    },
+    {
+      "name": "Ron Harper",
+      "position": "SG",
+      "ppg": 13.8,
+      "rpg": 4.3,
+      "apg": 4.3,
+      "bpg": 0.7,
+      "rank": 261
+    },
+    {
+      "name": "Terry Cummings",
+      "position": "PF",
+      "ppg": 16.4,
+      "rpg": 7.3,
+      "apg": 2.0,
+      "bpg": 0.6,
+      "rank": 262
+    },
+    {
+      "name": "Toni Kukoc",
+      "position": "SF",
+      "ppg": 11.6,
+      "rpg": 4.2,
+      "apg": 3.7,
+      "bpg": 0.4,
+      "rank": 263
+    },
+    {
+      "name": "Bobby Jones",
+      "position": "SF",
+      "ppg": 12.1,
+      "rpg": 6.1,
+      "apg": 2.8,
+      "bpg": 1.5,
+      "rank": 264
+    },
+    {
+      "name": "Eddie Jones",
+      "position": "SG",
+      "ppg": 14.8,
+      "rpg": 3.8,
+      "apg": 3.0,
+      "bpg": 0.6,
+      "rank": 265
+    },
+    {
+      "name": "Al Jefferson",
+      "position": "PF",
+      "ppg": 15.7,
+      "rpg": 8.4,
+      "apg": 1.6,
+      "bpg": 1.2,
+      "rank": 266
+    },
+    {
+      "name": "Danny Manning",
+      "position": "SF",
+      "ppg": 14.0,
+      "rpg": 5.2,
+      "apg": 2.5,
+      "bpg": 1.0,
+      "rank": 268
+    },
+    {
+      "name": "Derek Harper",
+      "position": "PG",
+      "ppg": 13.3,
+      "rpg": 2.9,
+      "apg": 5.5,
+      "bpg": 0.4,
+      "rank": 269
+    },
+    {
+      "name": "Jack Twyman",
+      "position": "C",
+      "ppg": 19.2,
+      "rpg": 6.6,
+      "apg": 2.3,
+      "bpg": 0.0,
+      "rank": 272
+    },
+    {
+      "name": "Jason Terry",
+      "position": "SG",
+      "ppg": 13.4,
+      "rpg": 2.4,
+      "apg": 3.9,
+      "bpg": 0.2,
+      "rank": 275
+    },
+    {
+      "name": "Larry Johnson",
+      "position": "PF",
+      "ppg": 16.2,
+      "rpg": 7.5,
+      "apg": 3.6,
+      "bpg": 0.4,
+      "rank": 278
+    },
+    {
+      "name": "Metta World Peace",
+      "position": "SF",
+      "ppg": 13.0,
+      "rpg": 4.5,
+      "apg": 2.7,
+      "bpg": 0.5,
+      "rank": 281
+    },
+    {
+      "name": "Michael Finley",
+      "position": "SG",
+      "ppg": 15.7,
+      "rpg": 4.4,
+      "apg": 3.4,
+      "bpg": 0.2,
+      "rank": 282
+    },
+    {
+      "name": "Norm Nixon",
+      "position": "PG",
+      "ppg": 15.7,
+      "rpg": 3.0,
+      "apg": 8.3,
+      "bpg": 0.1,
+      "rank": 284
+    },
+    {
+      "name": "Paul Millsap",
+      "position": "PF",
+      "ppg": 13.4,
+      "rpg": 7.1,
+      "apg": 2.4,
+      "bpg": 0.9,
+      "rank": 286
+    },
+    {
+      "name": "Allan Houston",
+      "position": "SG",
+      "ppg": 17.3,
+      "rpg": 2.9,
+      "apg": 2.6,
+      "bpg": 0.2,
+      "rank": 290
+    },
+    {
+      "name": "Andre Miller",
+      "position": "PG",
+      "ppg": 12.7,
+      "rpg": 3.7,
+      "apg": 6.5,
+      "bpg": 0.2,
+      "rank": 291
+    },
+    {
+      "name": "Bailey Howell",
+      "position": "PF",
+      "ppg": 18.7,
+      "rpg": 9.9,
+      "apg": 1.9,
+      "bpg": 0.0,
+      "rank": 292
+    },
+    {
+      "name": "Jamal Mashburn",
+      "position": "SF",
+      "ppg": 19.1,
+      "rpg": 5.4,
+      "apg": 4.0,
+      "bpg": 0.3,
+      "rank": 294
+    },
+    {
+      "name": "Jeff Hornacek",
+      "position": "SG",
+      "ppg": 14.5,
+      "rpg": 3.4,
+      "apg": 4.9,
+      "bpg": 0.2,
+      "rank": 295
+    },
+    {
+      "name": "Walter Davis",
+      "position": "SF",
+      "ppg": 18.9,
+      "rpg": 3.0,
+      "apg": 3.5,
+      "bpg": 0.2,
+      "rank": 297
+    },
+    {
+      "name": "Antoine Walker",
+      "position": "PF",
+      "ppg": 17.5,
+      "rpg": 7.7,
+      "apg": 3.5,
+      "bpg": 0.4,
+      "rank": 298
+    },
+    {
+      "name": "Corey Maggette",
+      "position": "SF",
+      "ppg": 16.0,
+      "rpg": 4.7,
+      "apg": 2.4,
+      "bpg": 0.3,
+      "rank": 301
+    },
+    {
+      "name": "Kevin Willis",
+      "position": "PF",
+      "ppg": 12.1,
+      "rpg": 8.4,
+      "apg": 1.0,
+      "bpg": 0.6,
+      "rank": 310
+    },
+    {
+      "name": "Micheal Ray Richardson",
+      "position": "PG",
+      "ppg": 14.8,
+      "rpg": 5.5,
+      "apg": 7.0,
+      "bpg": 0.2,
+      "rank": 312
+    },
+    {
+      "name": "Nick Van Exel",
+      "position": "SG",
+      "ppg": 14.4,
+      "rpg": 3.1,
+      "apg": 6.6,
+      "bpg": 0.1,
+      "rank": 314
+    },
+    {
+      "name": "Rajon Rondo",
+      "position": "PG",
+      "ppg": 10.2,
+      "rpg": 4.6,
+      "apg": 7.9,
+      "bpg": 0.1,
+      "rank": 315
+    },
+    {
+      "name": "Rashard Lewis",
+      "position": "SF",
+      "ppg": 14.9,
+      "rpg": 5.2,
+      "apg": 1.7,
+      "bpg": 0.6,
+      "rank": 316
+    },
+    {
+      "name": "Tom Chambers",
+      "position": "PF",
+      "ppg": 18.1,
+      "rpg": 6.1,
+      "apg": 2.3,
+      "bpg": 0.5,
+      "rank": 317
+    },
+    {
+      "name": "World B. Free",
+      "position": "SG",
+      "ppg": 20.3,
+      "rpg": 2.7,
+      "apg": 4.2,
+      "bpg": 0.2,
+      "rank": 319
+    },
+    {
+      "name": "Zydrunas Ilgauskas",
+      "position": "C",
+      "ppg": 13.0,
+      "rpg": 7.7,
+      "apg": 1.2,
+      "bpg": 1.6,
+      "rank": 320
+    },
+    {
+      "name": "Byron Scott",
+      "position": "SG",
+      "ppg": 14.1,
+      "rpg": 2.9,
+      "apg": 2.8,
+      "bpg": 0.2,
+      "rank": 321
+    },
+    {
+      "name": "Andrew Toney",
+      "position": "SG",
+      "ppg": 15.9,
+      "rpg": 2.1,
+      "apg": 4.2,
+      "bpg": 0.2,
+      "rank": 322
+    },
+    {
+      "name": "Goran Dragic",
+      "position": "PG",
+      "ppg": 13.4,
+      "rpg": 3.1,
+      "apg": 4.7,
+      "bpg": 0.2,
+      "rank": 324
+    },
+    {
+      "name": "Mike Bibby",
+      "position": "PG",
+      "ppg": 14.7,
+      "rpg": 3.0,
+      "apg": 5.5,
+      "bpg": 0.2,
+      "rank": 327
+    },
+    {
+      "name": "Otis Thorpe",
+      "position": "PF",
+      "ppg": 14.0,
+      "rpg": 8.2,
+      "apg": 1.9,
+      "bpg": 0.4,
+      "rank": 328
+    },
+    {
+      "name": "Reggie Theus",
+      "position": "SG",
+      "ppg": 18.5,
+      "rpg": 3.3,
+      "apg": 6.3,
+      "bpg": 0.2,
+      "rank": 329
+    },
+    {
+      "name": "Robert Horry",
+      "position": "SF",
+      "ppg": 7.0,
+      "rpg": 4.8,
+      "apg": 2.1,
+      "bpg": 0.9,
+      "rank": 330
+    },
+    {
+      "name": "Ron Artest",
+      "position": "SF",
+      "ppg": 13.0,
+      "rpg": 4.5,
+      "apg": 2.7,
+      "bpg": 0.5,
+      "rank": 331
+    },
+    {
+      "name": "Dan Majerle",
+      "position": "SG",
+      "ppg": 11.4,
+      "rpg": 4.5,
+      "apg": 3.4,
+      "bpg": 0.3,
+      "rank": 333
+    },
+    {
+      "name": "Luol Deng",
+      "position": "SF",
+      "ppg": 14.8,
+      "rpg": 6.1,
+      "apg": 2.3,
+      "bpg": 0.6,
+      "rank": 334
+    },
+    {
+      "name": "Andrew Bogut",
+      "position": "C",
+      "ppg": 9.0,
+      "rpg": 8.7,
+      "apg": 2.1,
+      "bpg": 1.6,
+      "rank": 335
+    },
+    {
+      "name": "David West",
+      "position": "PF",
+      "ppg": 13.6,
+      "rpg": 6.6,
+      "apg": 2.4,
+      "bpg": 0.9,
+      "rank": 336
+    },
+    {
+      "name": "Gerald Wallace",
+      "position": "SF",
+      "ppg": 13.0,
+      "rpg": 6.2,
+      "apg": 2.3,
+      "bpg": 0.9,
+      "rank": 338
+    },
+    {
+      "name": "Guy Rodgers",
+      "position": "PG",
+      "ppg": 11.7,
+      "rpg": 4.3,
+      "apg": 7.8,
+      "bpg": 0.0,
+      "rank": 340
+    },
+    {
+      "name": "Kenyon Martin",
+      "position": "PF",
+      "ppg": 12.3,
+      "rpg": 6.4,
+      "apg": 1.9,
+      "bpg": 1.0,
+      "rank": 341
+    },
+    {
+      "name": "Ricky Rubio",
+      "position": "PG",
+      "ppg": 11.1,
+      "rpg": 4.2,
+      "apg": 7.4,
+      "bpg": 0.1,
+      "rank": 344
+    },
+    {
+      "name": "Shane Battier",
+      "position": "SF",
+      "ppg": 8.6,
+      "rpg": 4.2,
+      "apg": 1.8,
+      "bpg": 0.9,
+      "rank": 347
+    },
+    {
+      "name": "Steve Smith",
+      "position": "SG",
+      "ppg": 14.3,
+      "rpg": 3.1,
+      "apg": 3.4,
+      "bpg": 0.3,
+      "rank": 349
+    },
+    {
+      "name": "Tyson Chandler",
+      "position": "C",
+      "ppg": 8.2,
+      "rpg": 9.0,
+      "apg": 0.9,
+      "bpg": 1.1,
+      "rank": 352
+    },
+    {
+      "name": "Dale Ellis",
+      "position": "SG",
+      "ppg": 15.7,
+      "rpg": 3.7,
+      "apg": 1.8,
+      "bpg": 0.2,
+      "rank": 353
+    },
+    {
+      "name": "Danny Granger",
+      "position": "SF",
+      "ppg": 16.8,
+      "rpg": 4.9,
+      "apg": 2.1,
+      "bpg": 0.7,
       "rank": 354
+    },
+    {
+      "name": "Antonio McDyess",
+      "position": "PF",
+      "ppg": 12.4,
+      "rpg": 7.5,
+      "apg": 1.5,
+      "bpg": 1.0,
+      "rank": 355
+    },
+    {
+      "name": "Cedric Maxwell",
+      "position": "SF",
+      "ppg": 12.5,
+      "rpg": 6.3,
+      "apg": 2.6,
+      "bpg": 0.5,
+      "rank": 356
+    },
+    {
+      "name": "Maurice Lucas",
+      "position": "PF",
+      "ppg": 14.6,
+      "rpg": 9.1,
+      "apg": 2.6,
+      "bpg": 0.6,
+      "rank": 357
+    },
+    {
+      "name": "Muggsy Bogues",
+      "position": "PG",
+      "ppg": 7.7,
+      "rpg": 2.6,
+      "apg": 7.6,
+      "bpg": 0.0,
+      "rank": 358
+    },
+    {
+      "name": "Michael Cooper",
+      "position": "SG",
+      "ppg": 8.9,
+      "rpg": 3.2,
+      "apg": 4.2,
+      "bpg": 0.6,
+      "rank": 360
+    },
+    {
+      "name": "Sean Elliott",
+      "position": "SF",
+      "ppg": 14.2,
+      "rpg": 4.3,
+      "apg": 2.6,
+      "bpg": 0.3,
+      "rank": 361
+    },
+    {
+      "name": "Roy Hibbert",
+      "position": "C",
+      "ppg": 10.8,
+      "rpg": 6.5,
+      "apg": 1.1,
+      "bpg": 1.9,
+      "rank": 367
+    },
+    {
+      "name": "Charles Oakley",
+      "position": "PF",
+      "ppg": 9.7,
+      "rpg": 9.5,
+      "apg": 2.5,
+      "bpg": 0.4,
+      "rank": 370
+    },
+    {
+      "name": "Michael Adams",
+      "position": "PG",
+      "ppg": 14.7,
+      "rpg": 2.9,
+      "apg": 6.4,
+      "bpg": 0.1,
+      "rank": 373
+    },
+    {
+      "name": "Tayshaun Prince",
+      "position": "SF",
+      "ppg": 11.1,
+      "rpg": 4.3,
+      "apg": 2.7,
+      "bpg": 0.5,
+      "rank": 374
+    },
+    {
+      "name": "Vin Baker",
+      "position": "PF",
+      "ppg": 15.0,
+      "rpg": 7.4,
+      "apg": 1.9,
+      "bpg": 1.0,
+      "rank": 375
+    },
+    {
+      "name": "Andrew Bynum",
+      "position": "C",
+      "ppg": 11.5,
+      "rpg": 7.7,
+      "apg": 1.4,
+      "bpg": 1.6,
+      "rank": 376
+    },
+    {
+      "name": "Avery Johnson",
+      "position": "PG",
+      "ppg": 8.4,
+      "rpg": 2.1,
+      "apg": 5.5,
+      "bpg": 0.1,
+      "rank": 378
+    },
+    {
+      "name": "Cliff Robinson",
+      "position": "SF",
+      "ppg": 14.2,
+      "rpg": 4.6,
+      "apg": 2.0,
+      "bpg": 1.0,
+      "rank": 379
+    },
+    {
+      "name": "Jameer Nelson",
+      "position": "PG",
+      "ppg": 11.0,
+      "rpg": 3.0,
+      "apg": 5.1,
+      "bpg": 0.1,
+      "rank": 382
+    },
+    {
+      "name": "Jerry Sloan",
+      "position": "SG",
+      "ppg": 14.0,
+      "rpg": 7.4,
+      "apg": 2.5,
+      "bpg": 0.0,
+      "rank": 383
+    },
+    {
+      "name": "Juwan Howard",
+      "position": "PF",
+      "ppg": 13.4,
+      "rpg": 6.1,
+      "apg": 2.5,
+      "bpg": 0.4,
+      "rank": 384
+    },
+    {
+      "name": "Rik Smits",
+      "position": "C",
+      "ppg": 14.8,
+      "rpg": 6.1,
+      "apg": 1.6,
+      "bpg": 1.2,
+      "rank": 393
+    },
+    {
+      "name": "Theo Ratliff",
+      "position": "C",
+      "ppg": 7.2,
+      "rpg": 5.9,
+      "apg": 0.7,
+      "bpg": 2.4,
+      "rank": 395
+    },
+    {
+      "name": "Josh Howard",
+      "position": "SF",
+      "ppg": 15.0,
+      "rpg": 5.9,
+      "apg": 1.9,
+      "bpg": 0.5,
+      "rank": 398
+    },
+    {
+      "name": "Kevin Porter",
+      "position": "PG",
+      "ppg": 11.6,
+      "rpg": 3.4,
+      "apg": 8.1,
+      "bpg": 0.1,
+      "rank": 399
+    },
+    {
+      "name": "Ricky Pierce",
+      "position": "SG",
+      "ppg": 14.9,
+      "rpg": 2.5,
+      "apg": 2.1,
+      "bpg": 0.1,
+      "rank": 400
+    },
+    {
+      "name": "Randy Smith",
+      "position": "SG",
+      "ppg": 16.7,
+      "rpg": 3.5,
+      "apg": 4.6,
+      "bpg": 0.2,
+      "rank": 401
+    },
+    {
+      "name": "Sam Perkins",
+      "position": "PF",
+      "ppg": 11.9,
+      "rpg": 6.1,
+      "apg": 1.6,
+      "bpg": 0.8,
+      "rank": 402
+    },
+    {
+      "name": "Nate McMillan",
+      "position": "PG",
+      "ppg": 5.9,
+      "rpg": 3.4,
+      "apg": 6.1,
+      "bpg": 0.4,
+      "rank": 404
+    },
+    {
+      "name": "Vinnie Johnson",
+      "position": "SG",
+      "ppg": 12.0,
+      "rpg": 3.0,
+      "apg": 3.2,
+      "bpg": 0.2,
+      "rank": 405
+    },
+    {
+      "name": "Xavier McDaniel",
+      "position": "SF",
+      "ppg": 15.6,
+      "rpg": 6.1,
+      "apg": 2.1,
+      "bpg": 0.5,
+      "rank": 406
     },
     {
       "name": "A.C. Green",
@@ -3402,205 +4239,268 @@
       "rpg": 7.4,
       "apg": 1.1,
       "bpg": 0.4,
-      "rank": 356
+      "rank": 407
     },
     {
-      "name": "Otis Thorpe",
-      "position": "PF",
-      "ppg": 14.0,
-      "rpg": 8.2,
-      "apg": 2.2,
-      "bpg": 0.4,
-      "rank": 358
-    },
-    {
-      "name": "Dale Davis",
-      "position": "PF",
-      "ppg": 8.0,
-      "rpg": 7.9,
-      "apg": 0.9,
-      "bpg": 1.2,
-      "rank": 360
-    },
-    {
-      "name": "Kevin Willis",
-      "position": "C",
-      "ppg": 12.1,
-      "rpg": 8.4,
-      "apg": 0.9,
-      "bpg": 0.5,
-      "rank": 362
-    },
-    {
-      "name": "Zydrunas Ilgauskas",
-      "position": "C",
-      "ppg": 13.0,
-      "rpg": 7.3,
-      "apg": 1.1,
-      "bpg": 1.6,
-      "rank": 364
-    },
-    {
-      "name": "Mehmet Okur",
-      "position": "C",
-      "ppg": 13.5,
-      "rpg": 7.0,
-      "apg": 1.7,
-      "bpg": 0.7,
-      "rank": 366
-    },
-    {
-      "name": "Samuel Dalembert",
-      "position": "C",
-      "ppg": 7.7,
-      "rpg": 7.8,
-      "apg": 0.5,
-      "bpg": 1.7,
-      "rank": 368
-    },
-    {
-      "name": "Roy Hibbert",
-      "position": "C",
-      "ppg": 10.0,
-      "rpg": 6.3,
-      "apg": 1.3,
-      "bpg": 1.7,
-      "rank": 370
-    },
-    {
-      "name": "Kerry Kittles",
+      "name": "Dell Curry",
       "position": "SG",
-      "ppg": 14.1,
-      "rpg": 3.9,
-      "apg": 2.6,
-      "bpg": 0.4,
-      "rank": 372
-    },
-    {
-      "name": "Doug Christie",
-      "position": "SG",
-      "ppg": 11.2,
-      "rpg": 4.1,
-      "apg": 3.6,
-      "bpg": 0.5,
-      "rank": 374
-    },
-    {
-      "name": "Raja Bell",
-      "position": "SG",
-      "ppg": 9.9,
-      "rpg": 2.8,
-      "apg": 1.7,
-      "bpg": 0.1,
-      "rank": 376
-    },
-    {
-      "name": "Ricky Davis",
-      "position": "SG",
-      "ppg": 13.5,
-      "rpg": 3.5,
-      "apg": 3.3,
+      "ppg": 11.7,
+      "rpg": 2.4,
+      "apg": 2.0,
       "bpg": 0.2,
-      "rank": 378
+      "rank": 409
+    },
+    {
+      "name": "Kelly Tripucka",
+      "position": "SF",
+      "ppg": 17.2,
+      "rpg": 4.3,
+      "apg": 3.0,
+      "bpg": 0.2,
+      "rank": 413
+    },
+    {
+      "name": "Mychal Thompson",
+      "position": "C",
+      "ppg": 13.7,
+      "rpg": 7.4,
+      "apg": 2.3,
+      "bpg": 1.1,
+      "rank": 415
+    },
+    {
+      "name": "Raymond Felton",
+      "position": "PG",
+      "ppg": 11.0,
+      "rpg": 2.9,
+      "apg": 5.6,
+      "bpg": 0.1,
+      "rank": 418
+    },
+    {
+      "name": "Mahmoud Abdul-Rauf",
+      "position": "SG",
+      "ppg": 14.6,
+      "rpg": 1.9,
+      "apg": 3.5,
+      "bpg": 0.1,
+      "rank": 422
     },
     {
       "name": "Cuttino Mobley",
       "position": "SG",
       "ppg": 16.0,
       "rpg": 3.9,
-      "apg": 2.7,
-      "bpg": 0.2,
-      "rank": 380
-    },
-    {
-      "name": "Damon Stoudamire",
-      "position": "PG",
-      "ppg": 13.4,
-      "rpg": 3.5,
-      "apg": 6.1,
-      "bpg": 0.1,
-      "rank": 382
-    },
-    {
-      "name": "Jason Williams",
-      "position": "PG",
-      "ppg": 10.5,
-      "rpg": 2.3,
-      "apg": 5.9,
-      "bpg": 0.1,
-      "rank": 384
-    },
-    {
-      "name": "Avery Johnson",
-      "position": "PG",
-      "ppg": 8.4,
-      "rpg": 1.7,
-      "apg": 5.5,
-      "bpg": 0.1,
-      "rank": 386
-    },
-    {
-      "name": "B.J. Armstrong",
-      "position": "PG",
-      "ppg": 9.8,
-      "rpg": 1.8,
-      "apg": 3.3,
-      "bpg": 0.0,
-      "rank": 388
-    },
-    {
-      "name": "Ty Lawson",
-      "position": "PG",
-      "ppg": 12.7,
-      "rpg": 2.7,
-      "apg": 6.0,
-      "bpg": 0.1,
-      "rank": 390
-    },
-    {
-      "name": "Caron Butler",
-      "position": "SF",
-      "ppg": 14.1,
-      "rpg": 5.0,
-      "apg": 2.3,
-      "bpg": 0.2,
-      "rank": 392
-    },
-    {
-      "name": "Josh Howard",
-      "position": "SF",
-      "ppg": 14.3,
-      "rpg": 5.7,
-      "apg": 1.6,
-      "bpg": 0.5,
-      "rank": 394
-    },
-    {
-      "name": "Corey Maggette",
-      "position": "SF",
-      "ppg": 16.0,
-      "rpg": 4.9,
-      "apg": 2.1,
-      "bpg": 0.2,
-      "rank": 396
-    },
-    {
-      "name": "Cedric Ceballos",
-      "position": "SF",
-      "ppg": 14.3,
-      "rpg": 5.3,
-      "apg": 1.2,
-      "bpg": 0.3,
-      "rank": 398
-    },
-    {
-      "name": "Rick Fox",
-      "position": "SF",
-      "ppg": 9.6,
-      "rpg": 3.8,
       "apg": 2.8,
       "bpg": 0.4,
-      "rank": 400
+      "rank": 424
+    },
+    {
+      "name": "Fred Brown",
+      "position": "SG",
+      "ppg": 14.6,
+      "rpg": 2.8,
+      "apg": 3.4,
+      "bpg": 0.3,
+      "rank": 426
+    },
+    {
+      "name": "Bill Cartwright",
+      "position": "C",
+      "ppg": 13.2,
+      "rpg": 6.3,
+      "apg": 1.4,
+      "bpg": 0.8,
+      "rank": 427
+    },
+    {
+      "name": "Doug Christie",
+      "position": "SG",
+      "ppg": 11.2,
+      "rpg": 4.0,
+      "apg": 4.3,
+      "bpg": 0.5,
+      "rank": 429
+    },
+    {
+      "name": "Jeff Ruland",
+      "position": "C",
+      "ppg": 15.0,
+      "rpg": 9.4,
+      "apg": 2.9,
+      "bpg": 0.4,
+      "rank": 431
+    },
+    {
+      "name": "P.J. Brown",
+      "position": "PF",
+      "ppg": 9.2,
+      "rpg": 7.5,
+      "apg": 1.6,
+      "bpg": 1.1,
+      "rank": 440
+    },
+    {
+      "name": "Slick Watts",
+      "position": "PG",
+      "ppg": 8.9,
+      "rpg": 3.1,
+      "apg": 5.7,
+      "bpg": 0.2,
+      "rank": 442
+    },
+    {
+      "name": "Swen Nater",
+      "position": "C",
+      "ppg": 11.9,
+      "rpg": 12.2,
+      "apg": 1.5,
+      "bpg": 0.5,
+      "rank": 443
+    },
+    {
+      "name": "Kerry Kittles",
+      "position": "SG",
+      "ppg": 14.1,
+      "rpg": 3.9,
+      "apg": 2.9,
+      "bpg": 0.4,
+      "rank": 447
+    },
+    {
+      "name": "Johnny Moore",
+      "position": "PG",
+      "ppg": 9.4,
+      "rpg": 2.6,
+      "apg": 7.4,
+      "bpg": 0.1,
+      "rank": 449
+    },
+    {
+      "name": "Rodney McCray",
+      "position": "SG",
+      "ppg": 11.7,
+      "rpg": 6.2,
+      "apg": 3.4,
+      "bpg": 0.6,
+      "rank": 452
+    },
+    {
+      "name": "Don Buse",
+      "position": "PG",
+      "ppg": 8.3,
+      "rpg": 2.9,
+      "apg": 5.0,
+      "bpg": 0.2,
+      "rank": 453
+    },
+    {
+      "name": "Rex Chapman",
+      "position": "SG",
+      "ppg": 14.6,
+      "rpg": 2.5,
+      "apg": 3.3,
+      "bpg": 0.3,
+      "rank": 454
+    },
+    {
+      "name": "Caldwell Jones",
+      "position": "C",
+      "ppg": 7.5,
+      "rpg": 7.6,
+      "apg": 1.2,
+      "bpg": 2.1,
+      "rank": 456
+    },
+    {
+      "name": "Sam Lacey",
+      "position": "C",
+      "ppg": 10.3,
+      "rpg": 9.9,
+      "apg": 3.2,
+      "bpg": 1.1,
+      "rank": 468
+    },
+    {
+      "name": "Udonis Haslem",
+      "position": "PF",
+      "ppg": 7.5,
+      "rpg": 6.6,
+      "apg": 0.7,
+      "bpg": 0.3,
+      "rank": 472
+    },
+    {
+      "name": "Kevin Duckworth",
+      "position": "C",
+      "ppg": 11.8,
+      "rpg": 5.8,
+      "apg": 1.2,
+      "bpg": 0.5,
+      "rank": 477
+    },
+    {
+      "name": "Kurt Rambis",
+      "position": "PF",
+      "ppg": 5.2,
+      "rpg": 5.6,
+      "apg": 1.2,
+      "bpg": 0.4,
+      "rank": 478
+    },
+    {
+      "name": "Wes Bunge",
+      "position": "C",
+      "ppg": 9.0,
+      "rpg": 9.0,
+      "apg": 1.0,
+      "bpg": 1.0,
+      "rank": 480
+    },
+    {
+      "name": "Alton Lister",
+      "position": "C",
+      "ppg": 6.9,
+      "rpg": 6.5,
+      "apg": 0.9,
+      "bpg": 1.4,
+      "rank": 481
+    },
+    {
+      "name": "James Donaldson",
+      "position": "C",
+      "ppg": 8.0,
+      "rpg": 8.7,
+      "apg": 1.0,
+      "bpg": 1.4,
+      "rank": 484
+    },
+    {
+      "name": "Nazr Mohammed",
+      "position": "C",
+      "ppg": 6.9,
+      "rpg": 5.9,
+      "apg": 0.4,
+      "bpg": 0.7,
+      "rank": 494
+    },
+    {
+      "name": "Danny Fortson",
+      "position": "C",
+      "ppg": 9.9,
+      "rpg": 8.0,
+      "apg": 0.8,
+      "bpg": 0.3,
+      "rank": 496
+    },
+    {
+      "name": "Vlade Stepania",
+      "position": "C",
+      "ppg": 5.0,
+      "rpg": 4.0,
+      "apg": 0.5,
+      "bpg": 0.7,
+      "rank": 500
     }
   ]
 }
