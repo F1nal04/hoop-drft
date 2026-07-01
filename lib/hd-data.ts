@@ -72,7 +72,7 @@ let cache: Promise<Record<DatasetKey, HDPlayer[]>> | null = null
 
 export function loadHDPools(): Promise<Record<DatasetKey, HDPlayer[]>> {
   if (cache) return cache
-  cache = fetch("/data/players.json", { cache: "force-cache" })
+  cache = fetch("/data/players.json", { cache: "no-cache" })
     .then((r) => {
       if (!r.ok) throw new Error("Failed to load players.json")
       return r.json() as Promise<RawData>
